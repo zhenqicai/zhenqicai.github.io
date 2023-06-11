@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>花了不到1块5，玩了下全网最火的ChatGPT</title><url>/article/159/</url><categories><category>人工智能（AI）</category></categories><tags><tag>ChatGPT</tag><tag>人工智能</tag><tag>NLP</tag></tags><content type="html"><![CDATA[这一周来，要说 AI 界最为热闹的莫过于 ChatGPT 了。刚推出一周的时间，注册用户竟然达到了 100 万。自 ChatGPT 推出后，不过短短几天，用户如蜂拥般地去注册，把玩这个能在一周左右吸粉 百来万的现下5网红。
+前提准备
+由于种种原因，访问 openAI 需要使用科学上网。
+具备科学上网的工具，注意：香港 ip 是 100% 无效的，当然最好是 美国 ip。 有一个能接受验证码的国外手机号码，这一点，并不是所有都有的，我就没有，那该怎么办呢？关于这一点，可接着往下看注册虚拟号码，您也就慢慢清楚标题中的1块5是花在这里了。 注册虚拟号码
+首先打开 https://sms-activate.org/ 进行注册虚拟号码。
+我们先注册个账号，需通过填写的邮箱进行验证账号。
+这时，我们在该页面左侧选择服务下的输入框，输入op，即会出现自动补全下拉框，毫无疑问，我们选择第一个OpenAI。
+在我们选择了OpenAI后，也就是点选了OpenAI，下面出现所有国家的，当然，我们还是选择第一个，原因嘛，那就是它便宜啊，只需10.5P（10.5卢布）。
+而在我们点击了那个 购物车 图标时，出现错误提醒，那便是，你的 余额是 0，需要充值，才能购买。
+点击 左上角 人头图标，再列出的下拉框，再次点击充值。
+在点击 充值 选项时，这时，页面列出很多 支付方式，往下滚动直找到 支付宝。
+这里是使用 美元 做为单位，我们充0.2美元足够了，而 0.2 美元在当下当时兑换成人民币是 1.47 元，1块5还不到。
+支付宝 扫码支付。
+如果在注册OpenAI 账号时，出现了以下提示，那么说明科学上网是局部，需 全局 科学上网。
+注册OpenAI一部分是通过 邮箱 进行验证，另一部分则是通过 手机号码 接受验证 再次验证。
+填写接收的邮箱验证，进入下一步 手机号码 验证。
+我们拷贝刚刚购买的虚拟手机号码。
+注意：我们将虚拟号码平台上购买的号码拷贝填入OpenAI，用于接收短信验证码，而这里需要注意将国家区号去掉，因为我们在OpenAI平台选择国家时，带有国家区号，然而，我们在虚拟平台上购买的虚拟号码包括国家区号。
+回到虚拟号码平台，若是没看到验证码，可以刷新下页面就出来了。
+拷贝接收的验证码黏贴到OpenAI，注册完成，出现下面页面那就成功了。
+我们重写打开个页签，输入 https://chat.openai.com/auth/login ，现在总算可以玩一把现下最火的网红 AI 了。
+填入刚刚注册的OpenAI账号。
+登陆成功界面，久违的ChatGPT页面就展现在你的眼前，接下来就可以把玩了。
+我们在输入框输入些内容，看看 ChatGPT 能给我们什么样的答案？
+ChatGPT 用 java 实现的动态规划。
+public static int lcs(String s1, String s2) { int[][] dp = new int[s1.length() + 1][s2.length() + 1]; for (int i = 0; i &lt;= s1.length(); i++) { for (int j = 0; j &lt;= s2.length(); j++) { if (i == 0 || j == 0) { dp[i][j] = 0; } else if (s1.charAt(i - 1) == s2.charAt(j - 1)) { dp[i][j] = dp[i - 1][j - 1] + 1; } else { dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]); } } } return dp[s1.length()][s2.length()]; } 我们在输入框输入使用python爬取亚马逊评论数据看看效果又会是什么呢？
+import scrapy class AmazonReviewSpider(scrapy.Spider): name = &#34;amazon_review&#34; def start_requests(self): url = &#34;https://www.amazon.com/dp/B01N5FQI4Q&#34; yield scrapy.Request(url=url, callback=self.parse) def parse(self, response): for review in response.css(&#34;div.review&#34;): yield { &#34;rating&#34;: review.css(&#34;span.review-rating::text&#34;).get(), &#34;title&#34;: review.css(&#34;a.review-title::text&#34;).get(), &#34;author&#34;: review.css(&#34;span.author::text&#34;).get(), &#34;date&#34;: review.css(&#34;span.review-date::text&#34;).get(), &#34;body&#34;: review.css(&#34;span.review-text::text&#34;).get() } ]]></content></entry><entry><title>玩以太坊链上项目的必备技能（内联汇编 [inline assembly]-Solidity之旅十八）</title><url>/article/175/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag></tags><content type="html"><![CDATA[在 Solidity 中使用 Assembly 的主要好处之一是节省 gas。 让我们尝试通过创建一个将 2 个值 x 和 y 相加并返回结果的函数来比较 Solidity 和 Assembly 之间的 gas 成本。
+概要 大抵是讲到汇编，身为编程开发者的我们脑瓜子早就嗡嗡作响了。看那晦涩难懂的低级汇编代码，敢断言，那一行不是我写的，其他行也不是我写的。
+自从C语言问世，而后类C语言犹如雨后春笋般地搅动着IT界，而这些语言有别于汇编语言那样。它们就是更贴切自然语言的高级编程语言，可这些高级编程语言最终还是要编译成机器语言（汇编语言）。
+EVM（Ethereum Virtual Machine）是一种栈（Stack）结构，我们知道栈是一种先进后出（LIFO）的数据结构。
+那为什么要用汇编来编写呢？ 借您所问，既然 Solidity 可以编写出优秀的智能合约，那为什么还要使用低级地汇编语言呢？
+在回答这个问题之前，我们来看看每个新的编程语言诞生都是为了解决当前编程语言无法解决，或者说使用当前编程语言解决起来比较麻烦，那么，新的编程语言就在这样的环境下应运而生，当然咯，并不是所有新编程语言都是为了解决当前编程语言不能解决的问题，才被开发出来，而是……（此处不便说出缘由，毕竟它也不是本文的重点）。
+细粒度控制 Assembly允许您执行一些仅仅靠 Solidity 无法实现的逻辑，比如，指向特定的内存插槽（Memory Slot）。
+当我们在编写库（library）时，细粒度控制特别有用，因为它们会被重复使用。
+节省 gas 在 Solidity 中使用 Assembly 的主要好处之一是节省 gas。 让我们尝试通过创建一个将 2 个值 x 和 y 相加并返回结果的函数来比较 Solidity 和 Assembly 之间的 gas 成本。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract AssemblyExample { function addAssembly(uint x, uint y) public pure returns (uint) { assembly { let result := add(x, y) mstore(0x0, result) return(0x0, 32) } } function addSolidity(uint x, uint y) public pure returns (uint) { return x + y; } } Solidity 中两种方式实现 Assembly 1、 内联汇编：也可以在 Solidity 代码中使用。 2、 独立程序集：无需编写 Solidity 代码即可使用。 怎么使用 Assembly？ 正如上面的例子那样，汇编代码运行在assembly { ...}汇编块中的。
+而 汇编代码是使用YUL语言来编写的！
+内联汇编块不共享命名空间，即不能在一个汇编块调用另一个汇编块中定义的变量。
+assembly { // some assembly code here } 以下是一个简单的示例，函数接受两个参数，并将它们的和作为返回值，看看使用 Assembly是怎么实现的？了解它们在 EVM的工作方式。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract AssemblyExample { function addition(uint x, uint y) public pure returns (uint) { assembly { //声明一个 result 变量，并将 x，y之和赋值给它 let result := add(x, y) // x + y //使用 mstore 操作码将 result存在 memory 中，地址是 0x0 mstore(0x0, result) // store result in memory //返回 32 字节的 memory 地址 return(0x0, 32) } } } 数据存储 让我们来看看一个简单的例子。我们将数据存放在storage（存储）中，然后再去调用它。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract StorageDataExample { function setData(uint256 newValue) public { assembly { sstore(0, newValue) } } function getData() public view returns(uint256) { assembly { let v := sload(0) mstore(0x80, v) return(0x80, 32) } } } setData函数使用了sstore操作码将变量newValue写入storage（存储）中。
+getData函数先是用了sload操作码来加载storage（存储）中的数据，它并不能从storage中直接返回。所以才需要mstore操作码将其写入memory（内存）中，最后我们返回引用memory（内存）中存放数据的地址和 32 字节长度的数据。
+https://docs.soliditylang.org/en/latest/yul.html 指令 解释 stop() - F 停止执行，与return(0, 0)相同 add(x, y) F x + y sub(x, y) F x - y mul(x, y) F x * y div(x, y) F x / y 或 如果 y == 0，则为 0 sdiv(x, y) F x / y，对于有符号的二进制补数，如果 y == 0，则为 0 mod(x, y) F x % y, 如果 y == 0，则为 0 smod(x, y) F x % y, 对于有符号的二进制补数, 如果 y == 0，则为 0 exp(x, y) F x的y次方 not(x) F x的位 “非”（x的每一个位都被否定） lt(x, y) F 如果 x &lt; y，则为1，否则为0 gt(x, y) F 如果 x &gt; y，则为1，否则为0 slt(x, y) F 如果 x &lt; y，则为1，否则为0，适用于有符号的二进制数 sgt(x, y) F 如果 x &gt; y，则为1，否则为0，适用于有符号的二进制补数 eq(x, y) F 如果 x == y，则为1，否则为0 iszero(x) F 如果 x == 0，则为1，否则为0 and(x, y) F x 和 y 的按位 “与” or(x, y) F x 和 y 的按位 “或” xor(x, y) F x 和 y 的按位 “异或” byte(n, x) F x的第n个字节，其中最重要的字节是第0个字节 shl(x, y) C 将 y 逻辑左移 x 位 shr(x, y) C 将 y 逻辑右移 x 位 sar(x, y) C 将 y 算术右移 x 位 addmod(x, y, m) F (x + y) % m，采用任意精度算术，如果m == 0则为0 mulmod(x, y, m) F (x * y) % m，采用任意精度算术，如果m == 0则为0 signextend(i, x) F 从第 (i*8+7) 位开始进行符号扩展，从最低符号位开始计算 keccak256(p, n) F keccak(mem[p…(p+n))) pc() F 代码中的当前位置 pop(x) - F 丢弃值 x mload(p) F mem[p…(p+32)) mstore(p, v) - F mem[p…(p+32)) := v mstore8(p, v) - F mem[p] := v &amp; 0xff （(只修改了一个字节)） sload(p) F storage[p] sstore(p, v) - F storage[p] := v msize() F 内存的大小，即最大的访问内存索引 gas() F 仍可以执行的气体值 address() F 当前合约/执行环境的地址 balance(a) F 地址为A的余额，以wei为单位 selfbalance() I 相当于balance(address())，但更便宜 caller() F 消息调用者（不包括 delegatecall 调用）。 callvalue() F 与当前调用一起发送的wei的数量 calldataload(p) F 从位置p开始的调用数据（32字节） calldatasize() F 调用数据的大小，以字节为单位 calldatacopy(t, f, s) - F 从位置f的calldata复制s字节到位置t的内存中 codesize() F 当前合约/执行环境的代码大小 codecopy(t, f, s) - F 从位置f的code中复制s字节到位置t的内存中 extcodesize(a) F 地址为a的代码的大小 extcodecopy(a, t, f, s) - F 像codecopy(t, f, s)一样，但在地址a处取代码 returndatasize() B 最后返回数据的大小 returndatacopy(t, f, s) - B 从位置f的returndata复制s字节到位置t的内存中 extcodehash(a) C 地址a的代码哈希值 create(v, p, n) F 用代码mem[p…(p+n))创建新的合约，发送v数量的wei并返回新地址； 错误时返回0 create2(v, p, n, s) C 在keccak256(0xff . this . s . keccak256(mem[p…(p+n)))地址处 创建代码为mem[p…(p+n)]的新合约 并发送v 数量个wei和返回新地址， 其中 0xff 是一个1字节的值， this 是当前合约的地址， 是一个20字节的值， s 是一个256位的大端的值; 错误时返回0 call(g, a, v, in, insize, out, outsize) F 调用地址 a 上的合约，以 mem[in..(in+insize)) 作为输入 一并发送 g 数量的 gas 和 v 数量的 wei， 以 mem[out..(out+outsize)) 作为输出空间。 若错误，返回 0 （比如，gas 用光） 若成功，返回 1 callcode(g, a, v, in, insize, out, outsize) F 相当于 call 但仅仅使用地址 a 上的代码， 执行时留在当前合约的上下文当中 delegatecall(g, a, in, insize, out, outsize) H 相当于 callcode, 但同时保留 caller 和 callvalue staticcall(g, a, in, insize, out, outsize) B 相当于 call(g, a, 0, in, insize, out, outsize) 但不允许状态变量的修改 return(p, s) - F 终止执行，返回 mem[p..(p+s)) 上的数据 revert(p, s) - B 终止执行，恢复状态变更，返回 mem[p..(p+s)) 上的数据 selfdestruct(a) - F 终止执行，销毁当前合约，并且将余额发送到地址 a invalid() - F 以无效指令终止执行 log0(p, s) - F 用 mem[p..(p+s)] 上的数据产生日志，但没有 topic log1(p, s, t1) - F 用 mem[p..(p+s)] 上的数据和 topic t1 产生日志 log2(p, s, t1, t2) - F 用 mem[p..(p+s)] 上的数据和 topic t1，t2 产生日志 log3(p, s, t1, t2, t3) - F 用 mem[p..(p+s)] 上的数据和 topic t1，t2，t3 产生日志 log4(p, s, t1, t2, t3, t4) - F 用 mem[p..(p+s)] 上的数据和 topic t1，t2，t3，t4 产生日志 chainid() I 执行链的ID（EIP-1344） basefee() L 当前区块的基本费用（EIP-3198和EIP-1559） origin() F 交易发送者 gasprice() F 交易的气体价格n blockhash(b) F 区块编号b的哈希值—只针对最近的256个区块，不包括当前区块。 coinbase() F 目前的挖矿的受益者 timestamp() F 自 epoch 开始的，当前块的时间戳，以秒为单位 number() F 当前区块号 difficulty() F 当前区块的难度 gaslimit() F 当前区块的区块 gas 限制 ]]></content></entry><entry><title>玩以太坊链上项目的必备技能（库 [library]-Solidity之旅十七）</title><url>/article/174/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>library</tag></tags><content type="html">最后，当库函数成为数据类型本身的一部分时，我们可以在其对象上调用该方法，如我们上面的契约所示，即firstNumber.add(secondNumber); 。
+库（library） 作为开发者的您，想必对项目中重复使用的工具函数，抽取到一个公共中，以便可以在您项目中的其它位置可调用。
+而 Solidity 与您所熟知的没有什么不同，它也是用来实现可重复调用，且还能省gas fee。
+闲话少叙，切入正题。让我们来看看 Solidity library 吧！
+虽然 Solidity 中的library看起来和合约（contract）有些类似，但它并不是一个合约，它包含了可能多个消费者合约共有的功能，这有助于避免冗余。
+来看看 Solidity 对library的约束：
+1、无状态 -
+Solidity中的库是一个无状态实体。它本质上意味着，与合约不同，您不能在一个库中定义状态变量。更简单地说，库函数不允许改变或修改合约的状态。
+2、仅供查看的函数
+调用库函数不会消耗gas，因为它不会修改合约的状态。换句话说，一个库只能实现pure函数或view函数。
+3、内部函数
+一个库不能从外部范围调用。其他合约显然可以调用它们，但它们不能从部署的外部访问。
+4、不能继承
+因为库是一个独立的实体，它不能继承任何其他的库或合约。一个库不能被任何其他实体/库/合同继承。
+5、没有回退或支付功能
+一个库不能实现回退或支付功能。
+（将来有可能会解除这些限制）
+如何创建 library（库） 在了解了关于库的一些概念后，让我们来创建一个library。
+想要在 Solidity 创建库，需使用library关键字。
+//SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; library MyLibrary { function add(uint a, uint b) public pure returns(uint) { return a + b; } } using … for … 使用库 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; import &amp;#34;./library_example.sol&amp;#34;; //导入库 contract UseLibraryExample { using MyLibrary for uint; function getSum(uint firstNumber, uint secondNumber) public pure returns(uint) { return firstNumber.add(secondNumber); //您对这句可能产生了困惑 } } 为了在合约中使用任何库，我们需要首先告诉合约该库可以操作哪种数据类型。我们通过在合同中加入使用来操作;行来实现。
+例如，library MyLibrary中的函数add对uint进行操作，因为它把uint a作为它的第一个参数。
+为了便于理解，您可以简单地，假设您的库函数成为uint数据类型本身的一部分，并在其对象中随时可用。
+最后，当库函数成为数据类型本身的一部分时，我们可以在其对象上调用该方法，如我们上面的契约所示，即firstNumber.add(secondNumber); 。
+注意，库函数的第一个参数成为函数被调用的对象。其余的和后续的参数仍然在函数调用中。
+今天恰逢平安夜，正在浏览这篇文章，屏幕前的您，苹果吃了吗？无论如何我还是衷心地祝福您、以及您的家人身体健康，出入平安。听说，祝福别人的人，一生都会平安安然地度过余生，当然咯，这或许是圣诞老人给我们特别的祝福吧！</content></entry><entry><title>玩以太坊链上项目的必备技能（Constant 和 Immutable 状态变量-Solidity之旅十六）</title><url>/article/173/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>Constant</tag><tag>Immutable</tag></tags><content type="html"><![CDATA[编译器生成的合约创建代码将在返回合约之前修改合约的运行时代码，方法是将对不可变量的所有引用替换为分配给它们的值。 如果要将编译器生成的运行时代码与实际存储在区块链中的代码进行比较，则这一点很重要。
+constant（常量） 说到常量这一概念，拥有现代编程经历的您，对这一词再熟悉不过了。
+常量，常量，顾名思义便是变量值始终不变，这在很多面向对象程序语言中都有。
+相对 Solidity 来说，它也是支持常量的。
+假若将状态变量（State Vriable）声明为constant（常量），而它的值是在编译时有确定的表达式来给它赋值。
+我们知道常量值是在编译时确定的，所以区块数据（例如 block.timestamp, address(this).balance 或者 block.number）或执行数据（ msg.value 或 gasleft() ）或对外部合约的调用来给它们赋值都是不允许的。
+允许可能对内存分配产生副作用（side-effect）的表达式，但那些可能对其他内存对象产生副作用的表达式则不允许。
+内建（built-in）函数 keccak256 ， sha256 ， ripemd160 ， ecrecover ， addmod 和 mulmod 是允许的（即使他们确实会调用外部合约， keccak256 除外）。
+允许内存分配器的副作用的原因是它可以构造复杂的对象，例如： 查找表（lookup-table）。 此功能尚不完全可用。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract ConstantExample { address public constant MY_ADDRESS = 0x777788889999AaAAbBbbCcccddDdeeeEfFFfCcCc; uint public constant MY_UINT = 123; } immutable（不可变量） 将状态变量声明为immutable（不可变量）较constant声明的状态变量限制少。
+可以在合约的构造函数中或声明时为不可变的变量分配任意值。 不可变量只能赋值一次，并且在赋值之后才可以读取。
+编译器生成的合约创建代码将在返回合约之前修改合约的运行时代码，方法是将对不可变量的所有引用替换为分配给它们的值。 如果要将编译器生成的运行时代码与实际存储在区块链中的代码进行比较，则这一点很重要。
+不可变量可以在声明时赋值，不过只有在合约的构造函数执行时才被视为视为初始化。 这意味着，你不能用一个依赖于不可变量的值在行内初始化另一个不可变量。 不过，你可以在合约的构造函数中这样做。
+这是为了防止对状态变量初始化和构造函数顺序的不同解释，特别是继承时，出现问题。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract ImmutableExample { address public immutable MY_ADDRESS; uint public immutable MY_UINT; constructor(uint _myUint) { MY_ADDRESS = msg.sender; MY_UINT = _myUint; } } // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract ConstantImmutableExample { string constant TEXT = &#34;abc&#34;; bytes32 constant MY_HASH = keccak256(&#34;abc&#34;); uint immutable decimals; uint immutable maxBalance; address immutable owner = msg.sender; constructor(uint decimals_, address ref) { decimals = decimals_; maxBalance = ref.balance; } function isBalanceTooHigh(address _other) public view returns (bool) { return _other.balance &gt; maxBalance; } } ]]></content></entry><entry><title>玩以太坊链上项目的必备技能（修改器 [modifier]-Solidity之旅十五）</title><url>/article/172/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>modifier</tag><tag>修饰器</tag></tags><content type="html"><![CDATA[修改器（modifier）在 Solidity 中是一种特殊类型的函数，用于修改其它函数的行为。例如，开发人员可以使用修改器来检查在允许函数执行之前是否满足某个条件。
+修改器（modifier） 在讲修改器（modifier）之前，我们使用前面几篇文章所学到的知识来实现一个简单的代币类合约。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract InheritanceModifierExample { //账户 =&gt; 金额 映射 mapping(address =&gt; uint) public tokenBalance; //拥有者 address owner; uint tokenPrice = 1 ether; constructor() { owner = msg.sender; tokenBalance[owner] = 100; } function createNewToken() public { //使用 require 检查是不是合约拥有着 require(msg.sender == owner, &#34;You are not allowed&#34;); tokenBalance[owner]++; } function burnToken() public { require(msg.sender == owner, &#34;You are not allowed&#34;); tokenBalance[owner]--; } function purchaseToken() public payable { //检查账户中的代币是否足够 require((tokenBalance[owner] * tokenPrice) / msg.value &gt; 0, &#34;not enough tokens&#34;); tokenBalance[owner] -= msg.value / tokenPrice; tokenBalance[msg.sender] += msg.value / tokenPrice; } function sendToken(address _to, uint _amount) public { require(tokenBalance[msg.sender] &gt;= _amount, &#34;Not enough tokens&#34;); tokenBalance[msg.sender] -= _amount; tokenBalance[_to] += _amount; } } 我们拷贝部署合约的账户地址0x5B38Da6a701c568545dCfcB03FcB875f56beddC4。
+切换成其他账户，也拷贝出地址 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2。
+查看账户余额是否正确，复制 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2，将其填入 tokenBalance的输入栏，看看余额是否为1。
+我们再来看看该账户burn with Account（账户烧钱）会发生什么样的状况呢？
+从上述这个简单的代币类合约，聪慧如您，想必是看出它的不足了。
+没错，就是上面合约中的函数都有类似的 require 语句，作为开发者的您会将这些 require 语句抽取到一个函数中，但在 Solidity 却引入了一种特别的函数——修改器（modifier）。
+Solidity 修改器（modifier）用来做什么的？ 修改器（modifier）在 Solidity 中是一种特殊类型的函数，用于修改其它函数的行为。例如，开发人员可以使用修改器来检查在允许函数执行之前是否满足某个条件。
+修改器（modifier）与函数类似，因为它们可以接受参数并有一个返回类型。修改器（modifier）也可以被链在一起，这意味着你可以在一个函数上有多个修改器（modifier）。
+然而，修改器（modifier）只能修改合约逻辑，不能修改合约的存储，包括结构。修改器（modifier）减少了开发者必须编写模板代码的数量，并且可以使您的 Solidity 代码更加可读。
+多个修改器（modifier）由空格分隔。修改器（modifier）的顺序很重要。列表中的第一个修改器（modifier）将被首先执行，第二个修改器（modifier）将被第二次应用，以此类推。
+例如，如果您有一个修改器（modifier）检查用户是否经过认证，另一个修改器（modifier）检查用户是否被授权查看某个资源，那么这些修改器（modifier）的应用顺序将决定用户是否能够查看该资源。
+Solidity 修改器（modifier）的不同类型 Solidity修改器（modifier）有四大类：闸门检查、先决条件、过滤器和防止重入攻击。
+闸门检查 它在允许一个函数执行之前检查某个条件是否为真。
+例如，您可能有一个允许用户从他们的账户中取钱的函数，但在函数执行之前，开发者可能想检查用户的账户中是否有足够的钱来进行取款。这种检查被认为是一个门检查修改器。
+另一个闸门检查的例子是，在允许用户查看某个资源之前，检查用户是否经过认证的函数。
+先决条件 它为一个函数的执行设置了环境，而不是检查某个条件是否为真。
+例如，一个 Solidity 开发者可能会使用一个需要一定数量的以太币来执行函数。在这种情况下，先决条件将是设置以太币平衡的函数。
+滤波器 它检查某个条件是否为真，如果是，则允许函数执行。如果条件不为真，那么该函数将不会执行。
+与闸门检查不同，即使条件为真，也不会自动允许函数执行，而过滤器将允许函数在条件为真时执行。
+重入式攻击的预防 递归攻击是一种攻击类型，恶意行为者试图通过递归调用多次执行一个函数，以利用它。
+例如，想象一下，您有一个允许用户从他们的账户中提款的函数。一个重入式攻击者可能会试图多次调用该函数，以提取比他们账户中实际拥有的更多的钱。
+为了防止重入式攻击，您可以使用一个修改器来检查该函数是否被递归调用。如果是，那么该函数将不会执行。
+require 和 修改器（modifier）之间的关系 require 经常与修改器互换使用，因为它们都允许您在一个函数执行之前检查某个条件是否为真。如果指定的条件不为真，那么编译器就会抛出一个错误。
+例如，下面的语句使用 require 关键字，以便只有所有者才能与一个函数进行交互。
+modifier onlyOwner() { require(msg.sender == owner); _; } require 和 修改器（modifier）之间的区别。 1、修改器(modiffier) 可用于为一个函数的执行设置环境（如先决条件的情况下） 2、require 只能用于检查某个条件是否为真 3、修改器(modiffier)` 可以被重写 4、要求不能被覆盖
+什么是修改器(modiffier) 重写？ virtual关键字可以用来表示可以在派生合约中override（重写）。
+例如，一个带有修改器（modifier）的合约，而派生合约继承自它。
+假使，基合约中的修改器（modifier）被标记了virtual，那么它便可以在派生合约中被override（重写）。
+继承可以让您扩展合约的属性，在修改器（modifier）的上下文中，继承允许您添加新的（modifier），或覆盖现有的（modifier）。
+下面的简单实现演示了继承和修改器如何一起工作。
+contract A { modifier X virtual { } } contract B is A { modifier X override { } } 在这个例子中，合约 B 继承了合约 A，两个合约都有一个叫做 X的修改器。然而，在合约 B 中，该修饰语被标记为override，这表明它覆盖了合约 A 中的修改器。
+如何使用修改器 当使用一个修改器时，您首先需要在合约中定义修改器函数。修改器使用一个特殊的符号_，只有当修改器的条件得到满足时，才会插入函数体。
+下面的合同演示了如何使用一个修改器。
+contract Owner { address public owner = msg.sender; modifier onlyOwner { require(msg.sender == owner); _; } modifier costs(uint price) { if (msg.value &gt;= price) { _; } } } 在上面的例子中，该合约有两个修改器：onlyOwner costs。
+第一个修改器检查msg.sender是否是合约的所有者，第二个修改器检查msg.value是否大于或等于某个价格。
+这两个修饰符都可以用在合同中的任何函数上。
+将 _ 放在哪里？ _ 被称为合并通配符。它将函数代码与 _ 所在的修改器代码合并。
+换句话说，函数的主体（修改器所连接的）将被插入修改器的定义中出现 _ 的地方。
+一个修改器必须在其主体内有 _ 才能执行。它是强制性的（如果不是这样的话，Solidity 会抛出一个错误吗）。
+您写将 _ 符号的地方将决定该函数是在修改器代码之前、之间还是之后执行。
+modifier SomethingBefore { require(/* check something first */); _; // 继续执行功能 } modifier SomethingAfter { _; // 先运行函数 require(/* then check something */) } 如上面的例子所示，您可以把 _ 放在修饰语体的开头、中间或结尾。
+在实践中，（特别是在您真正了解修改器的工作原理之前），最安全的使用模式是将 _ 放在最后。在这种情况下，修改器的作用是一致的验证检查，所以要先检查一个条件，然后再继续。下面的代码片段显示了这个例子。
+function isOkay() public view returns(bool) { // 做一些验证检查 return true; } function isAuthorised(address _user) public view returns(bool) { // 逻辑检查以及账户授权 return true; } modifier OnlyIfOkAndAuthorised { require(isOkay()); require(isAuthorised(msg.sender)); _; } 向修改器传递参数 修改器也可以接受参数。像函数一样。
+modifier Fee (uint _fee) { if (msg.value &gt;= _fee) { _; } } 使用上面的例子，您可以确保调用您的一个合约函数的用户（或合约）已经发送了一些以太币来支付预先要求的费用。
+让我们用一个简单的例子来说明，这个合约就像一个金库。
+您想确保每个想取出储存在合约金库中的钱的用户都要向合约支付最低2.5%的费用。
+一个带有参数的修改器可以模拟这种行为。请看下面的代码。
+// SPDX-License-Idendifier: GPL-3.0 pragma solidity ^0.8.0; contract Vault { modifier fee(uint _fee) { if (msg.value != _fee) { revert(&#34;You must pay a fee to withdraw your ethers&#34;); } else { _; } } function deposit(address _user, uint _amount) external { // ... } function withdraw(uint _amount) external payable fee(0.025 ether) { // ... } } 修改器参数允许使用任意表达式，在这种情况下，所有从函数中可见的符号都在修改器中可见。
+在一个函数上应用多个修改器。 多个修改器可以应用到一个函数，您可以这样做。
+contract OwnerContract { address public owner = msg.sender; uint public creationTime = now; modifier onlyBy(address _account) { require( msg.sender == _account, &#34;Sender not authorized. ); _; } modifier onlyAfter(uint _time) { require( now &gt;= _time, &#34;Function called too early.&#34; ); _; } function disown() public onlyBy(owner) onlyAfter(creationTime + 6 weeks) { delete owner; } } 修改器将按照它们被定义的顺序执行，所以从左到右。所以在上面的例子中，该函数将在运行前检查以下条件。
+onlyBy(...) : 调用合同的地址是否为所有者？ onlyAfter(...) : 是否有超过6周的时间是该人的所有者？ 带枚举的修改器 如果您的合约持有一个枚举类型的状态变量，您可以通过传递一个可用的选项作为修改器的参数来检查它持有的值。
+enum State { Created, Locked, Inactive } State state;modifier isState(State _expectedState) { require(state == _expectedState); _; } ]]></content></entry><entry><title>玩以太坊链上项目的必备技能（错误处理以及异常-Solidity之旅十四）</title><url>/article/171/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>异常</tag><tag>错误处理</tag></tags><content type="html"><![CDATA[它有许多功能来解决在编译时或运行时可能发生的潜在问题。即使语法错误检查发生在编译时，运行时错误也很难捕捉，主要发生在合约执行过程中。一些运行时错误的例子包括除以0的类型错误，数组超出索引错误，等等。
+错误处理 作为开发者的我们知道，我们所编写出来的程序难免会出现 bug ，而要做的是捕获异常，给用户抛出一个友好地错误提示。
+而在 Solidity 中，根据状态恢复异常来处理错误，该异常将撤销在当前调用中对状态所做的所有修改，与此同时，还向调用者标记错误。
+它有许多功能来解决在编译时或运行时可能发生的潜在问题。即使语法错误检查发生在编译时，运行时错误也很难捕捉，主要发生在合约执行过程中。一些运行时错误的例子包括除以0的类型错误，数组超出索引错误，等等。
+实际上，Solidity的错误处理确保了原子性这一属性。当一个智能合约调用因错误而终止时，所有的状态变化（即对变量、余额等的改变）都会被恢复，一直到合约调用链。
+Solidity 有三种处理错误的方式：require 、assert 和 *revert*。
+require require(condition); require(condition, &#34;description&#34;); require 语句声明了运行该函数的先决条件，即它声明了在执行代码之前应该满足的约束条件。它接受一个参数并在评估后返回一个布尔值，它也有一个自定义的字符串信息选项。如果是false，就会产生异常并终止执行。未使用的gas被返回给调用者，状态被逆转为原始状态。以下是require类型的异常被触发的一些情况。
+1、当require(条件表达式)被调用时，其条件表达式结果为false。 2、当一个被消息调用的函数没有正确结束时。 3、当使用 new 关键字创建一个合约，而这个过程没有正常结束。 4、当一个无代码的合约被定位到一个外部函数时。 5、当使用公共getter方法将以太坊发送到合约时。 6、当.transfer()方法失败时。 6.1、当一个断言被调用时，其结果是假的。 6.2、当一个函数的零初始化变量被调用时。 6.3、当一个大值或负值被转换为一个枚举值时。 6.4、当一个值被零除或模数化的时候。 6.5、当在一个索引中访问一个数组，这个数组太大或者是负数。 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract requireContract{ function requireTest(uint256 _number) pure public { require(_number &lt; 100, &#34;number too big&#34;); } } 引入require语句的原因是为了使代码更具可读性。require 语句应在以下情况下使用。
+1、验证用户输入，正如我们上面所做的。 2、在任何行动之前验证状态条件 3、验证来自外部合同的响应 4、检查溢出和欠溢出的情况 assert assert语句也可以撤销所有的状态变化，但它会消耗事务中提供的所有气体，即使它没有被使用。这使得它不如revert或require宽松，因此使用频率较低。Assert是为 “真正糟糕的事情 “而存在的，应该只用于内部错误。
+assert应该在以下情况下使用。
+1、检查常量，如this.balance &gt; totalSupply 2、执行后验证状态 3、溢出和下溢检查，如果revert/require不合适的话 Solidity 在某些情况下自动创建assert型异常。
+1、被零除法或模数 2、访问一个超出其界限的数组 3、将过大或负数转换为枚数 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract assertContract{ function assertDiv(int x,int y) pure public returns(int){ assert(y == 0); return x / y; } } revert revert语句将停止执行并撤销所有的状态变化。剩余的gas将被退还给调用者（但到目前为止所使用的gas将消失）。revert允许返回一个值。这可以作为一个错误信息来澄清为什么执行revert语句。
+有两种方式来触发revert。
+revert CustomError(arg1, arg2) revert(&#34;description&#34;) 第一种是自定义的error类型（Solidity 0.8.4 出现的新类型）。
+使用自定义错误实例通常会比传递一个字符串作为描述在消耗gas方面更便宜。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract revertContract{ //自定义错误实例 error WrongNumber(uint256 threshold, uint256 number); string public status; uint256 myThreshold = 100; function revertString(uint256 _number) public{ status = &#34;error&#34;; if(_number &gt; myThreshold){ revert(&#34;Number too big&#34;); } status = &#34;success&#34;; } function revertCustomError(uint256 _number) public{ status = &#34;error&#34;; if(_number &gt; myThreshold){ revert WrongNumber({ threshold: myThreshold, number: _number}); } status = &#34;success&#34;; } } 三种方式处理错误消耗 gas 对比 1、revert 语句，从示例可以看出最终耗费了 46607 gas 2、revert 语句与自定义 error 相配合，反而比比上述消耗跟多的gas，它最终消耗了46733 gas。 3、 我们在示例中使用了assert语句，明显比revert语句消耗gas更少，它最终消耗了22077 gas。 4、 我们最后来看看equire语句。第一种情况是带了错误描述，而它却又比assert语句少耗费了gas，从示例可以看出它消耗了21898 gas。 5、而require第二种情况，便是只有条件表达式，可以看出在示例中它以上几种情况消耗gas最少的，它最终消耗了21605 gas 从上述的示例可以看出，使用require语句检查错误，最终消耗的gas是最少的，这也证明了很多项目使用require的原因了。
+try catch 捕获异常 现在我们可以用它们来处理外部函数调用的失败，而不需要回滚整个事务（被调用函数中的状态变化仍然会被回滚，但调用函数中的变化不会）。
+//CharitySplitter.sol // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract CharitySplitter { address public owner; constructor (address _owner) { require(_owner != address(0), &#34;no-owner-provided&#34;); owner = _owner; } } // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; import &#34;./CharitySplitter.sol&#34;; contract CharitySplitterFactory { mapping (address =&gt; CharitySplitter) public charitySplitters; uint public errorCount; event ErrorHandled(string reason); event ErrorNotHandled(bytes reason); function createCharitySplitter(address charityOwner) public { try new CharitySplitter(charityOwner) returns (CharitySplitter newCharitySplitter) { charitySplitters[msg.sender] = newCharitySplitter; } catch { errorCount++; } } } try 关键词后面必须有一个表达式，代表外部函数调用或合约创建（ new ContractName()）。
+在表达式上的错误不会被捕获（例如，如果它是一个复杂的表达式，还涉及内部函数调用），只有外部调用本身发生的revert 可以捕获。 接下来的 returns 部分（是可选的）声明了与外部调用返回的类型相匹配的返回变量。 在没有错误的情况下，这些变量被赋值，合约将继续执行第一个成功块内代码。 如果到达成功块的末尾，则在 catch 块之后继续执行。
+Solidity 根据错误的类型，支持不同种类的捕获代码块：
+catch Error(string memory reason) { ... }: 如果错误是由 revert(&quot;reasonString&quot;) 或 require(false, &quot;reasonString&quot;) （或导致这种异常的内部错误）引起的，则执行这个catch子句。 catch Panic(uint errorCode) { ... }: 如果错误是由 panic 引起的（如： assert 失败，除以0，无效的数组访问，算术溢出等），将执行这个catch子句。 catch (bytes memory lowLevelData) { ... }: 如果错误签名不符合任何其他子句，如果在解码错误信息时出现了错误，或者如果异常没有一起提供错误数据。在这种情况下，子句声明的变量提供了对低级错误数据的访问。 catch { ... }: 如果你对错误数据不感兴趣，你可以直接使用 catch { ... } (甚至是作为唯一的catch子句) 而不是前面几个catch子句。 有计划在未来支持其他类型的错误数据。 Error 和 Panic 字符串目前是按原样解析的，不作为标识符处理。
+为了捕捉所有的错误情况，你至少要有子句 catch { ... } 或 catch (bytes memory lowLevelData) { ... }.
+在 returns 和 catch 子句中声明的变量只在后面的块的范围内有效。
+]]></content></entry><entry><title>玩以太坊链上项目的必备技能（函数及其可见性和状态可变性-Solidity之旅十三）</title><url>/article/170/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>函数</tag><tag>可见性</tag><tag>可变性</tag></tags><content type="html"><![CDATA[对于 public 状态变量会自动生成一个，与状态变量同名的 public修饰的函数。 以便其他的合约读取他们的值。 当在用一个合约里使用是，外部方式访问 (如: this.x) 会调用该自动生成的同名函数，而内部方式访问 (如: x) 会直接从存储中获取值。 Setter函数则不会被生成，所以其他合约
+状态变量可见性 在这之前的文章里，给出的例子中，声明的状态变量都修饰为public，因为我们将状态变量声明为public后，Solidity 编译器自动会为我们生成一个与状态变量同名的、且函数可见性为public的函数！
+在 Solidity 中，除了可以将状态变量修饰为public，还可以修饰为另外两种：internal、private。
+public
+对于 public 状态变量会自动生成一个，与状态变量同名的 public修饰的函数。 以便其他的合约读取他们的值。 当在用一个合约里使用是，外部方式访问 (如: this.x) 会调用该自动生成的同名函数，而内部方式访问 (如: x) 会直接从存储中获取值。 Setter函数则不会被生成，所以其他合约不能直接修改其值。
+internal
+内部可见性状态变量只能在它们所定义的合约和派生合同中访问， 它们不能被外部访问。 这是状态变量的默认可见性。
+private
+私有状态变量就像内部变量一样，但它们在派生合约中是不可见的。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract stateVarsVisible { uint public num; function showNum() public returns(uint){ num += 1; return num; } } contract outsideCall { function myCall() public returns(uint){ //实例化合约 stateVarsVisible sv = new stateVarsVisible(); //调用 getter 函数 return sv.num(); } } // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract stateVarsVisible { uint internal num; function showNum() public returns(uint){ num += 1; return num; } function fn() external returns(uint){ return num; } } contract sub is stateVarsVisible { function myNum() public returns(uint){ return stateVarsVisible.num; } } contract outsideCall { function myCall() public returns(uint){ //实例化合约 stateVarsVisible sv = new stateVarsVisible(); //外部合约 不能访问 //return sv.num(); } } // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract stateVarsVisible { uint private num; function showNum() public returns(uint){ num += 1; return num; } function fn() external returns(uint){ return num; } } contract sub is stateVarsVisible { function myNum() public returns(uint){ //派生合约 无法访问 基合约 的状态变量 return stateVarsVisible.num; } } 函数可见性 前面的文章，我们多多少少有见到在函数参数列表后的一些关键字，那便是函数可见性修饰符。对于函数可见性这一概念，有过现代编程语言的经历大都知晓，诸如，public（公开的）、private（私有的）、protected（受保护的）用来修饰函数的可见性，Java、PHP`等便是使用这些关键字来修饰函数的可见性。
+当然咯，Solidity 函数对外可访问也做了修饰，分为以下 4 种可见性：
+external 外部可见性函数作为合约接口的一部分，意味着我们可以从其他合约和交易中调用。 一个外部函数 f 不能从内部调用（即 f 不起作用，但 this.f() 可以）。
+public public 函数是合约接口的一部分，可以在内部或通过消息调用。
+internal 内部可见性函数访问可以在当前合约或派生的合约访问，外部不可以访问。 由于它们没有通过合约的ABI向外部公开，它们可以接受内部可见性类型的参数：比如映射或存储引用。
+private private 函数和状态变量仅在当前定义它们的合约中使用，并且不能被派生合约使用。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract FunctionVisible { uint private num; function privateFn(uint x) private returns(uint y){ y = x + 5; } function setNum(uint x) public { num = x;} function getNum() public returns(uint){ return num; } function sum(uint x,uint y) internal returns(uint) { return x + y; } function showPri(uint x) external returns(uint){ x += num; return privateFn(x); } } contract Outside { function myCall() public { FunctionVisible fv = new FunctionVisible(); uint res = fv.privateFn(7); // 错误：privateFn 函数是私有的 fv.setNum(4); res = fv.getNum(); res = fv.sum(3,4); // 错误：sum 函数是 内部的 } } // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract FunctionVisible { uint private num; function privateFn(uint x) private view returns(uint y){ y = x + num; } function setNum(uint x) public { num = x;} function getNum() public view returns(uint){ return num; } function sum(uint x,uint y) internal pure returns(uint) { return x + y; } function showPri(uint x) external view returns(uint){ x += num; return privateFn(x); } } contract Sub is FunctionVisible { function myTest() public pure returns(uint) { uint val = sum(3, 5); // 访问内部成员（从继承合约访问父合约成员） val = privateFn(6); //privateFn函数是私有的，即便是派生合约也不能访问 return val; } } getter 函数具有外部（external）可见性。如果在内部访问 getter（即没有 this. ），它被认为一个状态变量。 如果使用外部访问（即用 this. ），它被认作为一个函数。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract C { uint public data; function x() public returns(uint) { data = 3; // 内部访问 uint val = this.data(); // 外部访问 return val; } } 如果你有一个数组类型的 public 状态变量，那么你只能通过生成的 getter 函数访问数组的单个元素。 这个机制以避免返回整个数组时的高成本gas。 可以使用如 myArray(0) 用于指定参数要返回的单个元素。 如果要在一次调用中返回整个数组，则需要写一个函数，例如：
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract C { uint[] public myArray; // 自动生成的Getter 函数 /* function myArray(uint i) public view returns (uint) { return myArray[i]; } */ // 返回整个数组 function getArray() public view returns (uint[] memory) { return myArray; } } 合约之外的函数 在 Solidity 0.7.0 版本之后，便可以将函数定义在合约之外，我们称这种函数为&quot;自由函数&quot;，其函数可见性始终隐式地为internal，它们的代码包含在所有调用它们的合约中，类似于后续会讲到的库函数。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; function sum(uint[] memory arr) pure returns (uint s) { for (uint i = 0; i &lt; arr.length; i++) s += arr[i]; } contract ArrayExample { bool found; function f(uint[] memory arr) public { //编译器会将 合约外函数的代码添加到这里 uint s = sum(arr); require(s &gt;= 10); //后续会讲到 found = true; } } 在合约之外定义的函数仍然在合约的上下文内执行。 它们仍然可以调用其他合约，将其发送以太币或销毁调用它们的合约等其他事情。 与在合约中定义的函数的主要区别为：自由函数不能直接访问存储变量 this 、存储和不在他们的作用域范围内函数。
+函数参数与返回值 与其它编程语言一样，函数可能接受参数作为输入。但 Solidity 和 golang 一样，函数可以返回任意数量的值作为输出。
+1、函数入参 函数的参数变量这一点倒是与声明变量是一样的，如果未能使用到的参数可以省略参数名。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract Simple { uint sum; function taker(uint a, uint b) public { sum = a + b; } } 2、返回值 Solidity 函数返回值与 golang 函数返回很类似，只不过，Solidity 使用returns关键字将返回参数声明在小括号内。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract Simple { function arithmetic(uint a, uint b) public pure returns (uint sum, uint product) { sum = a + b; product = a * b; } } 返回变量名可以被省略。 返回变量可以当作为函数中的局部变量，没有显式设置的话，会使用 :ref:默认值 &lt;default-value&gt; 返回变量可以显式给它附一个值(像上面)，也可以使用 return 语句指定，使用 return 语句可以一个或多个值。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract Simple { function arithmetic(uint a, uint b) public pure returns (uint , uint ) { return (a + b, a * b); } } 状态可变性 view 我们在先前的文章会看到，有些函数在修饰为public后，有多了view修饰的。而函数使用了view修饰，说明这个函数不能修改状态变量（State Variable），只能获取状态变量的值，由于view修饰的函数不能修改存储在区块链上的状态变量，这种函数的gas fee不会很高，毕竟调用函数也会消耗gas fee。
+而以下情况被认为是修改状态的：
+修改状态变量。 产生事件。 创建其它合约。 使用 selfdestruct。 通过调用发送以太币。 调用任何没有标记为 view 或者 pure 的函数。 使用低级调用。 使用包含特定操作码的内联汇编。 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract Simple { function f(uint a, uint b) public view returns (uint) { return a * (b + 42) + block.timestamp; } } Solidity 0.5.0 移除了 view的别名constant。
+Getter 方法自动被标记为 view
+pure 若将函数声明为pure的话，那么该函数是既不能读取也不能修改状态变量（State Variable）。
+除了上面解释的状态修改语句列表之外，以下被认为是读取状态：
+读取状态变量。 访问 address(this).balance 或者 &lt;address&gt;.balance。 访问 block，tx， msg 中任意成员 （除 msg.sig 和 msg.data 之外）。 调用任何未标记为 pure 的函数。 使用包含某些操作码的内联汇编。 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract Simple { function f(uint a, uint b) public pure returns (uint) { return a * (b + 42); } } 特别的函数 receive 接收以太函数 一个合约最多有一个 receive 函数, 声明函数为： receive() external payable { ... }
+不需要 function 关键字，也没有参数和返回值并且必须是　external　可见性和　payable 修饰． 它可以是 virtual 的，可以被重载也可以有 后续会讲到的 修改器modifier 。
+在对合约没有任何附加数据调用（通常是对合约转账）是会执行 receive 函数．　例如　通过 .send() 或 .transfer()， 如果 receive 函数不存在，　但是有 payable　的 接下来会讲到的 fallback 回退函数 那么在进行纯以太转账时，fallback 函数会调用．
+如果两个函数都没有，这个合约就没法通过常规的转账交易接收以太（会抛出异常）．
+更糟的是，receive 函数可能只有 2300 gas 可以使用（如，当使用 send 或 transfer 时）， 除了基础的日志输出之外，进行其他操作的余地很小。下面的操作消耗会操作 2300 gas :
+写入存储 创建合约 调用消耗大量 gas 的外部函数 发送以太币 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract Simple { event Received(address, uint); receive() external payable { emit Received(msg.sender, msg.value); } } Fallback 回退函数 合约可以最多有一个回退函数。函数声明为： fallback () external [payable] 或 fallback (bytes calldata input) external [payable] returns (bytes memory output)。
+没有　function　关键字。　必须是　external　可见性，它可以是 virtual 的，可以被重载也可以有 后续会讲到的 修改器modifier 。
+如果在一个对合约调用中，没有其他函数与给定的函数标识符匹配 ，fallback会被调用。 或者在没有 receive 函数　时，而没有提供附加数据对合约调用，那么fallback 函数会被执行。
+fallback　函数始终会接收数据，但为了同时接收以太时，必须标记为　payable 。
+如果使用了带参数的版本， input 将包含发送到合约的完整数据（等于 msg.data ），并且通过 output 返回数据。 返回数据不是 ABI 编码过的数据，相反，它返回不经过修改的数据。
+更糟的是，如果回退函数在接收以太时调用，可能只有 2300 gas 可以使用。
+与任何其他函数一样，只要有足够的 gas 传递给它，回退函数就可以执行复杂的操作。
+payable 的fallback函数也可以在pure·以太转账的时候执行， 如果没有　receive 以太函数 推荐总是定义一个receive函数，而不是定义一个payable 的fallback函数，
+如果想要解码输入数据，那么前四个字节用作函数选择器，然后用 abi.decode 与数组切片语法一起使用来解码ABI编码的数据：
+(c, d) = abi.decode(_input[4:], (uint256, uint256)); 请注意，这仅应作为最后的手段，而应使用对应的函数。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract Test { // 发送到这个合约的所有消息都会调用此函数（因为该合约没有其它函数）。 // 向这个合约发送以太币会导致异常，因为 fallback 函数没有 `payable` 修饰符 fallback() external { x = 1; } uint x; } // 这个合约会保留所有发送给它的以太币，没有办法返还。 contract TestPayable { uint x; uint y; // 除了纯转账外，所有的调用都会调用这个函数． // (因为除了 receive 函数外，没有其他的函数). // 任何对合约非空calldata 调用会执行回退函数(即使是调用函数附加以太). fallback() external payable { x = 1; y = msg.value; } // 纯转账调用这个函数，例如对每个空empty calldata的调用 receive() external payable { x = 2; y = msg.value; } } contract Caller { function callTest(Test test) public returns (bool) { (bool success,) = address(test).call(abi.encodeWithSignature(&#34;nonExistingFunction()&#34;)); require(success); // test.x 结果变成 == 1。 // address(test) 不允许直接调用 send , 因为 test 没有 payable 回退函数 // 转化为 address payable 类型 , 然后才可以调用 send address payable testPayable = payable(address(test)); testPayable.transfer(2 ether); // 以下将不会编译，但如果有人向该合约发送以太币，交易将失败并拒绝以太币。 // test.send(2 ether）; return true; } function callTestPayable(TestPayable test) public returns (bool) { (bool success,) = address(test).call(abi.encodeWithSignature(&#34;nonExistingFunction()&#34;)); require(success); // 结果 test.x 为 1 test.y 为 0. (success,) = address(test).call{value: 1}(abi.encodeWithSignature(&#34;nonExistingFunction()&#34;)); require(success); // 结果test.x 为1 而 test.y 为 1. // 发送以太币, TestPayable 的 receive　函数被调用． // 因为函数有存储写入, 会比简单的使用 send 或 transfer 消耗更多的 gas。 // 因此使用底层的call调用 (success,) = address(test).call{value: 2 ether}(&#34;&#34;); require(success); // 结果 test.x 为 2 而 test.y 为 2 ether. return true; } } ]]></content></entry><entry><title>玩以太坊链上项目的必备技能（事件-Solidity之旅十二）</title><url>/article/169/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>Event</tag><tag>事件</tag></tags><content type="html"><![CDATA[由于交易日志只存储事件数据而不存储类型。你必须知道事件的类型，包括哪个参数被索引，以及该事件是否是匿名的，以便正确解释数据。 尤其是，有可能使用一个匿名事件来”伪造”另一个事件的签名。由于交易日志只存储事件数据而不存储类型。你必须知道事件的类型，包括哪个参数被索引，以及该事件是否是匿名的，以便正确解释数据。 尤其是，有可能使用一个匿名事件来”伪造”另一个事件的签名。
+事件（Events） Solidity 中的事件（Events）与任何一种编程语言中事件（Events）一样。
+一个事件（Events）是一个合约可继承的成员，它在触发（emit）时存储在交易日志中传递的参数。
+在EVM的日志设施下，事件(Events)被用来通知调用应用程序关于合约的当前状态。事件(Events)通知应用程序关于对合约和应用程序所做的改变，可以用来执行依赖逻辑。
+如果外部实体需要该日志实际上存在于区块链中的证明，可以请求日志的Merkle证明. 但需要留意的是，由于合约中仅能访问最近的 256 个区块哈希，所以还需要提供区块头信息。
+对日志的证明是可能的，如果一个外部实体提供了一个带有这种证明的合约，它可以检查日志是否真实存在于区块链中。
+最多三个参数可以接收 indexed 属性（它是一个特殊的名为:ref:”主题” &lt;abi_events&gt; 的数据结构， 而不作为日志的数据部分）。 主题仅有 32 字节， 因此如果 引用类型]标记为索引项，则它们的 keccak-256 哈希值会被作为 主题topic 保存。
+所有非索引 indexed 参数是 ABI-encoded 都将存储在日志的数据部分中。
+主题topic 让我们可以可以搜索事件，比如在为某些事件过滤一些区块，还可以按发起事件的合同地址来过滤事件。
+事件声明 事件（Events）在合约中被定义为全局的，并在其函数中被调用。事件（Events）是通过使用events关键字来声明的，后面是一个标识符和参数列表，并以分号结尾。参数值用于记录信息或执行条件逻辑。它的信息和值被保存为块内事务的一部分。不需要提供变量，只有数据类型就足够了。一个事件（Events）可以通过使用其名称和传递所需的参数从任何函数中调用。
+event &lt;eventName&gt;(parameters) ; // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract eventExample { uint256 public value = 0; //声明一个时间 用于记录 调用者的地址 event Increment(address owner); function getValue(uint _a, uint _b) public { //触发 事件 emit Increment(msg.sender); value = _a + _b; } } 添加了索引的事件，虽然方便了查找，但 gas fee更高了。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract eventExample { //声明一个时间 用于记录 调用者的地址 event NewTrade( uint256 indexed date, address from, address indexed to, uint256 indexed amount ); function trade(address to, uint256 amount) external { emit NewTrade(block.timestamp, msg.sender, to,amount); } } 使用javascript进行调用：
+var abi = /* abi 由编译器产生 */; var eventExampleABI = web3.eth.contract(abi); var eventExample = eventExampleABI.at(&#34;0x1234...xlb67&#34; /* 地址 */); var tradeEvent = eventExample.NewTrade(); // 监听变化 tradeEvent.watch(function(error, result) { // 结果包含 非索引参数 以及 主题 topic if (!error) console.log(result); }); // 或者通过传入回调函数，立即开始听监 var tradeEvent = eventExample.NewTrade(function(error, result) { if (!error) console.log(result); }); 除非你用 anonymous 声明事件（Events），否则事件（Events）签名的哈希值是一个 主题topic 。 同时也意味着对于匿名事件无法通过名字来过滤，仅能按合约地址过滤。 匿名事件的优势是他们部署和调用的成本更低。
+由于交易日志只存储事件数据而不存储类型。你必须知道事件的类型，包括哪个参数被索引，以及该事件是否是匿名的，以便正确解释数据。 尤其是，有可能使用一个匿名事件来”伪造”另一个事件的签名。
+]]></content></entry><entry><title>玩以太坊链上项目的必备技能（OOP-接口-Solidity之旅十一）</title><url>/article/168/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>接口</tag><tag>interface</tag></tags><content type="html">我们知道在Java里接口是特殊的抽象类，限制多于抽象类，但随着Java版本的更新，Java中的接口是越来越趋于抽象类了（这样说，可能有点不妥，因为接口本就是特殊的抽象类，只是接口中不能有方法具体实现，而抽象类还是可以有的！然而随着Java版本的
+接口（interface） 我们知道在Java里接口是特殊的抽象类，限制多于抽象类，但随着Java版本的更新，Java中的接口是越来越趋于抽象类了（这样说，可能有点不妥，因为接口本就是特殊的抽象类，只是接口中不能有方法具体实现，而抽象类还是可以有的！然而随着Java版本的推移，Java 接口中可以有方法实现了 ）。
+虽然在 Solidity 中的接口跟抽象合约很类似，但接口却不能像抽象合约那样，可以有方法体函数实现。
+接口基本上仅限于合约 ABI 可以表示的内容，并且 ABI 和接口之间的转换不应该丢失任何信息。
+Solidity 中的接口是不能有函数实现的，且还有以下节点约束：
+1、不能继承除了接口外的其他合约 2、接口中的所有函数签名都必须是external。 3、无法声明构造函数。 4、不能定义状态变量。 5、继承接口的合约必须实现接口中声明的函数功能。 就目前来看，接口有这些限制，但在不久的将来，有可能解除某些限制（本次使用的是Solidity ^0.8.0）。
+使用关键字interface来声明一个接口。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; interface MyToken { enum TokenType { Fungible, NonFungible } struct Coin { string obverse; string reverse; } function transfer(address recipient, uint amount) external; } // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; interface MyToken { enum TokenType { Fungible, NonFungible } struct Coin { string obverse; string reverse; } //接口中所有 函数签名 隐式标记为 virtual function transfer(address recipient, uint amount) external; } interface MyCoin { function transfer(address recipient, uint amount) external; } //合约实现多接口 contract MyTest is MyToken,MyCoin { function transfer(address recipient, uint amount) override(MyToken,MyCoin) external{ } } //接口继承多接口 interface TestI is MyToken,MyCoin { function transfer(address recipient, uint amount) override(MyToken,MyCoin) external; } 虽然接口有这么多的限制，不能像抽象合约的那样可以有实现体，但接口在 Solidity 中却很重要。它定义了合约的骨架，如合约实现了某些接口（ERC20 或 ERC721)，其他Dapp就可以与我们编写的智能合约进行交互。
+我们以IERC721为例，它定义了3个后续将会讲到的事件（event）和9个函数（function），所有ERC721标准的NFT都实现了这些函数。
+// SPDX-License-Identifier: MIT // OpenZeppelin Contracts (last updated v4.8.0) (token/ERC721/IERC721.sol) pragma solidity ^0.8.0; interface IERC721 is IERC165 { event Transfer(address indexed from, address indexed to, uint256 indexed tokenId); event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId); event ApprovalForAll(address indexed owner, address indexed operator, bool approved); function balanceOf(address owner) external view returns (uint256 balance); function ownerOf(uint256 tokenId) external view returns (address owner); function safeTransferFrom( address from, address to, uint256 tokenId, bytes calldata data ) external; function safeTransferFrom( address from, address to, uint256 tokenId ) external; function transferFrom( address from, address to, uint256 tokenId ) external; function approve(address to, uint256 tokenId) external; function setApprovalForAll(address operator, bool _approved) external; function getApproved(uint256 tokenId) external view returns (address operator); function isApprovedForAll(address owner, address operator) external view returns (bool); } IERC721事件 IERC721包含3个事件，其中Transfer和Approval事件在ERC20中也有。
+Transfer事件：在转账时被释放，记录代币的发出地址from，接收地址to和tokenid。 Approval事件：在授权时释放，记录授权地址owner，被授权地址approved和tokenid。 ApprovalForAll事件：在批量授权时释放，记录批量授权的发出地址owner，被授权地址operator和授权与否的approved。 IERC721函数 balanceOf：返回某地址的NFT持有量balance。 ownerOf：返回某tokenId的主人owner。 transferFrom：普通转账，参数为转出地址from，接收地址to和tokenId。 safeTransferFrom：安全转账（如果接收方是合约地址，会要求实现ERC721Receiver接口）。参数为转出地址from，接收地址to和tokenId。 approve：授权另一个地址使用你的NFT。参数为被授权地址approve和tokenId。 getApproved：查询tokenId被批准给了哪个地址。 setApprovalForAll：将自己持有的该系列NFT批量授权给某个地址operator。 isApprovedForAll：查询某地址的NFT是否批量授权给了另一个operator地址。 safeTransferFrom：安全转账的重载函数，参数里面包含了data。 使用接口 假使我们知道一个合约实现了ERC721接口的话，我们不必去关心它的具体实现功能，却可以与它进行交互。
+不知道您有没有玩过加密猫（CryptoKitty ），这是一款风靡全球的区块链游戏（）链游），而它便是实现了ERC721接口。
+我可以使用IERC721接口来查看加密猫（CryptoKitty）中的余额。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //导入 IERC721 接口 import &amp;#34;@openzeppelin/contracts/token/ERC721/ERC721.sol&amp;#34;; contract ShowKittyAmount { // 利用 CryptoKitty 合约地址创建接口合约变量（ETH主网） IERC721 kitty = IERC721(0xba52c75764d6F594735dc735Be7F1830CDf58dDf); // 通过接口调用 CryptoKitty 的balanceOf()查询持仓量 function balanceOfKitty(address owner) external view returns (uint256 balance){ return kitty.balanceOf(owner); } // 通过接口调用 CryptoKitty 的safeTransferFrom()安全转账 function safeTransferFromKitty(address from, address to, uint256 tokenId) external{ kitty.safeTransferFrom(from, to, tokenId); } } 不过在部署时，要选择以太坊主网，否则查询不出结果！</content></entry><entry><title>玩以太坊链上项目的必备技能（OOP-抽象合约-Solidity之旅十）</title><url>/article/167/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>抽象合约</tag><tag>abstract</tag></tags><content type="html"><![CDATA[即假使合约中至少有一个函数没有实现（没有方法体，只有方法签名的方法），那么便将该合约定义为抽象合约（abstract contract）。当然咯，前文说到继承提到的，派生合约未能给其基合约的构造函数传递指定参数，这时，该合约便只能声明为抽象的。
+抽象合约（abstract contract） 前文在讲合约继承的基类构造函数的参数时，有提到抽象合约，也就是说，如果派生合约未能给其继承的基合约指定构造函数参数时，那么，该派生合约必须声明为抽象合约（abstract contract）。
+我们知道Java中抽象类的定义，其一抽象类不能实例化，其二是抽象类中可以拥有 抽象方法(是一种没有方法体的、只有方法签名的方法。)
+而在 Solidity 中的抽象合约与Java的抽象类有异曲同工之妙。即假使合约中至少有一个函数没有实现（没有方法体，只有方法签名的方法），那么便将该合约定义为抽象合约（abstract contract）。当然咯，前文说到继承提到的，派生合约未能给其基合约的构造函数传递指定参数，这时，该合约便只能声明为抽象的。
+在 Solidity 0.8.x版本以上，抽象合约的抽象函数需加上virtual修饰，而对于的派生合约中的函数实现也得加上override修饰，否则编译过不了。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //base contract abstract contract Animal { function eat() virtual public ; } contract Bird is Animal { function eat() override public { } } 假使派生合约未能给定所有基类的制定参数（基类构造函数的参数），那该合约也必须声明为抽象的。
+解决上图所出现的问题，有两种方式，要么派生合约 contract Snake 给定所有基类构造函数的制定参数；要么将派生合约 Snake声明为抽象（abstract）的。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //base contract contract Animal { string public name; constructor(string memory _name){ name = _name; } } //爬行动物是动物 contract Reptile { string public Rname; constructor(string memory _name){ Rname = _name; } } abstract contract Snake is Reptile,Animal { //这是一只眼镜蛇 多个基类使用空格隔开 constructor() Animal(&#34;cobra&#34;){} } // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //base contract contract Animal { string public name; constructor(string memory _name){ name = _name; } } //爬行动物是动物 contract Reptile { string public Rname; constructor(string memory _name){ Rname = _name; } } contract Snake is Reptile,Animal { //这是一只眼镜蛇 多个基类使用空格隔开 constructor() Reptile(&#34;diba&#34;) Animal(&#34;cobra&#34;){} } // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //base contract contract Animal { string public name; constructor(string memory _name){ name = _name; } } //爬行动物是动物 contract Reptile { string public Rname; constructor(string memory _name){ Rname = _name; } } contract Snake is Reptile,Animal { //这是一只眼镜蛇 多个基类使用空格隔开 constructor() Reptile(&#34;diba&#34;) Animal(&#34;cobra&#34;){} } 若派生合约继承自抽象合约，而并没有去实现抽象合约中的抽象函数，那么，该合约依然需要标记为抽象（abstract）的。
+抽象合约将合约的定义与其实现脱钩，从而提供了更好的可扩展性和自文档性，并消除了代码重复。
+]]></content></entry><entry><title>玩以太坊链上项目的必备技能（OOP-合约继承-Solidity之旅九）</title><url>/article/166/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>合约继承</tag><tag>extends</tag></tags><content type="html"><![CDATA[创建合约时， 合约的 构造函数 (一个用关键字 constructor 声明的函数)会执行一次。 构造函数是可选的。只允许有一个构造函数，这意味着不支持重载。
+继承 我们今天不讲别的，就只讲合约继承相关的内容。（您是不是感觉这话挺眼熟的，没错，您确实看过，前一篇开头便是今天我们不讲三国，来讲讲 流程控制，您会觉得我上头了还是怎么！）
+闲话少叙，咱们尽快的切入正题。
+有过面向对象编程思想（OOP）都知道，继承是比较重要的一环，也正是继承让代码复用，维护也变得简单了起来（当然咯，这只是相对而言，维护工作依旧还是那样！）。
+我们知道c++支持多继承，而 Solidity 也是支持多继承的，毕竟是受了它的影响嘛！从事Java的朋友这时可能最想说的是，什么啊，Java 设计者当初就是为了避免多继承所带来的问题，而决定摒弃多继承的。
+虽然说多继承会破坏面向对象思想（OOP），但诸如表面上只支持单继承的 PHP，在 PHP 5.4 却引入了triat新特性，弥补了在 PHP 中单继承的不足。
+在 Solidity 声明继承关系还是很容易的，使用关键字is，例如：contract Bird is Animal {}。
+创建合约时， 合约的 构造函数 (一个用关键字 constructor 声明的函数)会执行一次。 构造函数是可选的。只允许有一个构造函数，这意味着不支持重载。
+构造函数执行完毕后，合约的最终代码将部署到区块链上。此代码包括所有公共和外部函数以及所有可以通过函数调用访问的函数。 部署的代码没有 包括构造函数代码或构造函数调用的内部函数。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //base contract contract Animal { //前面我们讲过 只要将 状态变量声明为 public， //solidity自动会为我们生成一个与状态变量名相同的public 函数 string public name = &#34; base Animal&#34;; } //contract Bird 继承了 contract Animal contract Bird is Animal { //构造器 初始化相关数据 constructor() { name = &#34;bage Bird&#34;; } function getName() public view returns (string memory) { return name; } } 重载（Override） 刚刚我们在说到构造器的时候，有提到重载，对于有过面向对象思想的您，想必是再清楚不过重载的概念了。
+而在 Solidity 实现重载这一功能也是有相应的约束的。
+virtual: 父合约中的函数，如果希望子合约重写，需要加上virtual关键字。 override：子合约重写了父合约中的函数，需要加上override关键字。 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //base contract contract Animal { function eat() public virtual returns(string memory){ return &#34;animal eat&#34;; } } //contract Bird 继承了 contract Animal contract Bird is Animal { function eat() public pure override returns(string memory) { return &#34;bird eat&#34;; } } 多重继承 展现技术的时刻到了，我们一上来就说 Solidity 支持多继承，可你展示了这么多，也没见任何的多继承的内容啊！
+毕竟，先讲清了单继承，多继承也就那么回事了！
+作为聪明睿智的您想必会问，多重继承，那么怎么保证到底是哪个被继承合约先执行呢？
+您看，您这个问题，问的就比较有深度了，是的，所以在 Solidity 的多重继承是依次排序下来的。
+例如：有一个合约 A，若继承 合约 B 和 合约 C，那么应该写成contract A is B,C {},若合约 B 和合约 C 顺序颠倒了，那么最后执行的结果也是不一样的。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //base contract contract Animal { function eat() public virtual returns(string memory){ return &#34;animal eat&#34;; } } contract Flyer { function fly() public virtual returns (string memory){ return &#34; fly...&#34;; } } //contract Bird 继承了 contract Animal contract Bird is Animal,Flyer { function eat() public pure override returns(string memory) { return &#34;bird eat&#34;; } function fly() public pure override returns (string memory){ return &#34; bird fly...&#34;; } } 基类构造函数的参数 对于基合约构造函数有参数的情况，派生合约需要指定所有参数，对于派生合约有两种方式。
+1、派生合约在继承列表中调用基合约的构造函数。如contract Bird is Animal(&quot;bage&quot;) {}。 2、在派生合约的构造函数进行指定。如：contract Bird is Animal { constructor() Animal(&quot;bage&quot; ) { } }。 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //base contract contract Animal { string name; constructor(string memory _name){ name = _name; } } //第一种：派生合约继承基合约 直接在继承列表中给基类构造函数传参 contract Bird is Animal(&#34;bage&#34;) { //其实这个写不写都没事，不写，编译器自动默认的就是这个 constructor() {} } contract Dog is Animal{ //第二种则在派生合约的构造函数对基合约构造函数进行传参 constructor() Animal(&#34;diba&#34;){ } } 如果构造函数参数是常量并且定义或描述了合约的行为，使用第一种方法比较方便。 如果基类构造函数的参数依赖于派生合约，那么必须使用第二种方法。
+参数必须在两种方式中（继承列表或派生构造函数修饰符样式）使用一种 。 在这两个位置都指定参数则会发生错误。
+如果派生合约没有给所有基类合约指定参数，则这个合约必须声明为抽象合约。 在这种情况下，当另一个合约从它派生出来时，另一个合约的继承列表或构造函数必须为所有还没有指定参数的基类提供必要的参数（否则，其他合约也必须被声明为抽象的）。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //base contract contract Animal { string name; constructor(string memory _name){ name = _name; } } //爬行动物是动物 abstract contract Reptile is Animal{} contract Snake is Reptile { //这是一只眼镜蛇 constructor() Animal(&#34;cobra&#34;){} } 当继承层次结构中有多个构造函数时，继承线性化特别重要。 构造函数将始终以线性化顺序执行，无论在继承合约的构造函数中提供其参数的顺序如何。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; //base contract contract Animal { string name; constructor(string memory _name){ name = _name; } } //爬行动物是动物 contract Reptile { string public name; constructor(string memory _name){ name = _name; } } //蛇是爬行动物，又属于动物 // 构造函数以以下顺序执行: // 1 - Reptile // 2 - Animal // 3 - Snake contract Snake is Reptile,Animal { //这是一只眼镜蛇 多个基类使用空格隔开 constructor() Reptile(&#34;pa&#34;) Animal(&#34;cobra&#34;){} } // 构造函数以以下顺序执行: // 1 - Animal // 2 - Reptile // 3 - Snake contract Snake is Animal,Reptile { //这是一只眼镜蛇 多个基类使用空格隔开 constructor() Animal(&#34;cobra&#34;) Reptile(&#34;pa&#34;) {} } // 构造函数仍然以以下顺序执行: // 1 - Animal // 2 - Reptile // 3 - Snake contract Snake is Animal,Reptile { //这是一只眼镜蛇 多个基类使用空格隔开 constructor() Reptile(&#34;pa&#34;) Animal(&#34;cobra&#34;) {} } } ]]></content></entry><entry><title>玩以太坊链上项目的必备技能（流程控制-Solidity之旅八）</title><url>/article/165/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>流程控制</tag></tags><content type="html"><![CDATA[今天我们不讲三国，来讲讲 流程控制 关于什么是流程控制，想来您是知道的吧！可若您确实不晓得，那您看了这篇文或许对流程控制有了初步的了解。 Solidity 和其他语言一样，支持大部分流程控制语句，除了switch和被程序员界谈虎色变而其他语言又保留的goto。
+今天我们不讲三国，来讲讲 流程控制 关于什么是流程控制，想来您是知道的吧！可若您确实不晓得，那您看了这篇文或许对流程控制有了初步的了解。
+Solidity 和其他语言一样，支持大部分流程控制语句，除了switch和被程序员界谈虎色变而其他语言又保留的goto。
+1、if-else // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract C { function ifElseExam(uint8 age) external pure returns(uint8){ if(age &gt; 18){ return 1; }else { return 0; } } } 2、for // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract C { function forLoopExam() external pure returns(uint){ uint sum; //用于记录总和 for(uint i = 0; i &lt;= 10; i ++){ sum += i; } return sum; } } 3、while // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract C { function whileExam() external pure returns(uint){ //解构赋值 与golang多个赋值相似 (uint sum, uint i) = (0,0); while(i &lt;= 10){ sum += i; i ++; } return sum; } } 4、do-while // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract C { function doWhileExam() external pure returns(uint){ //解构赋值 与golang多个赋值相似 (uint sum, uint i) = (0,0); do { sum += i; i ++; } while(i &lt;= 10); return sum; } } 当然咯，Solidity 也是支持continue以及break操作符的。
+5、三元运算符 ? : 另外，Solidity 还支持三元运算符，其也是Solidity 唯一一个三元运算符，表达式 ? 若表达式为真则返回这个值 : 表达式为假便返回这个值。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract C { /* * @title 比较两个值，若前一个大于后一个 则返回 1，小于便返回 -1，等于则返回 0 * @param int a 第一个数 * @param int b 第二个数 * @return int 1(a &gt; b), 0(a = b),-1(a &lt; b) */ function exam(int a,int b) external pure returns(int){ return (a &gt; b ? int(1) : a &lt; b ? int(-1) : int(0)); } } ]]></content></entry><entry><title>玩以太坊链上项目的必备技能（单位以及全局变量-Solidity之旅七）</title><url>/article/164/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>全局变量</tag><tag>global variable</tag></tags><content type="html">时间戳和区块哈希在一定程度上都可能受到挖矿矿工影响。例如，挖矿社区中的恶意矿工可以用某个给定的哈希来运行赌场合约的 payout 函数，而如果他们没收到钱，还可以用一个不同的哈希重新尝试。
+以太币单位（Ether） 甭管是虚拟货币还是现实中的“稳定币”，他们都有各自的货币单位。当然咯，作为以太坊区块链上交易的虚拟货币以太坊也是有属于自己的那一套货币单位的。
+而目前以太币（Ether）主要分为这三个：wei、gwei以及ether。或许您之前还见过 finney 和 szabo，但这两个早在solidity 0.7.0就被删除了，而gwei却是solidity 0.6.11新添加的！
+使用起来很容易，便是在数字后边跟上这些以太币单位，当然，数字与以太币单位之间需要空格隔开的，这一点想必您应该是清楚的吧！
+若没加以太币单位，那么它缺省为wei。
+assert(1 wei == 1); assert(1 gwei == 1e9); assert(1 ether == 1e18); 关于assert的用法，我们后续会讲到，可以理解为断言，用于判断表达式是否为true，反之则抛出错误！
+时间单位 说到时间单位，您肯定会想到生活中的时（hour）、分（minute）、秒（second）以及天（day）、周（week）。
+Solidity 时间单位有：seconds、minutes、hours、days和weeks，seconds是时间的缺省单位。
+早期版本（solidity 0.5.0 之前但不包括）还有一个years用来表示年的时间，由于闰年的缘故，便废除了。
+1 == 1 seconds 1 minutes == 60 seconds 1 hours == 60 minutes 1 days == 24 hours 1 weeks == 7 days uint today = 今天的时间戳; uint tomorrow = today + 1 days; 特殊变量（全局变量） 它们是 Solidity 在全局命名空间 预设的一些变量和函数，用于获取区块链信息和一些通用的工具函数。
+区块和交易属性 blockhash(uint blockNumber) returns (bytes32)：指定区块的区块哈希 —— 仅可用于最新的 256 个区块且不包括当前区块，否则返回 0 。 block.basefee (uint): 当前区块的基础费用 block.chainid (uint): 当前链 id block.coinbase ( address ): 挖出当前区块的矿工地址 block.difficulty ( uint ): 当前区块难度 block.gaslimit ( uint ): 当前区块 gas 限额 block.number ( uint ): 当前区块号 block.timestamp ( uint): 自 unix epoch 起始当前区块以秒计的时间戳 gasleft() returns (uint256) ：剩余的 gas msg.data ( bytes ): 完整的 calldata msg.sender ( address ): 消息发送者（当前调用） msg.sig ( bytes4 ): calldata 的前 4 字节（也就是函数标识符） msg.value ( uint ): 随消息发送的 wei 的数量 tx.gasprice (uint): 交易的 gas 价格 tx.origin ( address ): 交易发起者（完全的调用链） 不要依赖 block.timestamp 和 blockhash 产生随机数，除非你明确知道自己做的用意。
+时间戳和区块哈希在一定程度上都可能受到挖矿矿工影响。例如，挖矿社区中的恶意矿工可以用某个给定的哈希来运行赌场合约的 payout 函数，而如果他们没收到钱，还可以用一个不同的哈希重新尝试。
+当前区块的时间戳必须严格大于最后一个区块的时间戳，但这里能确保也需要它是在权威链上的两个连续区块。
+在 Solidity 0.7.0, now ( block.timestamp 的别名) 被移除了。</content></entry><entry><title>玩以太坊链上项目的必备技能（基本类型转换以及推断-Solidity之旅六）</title><url>/article/163/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>基本类型</tag></tags><content type="html">某些情况下，编译器不支持隐式转换，而这时，作为开发人员的您就不得不使用强硬手段了。显式转换可能会发生些您无法预料的状况，所以您需要繁琐的测试，看最终是否能达到您的要求。
+基本类型之间的转换 熟悉过其他编程语言的您，对基本类型之间的转换并不陌生吧！当然，这基本类型进行转换可分为隐式转换和显示转换。
+隐式转换 Solidity 支持隐式转换，通过编译器自动进行转换，而不要开发人员的干涉，这便是隐式转换。
+诸如赋值、函数传递实参以及运算操作，通常，是可以进行类型之间的隐式转换，且并不会丢失任何数据。
+例如：uint8可以转换成uint16,uint16可以转换成uint32，uint128可以转换成uint256，但uint8却不能转换成uint256.（因为uint256不能覆盖某些值，比如：-1）
+假使两个不同类型的值进行操作运算时，编译器则会隐式地将一个类型转换成另一个类型（赋值也是如此），这意味着操作始终是操作数其中一个的类型去执行。
+uint8 a = 3; uint16 b = 4; uint32 c = a + b; 无符号整型可以转换成跟它大小相等或更大的字节类型，但反之不能。 任何可以转换成 uint160 的类型都可以转换成 address 类型。
+显式转换 某些情况下，编译器不支持隐式转换，而这时，作为开发人员的您就不得不使用强硬手段了。显式转换可能会发生些您无法预料的状况，所以您需要繁琐的测试，看最终是否能达到您的要求。
+int8 y = -3; uint x = uint(y); //0xfffff..fd （64 个 16 进制字符） 因为这是 -3 的 256 位补码形式。 如果一个类型显式转换成更小的类型，相应的高位将被舍弃
+uint32 a = 0x12345678; uint16 b = uint16(a); // 此时 b 的值是 0x5678 类型推断 类型推导好像是很多编程语言都支持的语法糖吧！无非让您减少代码的编写。
+就像Java 8语言设计者好不容易整了个Lambda 表达式，可您却始终没在您的Java代码中去使用它。
+苹果（Apple）公司好容易把苹果手机（iphone）设计的越来愈薄，可是到了国内呢，即给手机贴上了膜又让手机套上了那专为手机量身定做的外套，最终这样一来，手机厚了（当然咯，我们还是喜欢厚一点的手机，毕竟拿在手上，能察觉手上确实拿了个东西！）
+说到底，类型推到就是为了让开发人员偷下懒，方便声明变量，可不用敲些类型关键字，让其值推导出该变量的类型。
+uint24 x = 0x123; var y = x; 这里 y 的类型将是 uint24。不能对函数参数或者返回参数使用 var。
+注意：类型只能从第一次赋值中推断出来，因此以下代码中的循环是无限的， 原因是i 的类型是 uint8，而这个类型变量的最大值比 2000 小。 for (var i = 0; i &amp;lt; 2000; i++) { ... }
+高版本可能不支持了。</content></entry><entry><title>玩以太坊链上项目的必备技能（变量作用域-Solidity之旅五）</title><url>/article/162/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>变量作用域</tag></tags><content type="html">局部变量（Local Variable）的范围仅限于它们被定义的函数，但 状态变量（State Variable） 可以有三种范围。 public - public 修饰的 状态变量（State Variable） 可以在内部以及通过消息进行访问，对于一个公共状态变量，会自动生成一个getter函数。
+在前文我们讲过 Solidity 是一种静态类型的语言，这就意味着在声明变量前需先指定类型。
+而 Solidity 对变量划分了以下三种作用域范围：
+状态变量（State Variable）： 该变量的值被永久地存放在合约存储中，合约内所有函数可访问，其Gas（燃料）消耗高。
+局部变量（Local Variable）： 函数体声明的变量，其值在该函数执行前都存在的变量。
+全局变量（Global Variable）： 存在于全局命名空间的特殊变量，提供有关区块链和交易属性的信息。
+状态变量（State Variable） 其值被永久地存放在一个合约存储中。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract SolidityTest { uint storedData; // 状态变量（State variable） //这是构造器函数 constructor() public { storedData = 10; // 使用 状态变量 } } 局部变量（Local Variable）： 声明变量在函数体的变量，其值在函数执行前一直存在。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract SolidityTest { uint storedData; // 状态变量 //构造器函数 constructor() public { storedData = 10; } //声明一个函数 function getResult() public view returns(uint){ uint a = 1; // 局部变量（local variable） uint b = 2; uint result = a + b; return result; //返回 局部变量 } } 我们做些小改动，让函数返回 状态变量，会是什么样的结果呢？
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract SolidityTest { uint storedData; // 状态变量 //构造器函数 constructor() public { storedData = 10; } //声明一个函数 function getResult() public view returns(uint){ uint a = 1; // 局部变量（local variable） uint b = 2; uint result = a + b; return storedData; //返回 状态变量 } } 您可能也注意到，编译图标下有 2 个警告。
+针对第一个警告，那是 Solidity 0.7 版本之后对 构造器 的 可见修饰忽略了，解决办法：便是删除它。
+而 第二个 警告 便是声明过的变量没有使用，这点倒是和 golang 很像，但在 Solidity 中并没有那么严格，只是给出警告提示，还是可以编译的，在这里建议，去掉没使用的变量。
+全局变量（Global Variable） 存在全局工作区的特俗变量，用于提供区块链和交易的属性。
+Name Returns blockhash(uint blockNumber) returns (bytes32) Hash of the given block - only works for 256 most recent, excluding current, blocks block.coinbase (address payable) Current block miner’s address block.difficulty (uint) Current block difficulty block.gaslimit (uint) Current block gaslimit block.number (uint) Current block number block.timestamp (uint) Current block timestamp as seconds since unix epoch gasleft() returns (uint256) Remaining gas msg.data (bytes calldata) Complete calldata msg.sender (address payable) Sender of the message (current caller) msg.sig (bytes4) First four bytes of the calldata (function identifier) msg.value (uint) Number of wei sent with the message now (uint) Current block timestamp tx.gasprice (uint) Gas price of the transaction tx.origin (address payable) Sender of the transaction blockhash(uint blockNumber) returns (bytes32)：指定区块的区块哈希 —— 仅可用于最新的 256 个区块且不包括当前区块，否则返回 0 。 block.basefee (uint): 当前区块的基础费用 block.chainid (uint): 当前链 id block.coinbase ( address ): 挖出当前区块的矿工地址 block.difficulty ( uint ): 当前区块难度 block.gaslimit ( uint ): 当前区块 gas 限额 block.number ( uint ): 当前区块号 block.timestamp ( uint): 自 unix epoch 起始当前区块以秒计的时间戳 gasleft() returns (uint256) ：剩余的 gas msg.data ( bytes ): 完整的 calldata msg.sender ( address ): 消息发送者（当前调用） msg.sig ( bytes4 ): calldata 的前 4 字节（也就是函数标识符） msg.value ( uint ): 随消息发送的 wei 的数量 tx.gasprice (uint): 交易的 gas 价格 tx.origin ( address ): 交易发起者（完全的调用链） 标识符 与众多编程语言一样，在您声明 Solidity 变量名称时，请不要使用 Solidity 保留关键字，如break、boolean变量名是无效的。
+Solidity 标识符一样也是由字母、下划线和数字组成的，注意：不要以数字开头来命名变量名。
+在 Solidity 中，标识符是区分大小写的，如：name和Name是两个不同的变量名哦！
+变量作用范围 局部变量（Local Variable）的范围仅限于它们被定义的函数，但 状态变量（State Variable） 可以有三种范围。
+public - public 修饰的 状态变量（State Variable） 可以在内部以及通过消息进行访问，对于一个公共状态变量，会自动生成一个getter函数。
+internal： internal(内部) 修饰的 状态变量（State Variable） 只能在内部从当前的合约或从它派生的合约中访问。
+private：private 修饰的 状态变量（State Variable）只能从当前的合同内部访问，其派生类不能访问。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.0; contract C { uint public data = 30; uint internal iData= 10; uint private pData = 5; function x() public returns (uint) { data = 3; // internal（内部） pData = 7; //可以使用 return data; } } contract Caller { C c = new C(); function f() public view returns (uint) { //c.pData = 11; 报错 错误提示 变量不可见 return c.data(); //external （外部） } } //合约 D 继承了合约 C 后续会讲到 contract D is C { function y() public returns (uint) { iData = 3; // internal （内部） // pData = 4; 报错 错误提示变量未定义 return iData; } function getResult() public pure returns(uint){ uint a = 1; // 局部变量（local variable） uint b = 2; uint result = a + b; return result; //状态变量（state variable） } }</content></entry><entry><title>玩以太坊链上项目的必备技能（类型-映射类型-Solidity之旅四）</title><url>/article/161/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>映射</tag></tags><content type="html"><![CDATA[说到映射（Mapping），有过其它编程语言经验的您，对这是再熟悉不过了。Solidity 中的映射（Mapping） 与Java的Map、Go里的Map以及javascript的JSON等众多编程语言中的Map一样，是用来存储一组键（Key） 值（Value），可通过键（Key）来获取对应
+映射（Mapping） 说到映射（Mapping），有过其它编程语言经验的您，对这是再熟悉不过了。Solidity 中的映射（Mapping） 与Java的Map、Go里的Map以及javascript的JSON等众多编程语言中的Map一样，是用来存储一组键（Key） 值（Value），可通过键（Key）来获取对应的值。
+Solidity 声明映射（Mapping）格式为：
+mapping(KeyType =&gt; ValueType) //KeyType 键（key）类型 ValueType 值（Value）类型 mapping(uint =&gt; address) public addr; 映射中对键、值类型限制 1、mapping(KeyType =&gt; ValueType)，其中KeyType可以是除了变长数组、合约、枚举以及结构体的所有类型。然而ValueType对类型没有任何限制，甚至可以包括映射类型`。 2、映射的存储位置只能是存储（storage），因此便只允许作为状态变量、函数内的存储（storage）引用以及作为库函数的参数。但不能用于public函数的参数或返回结果中，因为mapping记录的是一种关系 (key - value pair)。 3、可将映射类型的状态变量声明为public，我们知道，在 Solidity 中，凡是将状态变量声明为public，Solidity 便会自动生成一个getter函数，可通过mapping中的键（key）获取对应的值（value）。 // SPDX-License-Identifier: MIT pragma solidity ^0.4.0; contract MappingExample { mapping(address =&gt; uint) public balances; function update(uint newBalance) public { balances[msg.sender] = newBalance; } } contract MappingUser { function f() public returns (uint) { MappingExample m = new MappingExample(); m.update(100); return m.balances(this); } } 下面是ERC20 Token 的简单版本． _allowances 是一个嵌套mapping的例子． _allowances 用来记录其他的账号，可以允许从其账号使用多少数量的币．
+// SPDX-License-Identifier: GPL-3.0 pragma solidity &gt;=0.4.22 &lt;0.9.0; contract MappingExample { mapping (address =&gt; uint256) private _balances; mapping (address =&gt; mapping (address =&gt; uint256)) private _allowances; event Transfer(address indexed from, address indexed to, uint256 value); event Approval(address indexed owner, address indexed spender, uint256 value); function allowance(address owner, address spender) public view returns (uint256) { return _allowances[owner][spender]; } function transferFrom(address sender, address recipient, uint256 amount) public returns (bool) { require(_allowances[sender][msg.sender] &gt;= amount, &#34;ERC20: Allowance not high enough.&#34;); _allowances[sender][msg.sender] -= amount; _transfer(sender, recipient, amount); return true; } function approve(address spender, uint256 amount) public returns (bool) { require(spender != address(0), &#34;ERC20: approve to the zero address&#34;); _allowances[msg.sender][spender] = amount; emit Approval(msg.sender, spender, amount); return true; } function _transfer(address sender, address recipient, uint256 amount) internal { require(sender != address(0), &#34;ERC20: transfer from the zero address&#34;); require(recipient != address(0), &#34;ERC20: transfer to the zero address&#34;); require(_balances[sender] &gt;= amount, &#34;ERC20: Not enough funds.&#34;); _balances[sender] -= amount; _balances[recipient] += amount; emit Transfer(sender, recipient, amount); } } 可迭代的映射 Solidity 中的映射本身是无法遍历的，即获取每一组键值对。不过，可通过结构体来实现迭代。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.8.8; struct IndexValue { uint keyIndex; uint value; } struct KeyFlag { uint key; bool deleted; } struct itmap { mapping(uint =&gt; IndexValue) data; KeyFlag[] keys; uint size; } type Iterator is uint; //自定义一个新类型 library IterableMapping { function insert(itmap storage self, uint key, uint value) internal returns (bool replaced) { uint keyIndex = self.data[key].keyIndex; self.data[key].value = value; if (keyIndex &gt; 0) return true; else { keyIndex = self.keys.length; self.keys.push(); self.data[key].keyIndex = keyIndex + 1; self.keys[keyIndex].key = key; self.size++; return false; } } function remove(itmap storage self, uint key) internal returns (bool success) { uint keyIndex = self.data[key].keyIndex; if (keyIndex == 0) return false; delete self.data[key]; self.keys[keyIndex - 1].deleted = true; self.size --; } function contains(itmap storage self, uint key) internal view returns (bool) { return self.data[key].keyIndex &gt; 0; } function iterateStart(itmap storage self) internal view returns (Iterator) { return iteratorSkipDeleted(self, 0); } function iterateValid(itmap storage self, Iterator iterator) internal view returns (bool) { return Iterator.unwrap(iterator) &lt; self.keys.length; } function iterateNext(itmap storage self, Iterator iterator) internal view returns (Iterator) { return iteratorSkipDeleted(self, Iterator.unwrap(iterator) + 1); } function iterateGet(itmap storage self, Iterator iterator) internal view returns (uint key, uint value) { uint keyIndex = Iterator.unwrap(iterator); key = self.keys[keyIndex].key; value = self.data[key].value; } function iteratorSkipDeleted(itmap storage self, uint keyIndex) private view returns (Iterator) { while (keyIndex &lt; self.keys.length &amp;&amp; self.keys[keyIndex].deleted) keyIndex++; return Iterator.wrap(keyIndex); } } // 如何使用 contract User { // Just a struct holding our data. itmap data; // Apply library functions to the data type. using IterableMapping for itmap; // Insert something function insert(uint k, uint v) public returns (uint size) { // This calls IterableMapping.insert(data, k, v) data.insert(k, v); // We can still access members of the struct, // but we should take care not to mess with them. return data.size; } // Computes the sum of all stored data. function sum() public view returns (uint s) { for ( Iterator i = data.iterateStart(); data.iterateValid(i); i = data.iterateNext(i) ) { (, uint value) = data.iterateGet(i); s += value; } } } ]]></content></entry><entry><title>玩以太坊链上项目的必备技能（类型-引用类型-Solidity之旅三）</title><url>/article/160/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>引用类型</tag></tags><content type="html"><![CDATA[数组元素可以是任何类型，包括映射或结构体。对类型的限制是映射只能存储在 存储storage 中，并且公开访问函数的参数需要是 ABI 类型。 状态变量标记 public 的数组，Solidity创建一个 getter函数 。 小标数字索引就是 getter函数 的参数。
+在前文我们讲述了值类型，也就说再修改值类型的时候，每次都有一个独立的副本，如：string 类型的状态变量，其值是无法修改，而是拷贝出一份该状态的变量，将新值存起来。对于处理稍微复杂地值类型时，拷贝将变得愈发大了，也正是介于此，才考虑到将数据存放在内存（memory）或是存放在存储（storage）。
+在 Solidity 中，数组（array）和 结构体（struct）属于引用类型。
+更改数据位置或类型转换将始终产生自动进行一份拷贝，而在同一数据位置内（对于 存储（storage） 来说）的复制仅在某些情况下进行拷贝。
+数据位置和赋值行为 所有的引用类型，如数组（array0和结构体（struct）类型，都有别同于其他类型，那便是引用类型有额外地属性——数据位置。
+数据位置，顾名思义就是数据存放的位置在哪里？是在内存（memory）中还是在存储（storage）中。
+当然咯，大多时候数据都有默认的存放位置。也可显式地修改其数据存放的位置，只需在类型后添加memory或storage。
+而函数参数/形参（包括函数的返回参数）数据位置默认在memory，局部变量数据位置则默认在storage，但状态变量数据位置被强制在storage。
+还有一个调用数据（calldata）存储方式，用于存放外部函数（external）的参数/形参，其效果跟memory差不离。
+指定数据存放的位置是非常的重要，因为它们将会影响其赋值行为。
+在 存储storage 和 内存memory 之间两两赋值（或者从 调用数据calldata 赋值 ），都会创建一份独立的拷贝。 从 内存memory 到 内存memory 的赋值只创建引用， 这意味着更改内存变量，其他引用相同数据的所有其他内存变量的值也会跟着改变。 从 存储storage 到本地存储变量的赋值也只分配一个引用。 其他的向 存储storage 的赋值，总是进行拷贝。 这种情况的示例如对状态变量或 存储storage 的结构体类型的局部变量成员的赋值，即使局部变量本身是一个引用，也会进行一份拷贝（译者注：查看下面 ArrayContract 合约 更容易理解）。 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.4.0; contract StorageExam { uint[] x; // x 的数据存储位置是 storage // memoryArray 的数据存储位置是 memory function f(uint[] memory memoryArray) public { x = memoryArray; // 将整个数组拷贝到 storage 中 uint[] storage y = x; // 分配一个指针（其中 y 的数据存储位置是 storage） y[7]; // 返回第 8 个元素 y.pop(); // 通过 y 修改 x delete x; // 删除数组 x，同样也会删除数组 y // 下面的方法不起作用；它需要在存储中创建一个新的临时未命名数组 // 未命名的数组，但存储是 &#34;静态 &#34;分配的。 // y = memoryArray; // 同样，&#34;删除y &#34;也是无效的，因为对本地变量的赋值只能从现有的存储对象中进行。 // 它将 &#34;重置 &#34;指针，但是没有任何合理的位置可以让它指向 // delete y; g(x); // 调用 g 函数，同时移交对 x 的引用 h(x); // 调用 h 函数，同时在 memory 中创建一个独立的临时副本 } function g(uint[] storage ) internal pure {} function h(uint[] memory) public pure {} } 归纳为：
+强制指定的数据位置：
+外部函数的参数（不包括返回参数）： calldata 状态变量： storage 默认数据位置：
+函数参数（包括返回参数）： memory 所有其它局部变量： storage 数组（array） 数组是用来存放一组数据（整数、字符串、地址等），它是一种常见的数据类型，而在 Solidity 中，数组可分为编译时的固定大小，动态大小的两种数组。
+固定大小数组声明格式：
+T[k] // T 为元素类型 k则是数组的大小 uint[7] arr; address[50] address1; 动态大小数组声明格式：
+T[] //T为元素类型 由于是动态分配的 所以只需[] unit[] arr2; bytes1[] arr3; address[] arr4; bytes arr5; //注意 bytes本身就是数组 一个长度为 5，元素类型为 uint 的动态数组的数组（二维数组），应声明为 uint[][5] （注意这里跟其它语言比，数组长度的声明位置是反的）。作为对比，如在Java中，声明一个包含5个元素、每个元素都是数组的方式为 int[5][]
+在Solidity中， X[3] 总是一个包含三个 X 类型元素的数组，即使 X 本身就是一个数组，这和其他语言也有所不同，比如 C 语言。
+数组下标是从 0 开始的，且访问数组时的下标顺序与声明时相反。
+如果有一个变量为 uint[][5] memory x， 要访问第三个动态数组的第7个元素，使用 x[2][6]，要访问第三个动态数组使用 x[2]。 同样，如果有一个 T 类型的数组 T[5] a ， T 也可以是一个数组，那么 a[2] 总会是 T 类型。
+访问超出数组长度的元素会导致异常（assert 类型异常 ）。 可以使用 .push() 方法在末尾追加一个新元素，其中 .push() 追加一个零初始化的元素并返回对它的引用。
+bytes 和 string 类型的变量是特殊的数组。 bytes 类似于 bytes1[]，但它在 调用数据calldata 和 内存memory 中会被“紧打包”（译者注：将元素连续地存在一起，不会按每 32 字节一单元的方式来存放）。 string 与 bytes 相同，但不允许用长度或索引来访问。
+Solidity没有字符串操作函数，但是可以使用第三方字符串库，我们可以比较两个字符串通过计算他们的 keccak256-hash ，可使用 keccak256(abi.encodePacked(s1)) == keccak256(abi.encodePacked(s2)) 和使用 string.concat(s1, s2) 来拼接字符串。
+我们更多时候应该使用 bytes 而不是 bytes1[] ，因为Gas 费用更低, 在 内存memory 中使用 bytes1[] 时，会在元素之间添加31个填充字节。 而在 存储storage 中，由于紧密包装，这没有填充字节。 作为一个基本规则，对任意长度的原始字节数据使用 bytes，对任意长度字符串（UTF-8）数据使用 string 。
+可以将数组标识为 public，从而让 Solidity 创建一个 getter。 之后必须使用数字下标作为参数来访问 getter。
+创建数组规则 使用new在内存（memory）中创建动态数组，需声明长度，且在声明后不能修改数组的大小 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.4.16; contract Arr { function f(uint len) public pure { uint[] memory a = new uint[](7); bytes memory b = new bytes(len); // 这里我们有 a.length == 7 以及 b.length == len a[6] = 8; } } 数组字面常数是一种定长的 内存（memory） 数组类型，它的基础类型是由其中元素的类型决定。 例如，[1, 2, 3] 的类型是 uint8[3] memory，因为其中的每个字面常数的类型都是 uint8。 正因为如此，有必要将上面这个例子中的第一个元素转换成 uint 类型。 目前需要注意的是，定长的 内存memory 数组并不能赋值给变长的 内存memory 数组 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.4.16; contract C { function f() public pure { g([uint(1), 2, 3]); } function g(uint[3] _data) public pure { // ... } } // SPDX-License-Identifier: GPL-3.0 // 这段代码并不能编译。 pragma solidity ^0.4.0; contract C { function f() public { // 这一行引发了一个类型错误，因为 unint[3] memory // 不能转换成 uint[] memory。 uint[] x = [uint(1), 3, 4]; } } 数组成员 length: 数组有一个包含元素数量的length成员，memory数组的长度在创建后是固定的。 push(): 动态数组和bytes拥有push()成员，可以在数组最后添加一个0元素。 push(x): 动态数组和bytes拥有push(x)成员，可以在数组最后添加一个x元素。 pop(): 动态数组和bytes拥有pop()成员，可以移除数组最后一个元素。 // SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.4.16; contract ArrayContract { uint[2**20] m_aLotOfIntegers; // 注意下面的代码并不是一对动态数组， // 而是一个数组元素为一对变量的动态数组（也就是数组元素为长度为 2 的定长数组的动态数组）。 bool[2][] m_pairsOfFlags; // newPairs 存储在 memory 中 —— 函数参数默认的存储位置 function setAllFlagPairs(bool[2][] newPairs) public { // 向一个 storage 的数组赋值会替代整个数组 m_pairsOfFlags = newPairs; } function setFlagPair(uint index, bool flagA, bool flagB) public { // 访问一个不存在的数组下标会引发一个异常 m_pairsOfFlags[index][0] = flagA; m_pairsOfFlags[index][1] = flagB; } function changeFlagArraySize(uint newSize) public { // 如果 newSize 更小，那么超出的元素会被清除 m_pairsOfFlags.length = newSize; } function clear() public { // 这些代码会将数组全部清空 delete m_pairsOfFlags; delete m_aLotOfIntegers; // 这里也是实现同样的功能 m_pairsOfFlags.length = 0; } bytes m_byteData; function byteArrays(bytes data) public { // 字节的数组（语言意义中的 byte 的复数 ``bytes``）不一样，因为它们不是填充式存储的， // 但可以当作和 &#34;uint8[]&#34; 一样对待 m_byteData = data; m_byteData.length += 7; m_byteData[3] = byte(8); delete m_byteData[2]; } function addFlag(bool[2] flag) public returns (uint) { return m_pairsOfFlags.push(flag); } function createMemoryArray(uint size) public pure returns (bytes) { // 使用 `new` 创建动态 memory 数组： uint[2][] memory arrayOfPairs = new uint[2][](size); // 创建一个动态字节数组： bytes memory b = new bytes(200); for (uint i = 0; i &lt; b.length; i++) b[i] = byte(i); return b; } } 结构体（struct） Solidity 中的结构体与 c 语言、golang 很相似，通过构造结构体来定义一种新类型。
+// SPDX-License-Identifier: GPL-3.0 pragma solidity ^0.4.11; contract CrowdFunding { // 定义的新类型包含两个属性。 struct Funder { address addr; uint amount; } struct Campaign { address beneficiary; uint fundingGoal; uint numFunders; uint amount; mapping (uint =&gt; Funder) funders; //这是 映射 后续会讲到 } uint numCampaigns; mapping (uint =&gt; Campaign) campaigns; //这是 映射 后续会讲到 function newCampaign(address beneficiary, uint goal) public returns (uint campaignID) { campaignID = numCampaigns++; // campaignID 作为一个变量返回 // 创建新的结构体示例，存储在 storage 中。我们先不关注映射类型。 campaigns[campaignID] = Campaign(beneficiary, goal, 0, 0); } function contribute(uint campaignID) public payable { Campaign storage c = campaigns[campaignID]; // 以给定的值初始化，创建一个新的临时 memory 结构体， // 并将其拷贝到 storage 中。 // 注意你也可以使用 Funder(msg.sender, msg.value) 来初始化。 c.funders[c.numFunders++] = Funder({addr: msg.sender, amount: msg.value}); c.amount += msg.value; } function checkGoalReached(uint campaignID) public returns (bool reached) { Campaign storage c = campaigns[campaignID]; if (c.amount &lt; c.fundingGoal) return false; uint amount = c.amount; c.amount = 0; c.beneficiary.transfer(amount); return true; } } 上面的合约只是一个简化版的众筹合约，但它已经足以让我们理解结构体的基础概念。 结构体类型可以作为元素用在映射和数组中，其自身也可以包含映射和数组作为成员变量。
+尽管结构体本身可以作为映射的值类型成员，但它并不能包含自身。 这个限制是有必要的，因为结构体的大小必须是有限的。
+注意在函数中使用结构体时，一个结构体是如何赋值给一个局部变量（默认存储位置是 存储（storage） ）的。 在这个过程中并没有拷贝这个结构体，而是保存一个引用，所以对局部变量成员的赋值实际上会被写入状态。
+当然，你也可以直接访问结构体的成员而不用将其赋值给一个局部变量，就像这样， campaigns[campaignID].amount = 0。
+]]></content></entry><entry><title>玩以太坊链上项目的必备技能（类型-值类型-Solidity之旅二）</title><url>/article/158/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>值类型</tag></tags><content type="html"><![CDATA[以下这些类型在 Solidity 中都属于 值类型： * 布尔类型（bool）：字面常量值 true和 false * 整型（int/uint）：分为有符号整型int和无符号整形uint，这一点倒是和 c++、golang很相像。不管是无符号还有符号整数，它们都是以 8 位递增到 256 位，而int
+Solidity 在编译事需指定变量（状态变量和局部变量）。
+虽然 Solidity 受到了 c++、python以及 javascript 的影响，但 undefined和null是不存在的，当然咯，每个新声明的变量总是有默认值的，显然这默认值是跟其声明的类型相关的。
+而 Solidity 将类型统归纳为值类型、引用类型、映射类型。本文将先从值类型 讲起。
+值类型 ，顾名思义便是按值进行赋值变量或传递给函数，它们总是会将值拷贝（相对于指针传递，也可以说是引用传递）。
+以下这些类型在 Solidity 中都属于 值类型：
+布尔类型（bool）：字面常量值 true和 false 整型（int/uint）：分为有符号整型int和无符号整形uint，这一点倒是和 c++、golang很相像。不管是无符号还有符号整数，它们都是以 8 位递增到 256 位，而int和uint分别是int256和uint256的别名 定长浮点型：（fixed/ufixed）：目前 Solidity 还没完成地支持它，也就是可以在文件中声明这种类型，但却不能赋值给这种类型，同样也不能赋值给其他变量的。ufixedMxN 和 fixedMxN 中，M 表示该类型占用的位数，N 表示可用的小数位数。M 是从 8 位 到 256位 ，N 则可以是从 0 到 80 之间的任意数。 ufixed 和 fixed 分别是 ufixed128x19 和 fixed128x19 的别名。 地址类型（address）：这是 Solidity 特有的类型，存储 20 字节的值（以太坊地址大小）。不过，还有表示可支付的地址类型address payable，它与address类型相同，不过它有成员函数 transfer 和 send ，以便它可以方便进行以太币转账以及查询。 合约类型（constract）：也就是每定义一个constract，便是一个合约类型。 定长字节数组（bytes）：bytes1、bytes2、bytes3、...、bytes32。 有理数和整数字面常量：整数字面常量由范围在 0-9 的一串数字组成，表现成十进制。 例如， 69 表示数字 69。 Solidity 中是没有八进制的，因此前置 0 是无效的。 字符串字面常量及类型（string）:字符串字面常量是指由双引号或单引号引起来的字符串（ &quot;foo&quot; 或者 'bar'） Unicode 字面常量：常规字符串文字只能包含ASCII，而Unicode文字（以关键字unicode为前缀）可以包含任何有效的UTF-8序列。 它们还支持与转义序列完全相同的字符作为常规字符串文字。 十六进制字面常量：十六进制字面常量以关键字 hex 打头，后面紧跟着用单引号或双引号引起来的字符串（例如，hex&quot;001122FF&quot; ）。 字符串的内容必须是一个十六进制的字符串，它们的值将使用二进制表示。 枚举类型：枚举是在Solidity中创建用户定义类型的一种方法。 它们是显示所有整型相互转换，但不允许隐式转换。 从整型显式转换枚举，会在运行时检查整数时候在枚举范围内，否则会导致异常（ Panic异常]）。 枚举需要至少一个成员,默认值是第一个成员，枚举不能多于 256 个成员。 用户定义的值类型：一个用户定义的值类型允许在一个基本的值类型上创建一个零成本的抽象。 这类似于一个别名，但有更严格的类型要求。 函数类型：函数类型是一种表示函数的类型。可以将一个函数赋值给另一个函数类型的变量，也可以将一个函数作为参数进行传递，还能在函数调用中返回函数类型变量。 函数类型有两类： - 内部（internal） 函数类型 - 外部（external） 函数类型 布尔类型（bool） 它是一种非真即假二选一值类型，其取值为true和fase。
+// 布尔运算 bool public flag1 = !flag; //取非 bool public flag2 = flag &amp;&amp; flag1; //与 bool public flag3 = flag || flag1; //或 bool public flag4 = flag == flag1; //相等 bool public flag5 = flag != flag1; //不相等 整数 // 整型 int public num = -7; // 整数，包括负数 uint public unum = 7; // 正整数 uint256 public big_num = 20221206; // 256位正整数 地址类型 这是一个 Solidity 特有的类型，用于存储合约地址，而地址又可细分为普通地址和可支付地址两类。
+这种区别背后的思想是 address payable 可以向其发送以太币，而不能先一个普通的 address 发送以太币，例如，它可能是一个智能合约地址，并且不支持接收以太币。
+允许从 address payable 到 address 的隐式转换，而从 address 到 address payable 必须显示的转换, 通过 payable(&lt;address&gt;) 进行转换。
+// 地址 address public address1 = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4; address payable public address2 = payable(address1); // payable address，可以转账、查余额 // 地址类型的成员 uint256 public balance = address1.balance; // balance of address 定常字节数组 你可能也猜到了，没错，既然有定长字节数组，那么便会有不定长字节数组咯！是的，其实字节数组（bytes)分为定长字节数组和不定长字节数组两类，而不定长字节数组属于引用类型，所以放在后面讲。且定常字节数组存放数据，消耗燃料（gas）比较少。
+// 固定长度的字节数组 bytes32 public webSite = &#34;qiucode.cn&#34;; bytes1 public myByte = webSite[0]; 枚举（enum） 枚举是在Solidity中创建用户定义类型的一种方法。 它们是显示所有整型相互转换，但不允许隐式转换。 从整型显式转换枚举，会在运行时检查整数时候在枚举范围内，否则会导致异常（ Panic异常 ）。 枚举需要至少一个成员,默认值是第一个成员，枚举不能多于 256 个成员。
+enum ActionChoices { GoLeft, GoRight, GoStraight, SitStill } // 创建enum变量 action ActionChoices action = ActionChoices.GoLeft; 用户定义的值类型 一个用户定义的值类型允许在一个基本的值类型上创建一个零成本的抽象。 这类似于一个别名，但有更严格的类型要求。
+用户定义值类型使用 type C is V 来定义，其中 C 是新引入的类型的名称， V 必须是内置的值类型（”底层类型”）。 函数 C.wrap 被用来从底层类型转换到自定义类型。同样地，函数函数 C.unwrap 用于从自定义类型转换到底层类型。
+类型 C 没有任何运算符或绑定成员函数。特别是，即使是操作符 == 也没有定义。也不允许与其他类型进行显式和隐式转换。
+自定义类型的值的数据表示则继承自底层类型，并且ABI中也使用底层类型。
+函数类型 函数类型是一种表示函数的类型。可以将一个函数赋值给另一个函数类型的变量，也可以将一个函数作为参数进行传递，还能在函数调用中返回函数类型变量。 函数类型有两类： - 内部（internal） 函数类型 - 外部（external） 函数类型
+内部函数只能在当前合约内被调用（更具体来说，在当前代码块内，包括内部库函数和继承的函数中），因为它们不能在当前合约上下文的外部被执行。 调用一个内部函数是通过跳转到它的入口标签来实现的，就像在当前合约的内部调用一个函数。
+外部函数由一个地址和一个函数签名组成，可以通过外部函数调用传递或者返回。
+function &lt;function name&gt;(&lt;parameter types&gt;) {internal|external|public|private} [pure|view|payable] [returns (&lt;return types&gt;)] { } function：声明函数时的固定用法，想写函数，就要以function关键字开头。
+&lt;function name&gt;：函数名。
+(&lt;parameter types&gt;)：圆括号里写函数的参数，也就是要输入到函数的变量类型和名字。
+{internal|external|public|private} ：函数可见性说明符，一共4种。没标明函数类型的，默认
+internal 。
+public: 内部外部均可见。(也可用于修饰状态变量，public变量会自动生成 getter函数，用于查询数值). private: 只能从本合约内部访问，继承的合约也不能用（也可用于修饰状态变量）。 external: 只能从合约外部访问（但是可以用this.f()来调用，f是函数名） internal: 只能从合约内部访问，继承的合约可以用（也可用于修饰状态变量）。 [pure|view|payable]：决定函数权限/功能的关键字。payable（可支付的）很好理解，带着它的函数，运行的时候可以给合约转入ETH。constant pure 不能读取也不能写入存储在链上的状态变量。view能读取但也不能写入状态变量。
+[returns (&lt;return types&gt;)]：函数返回的变量类型和名称。
+与参数类型相反，返回类型不能为空 —— 如果函数类型不需要返回，则需要删除整个 returns (&lt;return types&gt;) 部分。
+函数类型默认是内部函数，因此不需要声明 internal 关键字。 请注意，这仅适用于函数类型，合约中定义的函数明确指定可见性，它们没有默认值。
+类型转换：
+函数类型 A 可以隐式转换为函数类型 B 当且仅当: 它们的参数类型相同，返回类型相同，它们的内部/外部属性是相同的，并且 A 的状态可变性比 B 的状态可变性更具限制性，比如：
+pure 函数可以转换为 view 和 non-payable 函数 view 函数可以转换为 non-payable 函数 payable 函数可以转换为 non-payable 函数 关于 payable 和 non-payable 的规则可能有点令人困惑，但实质上，如果一个函数是 payable ，这意味着它 也接受零以太的支付，因此它也是 non-payable 。 另一方面，non-payable 函数将拒绝发送给它的 以太币Ether ， 所以 non-payable 函数不能转换为 payable 函数。
+如果当函数类型的变量还没有初始化时就调用它的话会引发一个 Panic 异常。 如果在一个函数被 delete 之后调用它也会发生相同的情况。
+如果外部函数类型在 Solidity 的上下文环境以外的地方使用，它们会被视为 function 类型。 该类型将函数地址紧跟其函数标识一起编码为一个 bytes24 类型。。
+请注意，当前合约的 public 函数既可以被当作内部函数也可以被当作外部函数使用。 如果想将一个函数当作内部函数使用，就用 f 调用，如果想将其当作外部函数，使用 this.f 。
+一个内部函数可以被分配给一个内部函数类型的变量，无论定义在哪里，包括合约和库的私有、内部和public函数，以及自由函数。 另一方面，外部函数类型只与public和外部合约函数兼容。库是不可以的，因为库使用 delegatecall，并且 [他们的函数选择器有不同的 ABI 转换 。 接口中声明的函数没有定义，所以指向它们也没有意义。
+]]></content></entry><entry><title>玩以太坊链上项目的必备技能（初识智能合约语言-Solidity之旅一）</title><url>/article/157/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>在线编辑器</tag><tag>remix</tag></tags><content type="html"><![CDATA[Solidity是静态类型的，支持继承、库和复杂的用户定义类型以及其他功能。 使用Solidity，您可以为投票、众筹、盲目拍卖和多签名钱包等用途创建合约。 在部署合约时，你应该使用最新发布的 Solidity 版本。除了特殊情况外，只有最新版本才会收到安全修复。此外，突破性的变化以及新的
+前面一篇关于智能合约翻译文讲到了，是一种计算机程序，既然是程序，那就可以使用程序语言去编写智能合约了。
+而若想玩区块链上的项目，大部分区块链项目都是开源的，能看得懂智能合约代码，或找出其中的漏洞，那么，学习Solidity这门高级的智能合约语言是有必要的，当然，这都得在公链 以太坊上，毕竟国内的联盟链有些是不兼容Solidity。
+Solidity 是一种面向对象的高级语言，用于实现智能合约。智能合约是管理以太坊状态下的账户行为的程序。
+Solidity 是运行在以太坊（Ethereum）虚拟机（EVM）上，其语法受到了c++、python、javascript影响。
+Solidity是静态类型的，支持继承、库和复杂的用户定义类型以及其他功能。
+使用Solidity，您可以为投票、众筹、盲目拍卖和多签名钱包等用途创建合约。
+在部署合约时，你应该使用最新发布的 Solidity 版本。除了特殊情况外，只有最新版本才会收到安全修复。此外，突破性的变化以及新的功能会定期引入。我们目前使用0.y.z版本号来表示这种快速变化的速度。
+Solidity 具有以下两个显著特征（纯属笑谈，别太在意）：
+1、面向对象：学会之后能挣钱去找对象 2、在币圈混：不会 Solidity ，在圈内显得是那么 low，“瞧，那家伙不会 Solidity，还想混币圈！” 在线编辑器 remix 工欲善其事，必先利其器。 这句话是很有道理的，不管做什么事或在学习新事物，都要准备好工具，学习新事物也是一样的。
+打开浏览器，在地址栏输入 remix.ethereum.org 打开后的默认界面，包含 Solidity 示例。首次打开可能没那么快，这毕竟国外的站点。
+我们在当前工作空间新建一个 solidity 文件，注意，是以sol作为文件的后缀名。
+// SPDX-License-Identifier: MIT pragma solidity ^0.8.7; contract MyToken{ string public webSite = &#34;Welcome to qiucode.cn&#34;; } 代码分析：
+solidity 也和大多数编程一样，也是使用//作为程序的注释，而本实例中的第一行其实是表明该合约所用的软件许可（license），这里用的是MIT license。如果不写许可，编译时会警告（warning），但程序可以运行。
+// SPDX-License-Identifier: MIT 而第 2 行 则声明了合约所使用的 solidity 版本，毕竟 solidity 正处于发展阶段，更新迭代比较频繁，不同的版本之间各有差异。这行代码意思是源文件将不允许小于 0.8.7 版本或大于等于 0.9.0 版本的编译器编译（第二个条件由^提供）。Solidity 语句以分号（;）结尾。
+pragma solidity ^0.8.7; 第3-4行是合约部分，第3行创建合约（contract），并声明合约的名字 MyToken。第4行是合约的内容，我们声明了一个string（字符串）状态 webSite，并给他赋值 “Welcome to qiucode.cn”。
+contract MyToken{ string public webSite = &#34;Welcome to qiucode.cn&#34;; } 编译需要点时间，直到出现了绿色小图标，就说明编译成功了。
+现在可以不受测试下看看效果如何。
+]]></content></entry><entry><title>在构建 Web3 前，需先知道什么是区块链，毕竟 Web3 是基于区块链</title><url>/article/156/</url><categories><category>Web3</category><category>区块链</category></categories><tags><tag>区块链</tag><tag>Web3</tag></tags><content type="html">通俗来说，区块链本质上是一个去中心化的数据仓储，也就是每个人都保留着这个账本，可以认为它是一套加密的分布式超级账本。 比特币是基于区块链技术的第一个应用，也是目前最成功的一个应用。
+什么是区块链 要说什么是区块链，那么这里就不得不提比特币了，它是一种点对点（Peer to Peer，P2P）形式的去中心化加密货币，点对点的传输意味着是一个去中心化的支付系统。比特币的概念最初是由中本聪在2008年10月31日提出，于2009年1月3日，中本聪用个人电脑挖出了世界上第一批块比特币（也称创世区块），由此正式宣告了比特币的诞生。
+由于2008年的金融危机爆发的原因，比特币之父中本聪才想要构建一套不受中心化机构控制的电子货币，他构思底层时决定抛弃中心化数据存储，设计出强去中心化的底层机制。而这种机制是所有人都可以参与进来，相互平等，没有任何的中心化团队或者机构干预，且数据一旦记录，是没有办法去篡改的。
+随着时间不断地向前移动，人们逐渐发现比特币底层的这套机制优势越来越明显了，换句话说，即便是创始人不在了，它照样运行下去，既然这套机制有这么多优势，何不把它从比特币底层提取出来呢？
+那么，区块链是不是由中本聪创造的呢？其实不是的，他只是在前人的基础进行发扬光大，可以说是站在巨人的肩膀上，那是不愁吃穿啊！（当然咯，天赋是很重要的哦，要不然我也不会在这里发文了）。
+前提概要说的差不多了，到这里您想必总算知道区块链是怎么来的吧！若您还是一头雾水，或是说，您本还有点头绪，可看了上面那些文字更懵了。没事的，既然上面的文字没能让您看明白，那就忽略上段文字，直接来了解到底什么、是区块链？
+通俗来说，区块链本质上是一个去中心化的数据仓储，也就是每个人都保留着这个账本，可以认为它是一套加密的分布式超级账本。
+比特币是基于区块链技术的第一个应用，也是目前最成功的一个应用。
+而区块链最为显著地特点便是去中心化了。
+举几个生活中常见的中心化例子，想必您也就明白l了。
+我们平时存钱或是单位/公司发放工资时，所有的交易都在银行，因为老百姓信任它，若不然把存入自己家中的保险柜中。
+不管是工作还是生活，如今的人们恐怕很难脱离微信了吧！当然咯，QQ还是年轻一代的社交工具，如YYDS这种中文拼音缩写不正是这些年轻一代交流的方式嘛，也有人对这种中文拼音缩写很不屑，其中也包括年轻一代的他们，“中文都没说好，还什么yyds！”。且不说他们如何探讨，我们在微信或QQ等（这里使用了等字，没有列出其他社交软件，因为这两款社交应用可以说是独霸江湖了！）社交软件的聊天记录以及其他数据是保存在腾讯服务器上的，虽然，腾讯一直对外宣称：”我们不保留数据，但如果法律方面要求，会配合部门调取聊天记录的！“。
+前几年春晚有关于我怎么证明是我的小品（老一辈艺术家黄宏，好像是），若你没有观看春晚的习惯，那就另当别论咯。故事讲述我该怎么证明是我，而有办法证明我就是我便是家中小箱子里的各种证书，可这时却发现钥匙找不到了，无奈只得找来开锁公司，然而开锁公司的工作人员一见到竟是个小箱子，便笑道：”这就是一锤子的事，找我们来不大材小用了吗！“，来都来了，工作人员索性从工具箱掏出锤子，叮叮哐哐锤了好几下，锁脱落了，打开箱子的那一刹那间，要求我证明是我的公职人员傻眼了，最后，那个被要求我怎么证明是我的人对那个公职人大声说道：‘这么多证书，可以证明我就是我了吧！”。
+虽然这是春晚上的小品，但这正是生活发生的啼笑皆非的荒唐事，岂不知艺术源于生活，而高于生活，小品只是让事件更加生动、富有感染力而已。
+若有根据区块链生成的记录来判断真伪，也就不需在担心某些地方某些渎职、故意刁难人的公职人员来向您索要什么你怎么证明是你、毕业证明等等之类的问题了。
+而区块链这种去中心化底层技术，打破了极少数互联网巨头/机构掌控数据的中心化。
+“区块“指的是数据和状态是按顺序批量或”区块”存储的。
+“**链”**指的是每个区块加密引用其父块。 换句话说，区块被链接在一起。 在不改变所有后续区块的情况下，区块内数据是无法改变，但改变后续区块需要整个网络的共识。
+网络中的每台计算机都必须就每个新区块和链达成一致。 这些计算机被称为“节点”。 节点保证所有与区块链交互的人都有相同的数据。 要完成此分布式协议，区块链需要一个共识机制。</content></entry><entry><title>Web3 来了，让我们展开双手拥抱它吧！</title><url>/article/155/</url><categories><category>Web3</category><category>区块链</category></categories><tags><tag>区块链</tag><tag>Web3</tag></tags><content type="html">Web3 以前所未有的方式赋予你数字资产的所有权。 例如，假设您正在玩一个 Web2 游戏。 如果您购买游戏内物品，它会直接与您的帐户绑定。 如果游戏创建者删除您的帐户，您将丢失这些物品。 或者如果您停止玩游戏，您将失去投资到游戏内物品的价值。
+Web3的由来 在介绍Web3概念，有必要阐述下当下的网络世界。而如今的互联网正处于Web2阶段，其已经帮助数以亿计的人融入这个互联网大家庭，可在网络上构建可靠、稳定的基础设施。然而也正是Web2中心化网络成就了极少数互联网巨头，他们几乎垄断了互联网，由于数据都保存在中心网络内，以至于那些手头拥有数据的中心化巨头，可以为所欲为，完全没有考虑到用户的感受！
+也正是因为Web2中心化网络，只有极少数互联网巨头拥有了大部分人的数据，让用户感到自己的数据不应该存在中心化网络上，所以，去中心化Web3应运而生，使得用户对数据有拥有权，这一点很重要，它是区别于Web2中心化网络的关键要素，也就是说，Web3不仅可以对数据读写，还能拥有数据。比如：起点中文网新更改的合同，合同大致是，以后要是在阅文集团旗下攥写小说，其著作权竟不属于小说作者，而是属于阅文集团，哇擦，这是什么合同啊？当然咯，此合同一经发布，起点众多大神（起点网对小说作者级别称呼）纷纷断更（网络戏称：”五五断更节“，因为那天正是 5月5号），没过几天，起点某大神在网络上发起众筹，另起炉灶搭建了一个新的小说站点（息壤中文网）。若是小说平台是处于Web3去中心化网络，起点中文网还能不能那样为所欲为呢？
+Web 1：只读（1990~2004） 当然咯，我没见过Web 1所带来的互联网是怎么样的？想必，正在屏幕前浏览这篇文章的你，也是没见过Web 1，倘若你见过，那就当我没说过。Web 1阶段，说白了，就是用户只能浏览页面，不能在界面输入自己对该篇文章的理解。可以理解为企业/公司拥有其静态网站，用户只能看，不能与之进行交互。
+Web 2：能读写（2004~至今） 由于Web 1只读不写的缺陷，Web 2弥补了Web 1不能写的不足。也正是这个Web 2阶段，互联网不再是只读，还可以向用户提供平台让其创作内容。Web 2也让越来越多的人蜂拥互联网，这其中不乏产生出了独角兽，当然咯，成功的人是少数的，也正是这些极少数的独角兽互联网巨头逐渐开始掌控海量的流量以及其内容产生的价值。比如：2005年，QQ推出了QQ空间功能，用户可以在自己的空间发表内容了。这也正是有别于QQ刚发布的那会儿。
+Web 2还催生了广告驱动的盈利模式，虽然此时的用户可以在平台上创作内容，然而他们却不能拥有自己创作的内容，以及自己无法在该平台下将内容变现。
+Web 3：既能读写，又能拥有（未来） 其实Web 3概念早在 2014就被提出了，而提出这一概念的正是以太坊联合创始人Gavin Wood，当时，以太坊才发布没多久。Gavin Wood为许多早期加密技术采用者所面临的问题，即互联网需要过多的信任，提供了一种解决方案。可以认为当下使用的互联网服务都依赖于对极少数互联网公司的信任，期待他们能以公众的最佳利益行事。
+Web 3已成为一个包罗万象的术语，期望构建一个新的、更好的互联网。说到底，Web 3是通过区块链、加密货币以及非同质化代币将权力以所有权归还给用户。
+Web 3 核心思想 **Web3 是去中心化的：**大部分互联网不是由中心化实体控制和拥有的，而是由构建者和用户分配所有权。 **Web3 无需许可：**每个人都有参与 Web3 的平等权限，没有人被排除在外。 **Web3 具有原生支付功能：**它使用加密货币进行线上消费和汇款，而不是依赖传统银行或第三方支付机构过时的基础设施。 **Web3 无需信任：**它通过激励措施和经济机制运转，而不是依赖受信任的第三方。 所有权 Web3 以前所未有的方式赋予你数字资产的所有权。 例如，假设您正在玩一个 Web2 游戏。 如果您购买游戏内物品，它会直接与您的帐户绑定。 如果游戏创建者删除您的帐户，您将丢失这些物品。 或者如果您停止玩游戏，您将失去投资到游戏内物品的价值。
+Web3 允许通过[非同质化代币 (NFT)] 直接拥有所有权。 任何人甚至是游戏创作者，都没有权力剥夺您的所有权。 而且，如果您停止玩这个游戏，您可以在公开市场上出售或交易您的游戏内物品并收回它们的价值。
+抗审查 平台和内容创作者之间的权力关系严重失衡。
+OnlyFans 是一个由用户生产内容的成人网站，拥有 100 多万内容创作者，其中许多人将该平台作为他们的主要收入来源。 2021 年 8 月，OnlyFans 宣布了禁止色情内容的计划。 这个公告在平台创作者中引发了愤怒，他们感觉自己在帮助创建了平台后被剥夺了收入。 在遭遇强烈反对之后，这个决定很快被推翻。 尽管创作者赢得了这场战斗，但它突显了 Web 2.0 创作者的一个困境：如果离开一个平台，就会失去在平台积攒的声誉和关注。
+在 Web3，您的数据位于区块链上。 当您决定离开一个平台时，您可以将您的声誉带走，将其带进另一个更符合您的价值观的平台。
+Web 2.0 需要内容创作者信任平台不会更改规则，但抗审查则是 Web3 平台的原生特性。
+去中心化自治组织 (DAO) 在 Web3 中，除了拥有你的数据之外，通过使用类似于公司股票的代币，你还可以作为集体中的一员拥有这个平台。 去中心化自治组织让你可以协调平台的分散化所有权，以及对平台的未来做出决策。
+去中心化自治组织在技术上被定义为事先商定的智能合约，可以自动决定资源池（代币）的去中心化决策。 拥有代币的用户对资源的使用方式进行投票，代码自动执行投票结果。
+然而，许多 Web3 社区都被定义为去中心化自治组织。 这些社区都通过代码实现了不同程度的去中心化和自动化。 目前，我们仍在探索去中心化自治组织是什么以及它们在未来会如何发展。
+身份 通常，你需要为使用的每个平台创建一个帐户。 例如，你可能有 Twitter 帐户、YouTube 帐户和 Reddit 帐户。 想要更改你的显示名称或个人资料图片？ 你必须在每个帐户中执行此操作。 在某些情况下，你可以使用社交媒体帐户登录，但这会带来一个常见的问题—审查。 只需点一下，这些平台就可以封锁你的整个线上生活。 更糟糕的是，许多平台要求你给他们提供你的个人识别信息才能创建帐户。
+Web3 允许你使用以太坊地址和以太坊域名服务配置文件控制你的数字身份，从而解决了这些问题。 使用以太坊地址可以提供跨平台单点登录，这种登录安全、抗审查并且匿名。
+原生支付功能 Web2 的支付基础设施依赖于银行和第三方支付机构，这就把没有银行账户或碰巧生活在某些“不好”国家/地区的人排除在外。 Web3 使用诸如[以太币)之类的代币直接在浏览器中汇款，不需要受信任的第三方。</content></entry><entry><title>Go 语言中的 Moduels 管理（Let's Go 三十四）</title><url>/article/154/</url><categories><category>golang</category></categories><tags><tag>golang</tag><tag>区块链</tag></tags><content type="html"><![CDATA[在 Go 1.11以前使用包管理一直被开发者所诟病。既然GOPATH这种包管理引起了一线开发者的一片骂声，所以，Go官方体恤一线开发者对GOPATH这种包管理的情绪，一直致力努力提供对一线开发者友好的包管理解决方法而奋斗。从最初的GOPATH到
+在 Go 1.11以前使用包管理一直被开发者所诟病。既然GOPATH这种包管理引起了一线开发者的一片骂声，所以，Go官方体恤一线开发者对GOPATH这种包管理的情绪，一直致力努力提供对一线开发者友好的包管理解决方法而奋斗。从最初的GOPATH到GO VENDOR，再到现在最新的GO MODULES，这期间，Go 官方不免走了很多弯路，但展现在我们跟的GO MODULES已是很像样的模块管理了。
+在命令行窗口输入 go env命令，可以看到，多了个GO111MODULE变量，111是代表Go 1.11版本提出来的。
+它有三个可选值：off、on、auto，默认值是auto。
+GO111MODULE=off禁用模块支持，编译时会从GOPATH和vendor文件夹中查找包。 GO111MODULE=on启用模块支持，编译时会忽略GOPATH和vendor文件夹，只根据 go.mod下载依赖。 GO111MODULE=auto，当项目在$GOPATH/src外且项目根目录有go.mod文件时，自动开启模块支持。 ``GO111MODULE在Go 1.13`版本之后默认是开打的。
+go mod 依赖管理 go mod不再依靠$GOPATH，以至于它可以不必在$GOPATH目录创建 Go 项目。
+依次在该目录创建文件夹和main.go文件。
+使用以下命令自动生成go.mod文件。
+go mod init github.com/zhenqi/module-main 编辑main.go文件，输入以下内容。
+package main import ( log &#34;github.com/sirupsen/logrus&#34; ) func main(){ log.WithFields(log.Fields{ &#34;animal&#34;: &#34;walrus&#34; }).Info(&#34;A walrus appears&#34;) } 由于使用了第三方依赖库，需要先下载依赖库。
+go get github.com/sirupsen/logrus 执行该语句会报错。
+这是由于自Go 1.13以后的版本，GOPROXY默认值为proxy.golang.org，很不巧，这个地址在国内却无法访问啊！那该怎么办呢？好在国内大厂商提供了镜像，那便是 七牛云 推出的 goproxy.cn，好让国内开发者更好的使用GO MODULES。
+go env -w GOPROXY=https://goproxy.cn,direct 再次运行go get github.com/sirupsen/logrus命令，可以看到，正在下载第三方依赖。
+打开go.mod文件，明显追加了几行内容。
+]]></content></entry><entry><title>Go 语言中的包（Let's Go 三十三）</title><url>/article/153/</url><categories><category>golang</category></categories><tags><tag>golang</tag><tag>区块链</tag><tag>package</tag><tag>包</tag></tags><content type="html"><![CDATA[Go语言的包借助了目录树的组织形式，一般包的名称就是其源文件所在目录的名称，虽然Go语言没有强制要求包名必须和其所在的目录名同名，但还是建议包名和所在目录同名，这样结构更清晰。
+Go语言的包借助了目录树的组织形式，一般包的名称就是其源文件所在目录的名称，虽然Go语言没有强制要求包名必须和其所在的目录名同名，但还是建议包名和所在目录同名，这样结构更清晰。
+包可以定义在很深的目录中，包名的定义是不包括目录路径的，但是包在引用时一般使用全路径引用。比如在GOPATH/src/a/b/下定义一个包 c。在包 c 的源码中只需声明为package c，而不是声明为package a/b/c，但是在导入 c 包时，需要带上路径，例如import &quot;a/b/c&quot;。
+包的习惯用法：
+包名一般是小写的，使用一个简短且有意义的名称。 包名一般要和所在的目录同名，也可以不同，包名中不能包含-等特殊符号。 包一般使用域名作为目录名称，这样能保证包名的唯一性，比如 GitHub 项目的包一般会放到GOPATH/src/github.com/userName/projectName目录下。 包名为 main 的包为应用程序的入口包，编译不包含 main 包的源码文件时不会得到可执行文件。 一个文件夹下的所有源码文件只能属于同一个包，同样属于同一个包的源码文件不能放在多个文件夹下。 导入包 使用 import 关键字可以导入自定义包或第三方包。
+import &#34;包路径&#34; //包路径是相对于 GOPATH 而包的导入又可以有两种写法。
+单行倒入 import &#34;包A的路径&#34; import &#34;包B的路径&#34; 多行导入 import ( &#34;包A的路径&#34; &#34;包B的路径&#34; ) 包的引用格式 1)、标准引用格式 import &#34;fmt&#34; 这样便可以使用fmt.来引用fmt包中的方法。
+package main import &#34;fmt&#34; func main() { fmt.Println(&#34;Welcome to https://qiucode.cn&#34;) } 2）、别名引用格式 在导入包时，可以给导入的这个包起个别名。
+import f &#34;fmt&#34; 3）、省略引用格式 使用.省略了包名.来访问包内方法。
+import . &#34;fmt&#34; 4)、匿名引用格式 在前面介绍过可以使用_来忽略变量，若用在导入包的时候，只是执行了该包的init()。
+import ( &#34;fmt&#34; _ &#34;time&#34; ) ]]></content></entry><entry><title>关于 本站点 的一些秘闻</title><url>/about/</url><categories/><tags/><content type="html">Hugo NexT 组织是由众多喜爱 NexT 主题及风格的世界各地友人共同组建而成，为的就是让这个主题继续在 Hugo 引擎中也能得到发扬光大，在此也欢迎你的加入！
+关于博主
+这该怎么介绍呢？按简介说是‘一个游离于山间之上的Java爱好者’，其实这样说也不为过， 的确是一个Java从业者。然这只是他爱好之一，他对中国历史很是推崇备至，尤其是先秦时期， 特别是春秋战国那段历史，那时候诸子百家，思想空前。而此后便从未有过像春秋战国这样的思想辩论了， 虽说春秋战国时期也有过勾心斗角，但这段历史却没有像后续各个王朝内的奸佞小人与忠臣间的攻于心计来的凶狠。 他还偏爱书法，优爱草书，但苦于无闲暇之余，故许久未曾研习书法，待他日得空，必当重习书法，书体不限！ 除了历史、书法，他还是个文字控，尤其是对古文、古诗词特喜好，每每读到绝佳好词、好诗，他都会将其抄录下来。 当然抛去以上种种爱好，他还想立志成为一个小说家呢，这都是后话了……
+秋码记录
+其实很早之前就有想弄一个属于自己的网站，但由于种种原因吧，最终也就没建成。时间追溯到2018年10月初， 国庆期间，放假闲暇之余偶然浏览了Layui官网，在其案例页面内浏览了 诸多使用Layui快速搭起了个人博客，在浏览之余，觉得使用Layui 搭建的个人博客界面看上去很是优美，故而自己便马上着手准备开干起来。说干就干，先买了个服务器。而后又注册了 qiucode.cn域名，随后一个基于Springboot2.x+Mybatis+Mysql5.7，前端使用Layui 的个人博客便部署到了服务器上。现在从某种意义上来说，暂且称为【秋码记录】第一版吧！这一版的博客源码也已于 2019年06月27日开源了，源于开源，回馈于开源！ Github地址： https://github.com/zhenqicai/qiucodeBlog 码云地址： https://gitee.com/zhenqi/qiucodeBlog qiucode-ui
+基于Vue2.x开发的一套UI组件库，主要是学习Vue2.x。github地址： https://github.com/zhenqicai/qiucodeUI qiucode-ui在线文档地址： https://zhenqicai.github.io/qiucodeUI-docs 同一地方
+首部文学作品发表 起点中文网 ，笔名：上官江南。初写或许可能并不是写的那么的好，但既然写了，就会把它写好，写完， 不管怎样都会坚持写下去的。更多的是以 起点中文网 作为锻炼文学功底的平台。
+联系方式
+公众号：你我杂志刊
+QQ： 2834491983</content></entry><entry><title>友情链接</title><url>/flinks/</url><categories/><tags/><content type="html">如想交换本站友情链接，请在评论区留下你的站点信息，格式参考如下：
+- name: 秋码记录 desc: 一个游离于山间之上的Java爱好者 avatar: https://qiucode.cn/static/front/images/qiu-logo.png link: https://qiucode.cn</content></entry></search>
