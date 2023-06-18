@@ -1,0 +1,297 @@
+<!doctype html><html lang=zh-cn data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width"><meta name=theme-color content="#222" media="(prefers-color-scheme: dark)"><meta name=generator content="Hugo 0.111.3"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_16x16_next.png><link rel=icon type=image/png sizes=32x32 href=/imgs/icons/favicon_32_32_next.png><link rel=apple-touch-icon sizes=180x180 href=/imgs/icons/apple_touch_icon_next.png><meta itemprop=name content="Chrome扩展程序开发入门（基于 V3）"><meta itemprop=description content="Chrome扩展程序开发入门（基于 V3）"><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="/imgs/qiu-logo.png"><meta itemprop=keywords content="Chrome扩展,Chrome V3"><meta property="og:type" content="article"><meta property="og:title" content="Chrome扩展程序开发入门（基于 V3）"><meta property="og:description" content="Chrome扩展程序开发入门（基于 V3）"><meta property="og:image" content="/imgs/qiu-logo.png"><meta property="og:image:width" content="312"><meta property="og:image:height" content="312"><meta property="og:image:type" content="image/jpeg/png/svg/jpg"><meta property="og:url" content="/article/113/"><meta property="og:site_name" content="Hugo NexT"><meta property="og:locale" content="zh-CN"><meta property="article:author" content="上官江北"><meta property="article:published_time" content="2022-03-08 06:05:48 +0000 +0000"><meta property="article:modified_time" content="2022-03-08 06:05:48 +0000 +0000"><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/font-awesome/6.1.2/css/all.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.css><link rel=stylesheet href=/css/main.min.72b25de83b6dc94f3b73b5668a21621338ff8c9d12767cbf13e9edec5f9c0057.css><style type=text/css>.post-footer,.flinks-list-footer hr:after{content:"~ 我可是有底线的哟 ~"}</style><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return void 0;const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),void 0):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script class=next-config data-name=page type=application/json>{"comments":true,"isHome":false,"isPage":true,"path":"113","permalink":"/article/113/","title":"Chrome扩展程序开发入门（基于 V3）"}</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>Chrome扩展程序开发入门（基于 V3） - Hugo NexT</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label=切换导航栏 role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><img class="brand custom-logo-image" src=/imgs/qiu-logo.png alt="Hugo NexT"></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-about"><a href=/about/ class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于本站</a></li><li class="menu-item menu-item-flinks"><a href=/flinks/ class=hvr-icon-pulse rel=section><i class="fa fa-thumbs-up hvr-icon"></i>友情链接</a></li><li class="menu-item menu-item-archives"><a href=/archives/ class=hvr-icon-pulse rel=section><i class="fa fa-archive hvr-icon"></i>归档
+<span class=badge>95</span></a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><ul><li><a href=#1chrome插件与chrome扩展的区别>1、Chrome插件与Chrome扩展的区别？</a></li><li><a href=#2如何开发一个-chrome-扩展->2、如何开发一个 Chrome 扩展 ？</a></li><li><a href=#3注册后台脚本>3、注册后台脚本</a></li><li><a href=#4创建后台脚本>4、创建后台脚本</a></li><li><a href=#5添加存储权限>5、添加存储权限</a></li><li><a href=#6检查后台脚本>6、检查后台脚本</a></li><li><a href=#7引入用户界面>7、引入用户界面</a></li><li><a href=#8逻辑内容>8、逻辑内容</a></li><li><a href=#9给用户选项>9、给用户选项</a></li></ul></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image6666 itemprop=image alt=上官江北 src=/imgs/img-lazy-loading.gif data-src=/imgs/qiu-logo-desc.png></div><div class="site-state-wrap site-overview-item animated"><nav class=site-state><div class="site-state-item site-state-posts"><a href=/archives/><span class=site-state-item-count>95</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>33</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>192</span>
+<span class=site-state-item-name>标签</span></a></div></nav></div><div class="links-of-social site-overview-item animated"></div></div></div></div><div id=siteinfo-card-widget class=sidebar-card-widget><div class=item-headline><i class="fas fa-chart-line"></i>
+<span>网站资讯</span></div><div class=siteinfo><div class=siteinfo-item><div class=item-name><i class="fa-solid fa-calendar-check"></i>已运行：</div><div class=item-count id=runTimes data-publishdate=2019-06-22T03:18:26+00:00></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-user"></i>总访客数：</div><div class=item-count id=busuanzi_value_site_uv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-eye"></i>页面浏览：</div><div class=item-count id=busuanzi_value_site_pv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-font"></i>总字数：</div><div class=item-count id=wordsCount data-count=97639></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-mug-hot"></i>阅读约：</div><div class=item-count id=readTimes data-times=242></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-clock-rotate-left"></i>最后更新于：</div><div class=item-count id=last-push-date data-lastpushdate=2022-12-28T20:21:06+08:00></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-comments class="button goto-comments" title=直达评论><i class="fas fa-comments"></i></div><div id=goto-gtranslate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><div class=reading-progress-bar></div><a role=button class="book-mark-link book-mark-link-fixed"></a>
+<script type=text/javascript src=//sidecar.gitter.im/dist/sidecar.v1.js async></script>
+<script type=text/javascript>((window.gitter={}).chat={}).options={room:"hugo-next/community"}</script><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=/article/113/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content="/imgs/qiu-logo-desc.png"><meta itemprop=name content="上官江北"></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content="上官江北"><meta itemprop=description content="喜欢登山、书法、爱折腾新技术的互联网爱好者"></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="Chrome扩展程序开发入门（基于 V3）"><meta itemprop=description content="Chrome扩展程序开发入门（基于 V3）"></span><header class=post-header><h1 class=post-title itemprop="name headline">Chrome扩展程序开发入门（基于 V3）
+<a href=https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/post/113.md rel="noopener external nofollow noreferrer" target=_blank class="exturl post-edit-link" title=编辑><i class="fa fa-pen-nib"></i></a></h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar"></i></span>
+<span class=post-meta-item-text>发表于：</span>
+<time title="发表于：2022-03-08 06:05:48 +0000 +0000" itemprop="dateCreated datePublished" datetime="2022-03-08 06:05:48 +0000 +0000">2022-03-08</time></span>
+<span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-folder-open"></i></span>
+<span class=post-meta-item-text>分类于：</span>
+<span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/%E5%89%8D%E7%AB%AF itemprop=url rel=index><span itemprop=name>前端</span></a></span></span></div><div class=post-meta-items><span class=post-meta-item title=字数><span class=post-meta-item-icon><i class="far fa-file-word"></i></span>
+<span class=post-meta-item-text>字数：</span><span>2834</span></span>
+<span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
+<span class=post-meta-item-text>阅读：&ap;</span>
+<span>6分钟</span></span>
+<span class=post-meta-item title=浏览><span class=post-meta-item-icon><i class="far fa-eye"></i></span>
+<span class=post-meta-item-text>浏览：</span>
+<span id=busuanzi_value_page_pv data-path=/article/113/><i class="fa fa-sync fa-spin"></i></span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><p>Chrome扩展指的是通过调用 Chrome 提供的 Chrome API 来扩展浏览器功能的一种组件，工作在浏览器层面，使用 HTML + Javascript 语言开发[*]。比如著名的 Adblock plus。</p><h3 id=1chrome插件与chrome扩展的区别>1、Chrome插件与Chrome扩展的区别？</h3><p>完整的扩展可以在
+<a href=https://storage.googleapis.com/web-dev-uploads/file/WlD8wC6g8khYWPJUsQceQkhXSlv1/SVxMBoc5P3f6YV3O7Xbu.zip title=这里 rel="noopener external nofollow noreferrer" target=_blank class=exturl>这里
+<i class="fa fa-external-link-alt"></i>
+</a>下载。</p><blockquote><p>Chrome扩展</p></blockquote><p><strong>扩展</strong>（Extension），指的是通过调用 Chrome 提供的 Chrome API 来扩展浏览器功能的一种组件，工作在浏览器层面，使用 HTML + Javascript 语言开发[*]。比如著名的 Adblock plus。</p><blockquote><p>Chrome插件</p></blockquote><p><strong>插件</strong>（Plug-in），指的是通过调用 Webkit 内核 NPAPI 来扩展内核功能的一种组件，工作在内核层面，理论上可以用任何一种生成本地二进制程序的语言开发，比如 C/C++、Delphi 等。比如Flash player 插件，就属于这种类型。一般在网页中用 <object> 或者<embed>标签声明的部分，就要靠插件来渲染。</p><h3 id=2如何开发一个-chrome-扩展->2、如何开发一个 Chrome 扩展 ？</h3><p>既然知道了 <code>Chrome 扩展</code> 是用 <code>HTML</code> + <code>javascript</code> 开发的了，那么我们首先要做的就是要搭建一个前端项目出来。</p><ul><li><p>1、创建manifest</p><p>扩展从它们的<code>manifest</code>开始。创建一个名为<code>manifest.json</code>并包含以下代码的文件。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Getting Started Example&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;Build an Extension!&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;version&#34;</span>: <span style=color:#e6db74>&#34;1.0&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;manifest_version&#34;</span>: <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></li><li><p>2、在Chrome浏览器添加该扩展</p><p>保存清单文件的目录可以在其当前状态下作为开发人员模式的扩展添加。要在开发人员模式下加载解压缩的扩展，请按照下列步骤操作：</p><ul><li><p>1、通过导航到 来打开扩展管理页面</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback><span style=display:flex><span>chrome://extensions
+</span></span></code></pre></div><ul><li>或者，通过单击扩展菜单按钮并选择菜单底部的<strong>管理扩展来打开此页面。</strong></li><li>或者，通过单击 Chrome 菜单打开此页面，将鼠标悬停在<strong>更多工具</strong>上，然后选择<strong>扩展</strong></li></ul></li></ul></li></ul><p><img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1646711627317.png alt=img></p><p>扩展已成功安装。因为清单中没有包含图标，所以将为扩展创建一个通用图标。</p><h3 id=3注册后台脚本>3、注册后台脚本</h3><p>编辑<code>manifest.json</code>文件</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Getting Started Example&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;Build an Extension!&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;version&#34;</span>: <span style=color:#e6db74>&#34;1.0&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;manifest_version&#34;</span>: <span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;background&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;service_worker&#34;</span>: <span style=color:#e6db74>&#34;background.js&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Chrome 现在知道该扩展程序包含一个服务工作者。当您重新加载扩展程序时，Chrome 将扫描指定文件以获取其他说明，例如它需要侦听的重要事件。</p><h3 id=4创建后台脚本>4、创建后台脚本</h3><p>此扩展在安装后将需要来自持久变量的信息。
+<a href=https://developer.chrome.com/docs/extensions/reference/runtime#event-onInstalled title="<code>runtime.onInstalled</code>" rel="noopener external nofollow noreferrer" target=_blank class=exturl><code>runtime.onInstalled</code>
+<i class="fa fa-external-link-alt"></i>
+</a>首先在后台脚本中包含一个监听事件。在<code>onInstalled</code>侦听器内部，扩展将使用
+<a href=https://developer.chrome.com/docs/extensions/reference/storage/ title=存储 rel="noopener external nofollow noreferrer" target=_blank class=exturl>存储
+<i class="fa fa-external-link-alt"></i>
+</a>API 设置一个值。这将允许多个扩展组件访问该值并对其进行更新。在扩展的目录中创建一个名为<code>background.js</code>并添加以下代码的文件。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// background.js
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>color</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;#3aa757&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>chrome</span>.<span style=color:#a6e22e>runtime</span>.<span style=color:#a6e22e>onInstalled</span>.<span style=color:#a6e22e>addListener</span>(() =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>chrome</span>.<span style=color:#a6e22e>storage</span>.<span style=color:#a6e22e>sync</span>.<span style=color:#a6e22e>set</span>({ <span style=color:#a6e22e>color</span> });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;Default background color set to %cgreen&#39;</span>, <span style=color:#e6db74>`color: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>color</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><h3 id=5添加存储权限>5、添加存储权限</h3><p>大多数 API，包括
+<a href=https://developer.chrome.com/docs/extensions/reference/storage/ title=存储 rel="noopener external nofollow noreferrer" target=_blank class=exturl>存储
+<i class="fa fa-external-link-alt"></i>
+</a>API，必须<code>"permissions"</code>在清单中的字段下注册，以便扩展使用它们。</p><p>修改<code>manifest.json</code>文件</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Getting Started Example&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;Build an Extension!&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;version&#34;</span>: <span style=color:#e6db74>&#34;1.0&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;manifest_version&#34;</span>: <span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;background&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;service_worker&#34;</span>: <span style=color:#e6db74>&#34;background.js&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;permissions&#34;</span>: [<span style=color:#e6db74>&#34;storage&#34;</span>]
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=6检查后台脚本>6、检查后台脚本</h3><p>导航回扩展管理页面，然后单击<strong>重新加载</strong>链接。一个新字段<strong>Inspect views</strong>可通过蓝色链接<strong>service worker 使用</strong>。
+<img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1646711720961.png alt=img></p><p>点击链接查看后台脚本的控制台日志，“ <code>Default background color set to green</code>”</p><h3 id=7引入用户界面>7、引入用户界面</h3><p>扩展可以有多种形式的
+<a href=https://developer.chrome.com/docs/extensions/mv3/user_interface/ title=用户界面 rel="noopener external nofollow noreferrer" target=_blank class=exturl>用户界面
+<i class="fa fa-external-link-alt"></i>
+</a>；这将使用一个
+<a href=https://developer.chrome.com/docs/extensions/mv3/user_interface#popup title=弹出窗口 rel="noopener external nofollow noreferrer" target=_blank class=exturl>弹出窗口
+<i class="fa fa-external-link-alt"></i>
+</a>。创建并添加一个名为<code>popup.html</code>扩展目录的文件。这个扩展使用一个按钮来改变背景颜色。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-html data-lang=html><span style=display:flex><span><span style=color:#75715e>&lt;!DOCTYPE html&gt;</span>
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>html</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>head</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>link</span> <span style=color:#a6e22e>rel</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;button.css&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#f92672>head</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>body</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>button</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;changeColor&#34;</span>&gt;&lt;/<span style=color:#f92672>button</span>&gt;
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#f92672>body</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>html</span>&gt;
+</span></span></code></pre></div><p>与后台脚本一样，必须在<code>manifest.json</code>中声明此文件，以便 Chrome 将其显示在扩展程序的弹出窗口中。为此，请将一个
+<a href=https://developer.chrome.com/docs/extensions/reference/action/ title="<code>action</code>" rel="noopener external nofollow noreferrer" target=_blank class=exturl><code>action</code>
+<i class="fa fa-external-link-alt"></i>
+</a>对象添加到清单并设置<code>popup.html</code>为操作的<code>default_popup</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Getting Started Example&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;Build an Extension!&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;version&#34;</span>: <span style=color:#e6db74>&#34;1.0&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;manifest_version&#34;</span>: <span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;background&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;service_worker&#34;</span>: <span style=color:#e6db74>&#34;background.js&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;permissions&#34;</span>: [<span style=color:#e6db74>&#34;storage&#34;</span>],
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;action&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;default_popup&#34;</span>: <span style=color:#e6db74>&#34;popup.html&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>这个弹出窗口的 HTML 引用了一个名为<code>button.css</code>. 将另一个文件添加到扩展的目录，适当命名，然后添加以下代码。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#f92672>button</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>height</span>: <span style=color:#ae81ff>30</span><span style=color:#66d9ef>px</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>width</span>: <span style=color:#ae81ff>30</span><span style=color:#66d9ef>px</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>outline</span>: <span style=color:#66d9ef>none</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>margin</span>: <span style=color:#ae81ff>10</span><span style=color:#66d9ef>px</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>border</span>: <span style=color:#66d9ef>none</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>border-radius</span>: <span style=color:#ae81ff>2</span><span style=color:#66d9ef>px</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>button</span>.<span style=color:#a6e22e>current</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>box-shadow</span>: <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>2</span><span style=color:#66d9ef>px</span> <span style=color:#66d9ef>white</span>,
+</span></span><span style=display:flex><span>              <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>4</span><span style=color:#66d9ef>px</span> <span style=color:#66d9ef>black</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>工具栏图标的名称也包含<code>action</code>在该<code>default_icons</code>字段中。
+<a href=https://storage.googleapis.com/web-dev-uploads/file/WlD8wC6g8khYWPJUsQceQkhXSlv1/wy3lvPQdeJn4iqHmI0Rp.zip title=在此处 rel="noopener external nofollow noreferrer" target=_blank class=exturl>在此处
+<i class="fa fa-external-link-alt"></i>
+</a>下载 images 文件夹，解压缩，并将其放在扩展程序的目录中。更新<code>manifest.json</code>，以便扩展知道如何使用图像。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Getting Started Example&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;Build an Extension!&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;version&#34;</span>: <span style=color:#e6db74>&#34;1.0&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;manifest_version&#34;</span>: <span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;background&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;service_worker&#34;</span>: <span style=color:#e6db74>&#34;background.js&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;permissions&#34;</span>: [<span style=color:#e6db74>&#34;storage&#34;</span>],
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;action&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;default_popup&#34;</span>: <span style=color:#e6db74>&#34;popup.html&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;default_icon&#34;</span>: {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;16&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started16.png&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;32&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started32.png&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;48&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started48.png&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;128&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started128.png&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>扩展程序还会在扩展程序管理页面、权限警告和网站图标上显示图像。这些图像在清单中指定
+<a href=https://developer.chrome.com/docs/extensions/mv3/user_interface#icons title="<code>icons</code>" rel="noopener external nofollow noreferrer" target=_blank class=exturl><code>icons</code>
+<i class="fa fa-external-link-alt"></i>
+</a>。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Getting Started Example&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;Build an Extension!&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;version&#34;</span>: <span style=color:#e6db74>&#34;1.0&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;manifest_version&#34;</span>: <span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;background&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;service_worker&#34;</span>: <span style=color:#e6db74>&#34;background.js&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;permissions&#34;</span>: [<span style=color:#e6db74>&#34;storage&#34;</span>],
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;action&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;default_popup&#34;</span>: <span style=color:#e6db74>&#34;popup.html&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;default_icon&#34;</span>: {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;16&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started16.png&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;32&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started32.png&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;48&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started48.png&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;128&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started128.png&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;icons&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;16&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started16.png&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;32&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started32.png&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;48&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started48.png&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;128&#34;</span>: <span style=color:#e6db74>&#34;/images/get_started128.png&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>默认情况下，扩展出现在扩展菜单（拼图）中。固定扩展程序将在工具栏中显示图标。</p><p><img src=/imgs/img-lazy-loading.gif data-src=file:///C:/Users/qxs/AppData/Roaming/Typora/typora-user-images/image-20220308112342738.png alt=image-20220308112342738></p><p>如果在此阶段重新加载扩展程序，它将包含提供的图标而不是默认占位符，单击该操作将打开一个弹出窗口，其中显示一个显示默认颜色的按钮。</p><p><img src=/imgs/img-lazy-loading.gif data-src=file:///C:/Users/qxs/AppData/Roaming/Typora/typora-user-images/image-20220308112447555.png alt=image-20220308112447555></p><p>弹出 UI 的最后一步是为按钮添加颜色。创建一个以<code>popup.js</code>以下代码命名的文件并将其添加到扩展的目录中。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// Initialize button with user&#39;s preferred color
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>changeColor</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#34;changeColor&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>chrome</span>.<span style=color:#a6e22e>storage</span>.<span style=color:#a6e22e>sync</span>.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#34;color&#34;</span>, ({ <span style=color:#a6e22e>color</span> }) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>changeColor</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>backgroundColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>color</span>;
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><p>此代码从中获取按钮<code>popup.html</code>并从存储中请求颜色值。然后它将颜色应用为按钮的背景。<code>popup.js</code>在 中包含一个脚本标签<code>popup.html</code>。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-html data-lang=html><span style=display:flex><span><span style=color:#75715e>&lt;!DOCTYPE html&gt;</span>
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>html</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>head</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>link</span> <span style=color:#a6e22e>rel</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;button.css&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#f92672>head</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>body</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>button</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;changeColor&#34;</span>&gt;&lt;/<span style=color:#f92672>button</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;popup.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#f92672>body</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>html</span>&gt;
+</span></span></code></pre></div><p>重新加载扩展程序以查看绿色按钮。</p><h3 id=8逻辑内容>8、逻辑内容</h3><p>该扩展现在有一个自定义图标和一个弹出窗口，它根据保存到扩展存储中的值为弹出按钮着色。接下来，它需要进一步的用户交互逻辑。<code>popup.js</code>通过将以下内容添加到文件末尾来更新。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// When the button is clicked, inject setPageBackgroundColor into current page
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>changeColor</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;click&#34;</span>, <span style=color:#66d9ef>async</span> () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> [<span style=color:#a6e22e>tab</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>chrome</span>.<span style=color:#a6e22e>tabs</span>.<span style=color:#a6e22e>query</span>({ <span style=color:#a6e22e>active</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>, <span style=color:#a6e22e>currentWindow</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span> });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>chrome</span>.<span style=color:#a6e22e>scripting</span>.<span style=color:#a6e22e>executeScript</span>({
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>target</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>tabId</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>tab</span>.<span style=color:#a6e22e>id</span> },
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>function</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>setPageBackgroundColor</span>,
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// The body of this function will be executed as a content script inside the
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// current page
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setPageBackgroundColor</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>chrome</span>.<span style=color:#a6e22e>storage</span>.<span style=color:#a6e22e>sync</span>.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#34;color&#34;</span>, ({ <span style=color:#a6e22e>color</span> }) =&gt; {
+</span></span><span style=display:flex><span>    document.<span style=color:#a6e22e>body</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>backgroundColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>color</span>;
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>更新后的代码<code>click</code>向按钮添加了一个事件侦听器，该侦听器触发以
+<a href=https://developer.chrome.com/docs/extensions/mv3/content_scripts/#programmatic title=编程方式注入的内容脚本 rel="noopener external nofollow noreferrer" target=_blank class=exturl>编程方式注入的内容脚本
+<i class="fa fa-external-link-alt"></i>
+</a>。这会将页面的背景颜色变为与按钮相同的颜色。使用编程注入允许用户调用内容脚本，而不是自动将不需要的代码插入网页。</p><p><code>manifest.json</code>将需要
+<a href=https://developer.chrome.com/docs/extensions/mv3/manifest/activeTab/ title="<code>activeTab</code>" rel="noopener external nofollow noreferrer" target=_blank class=exturl><code>activeTab</code>
+<i class="fa fa-external-link-alt"></i>
+</a>允许扩展临时访问当前页面的
+<a href=https://developer.chrome.com/docs/extensions/reference/scripting/ title="<code>scripting</code>" rel="noopener external nofollow noreferrer" target=_blank class=exturl><code>scripting</code>
+<i class="fa fa-external-link-alt"></i>
+</a>权限，以及使用脚本 API
+<a href=https://developer.chrome.com/docs/extensions/reference/scripting#method-executeScript title="<code>executeScript</code>" rel="noopener external nofollow noreferrer" target=_blank class=exturl><code>executeScript</code>
+<i class="fa fa-external-link-alt"></i>
+</a>方法的权限。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Getting Started Example&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#960050;background-color:#1e0010>...</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;permissions&#34;</span>: [<span style=color:#e6db74>&#34;storage&#34;</span>, <span style=color:#e6db74>&#34;activeTab&#34;</span>, <span style=color:#e6db74>&#34;scripting&#34;</span>],
+</span></span><span style=display:flex><span>  <span style=color:#960050;background-color:#1e0010>...</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>该扩展现在功能齐全！重新加载扩展程序，刷新此页面，打开弹出窗口并单击按钮将其变为绿色！但是，一些用户可能希望将背景更改为不同的颜色。</p><h3 id=9给用户选项>9、给用户选项</h3><p>该扩展目前只允许用户将背景更改为绿色。包含选项页面使用户可以更好地控制扩展程序的功能，进一步定制他们的浏览体验。</p><p>首先在名为的目录中创建一个文件，<code>options.html</code>并包含以下代码。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-html data-lang=html><span style=display:flex><span><span style=color:#75715e>&lt;!DOCTYPE html&gt;</span>
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>html</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>head</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>link</span> <span style=color:#a6e22e>rel</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;button.css&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#f92672>head</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>body</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;buttonDiv&#34;</span>&gt;
+</span></span><span style=display:flex><span>    &lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>      &lt;<span style=color:#f92672>p</span>&gt;Choose a different background color!&lt;/<span style=color:#f92672>p</span>&gt;
+</span></span><span style=display:flex><span>    &lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#f92672>body</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;options.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>html</span>&gt;
+</span></span></code></pre></div><p>然后在<code>manifest.json</code>中注册选项页面，</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Getting Started Example&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#960050;background-color:#1e0010>...</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;options_page&#34;</span>: <span style=color:#e6db74>&#34;options.html&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>重新加载扩展并右键单击工具栏中的扩展图标，然后选择<strong>选项</strong>。或者，单击详细信息并向下滚动详细信息页面并选择<strong>扩展选项</strong>。</p><p><img src=/imgs/img-lazy-loading.gif data-src=file:///C:/Users/qxs/AppData/Roaming/Typora/typora-user-images/image-20220308113055714.png alt=image-20220308113055714></p><p>最后一步是添加选项逻辑。<code>options.js</code>使用以下代码在扩展目录中创建一个名为的文件。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>page</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#34;buttonDiv&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>selectedClassName</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;current&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>presetButtonColors</span> <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;#3aa757&#34;</span>, <span style=color:#e6db74>&#34;#e8453c&#34;</span>, <span style=color:#e6db74>&#34;#f9bb2d&#34;</span>, <span style=color:#e6db74>&#34;#4688f1&#34;</span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Reacts to a button click by marking the selected button and saving
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// the selection
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>handleButtonClick</span>(<span style=color:#a6e22e>event</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Remove styling from the previously selected color
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>current</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>parentElement</span>.<span style=color:#a6e22e>querySelector</span>(
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>`.</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>selectedClassName</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span>  );
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>current</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>current</span> <span style=color:#f92672>!==</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>target</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>current</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>remove</span>(<span style=color:#a6e22e>selectedClassName</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Mark the button as selected
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>color</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>dataset</span>.<span style=color:#a6e22e>color</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>selectedClassName</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>chrome</span>.<span style=color:#a6e22e>storage</span>.<span style=color:#a6e22e>sync</span>.<span style=color:#a6e22e>set</span>({ <span style=color:#a6e22e>color</span> });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Add a button to the page for each supplied color
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>constructOptions</span>(<span style=color:#a6e22e>buttonColors</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>chrome</span>.<span style=color:#a6e22e>storage</span>.<span style=color:#a6e22e>sync</span>.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#34;color&#34;</span>, (<span style=color:#a6e22e>data</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>currentColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>data</span>.<span style=color:#a6e22e>color</span>;
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// For each color we were provided…
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>buttonColor</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>buttonColors</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#75715e>// …create a button with that color…
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>button</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;button&#34;</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>dataset</span>.<span style=color:#a6e22e>color</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>buttonColor</span>;
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>backgroundColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>buttonColor</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>// …mark the currently selected color…
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>buttonColor</span> <span style=color:#f92672>===</span> <span style=color:#a6e22e>currentColor</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>selectedClassName</span>);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>// …and register a listener for when that button is clicked
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;click&#34;</span>, <span style=color:#a6e22e>handleButtonClick</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>button</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Initialize the page by constructing the color options
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>constructOptions</span>(<span style=color:#a6e22e>presetButtonColors</span>);
+</span></span></code></pre></div><p>提供了四个颜色选项，然后在带有 onclick 事件侦听器的选项页面上生成为按钮。当用户单击按钮时，它会更新扩展存储中的颜色值。由于所有扩展文件都从该存储中提取颜色信息，因此不需要更新其他值。</p></div><footer class=post-footer><div class=post-tags><a href=/tags/chrome%e6%89%a9%e5%b1%95>Chrome扩展</a>
+<a href=/tags/chrome-v3>Chrome V3</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/alipay.png alt="上官江北 - 支付宝">
+<span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/wepay.png alt="上官江北 - 微信">
+<span>微信</span></div></div></div><div class=post-copyright><img src=/imgs/cc/cc.svg width=75 height=75 align=right><ul><li class=post-copyright-title><strong>文章标题：</strong>
+Chrome扩展程序开发入门（基于 V3）</li><li class=post-copyright-author><strong>本文作者：</strong>
+上官江北</li><li class=post-copyright-link><strong>本文链接：</strong>
+<a id=post-cr-link href=/article/113/ title="Chrome扩展程序开发入门（基于 V3）">/article/113/</a></li><li class=post-copyright-license><strong>版权声明：</strong>
+本博客所有文章除特别声明外，均采用 <i class="fab fa-fw fa-creative-commons"></i><a target=_blank href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/article/114/ rel=next title=" Extjs 3.3 tree以下的版本在IE10无法点击的解决办法"><i class="fa fa-chevron-left"></i> Extjs 3.3 tree以下的版本在IE10无法点击的解决办法</a></div><div class="post-nav-prev post-nav-item"><a href=/article/112/ rel=prev title="Ubuntu 16.04LTS 安装 redis-6.2.6（源码安装）">Ubuntu 16.04LTS 安装 redis-6.2.6（源码安装）
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div id=comments class=post-comments><div class=comment-head><div class=comment-headline><i class="fas fa-comments fa-fw"></i>
+<span>评论交流</span></div></div><div class=comment-wrap><div><div class=comment-loading><i class="fa fa-sync fa-spin"></i></div><div class=twikoo-container></div></div></div></div></div></main><footer class=footer><div class=footer-inner><div id=gtranslate class=google-translate><i class="fa fa-language"></i><div id=google_translate_element></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2018 - 2023</span>
+<span class=with-love><i class="fa fa-heart"></i></span>
+<span class=author itemprop=copyrightHolder>本站文章均属于【秋码记录】所有</span></div><div class=powered-by>由 <a href=https://gohugo.io title=0.111.3 target=_blank>Hugo</a> & <a href=https://github.com/hugo-next/hugo-theme-next title=4.4.1 target=_blank>Hugo NexT.Gemini</a> 强力驱动</div></div></footer><script type=text/javascript src=https://cdn.staticfile.org/animejs/3.2.1/anime.min.js defer></script>
+<script type=text/javascript src=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.js defer></script>
+<script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#222","enable":true,"save":"manual"},"busuanzi":{"pageview":true},"copybtn":true,"darkmode":true,"giscus":{"cfg":{"category":"Comments","categoryid":null,"emit":false,"inputposition":"top","mapping":"title","reactions":false,"repo":"username/repo-name","repoid":null,"theme":"preferred_color_scheme"},"js":"https://giscus.app/client.js"},"hostname":"/","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"lang":"zh-CN","lazyload":false,"localSearch":{"enable":true,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"fadeInLeft","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"root":"/","scheme":"Gemini","sidebar":{"display":"post","offset":12,"padding":18,"position":"left","width":256},"statis":{"enable":true,"plugin":"busuanzi"},"twikoo":{"cfg":{"envid":"comment.qiucode.cn"},"js":"https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"},"vendor":{"plugins":"qiniu","router":"https://cdn.staticfile.org"},"version":"4.4.1"}</script><script type=text/javascript src=/js/main.min.6a9188bbb7ea6e30d13648ea602d48c42799b681876caba946579b9bb8675968.js defer></script></body></html>
