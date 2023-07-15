@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>把握住golang中的template，方能驾驭得了Hugo主题的template</title><url>/article/177/</url><categories><category>golang</category><category>模板</category></categories><tags><tag>Hugo</tag><tag>template</tag><tag>主题</tag><tag>theme</tag></tags><content type="html"><![CDATA[不置可否，Hugo的template同样是使用golang的标准库html/template。为了能实现一个属于自己独特的Hugo theme，或是修改他人的主题，都得对其模板语法有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的Hugo theme。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习）</title><url>/article/178/</url><categories><category>Machine Learning</category><category>人工智能</category></categories><tags><tag>Machine Learning</tag><tag>训练数据</tag><tag>模型</tag><tag>数据标注</tag></tags><content type="html">让机器学习不再是过门不入，跟着【秋码】一起研习机器学习（Machine Learning），探究什么是机器学习？以及为何我们要去使用机器学习呢？毕竟未来是属于人工智能（Ai）的，引领潮流的往往是新事物，这一次，您可不要再错过了！抓住它，就等于握住了穿梭未来的时光机。
+什么是机器学习（Machine Learning）？ 机器学习是]赋予计算机学习能力的研究领域 无需明确编程。 ——阿瑟·塞缪尔，1959
+计算机程序可以从关于某些任务的经验 E 中学习 T 和一些绩效衡量 P，如果其在 T 上的绩效按 P 衡量， 随着经验E的提高而提高。 ——汤姆·米切尔，1997
+通俗的说，机器学习（Machine Learning）是计算机编程的科学，它们可以从数据中进行学习。
+机器学习好比电子邮件中的垃圾邮件过滤器， 由用户标记出垃圾邮件示例和常规邮件的示例，继而让机器去学习标记垃圾邮件。
+那些由用户标记的示例用于学习的称为训练（ training），而每个训练示例则成为训练实例（或称为训练样本），机器学习过程中并作出预测（predictions）的便成为模型（Model）。
+神经网络（Neural networks）和随机森林（ random forests）也都是模型的例子。
+在这种情况下，任务 T 是标记新电子邮件的垃圾邮件，经验 E 是训练 数据，并且需要定义性能度量P； 例如，您可以使用 正确分类电子邮件的比率。 这种特殊的绩效衡量标准被称为 准确率高，常用于分类任务。
+但如果您只是下载所有维基百科文章的副本，您的计算机上还有更多内容数据，但它在任何任务上都不会突然变得更好。 这不是机器学习。
+为什么使用机器学习？ 我们抛弃机器学习，使用传统编程方式来处理垃圾邮件的过滤器。
+1、首先，您得检查垃圾邮件是什么样子的。例如某商城活动推广、房产信息、股票推荐等等。 2、是的，您得为以上出现的种种情况编写一套检测算法。 3、您将测试您的程序并重复 1、2 步骤，直到它足够好为止。 最终您的程序很可能会变成一长串复杂的规则——难以维护。
+相比之下，基于机器学习技术的垃圾邮件过滤器会自动学习通过检测异常频率，可以很好地预测垃圾邮件， 与垃圾邮件示例相比， 该程序更短，更容易维护，而且很可能更多准确的。
+倘若垃圾邮件发送者发现所有含有商城活动推广链接的电子邮件都被阻止了，那该怎么办呢？他们势必会将链接换成短链接。
+然而，使用传统编程的垃圾邮件过滤器，则需要更新技术来标记那些以短链接来隐藏的商城活动推广的电子邮件了。假使垃圾邮件发送者继续围绕垃圾邮件过滤器展开工作，您将永远处于被动下地去更新您的规则。
+相比之下，基于机器学习技术的垃圾邮件过滤器会自动注意到以短链接形式的商城活动推广邮件，在用户标记的垃圾邮件中变得异常频繁，并且无需您的干预即可标记它们。
+机器学习的亮点便是解决对于传统方法来说过于复杂、抑或是还没有算法的问题。
+就拿语音识别来说吧！假使您想从简单开始编写一个能够区分 一 和 二 的程序，或许您可能硬编码一个算法来检测高低音强度并用它来区分。
+很显然，这种硬编码技术是无法扩展到数以亿计的人所说的数千个汉语的。
+不同的人在噪杂的环境中使用数十种语言，迄今为止最好的解决方案便是编写一个可以自我学习的算法，给出很多文字的录音的示例，最终让机器学习像人类一样去学习。
+总而言之，机器学习非常适合以下场景：
+现有解决方案需要大量微调或长列表的问题 规则（机器学习模型通常可以简化代码并且性能比 传统方法） 使用传统方法无法解决的复杂问题 （最好的机器学习技术也许可以找到解决方案） 波动的环境（机器学习系统可以轻松地进行重新训练 新数据，始终保持最新） 深入了解复杂问题和大量数据</content></entry><entry><title>花了不到1块5，玩了下全网最火的ChatGPT</title><url>/article/159/</url><categories><category>人工智能（AI）</category></categories><tags><tag>ChatGPT</tag><tag>人工智能</tag><tag>NLP</tag></tags><content type="html"><![CDATA[这一周来，要说 AI 界最为热闹的莫过于 ChatGPT 了。刚推出一周的时间，注册用户竟然达到了 100 万。自 ChatGPT 推出后，不过短短几天，用户如蜂拥般地去注册，把玩这个能在一周左右吸粉 百来万的现下5网红。
+前提准备
+由于种种原因，访问 openAI 需要使用科学上网。
+具备科学上网的工具，注意：香港 ip 是 100% 无效的，当然最好是 美国 ip。 有一个能接受验证码的国外手机号码，这一点，并不是所有都有的，我就没有，那该怎么办呢？关于这一点，可接着往下看注册虚拟号码，您也就慢慢清楚标题中的1块5是花在这里了。 注册虚拟号码
+首先打开 https://sms-activate.org/ 进行注册虚拟号码。
+我们先注册个账号，需通过填写的邮箱进行验证账号。
+这时，我们在该页面左侧选择服务下的输入框，输入op，即会出现自动补全下拉框，毫无疑问，我们选择第一个OpenAI。
+在我们选择了OpenAI后，也就是点选了OpenAI，下面出现所有国家的，当然，我们还是选择第一个，原因嘛，那就是它便宜啊，只需10.5P（10.5卢布）。
+而在我们点击了那个 购物车 图标时，出现错误提醒，那便是，你的 余额是 0，需要充值，才能购买。
+点击 左上角 人头图标，再列出的下拉框，再次点击充值。
+在点击 充值 选项时，这时，页面列出很多 支付方式，往下滚动直找到 支付宝。
+这里是使用 美元 做为单位，我们充0.2美元足够了，而 0.2 美元在当下当时兑换成人民币是 1.47 元，1块5还不到。
+支付宝 扫码支付。
+如果在注册OpenAI 账号时，出现了以下提示，那么说明科学上网是局部，需 全局 科学上网。
+注册OpenAI一部分是通过 邮箱 进行验证，另一部分则是通过 手机号码 接受验证 再次验证。
+填写接收的邮箱验证，进入下一步 手机号码 验证。
+我们拷贝刚刚购买的虚拟手机号码。
+注意：我们将虚拟号码平台上购买的号码拷贝填入OpenAI，用于接收短信验证码，而这里需要注意将国家区号去掉，因为我们在OpenAI平台选择国家时，带有国家区号，然而，我们在虚拟平台上购买的虚拟号码包括国家区号。
+回到虚拟号码平台，若是没看到验证码，可以刷新下页面就出来了。
+拷贝接收的验证码黏贴到OpenAI，注册完成，出现下面页面那就成功了。
+我们重写打开个页签，输入 https://chat.openai.com/auth/login ，现在总算可以玩一把现下最火的网红 AI 了。
+填入刚刚注册的OpenAI账号。
+登陆成功界面，久违的ChatGPT页面就展现在你的眼前，接下来就可以把玩了。
+我们在输入框输入些内容，看看 ChatGPT 能给我们什么样的答案？
+ChatGPT 用 java 实现的动态规划。
+public static int lcs(String s1, String s2) { int[][] dp = new int[s1.length() + 1][s2.length() + 1]; for (int i = 0; i &lt;= s1.length(); i++) { for (int j = 0; j &lt;= s2.length(); j++) { if (i == 0 || j == 0) { dp[i][j] = 0; } else if (s1.charAt(i - 1) == s2.charAt(j - 1)) { dp[i][j] = dp[i - 1][j - 1] + 1; } else { dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]); } } } return dp[s1.length()][s2.length()]; } 我们在输入框输入使用python爬取亚马逊评论数据看看效果又会是什么呢？
+import scrapy class AmazonReviewSpider(scrapy.Spider): name = &#34;amazon_review&#34; def start_requests(self): url = &#34;https://www.amazon.com/dp/B01N5FQI4Q&#34; yield scrapy.Request(url=url, callback=self.parse) def parse(self, response): for review in response.css(&#34;div.review&#34;): yield { &#34;rating&#34;: review.css(&#34;span.review-rating::text&#34;).get(), &#34;title&#34;: review.css(&#34;a.review-title::text&#34;).get(), &#34;author&#34;: review.css(&#34;span.author::text&#34;).get(), &#34;date&#34;: review.css(&#34;span.review-date::text&#34;).get(), &#34;body&#34;: review.css(&#34;span.review-text::text&#34;).get() } ]]></content></entry><entry><title>把握住golang中的template，方能驾驭得了Hugo主题的template</title><url>/article/177/</url><categories><category>golang</category><category>模板</category></categories><tags><tag>Hugo</tag><tag>template</tag><tag>主题</tag><tag>theme</tag></tags><content type="html"><![CDATA[不置可否，Hugo的template同样是使用golang的标准库html/template。为了能实现一个属于自己独特的Hugo theme，或是修改他人的主题，都得对其模板语法有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的Hugo theme。
 创建golang项目 很明显的事，我们首先得先创建个golang项目，才能去讲解golang中的html/template，关于这一点，毋庸置疑。毕竟现在玩的是golang，说的是golang标准库html/template。
 好了，闲话少叙，切入正题。关于golang怎么创建项目，您应该是比较清楚的吧！否则的话，您是不会浏览这篇文章的，当然咯，也不能这样说的哦！或许他只是想了解下golang的模板语法，以便能够开发Hugo theme，这倒也是。
 关于该如何配置golang的module相关属性，可以查看以往的文章，本文将不再赘述，而是着重讲解html/template语法。
@@ -33,33 +79,7 @@ Nginx配置SSL 在配置SSL之前，得有SSL证书吧！我相信作为个人�
 甭管是哪家云厂商，都有免费的SSL可以申请。现将qiucode.cn部署在云服务器上，关于Nginx配置SSL记录，以备后续只需，哪怕再也不会用上了。
 一般情况下，不应在主配置文件nginx.conf内编辑，而是在子文件夹conf.d下新建*.conf文件。
 qiucodessl.conf文件内容如下：
-upstream qiu{ server 127.0.0.1:8080; } server{ listen 80; server_name www.qiucode.cn qiucode.cn; #return 301 https://$server_name$request_uri; location / { proxy_pass http://qiu; proxy_set_header Host $http_host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; } rewrite ^/(.*)$ https://www.qiucode.cn:443/$1 permanent; autoindex on; } server { listen 443 ssl; #监听 443 端口 server_name www.qiucode.cn qiucode.cn; #ssl on; ssl_certificate /home/qiucodessl/www.qiucode.cn_bundle.crt; #证书文件路径 ssl_certificate_key /home/qiucodessl/www.qiucode.cn.key; #证书文件路径 ssl_session_timeout 10m; # session 超时时间 ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2; #SSL 协议 #ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; ssl_prefer_server_ciphers on; location / { proxy_pass http://qiu; } }</content></entry><entry><title>花了不到1块5，玩了下全网最火的ChatGPT</title><url>/article/159/</url><categories><category>人工智能（AI）</category></categories><tags><tag>ChatGPT</tag><tag>人工智能</tag><tag>NLP</tag></tags><content type="html"><![CDATA[这一周来，要说 AI 界最为热闹的莫过于 ChatGPT 了。刚推出一周的时间，注册用户竟然达到了 100 万。自 ChatGPT 推出后，不过短短几天，用户如蜂拥般地去注册，把玩这个能在一周左右吸粉 百来万的现下5网红。
-前提准备
-由于种种原因，访问 openAI 需要使用科学上网。
-具备科学上网的工具，注意：香港 ip 是 100% 无效的，当然最好是 美国 ip。 有一个能接受验证码的国外手机号码，这一点，并不是所有都有的，我就没有，那该怎么办呢？关于这一点，可接着往下看注册虚拟号码，您也就慢慢清楚标题中的1块5是花在这里了。 注册虚拟号码
-首先打开 https://sms-activate.org/ 进行注册虚拟号码。
-我们先注册个账号，需通过填写的邮箱进行验证账号。
-这时，我们在该页面左侧选择服务下的输入框，输入op，即会出现自动补全下拉框，毫无疑问，我们选择第一个OpenAI。
-在我们选择了OpenAI后，也就是点选了OpenAI，下面出现所有国家的，当然，我们还是选择第一个，原因嘛，那就是它便宜啊，只需10.5P（10.5卢布）。
-而在我们点击了那个 购物车 图标时，出现错误提醒，那便是，你的 余额是 0，需要充值，才能购买。
-点击 左上角 人头图标，再列出的下拉框，再次点击充值。
-在点击 充值 选项时，这时，页面列出很多 支付方式，往下滚动直找到 支付宝。
-这里是使用 美元 做为单位，我们充0.2美元足够了，而 0.2 美元在当下当时兑换成人民币是 1.47 元，1块5还不到。
-支付宝 扫码支付。
-如果在注册OpenAI 账号时，出现了以下提示，那么说明科学上网是局部，需 全局 科学上网。
-注册OpenAI一部分是通过 邮箱 进行验证，另一部分则是通过 手机号码 接受验证 再次验证。
-填写接收的邮箱验证，进入下一步 手机号码 验证。
-我们拷贝刚刚购买的虚拟手机号码。
-注意：我们将虚拟号码平台上购买的号码拷贝填入OpenAI，用于接收短信验证码，而这里需要注意将国家区号去掉，因为我们在OpenAI平台选择国家时，带有国家区号，然而，我们在虚拟平台上购买的虚拟号码包括国家区号。
-回到虚拟号码平台，若是没看到验证码，可以刷新下页面就出来了。
-拷贝接收的验证码黏贴到OpenAI，注册完成，出现下面页面那就成功了。
-我们重写打开个页签，输入 https://chat.openai.com/auth/login ，现在总算可以玩一把现下最火的网红 AI 了。
-填入刚刚注册的OpenAI账号。
-登陆成功界面，久违的ChatGPT页面就展现在你的眼前，接下来就可以把玩了。
-我们在输入框输入些内容，看看 ChatGPT 能给我们什么样的答案？
-ChatGPT 用 java 实现的动态规划。
-public static int lcs(String s1, String s2) { int[][] dp = new int[s1.length() + 1][s2.length() + 1]; for (int i = 0; i &lt;= s1.length(); i++) { for (int j = 0; j &lt;= s2.length(); j++) { if (i == 0 || j == 0) { dp[i][j] = 0; } else if (s1.charAt(i - 1) == s2.charAt(j - 1)) { dp[i][j] = dp[i - 1][j - 1] + 1; } else { dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]); } } } return dp[s1.length()][s2.length()]; } 我们在输入框输入使用python爬取亚马逊评论数据看看效果又会是什么呢？
-import scrapy class AmazonReviewSpider(scrapy.Spider): name = &#34;amazon_review&#34; def start_requests(self): url = &#34;https://www.amazon.com/dp/B01N5FQI4Q&#34; yield scrapy.Request(url=url, callback=self.parse) def parse(self, response): for review in response.css(&#34;div.review&#34;): yield { &#34;rating&#34;: review.css(&#34;span.review-rating::text&#34;).get(), &#34;title&#34;: review.css(&#34;a.review-title::text&#34;).get(), &#34;author&#34;: review.css(&#34;span.author::text&#34;).get(), &#34;date&#34;: review.css(&#34;span.review-date::text&#34;).get(), &#34;body&#34;: review.css(&#34;span.review-text::text&#34;).get() } ]]></content></entry><entry><title>玩以太坊链上项目的必备技能（内联汇编 [inline assembly]-Solidity之旅十八）</title><url>/article/175/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag></tags><content type="html"><![CDATA[在 Solidity 中使用 Assembly 的主要好处之一是节省 gas。 让我们尝试通过创建一个将 2 个值 x 和 y 相加并返回结果的函数来比较 Solidity 和 Assembly 之间的 gas 成本。
+upstream qiu{ server 127.0.0.1:8080; } server{ listen 80; server_name www.qiucode.cn qiucode.cn; #return 301 https://$server_name$request_uri; location / { proxy_pass http://qiu; proxy_set_header Host $http_host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; } rewrite ^/(.*)$ https://www.qiucode.cn:443/$1 permanent; autoindex on; } server { listen 443 ssl; #监听 443 端口 server_name www.qiucode.cn qiucode.cn; #ssl on; ssl_certificate /home/qiucodessl/www.qiucode.cn_bundle.crt; #证书文件路径 ssl_certificate_key /home/qiucodessl/www.qiucode.cn.key; #证书文件路径 ssl_session_timeout 10m; # session 超时时间 ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2; #SSL 协议 #ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; ssl_prefer_server_ciphers on; location / { proxy_pass http://qiu; } }</content></entry><entry><title>玩以太坊链上项目的必备技能（内联汇编 [inline assembly]-Solidity之旅十八）</title><url>/article/175/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag></tags><content type="html"><![CDATA[在 Solidity 中使用 Assembly 的主要好处之一是节省 gas。 让我们尝试通过创建一个将 2 个值 x 和 y 相加并返回结果的函数来比较 Solidity 和 Assembly 之间的 gas 成本。
 概要 大抵是讲到汇编，身为编程开发者的我们脑瓜子早就嗡嗡作响了。看那晦涩难懂的低级汇编代码，敢断言，那一行不是我写的，其他行也不是我写的。
 自从C语言问世，而后类C语言犹如雨后春笋般地搅动着IT界，而这些语言有别于汇编语言那样。它们就是更贴切自然语言的高级编程语言，可这些高级编程语言最终还是要编译成机器语言（汇编语言）。
 EVM（Ethereum Virtual Machine）是一种栈（Stack）结构，我们知道栈是一种先进后出（LIFO）的数据结构。
