@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）</title><url>/article/180/</url><categories><category>Machine Learning</category><category>人工智能</category></categories><tags><tag>Machine Learning</tag><tag>批量学习</tag><tag>在线学习</tag><tag>机器学习</tag></tags><content type="html"> 随着时间的推移，模型也需做出相应的变化。但就采用新数据与旧数据一起训练，势必需要耗费更多的资源，为了解决这一状况，本文带您了解，关于新数据该如何训练？
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>机器学习的主要挑战和任务（Machine Learning 研习之四）</title><url>/article/181/</url><categories><category>Machine Learning</category><category>人工智能</category></categories><tags><tag>Machine Learning</tag><tag>机器学习</tag><tag>任务</tag><tag>挑战</tag></tags><content type="html"> 对于一个蹒跚学步的孩子来说，要知道什么是苹果，您只需要指着一个苹果说“苹果”(可能会重复这个过程几次)。现在孩子能够识别各种颜色和形状的苹果。
+简而言之，由于您的主要任务是选择一个模型并在一些数据上对其进行训练，因此可能出错的两件事是“坏模型”和“坏数据”。 让我们从不良数据的示例开始。
+训练数据数量不足
+对于一个蹒跚学步的孩子来说，要知道什么是苹果，您只需要指着一个苹果说“苹果”(可能会重复这个过程几次)。现在孩子能够识别各种颜色和形状的苹果。
+机器学习还没有完全成熟，大多数机器学习算法都需要大量的数据才能正常工作。即使是非常简单的问题，您通常也需要数千个示例，而对于复杂的问题，如图像或语音识别，您可能需要数百万个示例（除非您可以重用现有模型的部分内容）。
+数据的不合理有效性
+在2001年发表的一篇著名论文中，微软研究人员MicheleBanko和EricBrill展示了非常不同的机器学习算法，包括相当简单的算法，一旦获得足够的数据(如下图所示)，它们在自然语言消歧这一复杂问题上的表现几乎相同。
+正如作者所说，“这些结果表明，我们可能需要重新考虑在算法开发上花费时间和金钱与在语料库开发上花费时间和金钱之间的权衡。”
+Peter Norvig等人进一步推广了数据比复杂问题的算法更重要的观点年发表的一篇名为《数据的不合理有效性》的论文中指出，然而，应该注意的是，中小型数据集仍然很常见，而且获得额外的训练数据 并不总是容易或廉价的，所以不要放弃算法。
+非代表性训练数据
+为了很好地进行归纳，训练数据必须能够代表您想要归纳的新案例，这一点至关重要。无论你使用基于实例的学习还是基于模型的学习，都是如此。
+例如，你早些时候用来培训线性模型的一组国家并不完全具有代表性;它不包含人均国内生产总值低于23500美元或高于62500美元的任何国家。下图显示了添加这些国家的数据是什么样子的。
+如果根据这些数据训练一个线性模型，您将得到实线，而旧模型则由虚线表示。正如您所看到的，添加几个缺失的国家不仅会显著改变模型，而且它清楚地表明，这样一个简单的线性模型可能永远不会很好地工作。似乎非常富裕的国家并不比中等富裕的国家更幸福(事实上，他们似乎稍微不幸福!)，相反，一些贫穷的国家似乎比许多富裕的国家更幸福。
+通过使用不具代表性的训练集，您训练的模型不太可能做出准确的预测，特别是对于非常贫穷和非 …</content></entry><entry><title>对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）</title><url>/article/180/</url><categories><category>Machine Learning</category><category>人工智能</category></categories><tags><tag>Machine Learning</tag><tag>批量学习</tag><tag>在线学习</tag><tag>机器学习</tag></tags><content type="html"> 随着时间的推移，模型也需做出相应的变化。但就采用新数据与旧数据一起训练，势必需要耗费更多的资源，为了解决这一状况，本文带您了解，关于新数据该如何训练？
 批量与在线学习
 用于对机器学习系统进行分类的另一个标准是系统可以从输入数据流中增量学习。
 批量学习
@@ -36,28 +49,7 @@
 我们抛弃机器学习，使用传统编程方式来处理垃圾邮件的过滤器。
 1、首先，您得检查垃圾邮件是什么样子的。例如某商城活动推广、房产信息、股票推荐等等。 2、是的，您得为以上出现的种种情况编写一套检测算法。 3、您将测试您的程序并重复 1、2 步骤，直到它足够好为止。 最终您的程序很可能会变成一长串复杂的规则——难以维护。
 相比之下，基于机器学习技术的垃圾邮件过滤器会自动学习通过检测异常频率，可以很好地预测垃圾邮件， 与垃圾邮件示例相比， 该程序更短，更容易维护，而且很可能更多准确的。
-倘若垃圾邮件发送者发现所有含有商城活动推广链接的电子邮件都被阻止了，那该怎么办 …</content></entry><entry><title>花了不到1块5，玩了下全网最火的ChatGPT</title><url>/article/159/</url><categories><category>人工智能（AI）</category></categories><tags><tag>ChatGPT</tag><tag>人工智能</tag><tag>NLP</tag></tags><content type="html"> 这一周来，要说 AI 界最为热闹的莫过于 ChatGPT 了。刚推出一周的时间，注册用户竟然达到了 100 万。自 ChatGPT 推出后，不过短短几天，用户如蜂拥般地去注册，把玩这个能在一周左右吸粉 百来万的现下5网红。
-前提准备
-由于种种原因，访问 openAI 需要使用科学上网。
-具备科学上网的工具，注意：香港 ip 是 100% 无效的，当然最好是 美国 ip。 有一个能接受验证码的国外手机号码，这一点，并不是所有都有的，我就没有，那该怎么办呢？关于这一点，可接着往下看注册虚拟号码，您也就慢慢清楚标题中的1块5是花在这里了。 注册虚拟号码
-首先打开 https://sms-activate.org/
-进行注册虚拟号码。
-我们先注册个账号，需通过填写的邮箱进行验证账号。
-这时，我们在该页面左侧选择服务下的输入框，输入op，即会出现自动补全下拉框，毫无疑问，我们选择第一个OpenAI。
-在我们选择了OpenAI后，也就是点选了OpenAI，下面出现所有国家的，当然，我们还是选择第一个，原因嘛，那就是它便宜啊，只需10.5P（10.5卢布）。
-而在我们点击了那个 购物车 图标时，出现错误提醒，那便是，你的 余额是 0，需要充值，才能购买。
-点击 左上角 人头图标，再列出的下拉框，再次点击充值。
-在点击 充值 选项时，这时，页面列出很多 支付方式，往下滚动直找到 支付宝。
-这里是使用 美元 做为单位，我们充0.2美元足够了，而 0.2 美元在当下当时兑换成人民币是 1.47 元，1块5还不到。
-支付宝 扫码支付。
-如果在注册OpenAI 账号时，出现了以下提示，那么说明科学上网是局部，需 全局 科学上网。
-注册OpenAI一部分是通过 邮箱 进行验证，另一部分则是通过 手机号码 接受验证 再次验证。
-填写接收的邮箱验证，进入下一步 手机号码 验证。
-我们拷贝刚刚购买的虚拟手机号码。
-注意：我们将虚拟号码平台上购买的号码拷贝填入OpenAI，用于接收短信验证码，而这里需要注意将国家区号去掉，因为我们在OpenAI平台选择国家时，带有国家区号，然而，我们在虚拟平台上购买的虚拟号码包括国家区号。
-回到虚拟号码平台，若是没看到验证码，可以刷新下页面就出来了。
-拷贝接收的验证码黏贴到OpenAI，注册完成，出现下面页面那就成功了。
-我们重写打开个页签， …</content></entry><entry><title>把握住golang中的template，方能驾驭得了Hugo主题的template</title><url>/article/177/</url><categories><category>golang</category><category>模板</category></categories><tags><tag>Hugo</tag><tag>template</tag><tag>主题</tag><tag>theme</tag></tags><content type="html"><![CDATA[  不置可否，Hugo的template同样是使用golang的标准库html/template。为了能实现一个属于自己独特的Hugo theme，或是修改他人的主题，都得对其模板语法有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的Hugo theme。
+倘若垃圾邮件发送者发现所有含有商城活动推广链接的电子邮件都被阻止了，那该怎么办 …</content></entry><entry><title>把握住golang中的template，方能驾驭得了Hugo主题的template</title><url>/article/177/</url><categories><category>golang</category><category>模板</category></categories><tags><tag>Hugo</tag><tag>template</tag><tag>主题</tag><tag>theme</tag></tags><content type="html"><![CDATA[  不置可否，Hugo的template同样是使用golang的标准库html/template。为了能实现一个属于自己独特的Hugo theme，或是修改他人的主题，都得对其模板语法有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的Hugo theme。
 创建golang项目很明显的事，我们首先得先创建个golang项目，才能去讲解golang中的html/template，关于这一点，毋庸置疑。毕竟现在玩的是golang，说的是golang标准库html/template。
 好了，闲话少叙，切入正题。关于golang怎么创建项目，您应该是比较清楚的吧！否则的话，您是不会浏览这篇文章的，当然咯，也不能这样说的哦！或许他只是想了解下golang的模板语法，以便能够开发Hugo theme，这倒也是。
 关于该如何配置golang的module相关属性，可以查看以往的文章，本文将不再赘述，而是着重讲解html/template语法。
@@ -247,7 +239,28 @@ mapping(KeyType =&amp;gt; ValueType) //KeyType 键（key）类型 ValueType 值�
 而函数参数/形参（包括函数的返回参数）数据位置默认在memory，局部变量数据位置则默认在storage，但状态变量数据位置被强制在storage。
 还有一个调用数据（calldata）存储方式，用于存放外部函数（external）的参数/形参，其效果跟memory差不离。
 指定数据存放的位置是非常的重要，因为它们将会影响其赋值行为。
-在 存储storage 和 内存memory 之间两两赋值（或者从 调用数据calldata 赋值 ），都会创建一份独立的拷贝。 从 内存memory 到 内存memory 的赋值只创建引用， 这意味着更改内存变量，其他引用相同数据的所有其他内存变量的值也会跟着改变。 从 存储storage 到本地存储变量的赋值也只分配一个引用。 其他的向 存储storage 的赋值，总是进行拷贝。 这种情况的示例如对状态变量或 存储storage 的结构体类型的局部变量成员的赋值，即使局部变量本身是 …</content></entry><entry><title>玩以太坊链上项目的必备技能（类型-值类型-Solidity之旅二）</title><url>/article/158/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>值类型</tag></tags><content type="html"> 以下这些类型在 Solidity 中都属于 值类型： * 布尔类型（bool）：字面常量值 true和 false * 整型（int/uint）：分为有符号整型int和无符号整形uint，这一点倒是和 c++、golang很相像。不管是无符号还有符号整数，它们都是以 8 位递增到 256 位，而int
+在 存储storage 和 内存memory 之间两两赋值（或者从 调用数据calldata 赋值 ），都会创建一份独立的拷贝。 从 内存memory 到 内存memory 的赋值只创建引用， 这意味着更改内存变量，其他引用相同数据的所有其他内存变量的值也会跟着改变。 从 存储storage 到本地存储变量的赋值也只分配一个引用。 其他的向 存储storage 的赋值，总是进行拷贝。 这种情况的示例如对状态变量或 存储storage 的结构体类型的局部变量成员的赋值，即使局部变量本身是 …</content></entry><entry><title>花了不到1块5，玩了下全网最火的ChatGPT</title><url>/article/159/</url><categories><category>人工智能（AI）</category></categories><tags><tag>ChatGPT</tag><tag>人工智能</tag><tag>NLP</tag></tags><content type="html"> 这一周来，要说 AI 界最为热闹的莫过于 ChatGPT 了。刚推出一周的时间，注册用户竟然达到了 100 万。自 ChatGPT 推出后，不过短短几天，用户如蜂拥般地去注册，把玩这个能在一周左右吸粉 百来万的现下5网红。
+前提准备
+由于种种原因，访问 openAI 需要使用科学上网。
+具备科学上网的工具，注意：香港 ip 是 100% 无效的，当然最好是 美国 ip。 有一个能接受验证码的国外手机号码，这一点，并不是所有都有的，我就没有，那该怎么办呢？关于这一点，可接着往下看注册虚拟号码，您也就慢慢清楚标题中的1块5是花在这里了。 注册虚拟号码
+首先打开 https://sms-activate.org/
+进行注册虚拟号码。
+我们先注册个账号，需通过填写的邮箱进行验证账号。
+这时，我们在该页面左侧选择服务下的输入框，输入op，即会出现自动补全下拉框，毫无疑问，我们选择第一个OpenAI。
+在我们选择了OpenAI后，也就是点选了OpenAI，下面出现所有国家的，当然，我们还是选择第一个，原因嘛，那就是它便宜啊，只需10.5P（10.5卢布）。
+而在我们点击了那个 购物车 图标时，出现错误提醒，那便是，你的 余额是 0，需要充值，才能购买。
+点击 左上角 人头图标，再列出的下拉框，再次点击充值。
+在点击 充值 选项时，这时，页面列出很多 支付方式，往下滚动直找到 支付宝。
+这里是使用 美元 做为单位，我们充0.2美元足够了，而 0.2 美元在当下当时兑换成人民币是 1.47 元，1块5还不到。
+支付宝 扫码支付。
+如果在注册OpenAI 账号时，出现了以下提示，那么说明科学上网是局部，需 全局 科学上网。
+注册OpenAI一部分是通过 邮箱 进行验证，另一部分则是通过 手机号码 接受验证 再次验证。
+填写接收的邮箱验证，进入下一步 手机号码 验证。
+我们拷贝刚刚购买的虚拟手机号码。
+注意：我们将虚拟号码平台上购买的号码拷贝填入OpenAI，用于接收短信验证码，而这里需要注意将国家区号去掉，因为我们在OpenAI平台选择国家时，带有国家区号，然而，我们在虚拟平台上购买的虚拟号码包括国家区号。
+回到虚拟号码平台，若是没看到验证码，可以刷新下页面就出来了。
+拷贝接收的验证码黏贴到OpenAI，注册完成，出现下面页面那就成功了。
+我们重写打开个页签， …</content></entry><entry><title>玩以太坊链上项目的必备技能（类型-值类型-Solidity之旅二）</title><url>/article/158/</url><categories><category>区块链</category><category>智能合约</category><category>Solidity</category></categories><tags><tag>以太坊</tag><tag>区块链</tag><tag>智能合约</tag><tag>值类型</tag></tags><content type="html"> 以下这些类型在 Solidity 中都属于 值类型： * 布尔类型（bool）：字面常量值 true和 false * 整型（int/uint）：分为有符号整型int和无符号整形uint，这一点倒是和 c++、golang很相像。不管是无符号还有符号整数，它们都是以 8 位递增到 256 位，而int
 Solidity 在编译事需指定变量（状态变量和局部变量）。
 虽然 Solidity 受到了 c++、python以及 javascript 的影响，但 undefined和null是不存在的，当然咯，每个新声明的变量总是有默认值的，显然这默认值是跟其声明的类型相关的。
 而 Solidity 将类型统归纳为值类型、引用类型、映射类型。本文将先从值类型 讲起。
