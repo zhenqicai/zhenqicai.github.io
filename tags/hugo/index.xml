@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on 秋码分享</title>
+    <link>/tags/hugo/</link>
+    <description>Recent content in Hugo on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 08 Jul 2023 15:18:38 +0800</lastBuildDate><atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>把握住golang中的template，方能驾驭得了Hugo主题的template</title>
+      <link>/article/177/</link>
+      <pubDate>Sat, 08 Jul 2023 15:18:38 +0800</pubDate>
+      
+      <guid>/article/177/</guid>
+      <description>&lt;p&gt;不置可否，&lt;code&gt;Hugo&lt;/code&gt;的&lt;code&gt;template&lt;/code&gt;同样是使用&lt;code&gt;golang&lt;/code&gt;的标准库&lt;code&gt;html/template&lt;/code&gt;。为了能实现一个属于自己独特的&lt;code&gt;Hugo theme&lt;/code&gt;，或是修改他人的主题，都得对其&lt;code&gt;模板语法&lt;/code&gt;有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的&lt;code&gt;Hugo theme&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

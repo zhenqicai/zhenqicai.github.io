@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>merge on 秋码分享</title>
+    <link>/tags/merge/</link>
+    <description>Recent content in merge on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 17 Jul 2021 09:41:13 +0000</lastBuildDate><atom:link href="/tags/merge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git版本控制教程之分支（三）</title>
+      <link>/article/108/</link>
+      <pubDate>Sat, 17 Jul 2021 09:41:13 +0000</pubDate>
+      
+      <guid>/article/108/</guid>
+      <description>&lt;p&gt;几乎所有的版本控制系统都以某种形式支持分支。 使用分支意味着你可以把你的工作从开发主线上分离开来，以免影响开发主线。 在很多版本控制系统中，这是一个略微低效的过程——常常需要完全创建一个源代码目录的副本。对于大项目来说，这样的过程会耗费很多时间。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

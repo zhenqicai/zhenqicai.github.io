@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>函数 on 秋码分享</title>
+    <link>/tags/%E5%87%BD%E6%95%B0/</link>
+    <description>Recent content in 函数 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 19 Dec 2022 20:30:23 +0800</lastBuildDate><atom:link href="/tags/%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>玩以太坊链上项目的必备技能（函数及其可见性和状态可变性-Solidity之旅十三）</title>
+      <link>/article/170/</link>
+      <pubDate>Mon, 19 Dec 2022 20:30:23 +0800</pubDate>
+      
+      <guid>/article/170/</guid>
+      <description>&lt;p&gt;对于 public 状态变量会自动生成一个，与状态变量同名的 &lt;code&gt;public&lt;/code&gt;修饰的函数。 以便其他的合约读取他们的值。 当在用一个合约里使用是，外部方式访问 (如: &lt;code&gt;this.x&lt;/code&gt;) 会调用该自动生成的同名函数，而内部方式访问 (如: &lt;code&gt;x&lt;/code&gt;) 会直接从存储中获取值。 Setter函数则不会被生成，所以其他合约&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go 语言中的函数详解（Let&#39;s Go 十九）</title>
+      <link>/article/139/</link>
+      <pubDate>Mon, 03 Oct 2022 11:28:50 +0000</pubDate>
+      
+      <guid>/article/139/</guid>
+      <description>&lt;p&gt;在前面几篇文章，接触到的最多的是&lt;code&gt;main&lt;/code&gt;函数。&lt;code&gt;Go&lt;/code&gt; 如同&lt;code&gt;c/c++&lt;/code&gt;语言一样，对于声明函数也有属于自己的一套规则。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

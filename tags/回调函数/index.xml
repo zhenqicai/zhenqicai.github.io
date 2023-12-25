@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>回调函数 on 秋码分享</title>
+    <link>/tags/%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</link>
+    <description>Recent content in 回调函数 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 12 Oct 2022 12:07:27 +0000</lastBuildDate><atom:link href="/tags/%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 语言中的延迟执行【defer】（Let&#39;s Go 二十二）</title>
+      <link>/article/142/</link>
+      <pubDate>Wed, 12 Oct 2022 12:07:27 +0000</pubDate>
+      
+      <guid>/article/142/</guid>
+      <description>&lt;p&gt;函数作为另一个函数的形参，这就是Go当中的回调函数。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go 语言中的函数变量与匿名函数（Let&#39;s Go 二十）</title>
+      <link>/article/140/</link>
+      <pubDate>Tue, 04 Oct 2022 12:50:36 +0000</pubDate>
+      
+      <guid>/article/140/</guid>
+      <description>&lt;p&gt;一上来乍一看，函数变量？这究竟是什么意思呢？你函数就函数，变量便是变量，这两者搞在一块，到底是几个意思呢？ 其实啊，在&lt;code&gt;Go&lt;/code&gt;当中，&lt;code&gt;函数&lt;/code&gt;也是一种类型，既然是类型，那就可以向其它类型一样，给变量定义类型啊！而这个类型是&lt;code&gt;函数&lt;/code&gt;，所以&lt;code&gt;函数类型&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

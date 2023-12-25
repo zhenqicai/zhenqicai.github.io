@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>struct on 秋码分享</title>
+    <link>/tags/struct/</link>
+    <description>Recent content in struct on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 14 Oct 2022 13:33:44 +0000</lastBuildDate><atom:link href="/tags/struct/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原创 Go 语言中的结构体（Let&#39;s Go 二十三）</title>
+      <link>/article/143/</link>
+      <pubDate>Fri, 14 Oct 2022 13:33:44 +0000</pubDate>
+      
+      <guid>/article/143/</guid>
+      <description>&lt;p&gt;&lt;code&gt;Go&lt;/code&gt;中的结构体与&lt;code&gt;c/c++&lt;/code&gt;语言中是差不多，然而对没有接触过&lt;code&gt;c/c++&lt;/code&gt;语言的话，对在看到结构体这一&lt;code&gt;复合类型&lt;/code&gt;是新鲜事物。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

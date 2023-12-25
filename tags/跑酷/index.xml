@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>跑酷 on 秋码分享</title>
+    <link>/tags/%E8%B7%91%E9%85%B7/</link>
+    <description>Recent content in 跑酷 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 11 Oct 2018 22:47:03 +0000</lastBuildDate><atom:link href="/tags/%E8%B7%91%E9%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cocos2d-x实现跑酷游戏之一（重拾知识篇）</title>
+      <link>/article/101/</link>
+      <pubDate>Thu, 11 Oct 2018 22:47:03 +0000</pubDate>
+      
+      <guid>/article/101/</guid>
+      <description>&lt;p&gt;好久没去关注cocos2d-x游戏引擎了！时隔多久，我是记不太清楚了，本篇属于温习知识吧，毕竟笔者最初的梦想是开发一个像现在大家平时没事就爱消磨时间的游戏，然而，事与愿违，没能成为一个游戏开发者，竟成了一个Java开发者（请允许我也可以在你们这些Java大佬面前自称为Java开发者）。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

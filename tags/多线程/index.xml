@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>多线程 on 秋码分享</title>
+    <link>/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+    <description>Recent content in 多线程 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 24 Oct 2022 11:13:34 +0000</lastBuildDate><atom:link href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 语言中的并发编程（Let&#39;s Go 二十八）</title>
+      <link>/article/148/</link>
+      <pubDate>Mon, 24 Oct 2022 11:13:34 +0000</pubDate>
+      
+      <guid>/article/148/</guid>
+      <description>&lt;p&gt;并发与并行并不相同，并发主要由切换时间片来实现“同时”运行，并行则是直接利用多核实现多线程的运行，Go程序可以设置使用核心数，以发挥多核计算机的能力。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

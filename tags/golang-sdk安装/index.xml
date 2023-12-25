@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang SDK安装 on 秋码分享</title>
+    <link>/tags/golang-sdk%E5%AE%89%E8%A3%85/</link>
+    <description>Recent content in golang SDK安装 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 19 Sep 2022 15:11:00 +0000</lastBuildDate><atom:link href="/tags/golang-sdk%E5%AE%89%E8%A3%85/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>window下安装 Go 语言开发包</title>
+      <link>/article/121/</link>
+      <pubDate>Mon, 19 Sep 2022 15:11:00 +0000</pubDate>
+      
+      <guid>/article/121/</guid>
+      <description>&lt;p&gt;在window下安装最新Go语言开发包&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

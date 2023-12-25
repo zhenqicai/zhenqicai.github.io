@@ -1,56 +1,2241 @@
-<!doctype html><html lang=zh-cn data-theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width"><meta name=theme-color content="#222" media="(prefers-color-scheme: dark)"><meta name=generator content="Hugo 0.111.3"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_16x16_next.png><link rel=icon type=image/png sizes=32x32 href=/imgs/icons/favicon_32_32_next.png><link rel=apple-touch-icon sizes=180x180 href=/imgs/icons/apple_touch_icon_next.png><meta itemprop=name content="现实生活中机器学习的具体示例（Machine Learning 研习之二）"><meta itemprop=description content="现实生活中机器学习的具体示例（Machine Learning 研习之二）"><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="/imgs/qiu-logo.png"><meta itemprop=keywords content="Machine Learning,训练数据,模型,机器学习"><meta property="og:type" content="article"><meta property="og:title" content="现实生活中机器学习的具体示例（Machine Learning 研习之二）"><meta property="og:description" content="现实生活中机器学习的具体示例（Machine Learning 研习之二）"><meta property="og:image" content="/imgs/qiu-logo.png"><meta property="og:image:width" content="312"><meta property="og:image:height" content="312"><meta property="og:image:type" content="image/jpeg/png/svg/jpg"><meta property="og:url" content="/article/179/"><meta property="og:site_name" content="秋码分享"><meta property="og:locale" content="zh-CN"><meta property="article:author" content="上官江北"><meta property="article:published_time" content="2023-07-17 21:22:38 +0800 CST"><meta property="article:modified_time" content="2023-07-17 21:22:38 +0800 CST"><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/font-awesome/6.1.2/css/all.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.css><link rel=stylesheet href=/css/main.min.cfb67df7fc5851fa129014704fa13871a977c05030cfc3e50b488f97948e0872.css><style type=text/css>.post-footer,.flinks-list-footer hr:after{content:"~ 我可是有底线的哟 ~"}</style><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return void 0;const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),void 0):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script class=next-config data-name=page type=application/json>{"comments":true,"isHome":false,"isPage":true,"path":"179","permalink":"/article/179/","title":"现实生活中机器学习的具体示例（Machine Learning 研习之二）","waline":{"js":[{"alias":"waline","alias_name":"@waline/client","file":"dist/pageview.js","name":"pageview","version":"2.13.0"},{"alias":"waline","alias_name":"@waline/client","file":"dist/comment.js","name":"comment","version":"2.13.0"}]}}</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>秋码分享 | 现实生活中机器学习的具体示例（Machine Learning 研习之二）</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5798408669698308" crossorigin=anonymous></script></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
-<span class=toggle-line></span>
-<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>秋码分享</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>一个游离于山间之上的Java爱好者 | A Java lover living in the mountains</p><img class=custom-logo-image src=/imgs/qiu-logo.png alt=秋码分享></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-about"><a href=/about/ class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于本站</a></li><li class="menu-item menu-item-flinks"><a href=/flinks/ class=hvr-icon-pulse rel=section><i class="fa fa-thumbs-up hvr-icon"></i>友情链接</a></li><li class="menu-item menu-item-archives"><a href=/archives/ class=hvr-icon-pulse rel=section><i class="fa fa-archive hvr-icon"></i>归档
-<span class=badge>103</span></a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
-<span class=toggle-line></span>
-<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><ul><li><a href=#机器学习在现实中的示例>机器学习在现实中的示例</a></li><li><a href=#机器学习系统的类型>机器学习系统的类型</a><ul><li><a href=#训练监督>训练监督</a></li></ul></li></ul></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image6666 itemprop=image alt=上官江北 src=/imgs/img-lazy-loading.gif data-src=/imgs/qiu-logo-desc.png></div><div class="site-state-wrap site-overview-item animated"><nav class=site-state><div class="site-state-item site-state-posts"><a href=/archives/><span class=site-state-item-count>103</span>
-<span class=site-state-item-name></span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>37</span>
-<span class=site-state-item-name></span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>209</span>
-<span class=site-state-item-name></span></a></div></nav></div><div class="links-of-social site-overview-item animated"></div></div></div></div><div id=siteinfo-card-widget class=sidebar-card-widget><div class=item-headline><i class="fas fa-chart-line"></i>
-<span>网站资讯</span></div><div class=siteinfo><div class=siteinfo-item><div class=item-name><i class="fa-solid fa-calendar-check"></i>已运行：</div><div class=item-count id=runTimes data-publishdate=2018-10-07T11:28:43+00:00></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-user"></i>总访客数：</div><div class=item-count id=busuanzi_value_site_uv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-eye"></i>页面浏览：</div><div class=item-count id=busuanzi_value_site_pv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-font"></i>总字数：</div><div class=item-count id=wordsCount data-count=123792></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-mug-hot"></i>阅读约：</div><div class=item-count id=readTimes data-times=298></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-clock-rotate-left"></i>最后更新于：</div><div class=item-count id=last-push-date data-lastpushdate=2023-10-14T17:02:17+08:00></div></div></div></div><div class=sidebar-card-widget><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-5798408669698308 data-ad-slot=3588383880 data-ad-format=auto data-full-width-responsive=true></ins></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-comments class="button goto-comments" title=直达评论><i class="fas fa-comments"></i></div><div id=goto-gtranslate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
-<span>0%</span></div></div><div class=reading-progress-bar></div><a role=button class="book-mark-link book-mark-link-fixed"></a>
-<script type=text/javascript src=//sidecar.gitter.im/dist/sidecar.v1.js async></script>
-<script type=text/javascript>((window.gitter={}).chat={}).options={room:"hugo-next/community"}</script><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=/article/179/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content="/imgs/qiu-logo-desc.png"><meta itemprop=name content="上官江北"></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content="上官江北"><meta itemprop=description content="喜欢登山、书法、爱折腾新技术的互联网爱好者"></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="现实生活中机器学习的具体示例（Machine Learning 研习之二）"><meta itemprop=description content="现实生活中机器学习的具体示例（Machine Learning 研习之二）"></span><header class=post-header><h1 class=post-title itemprop="name headline">现实生活中机器学习的具体示例（Machine Learning 研习之二）</h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar"></i></span>
-<span class=post-meta-item-text title=发表于>发表于：</span>
-<time title="创建时间：2023-07-17 21:22:38 +0800 CST" itemprop="dateCreated datePublished" datetime="2023-07-17 21:22:38 +0800 CST">2023-07-17</time></span>
-<span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-folder-open"></i></span>
-<span class=post-meta-item-text title=分类于>分类于：</span>
-<span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD itemprop=url rel=index><span itemprop=name>Machine Learning/人工智能</span></a></span></span></div><div class=post-meta-items><span class=post-meta-item title=字数><span class=post-meta-item-icon><i class="far fa-file-word"></i></span>
-<span class=post-meta-item-text>字数：</span>
-<span>4682</span></span>
-<span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
-<span class=post-meta-item-text>阅读：&ap;</span>
-<span>10分钟</span></span>
-<span class=post-meta-item title=浏览><span class=post-meta-item-icon><i class="far fa-eye"></i></span>
-<span class=post-meta-item-text>浏览：</span>
-<span class=waline-pageview-count data-path=/article/179/><i class="fa fa-sync fa-spin"></i></span></span>
-<span class=post-meta-item title><span class=post-meta-item-icon><i class="far fa-comments"></i></span>
-<span class=post-meta-item-text title=评论>评论：</span>
-<span id=comments-count class=waline-comment-count data-path=/article/179/><i class="fa fa-sync fa-spin"></i></span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><p>在上一篇，我们初步了解什么是机器学习，以及它能给我们带来，相对于传统编程解决更为优先、易于维护的一套解决方案。那么，本文将继续为您举例，机器学习给我们生活上带来哪些便捷。</p><h3 id=机器学习在现实中的示例>机器学习在现实中的示例
-<a class=header-anchor href=#%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e5%9c%a8%e7%8e%b0%e5%ae%9e%e4%b8%ad%e7%9a%84%e7%a4%ba%e4%be%8b></a></h3><p>通过上一篇的讲解，我们多多少少对<code>机器学习</code>（Machine Learning）有了些许了解，同时也对<code>机器学习</code>（Machine Learning）一词不再那么抗拒了。</p><p>那么，<code>机器学习</code>到底在现实生活为我们解决哪些难题呢？亦或是传统方案目前无法实现的。</p><ul><li><p>1、可以分析生产线上的产品图像，并对其进行分类。这属于<code>图像分类</code>范畴，通常是使用<code>卷积神经网络</code>（CNN），亦或是<code>Transformer</code>。</p></li><li><p>2、 可以用于对脑部检测是否存在肿瘤。这便是<code>图像语义分割</code>，图像中的每个像素都被分类 （因为我们想要确定肿瘤的确切位置和形状），通常是使用<code>卷积神经网络</code>（CNN），亦或是<code>Transformer</code>。</p></li><li><p>3、对新闻文章进行自动分类。这属于<code>自然语言处理</code>（NLP）范畴，更为具体地应该是<code>文本分类</code>。虽然可以使用<code>循环神经网络</code>（RNN）和<code>卷积神经网络</code>来解决，但显然<code>Transformer</code>处理的效果更好。</p></li><li><p>4、自动标记恶意评论。这也是<code>文本分类</code>范畴，处理的方案也是选用<code>NLP</code>工具。</p></li><li><p>5、自动总结长文档。这好比去阅读短篇小说，而后总结出讲了什么故事？或者是故事情节脉络。这是<code>NLP</code>的一个分支，称为<code>文本摘要</code>，同样也是使用<code>NLP</code>工具进行处理。</p></li><li><p>6、搭建<code>聊天机器人</code>或<code>个人助理</code>。这就涉及到诸多<code>NLP</code>组成部分，包括<code>自然语言理解</code>（NLU）和<code>问答模块</code>。</p></li><li><p>7、根据大量绩效指标来预测公司明年的盈利情况。这属于一个<code>回归任务</code>（即预测值），可以使用任何<code>回归模型</code>（regression model,）来解决，诸如<code>线性回归</code>（ linear regression）、<code>多项式回归</code>（polynomial regression）模型。如果您考虑过去绩效指标的序列，您则会使用<code>RNN</code>、<code>CNN</code>和<code>Transformer</code>。</p></li><li><p>8、应用程序对语音命令做出反应。这是<code>语音识别</code>，需要处理音频样本，这些样本都是长而复杂的序列，通常使用<code>RNN</code>、<code>CNN</code>和<code>Transformer</code>来处理。</p></li><li><p>9、检测信用卡欺诈。这属于<code>异常检测</code>。可以使用<code>隔离森林</code>（isolation forests）、<code>高斯混合模型</code>（Gaussian mixture models）和<code>自动编码器</code>（autoencoders）。</p></li><li><p>10、根据购买情况对客户进行细分，进而为每个细分市场做出不同的营销策略。这便是<code>聚类</code>（clustering），可以使用 <code>k-means</code>、<code>DBSCAN</code> 等来实现。</p></li><li><p>11、使用图表来表示复杂的高维度数据集。这是<code>数据可视化</code>，通常涉及到<code>降维技术</code>。</p></li><li><p>12、根据客户过去的购买情况推荐出感兴趣的产品。这属于<code>推荐系统</code>。一种方法是将过去的购买行为（以及有关客户的其他信息）输入到<code>人工神经网络</code>（ANN），并让它输出最有可能的下一次购买行为。 该神经网络通常会根据所有客户过去的购买顺序进行训练。</p></li><li><p>13、为游戏创建智能机器人。这通常可以使用<code>强化学习</code>（RL）来解决，它是<code>机器学习</code>的一个分支，训练代理（例如机器人）来选择随着时间的推移最大化其奖励的操作（例如，机器人可能会获得奖励） 每当玩家在给定环境（例如游戏）内失去一些生命值时。 在围棋比赛中击败世界冠军的著名 <code>AlphaGo</code> 程序就是使用 <code>RL</code> 构建的。</p></li></ul><p>当然，这个示例列表可以一直列下去，但希望它能让您感受到<code>机器学习</code>可以处理的任务令人难以置信的广度和复杂性，并且 您将用于每项任务的技术类型。</p><h3 id=机器学习系统的类型>机器学习系统的类型
-<a class=header-anchor href=#%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%b3%bb%e7%bb%9f%e7%9a%84%e7%b1%bb%e5%9e%8b></a></h3><p><code>机器学习</code>系统种类繁多，但可以根据以下这些标准大致分出几大类，它远不止限于此。</p><ul><li>1、在它们训练期间如何受到监督，可细分为，包括但不限于<code>监督</code>、<code>无监督</code>、<code>半监督</code>以及<code>自我监督</code>等等。</li><li>2、在它们训练期间是否可以即时增量学习，可分为<code>在线学习</code>和<code>批量学习</code>。</li><li>3、它们的工作方式是简单地将<code>新数据点</code>和<code>已知数据点</code>进行比较呢？还是通过检查数据训练中的模式并构建预测模型来工作呢？这样可分为<code>基于实例的学习</code>和<code>模型的学习</code>。</li></ul><p>当然咯，这些标准并不是固化不变的，您总是可以按您自己喜欢的任何方式随意的组合它们。就拿<code>垃圾邮件过滤器</code>来说明吧！它可以使用<code>深度神经网络</code>（deep neural network）模型进行动态学习，该模型人类提供的<code>垃圾邮件</code>和样本数据进行训练，这使其成为一个<code>在线</code>、<code>基于模型</code>的<code>监督</code>学习系统。</p><h4 id=训练监督>训练监督
-<a class=header-anchor href=#%e8%ae%ad%e7%bb%83%e7%9b%91%e7%9d%a3></a></h4><p><code>机器学习</code>系统可以根据训练期间受到的<code>监督数量</code>和<code>类型</code>进行划分。有很多类别，但目前只讲讲<code>监督</code>、<code>无监督</code>、<code>自我监督</code>、<code>半监督</code>以及<code>强化</code>学习。</p><h5 id=监督学习supervised-learning>监督学习（Supervised learning）
-<a class=header-anchor href=#%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0supervised-learning></a></h5><p>在<code>监督学习</code>中，提供给算法的<code>训练集</code>包括所需的解决方案，则称为<code>标签</code>。</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1689995834152.png alt></p><p>垃圾邮件过滤器接受了很多电子邮件及其分类（垃圾邮件）的训练，并且它必须学习该如何对新邮件进行分类。</p><p>也可以根据一组<code>特征</code>（里程、车龄以及品牌等）来预测目标值。为了训练，您需要为其提供很多汽车示例，包括它们的功能和价格。这种任务称为<code>回归</code>。</p><blockquote><p>注意：某些<code>回归模型</code>也可用于分类，反之亦然。<code>逻辑回归</code>（ logistic regression）通常用于分类，因为它可以输出与给定类别的概率相对应的值（例如：垃圾邮件概率为20%）</p></blockquote><p><img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690000818688.png alt></p><p><code>回归问题</code>：给定一个输入特征，预测一个值（通常有多个输入特征，有时有多个输出值）。</p><h5 id=无监督学习unsupervised-learning>无监督学习（Unsupervised learning）
-<a class=header-anchor href=#%e6%97%a0%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0unsupervised-learning></a></h5><p>在<code>无监督</code>学习中，<code>训练数据</code>是不需要<code>标记</code>的。该系统试图在没有老师的情况下进行学习。</p><p>假设您有大量有关博客访问者的数据，您可能需要运行<code>聚类算法</code>来尝试检测相似访问这组。而您永远也不会告诉<code>算法</code>访问这属于哪个组，它无需您的任何协助即可找到这些链接。它可能会注意到，40% 的访问者是喜欢漫画书并通常在放学后阅读您的博客的青少年，而 20% 是喜欢科幻小说并在周末访问的成年人。如果您使用了<code>层次聚类算法</code>（hierarchical clustering algorithm），它还可能将每个组细分为更小的组， 这可以帮助您针对每个组定位您的帖子。</p><p>（用于无监督学习的未标记训练集）</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690002317611.png alt=用于无监督学习的未标记训练集></p><p>（聚类）</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690002745441.png alt=聚类></p><p><code>可视化算法</code>也是一个<code>无监督学习</code>的好例子。您向它们提供大量复杂且未标记的数据，它们可以轻松输出绘制数据的 2D 或 3D 表示形式。 这些算法尝试保留尽可能多的结构（例如，尝试保持输入空间中的单独簇在可视化中不重叠），以便您可以了解数据的组织方式，并可能识别出意想不到的模式。</p><p>一个相关的任务是<code>降维</code>，其目标是简化数据而不丢失太多信息。 实现这一目标的一种方法是将多个相关<code>特征</code>合并为一个。 例如，一辆车的行驶里程可能与其车龄密切相关，因此<code>降维算法</code>会将它们合并为一个代表汽车磨损情况的<code>特征</code>， 这称为<code>特征提取</code>。</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690005491022.png alt></p><blockquote><p>在将<code>训练数据</code>提供给另一个机器学习算法（例如<code>监督学习算法</code>）之前，尝试使用<code>降维算法</code>来减少<code>训练数据</code>的<code>维数</code>通常是一个好主意。 它将运行得更快，数据将占用更少的磁盘和内存空间，并且在某些情况下它也可能表现得更好。</p></blockquote><p><code>异常检测</code>也是一项<code>无监督任务</code>。例如，检测异常的信用卡交易以防止欺诈、发现制造缺陷，或者在将数据输入另一个学习算法之前自动从数据集中删除异常值。 系统在训练期间显示的大部分是正常实例，因此它学会识别它们； 然后，当它看到一个新实例时，它可以判断它是否看起来像正常实例，或者是否可能存在异常。</p><p>一个非常相似的任务是<code>新颖性检测</code>：它的目的是检测看起来与<code>训练集</code>中的所有实例不同的新实例。 这需要有一个非常“干净”的<code>训练集</code>， 您希望<code>算法</code>检测的任何实例。 例如，如果您有数千张狗的图片，其中 1% 代表吉娃娃，那么<code>新颖性检测算法</code>不应将吉娃娃的新图片视为<code>新颖性</code>。另一方面，<code>异常检测算法</code>可能会认为这些狗非常罕见，并且与其他狗如此不同，因此它们可能会将它们归类为<code>异常</code>（无意冒犯吉娃娃）。</p><p>（异常检测）</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690009118863.png alt=异常检测></p><p><code>关联规则学习</code>（association rule learning）是一个常见的<code>无监督任务</code>，其目标是挖掘大量数据并发现属性之间有趣的关系。 例如，假设您拥有一家超市。 在销售日志上运行<code>关联规则</code>可能会发现购买烧烤酱和薯片的人也倾向于购买牛排。 因此，您可能希望将这些物品彼此靠近放置。</p><h5 id=半监督学习semi-supervised-learning>半监督学习（Semi-supervised learning）
-<a class=header-anchor href=#%e5%8d%8a%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0semi-supervised-learning></a></h5><p>由于<code>标记数据</code>通常既耗时又昂贵，因此您通常会有<code>大量未标记</code>的实例，而很少有标记的实例。 一些算法可以处理部分标记的数据。 这称为<code>半监督学习</code>。</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690009822949.png alt></p><p>图中，具有两个类（三角形和正方形）的<code>半监督学习</code>：未标记的示例（圆圈）有助于将新实例（十字）分类为三角形类而不是正方形类，即使它更接近标记的正方形</p><p>例如，一些照片托管服务（Google Photos），将照片上传到该服务后，它会自动识别出同一个人 A 出现在照片 1、5 和 11 中，而另一个人 B 出现在照片 2、5 和 7 中。这是算法的<code>无监督</code>部分（聚类）。 现在系统需要的只是您告诉它这些人是谁。 只需为每个人添加一个<code>标签</code>，它就能为每张照片中的每个人命名，这对于搜索照片很有用。</p><p>大多数<code>半监督学习</code>算法是<code>无监督</code>和<code>监督</code>算法的组合。 例如，可以使用<code>聚类</code>算法将相似的实例分组在一起，然后可以用其<code>聚类</code>中最常见的<code>标签</code>来标记每个<code>未标记</code>的实例。 一旦整个<code>数据集</code>被<code>标记</code>，就可以使用任何<code>监督学习</code>算法。</p><h5 id=自我监督学习-self-supervised-learning>自我监督学习 （Self-supervised learning）
-<a class=header-anchor href=#%e8%87%aa%e6%88%91%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0-self-supervised-learning></a></h5><p><code>机器学习</code>的另一种方法实际上涉及从完全<code>未标记</code>的<code>数据集</code>生成<code>完全标记</code>的<code>数据集</code>。 同样，一旦整个<code>数据集</code>被<code>标记</code>，就可以使用任何<code>监督学习</code>算法。 这种方法称为<code>自我监督学习</code>。 例如，如果您有大量<code>未标记</code>图像的<code>数据集</code>，则可以随机屏蔽每个图像的一小部分，然后<code>训练模型</code>来恢复原始图像。 在训练过程中，<code>蒙版图像</code>用作<code>模型的输入</code>，<code>原始图像</code>用作<code>标签</code>。</p><p>（左图作为 输入，右图是 输出）</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690011224077.png alt></p><p>生成的模型本身可能非常有用，例如，<code>修复损坏</code>的图像或从图片中删除不需要的对象。 但通常情况下，使用<code>自我监督学习</code>训练的模型并不是最终目标。 您通常需要针对稍微不同的任务（您真正关心的任务）调整和微调模型。</p><p>假设您真正想要的是有一个<code>宠物分类模型</code>：给定任何宠物的图片，它会告诉您它属于什么物种。 如果您有大量<code>未标记</code>的宠物照片<code>数据集</code>，则可以首先使用<code>自我监督学习</code>来训练图像<code>修复</code>模型。 一旦表现良好，它应该能够区分不同的宠物种类：当它<code>修复</code>一张脸部被遮住的猫的图像时，它必须知道不要添加狗的脸。</p><p>假设您的模型架构允许（大多数<code>神经网络</code>架构都允许），那么就可以调整模型，使其<code>预测</code>宠物物种而不是<code>修复</code>图像。 最后一步 包括在<code>标记</code> <code>数据集</code>上微调模型：模型已经知道猫、狗和其他宠物物种的样子，因此只需要这一步，以便模型可以学习它已经知道的物种与我们期望从中获得的<code>标签</code>之间的映射。</p><blockquote><p>将知识从一项任务迁移到另一项任务称为<code>迁移学习</code>，它是当下<code>机器学习</code>中最重要的技术之一，特别是在使用<code>深度神经网络</code>（即由多层<code>神经元</code>组成的<code>神经网络</code>）时。</p></blockquote><p>有些人认为<code>自监督学习</code>是<code>无监督学习</code>的一部分，因为它处理完全<code>未标记</code>的<code>数据集</code>。 但<code>自我监督学习</code>在训练过程中使用（生成的）<code>标签</code>，因此在这方面它更接近<code>监督学习</code>。 <code>无监督学习</code>通常用于处理<code>聚类</code>、<code>降维</code>或<code>异常检测</code>等任务，而<code>自我监督学习</code>则专注于与<code>监督学习</code>相同的任务：主要是<code>分类</code>和<code>回归</code>。 简而言之，最好将<code>自我监督学习</code>视为一个单独的类别。</p><h5 id=强化学习reinforcement-learning->强化学习（Reinforcement learning ）
-<a class=header-anchor href=#%e5%bc%ba%e5%8c%96%e5%ad%a6%e4%b9%a0reinforcement-learning-></a></h5><p><code>强化学习</code>是一种非常不同的<code>机器学习</code>。 <code>学习系统</code>在本文中称为<code>代理</code>，可以观察环境、选择和执行操作，并获得回报（或以负奖励形式进行惩罚）。 然后，它必须<code>自行学习</code>什么是最好的<code>策略</code>（称为<code>策略</code>），以便随着时间的推移获得最大的回报。 策略定义了代理在给定情况下应该选择什么操作。</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690013890451.png alt></p><p>例如，许多<code>机器人</code>采用<code>强化学习</code>算法来学习如何行走。 <code>DeepMind</code> 的 <code>AlphaGo</code> 程序也是<code>强化学习</code>的一个很好的例子：它在 2017 年 5 月的围棋比赛中击败了当时世界排名第一的柯洁，登上了新闻头条。 它通过分析数百万场比赛，然后与自己进行许多比赛来了解其获胜策略。 请注意，在与冠军的比赛中学习被关闭；<code> AlphaGo</code> 只是应用了它学到的策略。</p></div><footer class=post-footer><div class=post-tags><a href=/tags/machine-learning>Machine Learning</a>
-<a href=/tags/%e8%ae%ad%e7%bb%83%e6%95%b0%e6%8d%ae>训练数据</a>
-<a href=/tags/%e6%a8%a1%e5%9e%8b>模型</a>
-<a href=/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0>机器学习</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
-赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/alipay.png alt="上官江北 - 支付宝">
-<span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/wepay.png alt="上官江北 - 微信">
-<span>微信</span></div></div></div><div class=post-copyright><img src=/imgs/cc/cc.svg width=75 height=75 align=right alt=共享知识><ul><li class=post-copyright-title><strong>文章标题：</strong>
-现实生活中机器学习的具体示例（Machine Learning 研习之二）</li><li class=post-copyright-author><strong>本文作者：</strong>
-上官江北</li><li class=post-copyright-link><strong>本文链接：</strong>
-<a id=post-cr-link href=/article/179/ title="现实生活中机器学习的具体示例（Machine Learning 研习之二）">/article/179/</a></li><li class=post-copyright-license><strong>版权声明：</strong>
-本博客所有文章除特别声明外，均采用 <i class="fab fa-fw fa-creative-commons"></i><a target=_blank href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><div class=followme><span>欢迎关注我的其它发布渠道</span><div class=social-list><div class=social-item><a target=_blank class=social-link href=/images/wechat_channel.jpg><span class=icon><i class="fab fa-weixin"></i></span>
-<span class=label>WeChat</span></a></div><div class=social-item><a target=_blank class=social-link href=/atom.xml><span class=icon><i class="fa fa-rss"></i></span>
-<span class=label>RSS</span></a></div></div></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/article/180/ rel=next title="对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）"><i class="fa fa-chevron-left"></i> 对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）</a></div><div class="post-nav-prev post-nav-item"><a href=/article/178/ rel=prev title="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）">让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）
-<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div id=comments class=post-comments><div class=comment-head><div class=comment-headline><i class="fas fa-comments fa-fw"></i>
-<span>评论交流</span></div></div><div class=comment-wrap><div><div class=comment-loading><i class="fa fa-sync fa-spin"></i></div><div class=waline-container></div></div></div></div></div></main><footer class=footer><div class=footer-inner><div id=gtranslate class=google-translate><i class="fa fa-language"></i><div id=google_translate_element></div></div><div class=copyright>&copy;
-<span itemprop=copyrightYear>2018 - 2023</span>
-<span class=with-love><i class="fa fa-heart"></i></span>
-<span class=author itemprop=copyrightHolder>所有文章均由【秋码】整理</span></div><div class=powered-by>由 <a href=https://gohugo.io title=0.111.3 target=_blank>Hugo</a> & <a href=https://github.com/hugo-next/hugo-theme-next title=4.5.2 target=_blank>Hugo NexT.Gemini</a> 强力驱动</div><div class=beian><a href=https://beian.miit.gov.cn target=_blank>闽ICP备18024075-1 号</a></div></div></footer><script type=text/javascript src=https://cdn.staticfile.org/animejs/3.2.1/anime.min.js defer></script>
-<script type=text/javascript src=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.js defer></script>
-<script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#222","enable":true,"save":"manual"},"copybtn":true,"darkmode":true,"hostname":"/","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"lang":"zh-CN","lazyload":false,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"fadeInLeft","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":true,"plugin":"waline"},"views":{"enable":true,"plugin":"waline"}},"root":"/","scheme":"Gemini","sidebar":{"display":"post","offset":12,"padding":18,"position":"left","width":256},"vendor":{"plugins":"qiniu","router":"https://cdn.staticfile.org"},"version":"4.5.2","waline":{"cfg":{"emoji":["//unpkg.com/@waline/emojis@1.1.0/weibo","//unpkg.com/@waline/emojis@1.1.0/bilibili"],"imguploader":false,"login":"disable","placeholder":"请不要吝啬您的评论 ヾ(≧▽≦*)o","reaction":true,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"您认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":"comment.qiucode.cn","sofa":"瞧，这里没人，还不抢占第一的位置 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"waline","file":"dist/waline.css","name":"@waline/client","version":"2.13.0"},"js":{"alias":"waline","file":"dist/waline.js","name":"@waline/client","version":"2.13.0"}}}</script><script type=text/javascript src=/js/main.min.f065de2cc65b4bd40a375cd5b8091747693efdb8b5dde40d996ac7714ba4bf68.js defer></script></body></html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<title>现实生活中机器学习的具体示例（Machine Learning 研习之二）</title>
+<meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+
+<meta name="description" content="现实生活中机器学习的具体示例（Machine Learning 研习之二）">
+
+<meta itemprop="name" content="现实生活中机器学习的具体示例（Machine Learning 研习之二）">
+<meta itemprop="description" content="现实生活中机器学习的具体示例（Machine Learning 研习之二）">
+<meta itemprop="image" content="/img/author.jpg">
+
+
+<meta name="twitter:description" content="现实生活中机器学习的具体示例（Machine Learning 研习之二）" />
+
+
+<link rel="alternate" href="/feed.xml" title="秋码分享" type="application/rss+xml"/>
+
+<link rel="shortcut icon" href="/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="/imgs/icons/apple-touch-icon.png" />
+
+
+
+
+<style>
+    @font-face {
+        font-family: 'Xc Font';
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+        src: url('https://cdn.jsdelivr.net/gh/Xpblog666/cdn@1.0/HarmonyOS_Sans_SC_Medium.ttf');
+        src: url('https://cdn.jsdelivr.net/gh/Xpblog666/cdn@1.0/HarmonyOS_Sans_SC_Medium.ttf') format('truetype');
+    }
+
+    html {
+        font-family: 'Xc Font', 'PingFang SC', 'Noto Serif SC', 'HarmonyOS_Sans_SC_Medium', 'Fira Mono', 'Microsoft YaHei', Arial, sans-serif
+    }
+
+    html .Qc_header_above .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_header_below .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_header_searchout .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_main {
+        max-width: 980px
+    }
+
+    html .Qc_aside {
+        width: 260px
+    }
+
+    body::before {
+        background: #f0f0f0;
+        background: ;
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+<link rel="stylesheet" href="/css/global.min.css" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/theme.min.css" />
+
+<link rel="stylesheet" href="/css/font-awesome.min.css" />
+
+
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+  
+    init({
+      el: '.waline-container',
+      placeholder: "请不要吝啬您的评论 ヾ(≧▽≦*)o",
+      sofa: "瞧，这里没人，还不抢占第一的位置 (≧∀≦)ゞ",
+      pageview: true, 
+      comment: true, 
+      emoji: [
+        '//unpkg.com/@waline/emojis@1.1.0/weibo',
+        '//unpkg.com/@waline/emojis@1.1.0/bilibili',
+      ],
+      login: 'disable',
+      imgUploader: false,
+      wordLimit: 200,
+      requiredMeta: ['nick', 'mail'],
+      reaction: true,
+      reactionText: [ '点赞', '踩一下', '得意', '不屑', '尴尬', '睡觉'],
+      reactionTitle: "您认为这篇文章怎么样？",
+      dark: 'auto', 
+      serverURL: "comment.qiucode.cn",
+    });
+  </script>
+  
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+                
+ 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+	<header class="Qc_header  active Qc_slid">
+<div class="Qc_header_above">
+    <div class="Qc_container"> 
+        <svg class="Qc_header_above-slideicon" viewBox="0 0 1152 1024"
+            xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+            <path
+                d="M76.032 872a59.968 59.968 0 1 0 0 120h999.936a59.968 59.968 0 1 0 0-120H76.032zm16-420.032a59.968 59.968 0 1 0 0 120h599.936a59.968 59.968 0 1 0 0-119.936H92.032zM76.032 32a59.968 59.968 0 1 0 0 120h999.936a60.032 60.032 0 0 0 0-120H76.032z" />
+        </svg> 
+        <a class="Qc_header_above-logo" href="/" title="John'Blog"> 
+            <img class="Qc_logo"
+                src="/static/front/images/qiu-logo.png" /></a>
+        <nav class="Qc_header_above_nav"> 
+            
+            <a class="item " href="/" title="首页" style="margin-right:8px">
+                <i class="fa fa-home"></i> 首页
+            </a>
+           
+            <a class="item " href="/flinks" title="友情链接">
+                <i class="fa fa-link"></i>友情链接
+            </a> 
+
+            
+
+            <a class="item " href="/about" title="关于我">
+                <i class="fa fa-user"></i>关于本站
+            </a>
+        </nav> 
+
+        
+        
+        <svg class="Qc_header_above-searchicon" viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="display: block;">
+            <path
+                d="M1008.19 932.031L771.72 695.56a431.153 431.153 0 1 0-76.158 76.158l236.408 236.472a53.758 53.758 0 0 0 76.158 0 53.758 53.758 0 0 0 0-76.158zM107.807 431.185a323.637 323.637 0 0 1 323.316-323.381 323.7 323.7 0 0 1 323.381 323.38 323.637 323.637 0 0 1-323.38 323.317 323.637 323.637 0 0 1-323.317-323.316z" />
+        </svg> 
+        <a href="javascript:void(0)" type="button" id="ClickMe" style="margin: 0px 3px 2px 13px"><svg
+                t="1675873194952" class="loingico" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="3929" width="22" height="22">
+                <path
+                    d="M554.666667 349.44a48.213333 48.213333 0 1 1-47.786667 47.786667A48.213333 48.213333 0 0 1 554.666667 349.44m0-85.333333a133.546667 133.546667 0 1 0 133.546666 133.12A133.12 133.12 0 0 0 554.666667 264.106667z"
+                    fill="var(--routine)" p-id="3930"></path>
+                <path
+                    d="M768 759.893333a42.666667 42.666667 0 0 1-42.666667-42.666666 170.666667 170.666667 0 0 0-341.333333 0 42.666667 42.666667 0 0 1-85.333333 0 256 256 0 0 1 512 0 42.666667 42.666667 0 0 1-42.666667 42.666666z"
+                    fill="var(--routine)" p-id="3931"></path>
+                <path
+                    d="M554.666667 213.333333a341.333333 341.333333 0 1 1-341.333334 341.333334 341.333333 341.333333 0 0 1 341.333334-341.333334m0-85.333333a426.666667 426.666667 0 1 0 426.666666 426.666667A426.666667 426.666667 0 0 0 554.666667 128z"
+                    fill="var(--routine)" p-id="3932"></path>
+            </svg> </a>
+        
+        
+        
+
+    </div>
+</div>
+<div class="Qc_header_searchout">
+    <div class="Qc_container">
+        <div class="Qc_header_searchout_all">
+            <div class="Qc_search_inner">
+                <div class="Qc_label">
+                    <div class="title"> <i class="iconfont icon-A70"
+                            style="margin-right: 5px;font-size: 18px;"></i> 关键词搜索 </div>
+                    <form class="search" method="post" action="/"> <input maxlength="16"
+                            autocomplete="off" placeholder="请输入关键字..." name="s" value="" class="input"
+                            type="text" /> <button type="submit" class="submit">搜索</button> </form>
+                    <div class="title"> <i class="iconfont icon-A67"
+                            style="margin-right: 5px;font-size: 18px;"></i>标签搜索</div>
+                    <ul class="cloud">
+                        <li class="item"><a style="background:#0396FF"
+                                href="https://xx9q.com/tag/%E5%A4%96%E8%B4%B8/">外贸</a></li>
+                        <li class="item"><a style="background:#0396FF"
+                                href="https://xx9q.com/tag/%E5%A4%96%E8%B4%B8%E5%88%86%E4%BA%AB/">外贸分享</a></li>
+                        <li class="item"><a style="background:#E96D71"
+                                href="https://xx9q.com/tag/%E5%A4%96%E8%B4%B8%E8%AF%9D%E6%9C%AF/">外贸话术</a></li>
+                        <li class="item"><a style="background:#FD6585"
+                                href="https://xx9q.com/tag/typecho/">typecho</a></li>
+                        <li class="item"><a style="background:#e8583d"
+                                href="https://xx9q.com/tag/chatgpt/">chatgpt</a></li>
+                        <li class="item"><a style="background:#FA742B"
+                                href="https://xx9q.com/tag/typecho%E6%8F%92%E4%BB%B6/">typecho插件</a></li>
+                        <li class="item"><a style="background:#4C83FF"
+                                href="https://xx9q.com/tag/%E5%AD%97%E4%BD%93%E7%BE%8E%E5%8C%96/">字体美化</a></li>
+                        <li class="item"><a style="background:#f093fb"
+                                href="https://xx9q.com/tag/%E5%9B%BD%E5%86%85ChatGPT/">国内ChatGPT</a></li>
+                        <li class="item"><a style="background:#F072B6"
+                                href="https://xx9q.com/tag/openwrt/">openwrt</a></li>
+                        <li class="item"><a style="background:#f68e5f"
+                                href="https://xx9q.com/tag/%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81/">网站源码</a></li>
+                        <li class="item"><a style="background:#e8583d"
+                                href="https://xx9q.com/tag/%E7%BA%A2%E7%B1%B3ax6000/">红米ax6000</a></li>
+                        <li class="item"><a style="background:#4facfe"
+                                href="https://xx9q.com/tag/AI%E7%BB%98%E5%9B%BE/">AI绘图</a></li>
+                        <li class="item"><a style="background:#0396FF"
+                                href="https://xx9q.com/tag/GPTalk/">GPTalk</a></li>
+                        <li class="item"><a style="background:#6fa3ef"
+                                href="https://xx9q.com/tag/AALocker/">AALocker</a></li>
+                        <li class="item"><a style="background:#49C628"
+                                href="https://xx9q.com/tag/%E4%BC%9A%E5%91%98%E9%9B%B6%E5%85%83%E8%B4%AD/">会员零元购</a>
+                        </li>
+                        <li class="item"><a style="background:#736EFE"
+                                href="https://xx9q.com/tag/ai%E6%95%B0%E5%AD%97%E7%BB%98%E7%94%BB/">ai数字绘画</a>
+                        </li>
+                        <li class="item"><a style="background:#F072B6" href="https://xx9q.com/tag/Ai/">Ai</a>
+                        </li>
+                        <li class="item"><a style="background:#465EFB"
+                                href="https://xx9q.com/tag/Stable-Diffusion/">Stable Diffusion</a></li>
+                        <li class="item"><a style="background:#E96D71"
+                                href="https://xx9q.com/tag/%E5%8D%9A%E5%AE%A2/">博客</a></li>
+                        <li class="item"><a style="background:#6fa3ef"
+                                href="https://xx9q.com/tag/win11/">win11</a></li>
+                    </ul>
+                    <div class="title" style="padding: 15px 0 0 0"> <i class="iconfont icon-A89"
+                            style="margin-right: 5px;font-size: 18px;"></i>近期浏览</div>
+                    <div id="jl_viewHistory" style="display: block"></div>
+                </div>
+                <div class="Qc_article">
+                    <div class="title"> <i class="iconfont icon-A37"
+                            style="margin-right: 5px;font-size: 18px;"></i>热门文章</div>
+                    <div class="Qc_header_search" style="position: relative;">
+                        <nav class="result"> <a href="https://xx9q.com/a/7/" title="本主题—Joe魔改 一款个人类型Typecho主题"
+                                class="item"> <span class="sort">1</span> <span class="text">本主题—Joe魔改
+                                    一款个人类型Typecho主题</span> <span class="views"></i>3.8k 阅读</span> </a> <a
+                                href="https://xx9q.com/a/28/" title="红米Redmi AX6000开启并固化SSH简单方法+刷openwrt固件"
+                                class="item"> <span class="sort">2</span> <span class="text">红米Redmi
+                                    AX6000开启并固化SSH简单方法+刷openwrt固件</span> <span class="views"></i>2.3k 阅读</span>
+                            </a> <a href="https://xx9q.com/a/14/"
+                                title="最新可用 Typecho 付费阅读插件修复版-免登录版-免授权-对接第三方支付" class="item"> <span
+                                    class="sort">3</span> <span class="text">最新可用 Typecho
+                                    付费阅读插件修复版-免登录版-免授权-对接第三方支付</span> <span class="views"></i>1.9k 阅读</span>
+                            </a> <a href="https://xx9q.com/a/17/" title="Typecho七牛云插件，为您的网站访问加速" class="item">
+                                <span class="sort">4</span> <span class="text">Typecho七牛云插件，为您的网站访问加速</span>
+                                <span class="views"></i>1.6k 阅读</span> </a> <a href="https://xx9q.com/a/16/"
+                                title="Typecho投稿功能开启——无需插件，一行代码" class="item"> <span class="sort">5</span> <span
+                                    class="text">Typecho投稿功能开启——无需插件，一行代码</span> <span class="views"></i>1.4k
+                                    阅读</span> </a> <a href="https://xx9q.com/a/36/"
+                                title="Typecho使用CDN后无法登陆后台解决办法" class="item"> <span class="sort">6</span> <span
+                                    class="text">Typecho使用CDN后无法登陆后台解决办法</span> <span class="views"></i>733
+                                    阅读</span> </a> <a href="https://xx9q.com/a/1/" title="欢迎使用 Typecho"
+                                class="item"> <span class="sort">7</span> <span class="text">欢迎使用 Typecho</span>
+                                <span class="views"></i>637 阅读</span> </a> <a href="https://xx9q.com/a/26/"
+                                title="十个金句搞定外贸客户已读不回✅" class="item"> <span class="sort">8</span> <span
+                                    class="text">十个金句搞定外贸客户已读不回✅</span> <span class="views"></i>543 阅读</span>
+                            </a> <a href="https://xx9q.com/a/24/" title="如何支持发送Emoji表情？" class="item"> <span
+                                    class="sort">9</span> <span class="text">如何支持发送Emoji表情？</span> <span
+                                    class="views"></i>508 阅读</span> </a> </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Qc_header_slideout"> 
+    <img width="100%" height="150" class="Qc_header_slideout-image"
+        src="https://xx9q.com/shaonv.jpg" alt="侧边栏壁纸" />
+    <div class="Qc_header_slideout-author"> <img width="50" height="50" class="avatar"
+            src="https://thirdqq.qlogo.cn/g?b=qq&nk=687778&s=100" alt="博主昵称" />
+        <div class="info"> <a class="link" href="https://xx9q.com" target="_blank"
+                rel="noopener noreferrer nofollow">John</a>
+            <p class="motto Qc_motto"></p>
+        </div>
+    </div>
+    <ul class="Qc_header_slideout-count"> </ul>
+    <ul class="Qc_header_slideout-menu panel-box">
+        <li> <a class="link" href="https://xx9q.com/" title="首页"> <span><i class="iconfont icon-A131"></i>
+                    首页</span> </a> </li>
+        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A129"></i> 分类</span>
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                    height="13">
+                    <path
+                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                </svg> </a>
+            <ul class="slides panel-body panel-box">
+                <li>
+                    <div class="link panel "> <a href="https://xx9q.com/category/default/" title="日常分享">日常分享</a>
+                        <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                            height="13">
+                            <path
+                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                        </svg> </div>
+                    <ul class="slides panel-body">
+                        <li><a class="link " href="https://xx9q.com/category/wmfx/" title="外贸分享">外贸分享</a></li>
+                        <li><a class="link " href="https://xx9q.com/category/wztj/" title="网站推荐">网站推荐</a></li>
+                        <li><a class="link " href="https://xx9q.com/category/yxxg/" title="游戏相关">游戏相关</a></li>
+                    </ul>
+                </li>
+                <li><a class="link " href="https://xx9q.com/category/xitong/" title="系统相关">系统相关</a></li>
+                <li>
+                    <div class="link panel "> <a href="https://xx9q.com/category/wangzhan/"
+                            title="网站文档">网站文档</a> <svg class="icon" viewBox="0 0 1024 1024"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="13">
+                            <path
+                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                        </svg> </div>
+                    <ul class="slides panel-body">
+                        <li><a class="link " href="https://xx9q.com/category/bkfx/" title="博客分享">博客分享</a></li>
+                        <li><a class="link " href="https://xx9q.com/category/wzym/" title="网站源码">网站源码</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link panel "> <a href="https://xx9q.com/category/ruanjian/"
+                            title="软件分享">软件分享</a> <svg class="icon" viewBox="0 0 1024 1024"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="13">
+                            <path
+                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                        </svg> </div>
+                    <ul class="slides panel-body">
+                        <li><a class="link " href="https://xx9q.com/category/sjrj/" title="📱手机软件">📱手机软件</a>
+                        </li>
+                        <li><a class="link " href="https://xx9q.com/category/dnrj/" title="💻电脑软件">💻电脑软件</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A3"></i> 页面</span>
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                    height="13">
+                    <path
+                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                </svg> </a>
+            <ul class="slides panel-body">
+                <li><a class="link " href="https://xx9q.com/sn.html" title="我的记录">我的记录</a></li>
+                <li><a class="link " href="https://xx9q.com/youlian.html" title="友情链接">友情链接</a></li>
+                <li><a class="link " href="https://xx9q.com/site.html" title="站点统计">站点统计</a></li>
+                <li><a class="link " href="https://xx9q.com/Aboutme.html" title="关于我">关于我</a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="Qc_header_slideout-menu panel-box" style="margin-top: 15px;margin-bottom: 100px;">
+        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A17"></i> 用户登录</span>
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                    height="13">
+                    <path
+                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z">
+                    </path>
+                </svg> </a>
+            <ul class="slides panel-body">
+                <li> <a class="link" href="https://xx9q.com/admin/login.php" target="_blank"
+                        rel="noopener noreferrer nofollow">登录</a> <a class="link"
+                        href="https://xx9q.com/admin/register.php" target="_blank"
+                        rel="noopener noreferrer nofollow">注册</a> </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="Qc_header_mask"></div>
+
+<script>
+
+    let sideBtn = document.querySelector(".Qc_header_above .Qc_container .Qc_header_above-slideicon")
+
+    sideBtn.addEventListener("click", () => {
+        document.querySelector(".Qc_header_slideout").classList.add("active")
+        document.querySelector(".Qc_header_mask").classList.add("active")
+    })
+
+    let maskBtn = document.querySelector(".Qc_header_mask")
+
+    maskBtn.addEventListener("click",() => {
+        document.querySelector(".Qc_header_slideout").classList.remove("active")
+        maskBtn.classList.remove("active")
+    })
+
+   
+    
+
+</script></header>
+	
+		
+	<div class="Qc_container showInUp">
+
+
+
+<div class="Qc_main Qc_post">
+    <div class="Qc_detail">
+        <h1 class="title Qc_psot_title"> 现实生活中机器学习的具体示例（Machine Learning 研习之二）</h1>
+        <div class="Qc_bread">
+            <ul class="Qc_bread_bread">
+                <li class="item"> <span class="iconfont icon-A131" style="margin-right: 4px;"></span> <a
+                        href="https://xx9q.com/" class="link" title="首页">首页</a> </li>
+                <li class="line">/</li>
+                <li class="item"> <a class="link" href="https://xx9q.com/category/bkfx/" title="博客分享">博客分享</a>
+                </li>
+                <li class="line">/</li>
+                <li class="item">正文</li>
+            </ul>
+        </div>
+        <div class="Qc_detail_category"> </div>
+        <article class="Qc_detail_article" id="article-container">
+            <p>在上一篇，我们初步了解什么是机器学习，以及它能给我们带来，相对于传统编程解决更为优先、易于维护的一套解决方案。那么，本文将继续为您举例，机器学习给我们生活上带来哪些便捷。</p>
+<h3 id="机器学习在现实中的示例">机器学习在现实中的示例</h3>
+<p>通过上一篇的讲解，我们多多少少对<code>机器学习</code>（Machine Learning）有了些许了解，同时也对<code>机器学习</code>（Machine Learning）一词不再那么抗拒了。</p>
+<p>那么，<code>机器学习</code>到底在现实生活为我们解决哪些难题呢？亦或是传统方案目前无法实现的。</p>
+<ul>
+<li>
+<p>1、可以分析生产线上的产品图像，并对其进行分类。这属于<code>图像分类</code>范畴，通常是使用<code>卷积神经网络</code>（CNN），亦或是<code>Transformer</code>。</p>
+</li>
+<li>
+<p>2、 可以用于对脑部检测是否存在肿瘤。这便是<code>图像语义分割</code>，图像中的每个像素都被分类 （因为我们想要确定肿瘤的确切位置和形状），通常是使用<code>卷积神经网络</code>（CNN），亦或是<code>Transformer</code>。</p>
+</li>
+<li>
+<p>3、对新闻文章进行自动分类。这属于<code>自然语言处理</code>（NLP）范畴，更为具体地应该是<code>文本分类</code>。虽然可以使用<code>循环神经网络</code>（RNN）和<code>卷积神经网络</code>来解决，但显然<code>Transformer</code>处理的效果更好。</p>
+</li>
+<li>
+<p>4、自动标记恶意评论。这也是<code>文本分类</code>范畴，处理的方案也是选用<code>NLP</code>工具。</p>
+</li>
+<li>
+<p>5、自动总结长文档。这好比去阅读短篇小说，而后总结出讲了什么故事？或者是故事情节脉络。这是<code>NLP</code>的一个分支，称为<code>文本摘要</code>，同样也是使用<code>NLP</code>工具进行处理。</p>
+</li>
+<li>
+<p>6、搭建<code>聊天机器人</code>或<code>个人助理</code>。这就涉及到诸多<code>NLP</code>组成部分，包括<code>自然语言理解</code>（NLU）和<code>问答模块</code>。</p>
+</li>
+<li>
+<p>7、根据大量绩效指标来预测公司明年的盈利情况。这属于一个<code>回归任务</code>（即预测值），可以使用任何<code>回归模型</code>（regression model,）来解决，诸如<code>线性回归</code>（ linear regression）、<code>多项式回归</code>（polynomial regression）模型。如果您考虑过去绩效指标的序列，您则会使用<code>RNN</code>、<code>CNN</code>和<code>Transformer</code>。</p>
+</li>
+<li>
+<p>8、应用程序对语音命令做出反应。这是<code>语音识别</code>，需要处理音频样本，这些样本都是长而复杂的序列，通常使用<code>RNN</code>、<code>CNN</code>和<code>Transformer</code>来处理。</p>
+</li>
+<li>
+<p>9、检测信用卡欺诈。这属于<code>异常检测</code>。可以使用<code>隔离森林</code>（isolation forests）、<code>高斯混合模型</code>（Gaussian mixture models）和<code>自动编码器</code>（autoencoders）。</p>
+</li>
+<li>
+<p>10、根据购买情况对客户进行细分，进而为每个细分市场做出不同的营销策略。这便是<code>聚类</code>（clustering），可以使用 <code>k-means</code>、<code>DBSCAN</code> 等来实现。</p>
+</li>
+<li>
+<p>11、使用图表来表示复杂的高维度数据集。这是<code>数据可视化</code>，通常涉及到<code>降维技术</code>。</p>
+</li>
+<li>
+<p>12、根据客户过去的购买情况推荐出感兴趣的产品。这属于<code>推荐系统</code>。一种方法是将过去的购买行为（以及有关客户的其他信息）输入到<code>人工神经网络</code>（ANN），并让它输出最有可能的下一次购买行为。 该神经网络通常会根据所有客户过去的购买顺序进行训练。</p>
+</li>
+<li>
+<p>13、为游戏创建智能机器人。这通常可以使用<code>强化学习</code>（RL）来解决，它是<code>机器学习</code>的一个分支，训练代理（例如机器人）来选择随着时间的推移最大化其奖励的操作（例如，机器人可能会获得奖励） 每当玩家在给定环境（例如游戏）内失去一些生命值时。 在围棋比赛中击败世界冠军的著名 <code>AlphaGo</code> 程序就是使用 <code>RL</code> 构建的。</p>
+</li>
+</ul>
+<p>当然，这个示例列表可以一直列下去，但希望它能让您感受到<code>机器学习</code>可以处理的任务令人难以置信的广度和复杂性，并且 您将用于每项任务的技术类型。</p>
+<h3 id="机器学习系统的类型">机器学习系统的类型</h3>
+<p><code>机器学习</code>系统种类繁多，但可以根据以下这些标准大致分出几大类，它远不止限于此。</p>
+<ul>
+<li>1、在它们训练期间如何受到监督，可细分为，包括但不限于<code>监督</code>、<code>无监督</code>、<code>半监督</code>以及<code>自我监督</code>等等。</li>
+<li>2、在它们训练期间是否可以即时增量学习，可分为<code>在线学习</code>和<code>批量学习</code>。</li>
+<li>3、它们的工作方式是简单地将<code>新数据点</code>和<code>已知数据点</code>进行比较呢？还是通过检查数据训练中的模式并构建预测模型来工作呢？这样可分为<code>基于实例的学习</code>和<code>模型的学习</code>。</li>
+</ul>
+<p>当然咯，这些标准并不是固化不变的，您总是可以按您自己喜欢的任何方式随意的组合它们。就拿<code>垃圾邮件过滤器</code>来说明吧！它可以使用<code>深度神经网络</code>（deep neural network）模型进行动态学习，该模型人类提供的<code>垃圾邮件</code>和样本数据进行训练，这使其成为一个<code>在线</code>、<code>基于模型</code>的<code>监督</code>学习系统。</p>
+<h4 id="训练监督">训练监督</h4>
+<p><code>机器学习</code>系统可以根据训练期间受到的<code>监督数量</code>和<code>类型</code>进行划分。有很多类别，但目前只讲讲<code>监督</code>、<code>无监督</code>、<code>自我监督</code>、<code>半监督</code>以及<code>强化</code>学习。</p>
+<h5 id="监督学习supervised-learning">监督学习（Supervised learning）</h5>
+<p>在<code>监督学习</code>中，提供给算法的<code>训练集</code>包括所需的解决方案，则称为<code>标签</code>。</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1689995834152.png" alt=""></p>
+<p>垃圾邮件过滤器接受了很多电子邮件及其分类（垃圾邮件）的训练，并且它必须学习该如何对新邮件进行分类。</p>
+<p>也可以根据一组<code>特征</code>（里程、车龄以及品牌等）来预测目标值。为了训练，您需要为其提供很多汽车示例，包括它们的功能和价格。这种任务称为<code>回归</code>。</p>
+<blockquote>
+<p>注意：某些<code>回归模型</code>也可用于分类，反之亦然。<code>逻辑回归</code>（ logistic regression）通常用于分类，因为它可以输出与给定类别的概率相对应的值（例如：垃圾邮件概率为20%）</p>
+</blockquote>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690000818688.png" alt=""></p>
+<p><code>回归问题</code>：给定一个输入特征，预测一个值（通常有多个输入特征，有时有多个输出值）。</p>
+<h5 id="无监督学习unsupervised-learning">无监督学习（Unsupervised learning）</h5>
+<p>在<code>无监督</code>学习中，<code>训练数据</code>是不需要<code>标记</code>的。该系统试图在没有老师的情况下进行学习。</p>
+<p>假设您有大量有关博客访问者的数据，您可能需要运行<code>聚类算法</code>来尝试检测相似访问这组。而您永远也不会告诉<code>算法</code>访问这属于哪个组，它无需您的任何协助即可找到这些链接。它可能会注意到，40% 的访问者是喜欢漫画书并通常在放学后阅读您的博客的青少年，而 20% 是喜欢科幻小说并在周末访问的成年人。如果您使用了<code>层次聚类算法</code>（hierarchical clustering algorithm），它还可能将每个组细分为更小的组， 这可以帮助您针对每个组定位您的帖子。</p>
+<p>（用于无监督学习的未标记训练集）</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690002317611.png" alt="用于无监督学习的未标记训练集"></p>
+<p>（聚类）</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690002745441.png" alt="聚类"></p>
+<p><code>可视化算法</code>也是一个<code>无监督学习</code>的好例子。您向它们提供大量复杂且未标记的数据，它们可以轻松输出绘制数据的 2D 或 3D 表示形式。  这些算法尝试保留尽可能多的结构（例如，尝试保持输入空间中的单独簇在可视化中不重叠），以便您可以了解数据的组织方式，并可能识别出意想不到的模式。</p>
+<p>一个相关的任务是<code>降维</code>，其目标是简化数据而不丢失太多信息。 实现这一目标的一种方法是将多个相关<code>特征</code>合并为一个。 例如，一辆车的行驶里程可能与其车龄密切相关，因此<code>降维算法</code>会将它们合并为一个代表汽车磨损情况的<code>特征</code>， 这称为<code>特征提取</code>。</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690005491022.png" alt=""></p>
+<blockquote>
+<p>在将<code>训练数据</code>提供给另一个机器学习算法（例如<code>监督学习算法</code>）之前，尝试使用<code>降维算法</code>来减少<code>训练数据</code>的<code>维数</code>通常是一个好主意。 它将运行得更快，数据将占用更少的磁盘和内存空间，并且在某些情况下它也可能表现得更好。</p>
+</blockquote>
+<p><code>异常检测</code>也是一项<code>无监督任务</code>。例如，检测异常的信用卡交易以防止欺诈、发现制造缺陷，或者在将数据输入另一个学习算法之前自动从数据集中删除异常值。 系统在训练期间显示的大部分是正常实例，因此它学会识别它们； 然后，当它看到一个新实例时，它可以判断它是否看起来像正常实例，或者是否可能存在异常。</p>
+<p>一个非常相似的任务是<code>新颖性检测</code>：它的目的是检测看起来与<code>训练集</code>中的所有实例不同的新实例。 这需要有一个非常“干净”的<code>训练集</code>， 您希望<code>算法</code>检测的任何实例。 例如，如果您有数千张狗的图片，其中 1% 代表吉娃娃，那么<code>新颖性检测算法</code>不应将吉娃娃的新图片视为<code>新颖性</code>。另一方面，<code>异常检测算法</code>可能会认为这些狗非常罕见，并且与其他狗如此不同，因此它们可能会将它们归类为<code>异常</code>（无意冒犯吉娃娃）。</p>
+<p>（异常检测）</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690009118863.png" alt="异常检测"></p>
+<p><code>关联规则学习</code>（association rule learning）是一个常见的<code>无监督任务</code>，其目标是挖掘大量数据并发现属性之间有趣的关系。 例如，假设您拥有一家超市。 在销售日志上运行<code>关联规则</code>可能会发现购买烧烤酱和薯片的人也倾向于购买牛排。 因此，您可能希望将这些物品彼此靠近放置。</p>
+<h5 id="半监督学习semi-supervised-learning">半监督学习（Semi-supervised learning）</h5>
+<p>由于<code>标记数据</code>通常既耗时又昂贵，因此您通常会有<code>大量未标记</code>的实例，而很少有标记的实例。 一些算法可以处理部分标记的数据。 这称为<code>半监督学习</code>。</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690009822949.png" alt=""></p>
+<p>图中，具有两个类（三角形和正方形）的<code>半监督学习</code>：未标记的示例（圆圈）有助于将新实例（十字）分类为三角形类而不是正方形类，即使它更接近标记的正方形</p>
+<p>例如，一些照片托管服务（Google Photos），将照片上传到该服务后，它会自动识别出同一个人 A 出现在照片 1、5 和 11 中，而另一个人 B 出现在照片 2、5 和 7 中。这是算法的<code>无监督</code>部分（聚类）。 现在系统需要的只是您告诉它这些人是谁。 只需为每个人添加一个<code>标签</code>，它就能为每张照片中的每个人命名，这对于搜索照片很有用。</p>
+<p>大多数<code>半监督学习</code>算法是<code>无监督</code>和<code>监督</code>算法的组合。 例如，可以使用<code>聚类</code>算法将相似的实例分组在一起，然后可以用其<code>聚类</code>中最常见的<code>标签</code>来标记每个<code>未标记</code>的实例。 一旦整个<code>数据集</code>被<code>标记</code>，就可以使用任何<code>监督学习</code>算法。</p>
+<h5 id="自我监督学习-self-supervised-learning">自我监督学习 （Self-supervised learning）</h5>
+<p><code>机器学习</code>的另一种方法实际上涉及从完全<code>未标记</code>的<code>数据集</code>生成<code>完全标记</code>的<code>数据集</code>。 同样，一旦整个<code>数据集</code>被<code>标记</code>，就可以使用任何<code>监督学习</code>算法。 这种方法称为<code>自我监督学习</code>。 例如，如果您有大量<code>未标记</code>图像的<code>数据集</code>，则可以随机屏蔽每个图像的一小部分，然后<code>训练模型</code>来恢复原始图像。 在训练过程中，<code>蒙版图像</code>用作<code>模型的输入</code>，<code>原始图像</code>用作<code>标签</code>。</p>
+<p>（左图作为 输入，右图是 输出）</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690011224077.png" alt=""></p>
+<p>生成的模型本身可能非常有用，例如，<code>修复损坏</code>的图像或从图片中删除不需要的对象。 但通常情况下，使用<code>自我监督学习</code>训练的模型并不是最终目标。 您通常需要针对稍微不同的任务（您真正关心的任务）调整和微调模型。</p>
+<p>假设您真正想要的是有一个<code>宠物分类模型</code>：给定任何宠物的图片，它会告诉您它属于什么物种。 如果您有大量<code>未标记</code>的宠物照片<code>数据集</code>，则可以首先使用<code>自我监督学习</code>来训练图像<code>修复</code>模型。 一旦表现良好，它应该能够区分不同的宠物种类：当它<code>修复</code>一张脸部被遮住的猫的图像时，它必须知道不要添加狗的脸。</p>
+<p>假设您的模型架构允许（大多数<code>神经网络</code>架构都允许），那么就可以调整模型，使其<code>预测</code>宠物物种而不是<code>修复</code>图像。 最后一步 包括在<code>标记</code> <code>数据集</code>上微调模型：模型已经知道猫、狗和其他宠物物种的样子，因此只需要这一步，以便模型可以学习它已经知道的物种与我们期望从中获得的<code>标签</code>之间的映射。</p>
+<blockquote>
+<p>将知识从一项任务迁移到另一项任务称为<code>迁移学习</code>，它是当下<code>机器学习</code>中最重要的技术之一，特别是在使用<code>深度神经网络</code>（即由多层<code>神经元</code>组成的<code>神经网络</code>）时。</p>
+</blockquote>
+<p>有些人认为<code>自监督学习</code>是<code>无监督学习</code>的一部分，因为它处理完全<code>未标记</code>的<code>数据集</code>。 但<code>自我监督学习</code>在训练过程中使用（生成的）<code>标签</code>，因此在这方面它更接近<code>监督学习</code>。 <code>无监督学习</code>通常用于处理<code>聚类</code>、<code>降维</code>或<code>异常检测</code>等任务，而<code>自我监督学习</code>则专注于与<code>监督学习</code>相同的任务：主要是<code>分类</code>和<code>回归</code>。 简而言之，最好将<code>自我监督学习</code>视为一个单独的类别。</p>
+<h5 id="强化学习reinforcement-learning-">强化学习（Reinforcement learning ）</h5>
+<p><code>强化学习</code>是一种非常不同的<code>机器学习</code>。 <code>学习系统</code>在本文中称为<code>代理</code>，可以观察环境、选择和执行操作，并获得回报（或以负奖励形式进行惩罚）。 然后，它必须<code>自行学习</code>什么是最好的<code>策略</code>（称为<code>策略</code>），以便随着时间的推移获得最大的回报。 策略定义了代理在给定情况下应该选择什么操作。</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690013890451.png" alt=""></p>
+<p>例如，许多<code>机器人</code>采用<code>强化学习</code>算法来学习如何行走。 <code>DeepMind</code> 的 <code>AlphaGo</code> 程序也是<code>强化学习</code>的一个很好的例子：它在 2017 年 5 月的围棋比赛中击败了当时世界排名第一的柯洁，登上了新闻头条。 它通过分析数百万场比赛，然后与自己进行许多比赛来了解其获胜策略。 请注意，在与冠军的比赛中学习被关闭；<code> AlphaGo</code> 只是应用了它学到的策略。</p>
+        </article>
+    </div>
+
+    
+       	
+
+
+
+
+
+
+<div id="comments" class="post-comments">
+  <div class="comment-head">
+    <div class="comment-headline">
+      <i class="fa fa-comments fa-fw"></i>
+      
+    </div>
+  
+  </div>
+  <div class="comment-wrap">
+  
+  
+    <div>      
+      <div class="comment-loading">
+    <i class="fa fa-sync fa-spin"></i>
+  </div>
+      <div class="waline-container"></div>
+
+
+
+    </div>
+  
+  </div>
+</div>  
+
+    
+</div>
+
+
+
+
+<script>
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+</script>
+
+
+<script>
+    let activeElement;
+    let elements;
+    
+    
+
+    
+        
+    
+    
+    
+    
+
+    
+    
+    
+
+    
+        
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+ 
+
+
+
+
+
+<script>
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+
+
+
+<script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+<script>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+            
+    
+            
+    
+    
+    
+            
+    
+    
+    
+    
+</script><aside class="Qc_aside">
+
+<section class="Qc_aside_item tags"> 
+    <div class="Qc_aside_item-title"> 
+        <i class="iconfont icon-A67" style="margin-right: 8px;font-size: 17px"></i> 
+        <span class="text">文章分类</span> 
+        <span class="qccq_mac"></span> 
+    </div> 
+    <div class="Qc_aside_item-contain" style="padding:10px"> 
+        <div class="tag"></div> 
+		<ul class="list">
+			
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/bootstraptable/">BootstrapTable </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/centos/">CentOS </a>
+				<span class="widget__counter widget__counter--bubble">4</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/chrome%E6%89%A9%E5%B1%95/">Chrome扩展 </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/cocos2d-x/">cocos2d-x </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/docker/">Docker </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/extjs/">extjs </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/fastadmin/">Fastadmin </a>
+				<span class="widget__counter widget__counter--bubble">2</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/git/">Git </a>
+				<span class="widget__counter widget__counter--bubble">5</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/golang/">golang </a>
+				<span class="widget__counter widget__counter--bubble">36</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/java/">Java </a>
+				<span class="widget__counter widget__counter--bubble">3</span>
+			</li>
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+	</div>
+</section>
+
+
+
+
+<section class="Qc_aside_item tags"> 
+    <div class="Qc_aside_item-title"> 
+        <i class="iconfont icon-A67" style="margin-right: 8px;font-size: 17px"></i> 
+        <span class="text">标签云</span> 
+        <span class="xccx_mac"></span> 
+    </div> 
+     <div class="Qc_aside_item-contain" style="padding:10px"> 
+        <div class="tag"></div> 
+        <ul class="cloud">
+            
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/abstract/" title="abstract">abstract</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/ag-grid/" title="ag-grid">ag-grid</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/apache/" title="Apache">Apache</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/array/" title="array">array</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/bootstraptable-%E9%9A%90%E8%97%8F/%E6%98%BE%E7%A4%BA%E8%A1%A8%E6%A0%BC%E8%A1%8C/" title="BootstrapTable 隐藏/显示表格行">BootstrapTable 隐藏/显示表格行</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/branch/" title="branch">branch</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/break/" title="break">break</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/centos/" title="CentOS">CentOS</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/centos7/" title="CentOS7">CentOS7</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/channel/" title="channel">channel</a>
+            </li>
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+         </ul> 
+        </div> 
+    </section>
+
+
+
+    
+
+    <section class="sticky_layout"><style>
+
+    .card-widget:first-child {
+        margin-top: 0
+    }
+
+    @media screen and (max-width:900px) {
+        .card-widget:first-child {
+            margin-top: 20px
+        }
+    }
+
+     .card-widget {
+        position: relative;
+        overflow: hidden;
+        margin-top: 20px;
+        padding: 20px 24px;
+        color:var(--main)
+    }
+
+     .card-widget,
+    #recent-posts>.recent-post-item,
+    .cardHover,
+    .error404 #error-wrap .error-content,
+    .layout>.recent-posts .pagination>:not(.space),
+    .layout>div:first-child:not(.recent-posts) {
+        border-radius: 8px;
+        background: var(--background);
+        -webkit-box-shadow: var(--card-box-shadow);
+        box-shadow: var(--card-box-shadow);
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -o-transition: all .3s;
+        -ms-transition: all .3s;
+        transition: all .3s
+    }
+
+    .card-widget:hover,
+    #recent-posts>.recent-post-item:hover,
+    .cardHover:hover,
+    .error404 #error-wrap .error-content:hover,
+    .layout>.recent-posts .pagination>:not(.space):hover,
+    .layout>div:first-child:not(.recent-posts):hover {
+        -webkit-box-shadow: var(--card-hover-box-shadow);
+        box-shadow: var(--card-hover-box-shadow)
+    }
+
+
+
+    .item-headline {
+        padding-bottom: 6px;
+        font-size: 1.2em
+    }
+
+     .item-headline span {
+        margin-left: 6px
+    }
+
+   
+ 
+     @media screen and (min-width:900px) {
+        .sticky_layout {
+            position: sticky;
+            position: -webkit-sticky;
+            top: 60px;
+            -webkit-transition: top .3s;
+            -moz-transition: top .3s;
+            -o-transition: top .3s;
+            -ms-transition: top .3s;
+            transition: top .3s
+        }
+    } 
+
+    
+
+ 
+
+    
+
+
+
+    #card-toc .toc-percentage {
+        float: right;
+        margin-top: -9px;
+        color: #a9a9a9;
+        font-style: italic;
+        font-size: 140%
+    }
+
+    #card-toc .toc-content {
+        overflow-y: scroll;
+        overflow-y: overlay;
+        margin: 0 -24px;
+        max-height: calc(100vh - 120px)
+    }
+
+    @media screen and (max-width:900px) {
+         #card-toc .toc-content {
+            max-height: calc(100vh - 140px)
+        }
+    }
+
+     #card-toc .toc-content>* {
+        margin: 0 20px !important
+    }
+
+
+
+     #card-toc .toc-content>*>.toc-item>.toc-child {
+        margin-left: 10px;
+        padding-left: 10px;
+        border-left: 1px solid var(--dark-grey)
+    }
+
+    #card-toc .toc-content:not(.is-expand) .toc-child {
+        display: none
+    }
+
+    @media screen and (max-width:900px) {
+        #card-toc .toc-content:not(.is-expand) .toc-child {
+            display: block !important
+        }
+    }
+
+   #card-toc .toc-content:not(.is-expand) .toc-item.active .toc-child {
+        display: block
+    }
+
+    #card-toc .toc-content li,
+     #card-toc .toc-content ol {
+        list-style: none
+    }
+
+     #card-toc .toc-content>ol {
+        padding: 0 !important
+    }
+
+    #card-toc .toc-content ol {
+        margin: 0;
+        padding-left: 18px
+    }
+
+    #card-toc .toc-content .toc-link {
+        display: block;
+        margin: 4px 0;
+        padding: 1px 6px;
+        color: var(--toc-link-color);
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        -ms-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out
+    }
+
+     #card-toc .toc-content .toc-link:hover {
+        color: #49b1f5
+    }
+
+    #card-toc .toc-content .toc-link.active {
+        background: #00c4b6;
+        color: #fff
+    }
+
+     .sticky_layout:only-child>:first-child {
+        margin-top: 20px
+    }
+
+
+</style>
+    <div class="card-widget" id="card-toc">
+        <div class="item-headline">
+            <i class="fa fa-bars"></i>
+            <span>目录</span>
+            <span class="toc-percentage">0</span>
+        </div>
+        <div class="toc-content"><ol class="toc">
+                        <li class="toc-item toc-level-3">
+                            <a class="toc-link" href="#%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e5%9c%a8%e7%8e%b0%e5%ae%9e%e4%b8%ad%e7%9a%84%e7%a4%ba%e4%be%8b" aria-label="机器学习在现实中的示例" data-pjax-state="anchor">
+                                <span class="toc-number">1</span> 
+                                <span class="toc-text">机器学习在现实中的示例</span>
+                            </a></li>
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%b3%bb%e7%bb%9f%e7%9a%84%e7%b1%bb%e5%9e%8b" aria-label="机器学习系统的类型" data-pjax-state="anchor">
+                            <span class="toc-number">3</span> 
+                            <span class="toc-text">机器学习系统的类型</span>
+                        </a><ol class="toc-child">
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e8%ae%ad%e7%bb%83%e7%9b%91%e7%9d%a3" aria-label="训练监督" data-pjax-state="anchor">
+                            <span class="toc-number">4</span> 
+                            <span class="toc-text">训练监督</span>
+                        </a><ol class="toc-child">
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0supervised-learning" aria-label="监督学习（Supervised learning）" data-pjax-state="anchor">
+                            <span class="toc-number">5</span> 
+                            <span class="toc-text">监督学习（Supervised learning）</span>
+                        </a></li>
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e6%97%a0%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0unsupervised-learning" aria-label="无监督学习（Unsupervised learning）" data-pjax-state="anchor">
+                            <span class="toc-number">5</span> 
+                            <span class="toc-text">无监督学习（Unsupervised learning）</span>
+                        </a></li>
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e5%8d%8a%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0semi-supervised-learning" aria-label="半监督学习（Semi-supervised learning）" data-pjax-state="anchor">
+                            <span class="toc-number">5</span> 
+                            <span class="toc-text">半监督学习（Semi-supervised learning）</span>
+                        </a></li>
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e8%87%aa%e6%88%91%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0-self-supervised-learning" aria-label="自我监督学习 （Self-supervised learning）" data-pjax-state="anchor">
+                            <span class="toc-number">5</span> 
+                            <span class="toc-text">自我监督学习 （Self-supervised learning）</span>
+                        </a></li>
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e5%bc%ba%e5%8c%96%e5%ad%a6%e4%b9%a0reinforcement-learning-" aria-label="强化学习（Reinforcement learning ）" data-pjax-state="anchor">
+                            <span class="toc-number">5</span> 
+                            <span class="toc-text">强化学习（Reinforcement learning ）</span>
+                        </a>
+                    </li>
+                </ol>
+                </li>
+                </ol>
+                </li>
+            </ol>
+
+        </div>
+    </div>
+
+
+
+
+
+
+<script>
+
+    const btf = {
+    
+        scrollToDest: (pos, time = 500) => {
+            const currentPos = window.pageYOffset
+            if (currentPos > pos) pos = pos - 70
+        
+            if ('scrollBehavior' in document.documentElement.style) {
+                window.scrollTo({
+                top: pos,
+                behavior: 'smooth'
+                })
+                return
+            }
+        
+            let start = null
+            pos = +pos
+            window.requestAnimationFrame(function step (currentTime) {
+                start = !start ? currentTime : start
+                const progress = currentTime - start
+                if (currentPos < pos) {
+                window.scrollTo(0, ((pos - currentPos) * progress / time) + currentPos)
+                } else {
+                window.scrollTo(0, currentPos - ((currentPos - pos) * progress / time))
+                }
+                if (progress < time) {
+                window.requestAnimationFrame(step)
+                } else {
+                window.scrollTo(0, pos)
+                }
+            })
+        },
+    
+       
+        getEleTop: ele => {
+            let actualTop = ele.offsetTop
+            let current = ele.offsetParent
+        
+            while (current !== null) {
+                actualTop += current.offsetTop
+                current = current.offsetParent
+            }
+        
+            return actualTop
+        },
+
+        updateAnchor: (anchor) => {
+            if (anchor !== window.location.hash) {
+                if (!anchor) anchor = location.pathname
+                const title = "秋码记录"
+                window.history.replaceState({
+                    url: location.href,
+                    title
+                }, title, anchor)
+            }
+        },
+
+
+        throttle: function (func, wait, options) {
+            let timeout, context, args
+            let previous = 0
+            if (!options) options = {}
+        
+            const later = function () {
+                previous = options.leading === false ? 0 : new Date().getTime()
+                timeout = null
+                func.apply(context, args)
+                if (!timeout) context = args = null
+            }
+        
+            const throttled = function () {
+                const now = new Date().getTime()
+                if (!previous && options.leading === false) previous = now
+                
+                const remaining = wait - (now - previous)
+                context = this
+                args = arguments
+                if (remaining <= 0 || remaining > wait) {
+                    if (timeout) {
+                        clearTimeout(timeout)
+                        timeout = null
+                    }
+                    previous = now
+                    func.apply(context, args)
+                    if (!timeout) context = args = null
+                } else if (!timeout && options.trailing !== false) {
+                    timeout = setTimeout(later, remaining)
+                }
+            }
+        
+            return throttled
+        },
+
+        getScrollPercent: (currentTop, ele) => {
+            const docHeight = ele.clientHeight
+            const winHeight = document.documentElement.clientHeight
+            const headerHeight = ele.offsetTop
+            const contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : (document.documentElement.scrollHeight - winHeight)
+            const scrollPercent = (currentTop - headerHeight) / (contentMath)
+            const scrollPercentRounded = Math.round(scrollPercent * 100)
+            const percentage = (scrollPercentRounded > 100) ? 100 : (scrollPercentRounded <= 0) ? 0 : scrollPercentRounded
+            return percentage
+        },
+
+
+
+
+    }  
+
+
+
+     
+
+    const scrollFnToDo = function () {
+      const isToc = true 
+      const isAnchor = true 
+      const $article = document.getElementById('article-container')
+  
+      if (!($article && (isToc || isAnchor))) return
+  
+      let $tocLink, $cardToc, autoScrollToc, $tocPercentage, isExpand
+  
+      if (isToc) {
+        const $cardTocLayout = document.getElementById('card-toc')
+        $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0]
+        $tocLink = $cardToc.querySelectorAll('.toc-link')
+        $tocPercentage = $cardTocLayout.querySelector('.toc-percentage')
+        isExpand = $cardToc.classList.contains('is-expand')
+  
+        window.mobileToc = {
+          open: () => {
+            $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: 55px'
+          },
+  
+          close: () => {
+            $cardTocLayout.style.animation = 'toc-close .2s'
+            setTimeout(() => {
+              $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+            }, 100)
+          }
+        }
+  
+        
+        $cardToc.addEventListener('click', e => {
+          e.preventDefault()
+          const target = e.target.classList
+          if (target.contains('toc-content')) return
+          const $target = target.contains('toc-link')
+            ? e.target
+            : e.target.parentElement
+          btf.scrollToDest(btf.getEleTop(document.getElementById(decodeURI($target.getAttribute('href')).replace('#', ''))), 300)
+          if (window.innerWidth < 900) {
+            window.mobileToc.close()
+          }
+        })
+  
+        autoScrollToc = item => {
+          const activePosition = item.getBoundingClientRect().top
+          const sidebarScrollTop = $cardToc.scrollTop
+          if (activePosition > (document.documentElement.clientHeight - 100)) {
+            $cardToc.scrollTop = sidebarScrollTop + 150
+          }
+          if (activePosition < 100) {
+            $cardToc.scrollTop = sidebarScrollTop - 150
+          }
+        }
+      }
+  
+      
+      const list = $article.querySelectorAll('h1,h2,h3,h4,h5,h6')
+      let detectItem = ''
+      const findHeadPosition = function (top) {
+        if (top === 0) {
+          return false
+        }
+  
+        let currentId = ''
+        let currentIndex = ''
+  
+        list.forEach(function (ele, index) {
+          if (top > btf.getEleTop(ele) - 80) {
+            const id = ele.id
+            currentId = id ? '#' + encodeURI(id) : ''
+            currentIndex = index
+          }
+        })
+  
+        if (detectItem === currentIndex) return
+  
+        if (isAnchor) btf.updateAnchor(currentId)
+  
+        detectItem = currentIndex
+  
+        if (isToc) {
+          $cardToc.querySelectorAll('.active').forEach(i => { i.classList.remove('active') })
+  
+          if (currentId === '') {
+            return
+          }
+  
+          const currentActive = $tocLink[currentIndex]
+          currentActive.classList.add('active')
+  
+          setTimeout(() => {
+            autoScrollToc(currentActive)
+          }, 0)
+  
+          if (isExpand) return
+          let parent = currentActive.parentNode
+  
+          for (; !parent.matches('.toc'); parent = parent.parentNode) {
+            if (parent.matches('li')) parent.classList.add('active')
+          }
+        }
+      }
+  
+      
+      window.tocScrollFn = btf.throttle(() => {
+        const currentTop = window.scrollY || document.documentElement.scrollTop
+        
+         if(isToc){
+          $tocPercentage.textContent = btf.getScrollPercent(currentTop, $article)
+        }
+        findHeadPosition(currentTop)
+      }, 100)
+  
+      window.addEventListener('scroll', tocScrollFn)
+    }
+  
+
+    scrollFnToDo()
+</script>
+
+
+
+
+
+    </section>
+     
+
+</aside></div>
+	<footer class="Qc_footer">
+		<div class="Qc_container">
+			<div class="item">
+				<p>2018 - 2023 版权所有 ©<a href="http://beian.miit.gov.cn/">闽ICP备2021005633号-2</a></p>
+			</div>
+			
+		</div>
+		</div>
+	</footer>
+
+	<style>
+		.joe_action {
+			position: fixed;
+			bottom: 90px;
+			right: 30px;
+			z-index: 333;
+		}
+
+
+		.joe_action_item.scroll.active {
+			visibility: visible;
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+
+		.joe_action_item.scroll {
+			visibility: hidden;
+			-webkit-transform: scale(0);
+			transform: scale(0);
+			transition: visibility 0.35s, -webkit-transform 0.35s;
+			transition: visibility 0.35s, transform 0.35s;
+			transition: visibility 0.35s, transform 0.35s, -webkit-transform 0.35s;
+		}
+
+		.joe_action_item {
+			box-shadow: rgb(0 0 0 / 10%) 0px 0px 10px, rgb(0 0 0 / 20%) 0px 5px 20px;
+			background: var(--darkreader-bg--background);
+		}
+		.joe_action_item {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			background: var(--background);
+			border-radius: 50%;
+			cursor: pointer;
+			margin-top: 15px;
+			box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 5px 20px rgb(0 0 0 / 20%);
+		}
+		.joe_action_item svg {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			fill: var(--theme);
+		}
+
+
+
+		.joe_action_item.mode svg{-webkit-transform:scale(0);transform:scale(0);opacity:0}
+		.joe_action_item.mode svg.active{-webkit-transform:scale(1);transform:scale(1);opacity:1}
+		
+	</style>
+
+
+	<div class="joe_action">
+		<div class="joe_action_item scroll ">
+			<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M725.902 498.916c18.205-251.45-93.298-410.738-205.369-475.592l-6.257-3.982-6.258 3.414c-111.502 64.853-224.711 224.142-204.8 475.59-55.751 53.476-80.214 116.623-80.214 204.8v15.36l179.2-35.27c11.378 40.39 58.596 69.973 113.21 69.973 54.613 0 101.262-29.582 112.64-68.836l180.337 36.41v-15.36c-.569-89.885-25.031-153.6-82.489-206.507zM571.733 392.533c-33.564 31.29-87.04 28.445-118.329-5.12s-28.444-87.04 5.12-117.76c33.565-31.289 87.04-28.444 118.33 5.12s28.444 86.471-5.12 117.76zm-56.32 368.64c-35.84 0-64.284 29.014-64.284 64.285 0 35.84 54.044 182.613 64.284 182.613s64.285-146.773 64.285-182.613c0-35.271-29.014-64.285-64.285-64.285z"></path>
+			</svg>
+		</div>
+		<div class="joe_action_item mode">
+			<svg class="icon-1 " viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M587.264 104.96c33.28 57.856 52.224 124.928 52.224 196.608 0 218.112-176.128 394.752-393.728 394.752-29.696 0-58.368-3.584-86.528-9.728C223.744 832.512 369.152 934.4 538.624 934.4c229.376 0 414.72-186.368 414.72-416.256 1.024-212.992-159.744-389.12-366.08-413.184z"></path>
+				<path d="M340.48 567.808l-23.552-70.144-70.144-23.552 70.144-23.552 23.552-70.144 23.552 70.144 70.144 23.552-70.144 23.552-23.552 70.144zM168.96 361.472l-30.208-91.136-91.648-30.208 91.136-30.208 30.72-91.648 30.208 91.136 91.136 30.208-91.136 30.208-30.208 91.648z"></path>
+			</svg>
+			<svg class="icon-2 active" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M234.24 512a277.76 277.76 0 1 0 555.52 0 277.76 277.76 0 1 0-555.52 0zM512 187.733a42.667 42.667 0 0 1-42.667-42.666v-102.4a42.667 42.667 0 0 1 85.334 0v102.826A42.667 42.667 0 0 1 512 187.733zm-258.987 107.52a42.667 42.667 0 0 1-29.866-12.373l-72.96-73.387a42.667 42.667 0 0 1 59.306-59.306l73.387 72.96a42.667 42.667 0 0 1 0 59.733 42.667 42.667 0 0 1-29.867 12.373zm-107.52 259.414H42.667a42.667 42.667 0 0 1 0-85.334h102.826a42.667 42.667 0 0 1 0 85.334zm34.134 331.946a42.667 42.667 0 0 1-29.44-72.106l72.96-73.387a42.667 42.667 0 0 1 59.733 59.733l-73.387 73.387a42.667 42.667 0 0 1-29.866 12.373zM512 1024a42.667 42.667 0 0 1-42.667-42.667V878.507a42.667 42.667 0 0 1 85.334 0v102.826A42.667 42.667 0 0 1 512 1024zm332.373-137.387a42.667 42.667 0 0 1-29.866-12.373l-73.387-73.387a42.667 42.667 0 0 1 0-59.733 42.667 42.667 0 0 1 59.733 0l72.96 73.387a42.667 42.667 0 0 1-29.44 72.106zm136.96-331.946H878.507a42.667 42.667 0 1 1 0-85.334h102.826a42.667 42.667 0 0 1 0 85.334zM770.987 295.253a42.667 42.667 0 0 1-29.867-12.373 42.667 42.667 0 0 1 0-59.733l73.387-72.96a42.667 42.667 0 1 1 59.306 59.306l-72.96 73.387a42.667 42.667 0 0 1-29.866 12.373z"></path>
+			</svg>
+		</div>
+	</div>
+
+	
+
+
+	
+	
+
+	
+
+	
+	
+	<script src="/js/highlight.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+   
+
+   <script>
+	 function registerImageLoadEvent() {
+		const images = document.querySelectorAll('.sidebar img, .Qc_post img, .vendors-list img');
+				
+		const callback = (entries) => {
+			entries.forEach(item => {
+				if (item.intersectionRatio > 0) {
+					let ele = item.target;
+					let imgSrc = ele.getAttribute('src');
+					ele.setAttribute("src","1.png")
+					ele.setAttribute("data-lazy-src",imgSrc)
+					ele.classList.add("lazyload")
+			
+				}
+			})
+		};
+
+		Array.from(images).forEach(img => {
+			const bg = '/images/loading.gif' 
+
+			img.setAttribute("data-lazy-src",img.src)
+			img.src = bg
+			
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+
+		
+		
+		
+	}
+
+	registerImageLoadEvent()
+
+   </script>
+
+
+
+
+ 
+
+ <script src="/js/lazyload.life.min.js"></script>
+
+ <script>
+	const lazyloadImg = () => {
+      window.lazyLoadInstance = new LazyLoad({
+        elements_selector: 'img',
+        threshold: 0,
+        data_src: 'lazy-src'
+      })
+    }
+
+	lazyloadImg()
+ </script>
+
+
+	</div>
+</body>
+
+<script>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+
+	
+	
+				
+	
+
+	
+	
+	
+	
+
+	
+
+	
+
+	
+	
+	
+	
+	
+
+	
+	
+		
+	
+	   </script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	
+    
+	var mybutton = document.querySelector(".joe_action .joe_action_item.scroll")
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            
+            
+			mybutton.classList.add("active")
+        } else {
+            
+            
+			mybutton.classList.remove("active")
+        }
+    };
+
+	mybutton.addEventListener("click",() => {
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	})
+	
+
+
+</script>
+
+
+
+<script>
+	var themeBtn = document.querySelector(".joe_action .joe_action_item.mode")
+	let icon_1 = document.querySelector(".joe_action .joe_action_item.mode .icon-1")
+	let icon_2 = document.querySelector(".joe_action .joe_action_item.mode .icon-2")
+    themeBtn.addEventListener("click", () => {
+		
+        if (icon_1.classList.contains("active")) {
+            icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+
+<script>
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>interface on 秋码分享</title>
+    <link>/tags/interface/</link>
+    <description>Recent content in interface on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 18 Dec 2022 15:44:31 +0800</lastBuildDate><atom:link href="/tags/interface/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>玩以太坊链上项目的必备技能（OOP-接口-Solidity之旅十一）</title>
+      <link>/article/168/</link>
+      <pubDate>Sun, 18 Dec 2022 15:44:31 +0800</pubDate>
+      
+      <guid>/article/168/</guid>
+      <description>&lt;p&gt;我们知道在&lt;code&gt;Java&lt;/code&gt;里&lt;code&gt;接口&lt;/code&gt;是&lt;code&gt;特殊的抽象类&lt;/code&gt;，限制多于&lt;code&gt;抽象类&lt;/code&gt;，但随着&lt;code&gt;Java&lt;/code&gt;版本的更新，&lt;code&gt;Java&lt;/code&gt;中的&lt;code&gt;接口&lt;/code&gt;是越来越趋于&lt;code&gt;抽象类&lt;/code&gt;了（这样说，可能有点不妥，因为&lt;code&gt;接口&lt;/code&gt;本就是&lt;code&gt;特殊的抽象类&lt;/code&gt;，只是&lt;code&gt;接口&lt;/code&gt;中不能有方法具体实现，而&lt;code&gt;抽象类&lt;/code&gt;还是可以有的！然而随着&lt;code&gt;Java&lt;/code&gt;版本的&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>远程仓库 on 秋码分享</title>
+    <link>/tags/%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</link>
+    <description>Recent content in 远程仓库 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 06 Dec 2020 11:14:01 +0000</lastBuildDate><atom:link href="/tags/%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git使用教程之创建本地库并关联远程库（笔记整理篇一）</title>
+      <link>/article/85/</link>
+      <pubDate>Sun, 06 Dec 2020 11:14:01 +0000</pubDate>
+      
+      <guid>/article/85/</guid>
+      <description>&lt;p&gt;Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑 上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各 自的修改推送给对方，就可以互相看到对方的修改了。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

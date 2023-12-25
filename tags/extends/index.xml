@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>extends on 秋码分享</title>
+    <link>/tags/extends/</link>
+    <description>Recent content in extends on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 16 Dec 2022 20:15:16 +0800</lastBuildDate><atom:link href="/tags/extends/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>玩以太坊链上项目的必备技能（OOP-合约继承-Solidity之旅九）</title>
+      <link>/article/166/</link>
+      <pubDate>Fri, 16 Dec 2022 20:15:16 +0800</pubDate>
+      
+      <guid>/article/166/</guid>
+      <description>&lt;p&gt;创建合约时， 合约的 构造函数 (一个用关键字 &lt;code&gt;constructor&lt;/code&gt; 声明的函数)会执行一次。 构造函数是可选的。只允许有一个构造函数，这意味着不支持&lt;code&gt;重载&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
