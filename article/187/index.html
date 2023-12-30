@@ -1,0 +1,2238 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<title>特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）</title>
+<meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+
+<meta name="description" content="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）">
+
+<meta itemprop="name" content="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）">
+<meta itemprop="description" content="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）">
+<meta itemprop="image" content="/img/author.jpg">
+
+
+<meta name="twitter:description" content="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）" />
+
+
+<link rel="alternate" href="/feed.xml" title="秋码分享" type="application/rss+xml"/>
+
+<link rel="shortcut icon" href="/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="/imgs/icons/apple-touch-icon.png" />
+
+
+
+
+<style>
+    @font-face {
+        font-family: 'Xc Font';
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+        src: url('https://cdn.jsdelivr.net/gh/Xpblog666/cdn@1.0/HarmonyOS_Sans_SC_Medium.ttf');
+        src: url('https://cdn.jsdelivr.net/gh/Xpblog666/cdn@1.0/HarmonyOS_Sans_SC_Medium.ttf') format('truetype');
+    }
+
+    html {
+        font-family: 'Xc Font', 'PingFang SC', 'Noto Serif SC', 'HarmonyOS_Sans_SC_Medium', 'Fira Mono', 'Microsoft YaHei', Arial, sans-serif
+    }
+
+    html .Qc_header_above .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_header_below .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_header_searchout .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_main {
+        max-width: 980px
+    }
+
+    html .Qc_aside {
+        width: 260px
+    }
+
+    body::before {
+        background: #f0f0f0;
+        background: ;
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+<link rel="stylesheet" href="/css/global.min.css" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/theme.min.css" />
+
+<link rel="stylesheet" href="/css/font-awesome.min.css" />
+
+
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+  
+    init({
+      el: '.waline-container',
+      placeholder: "请不要吝啬您的评论 ヾ(≧▽≦*)o",
+      sofa: "瞧，这里没人，还不抢占第一的位置 (≧∀≦)ゞ",
+      pageview: true, 
+      comment: true, 
+      emoji: [
+        '//unpkg.com/@waline/emojis@1.1.0/weibo',
+        '//unpkg.com/@waline/emojis@1.1.0/bilibili',
+      ],
+      login: 'disable',
+      imgUploader: false,
+      wordLimit: 200,
+      requiredMeta: ['nick', 'mail'],
+      reaction: true,
+      reactionText: [ '点赞', '踩一下', '得意', '不屑', '尴尬', '睡觉'],
+      reactionTitle: "您认为这篇文章怎么样？",
+      dark: 'auto', 
+      serverURL: "comment.qiucode.cn",
+    });
+  </script>
+  
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+                
+ 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+	<header class="Qc_header  active Qc_slid">
+<div class="Qc_header_above">
+    <div class="Qc_container"> 
+        <svg class="Qc_header_above-slideicon" viewBox="0 0 1152 1024"
+            xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+            <path
+                d="M76.032 872a59.968 59.968 0 1 0 0 120h999.936a59.968 59.968 0 1 0 0-120H76.032zm16-420.032a59.968 59.968 0 1 0 0 120h599.936a59.968 59.968 0 1 0 0-119.936H92.032zM76.032 32a59.968 59.968 0 1 0 0 120h999.936a60.032 60.032 0 0 0 0-120H76.032z" />
+        </svg> 
+        <a class="Qc_header_above-logo" href="/" title="John'Blog"> 
+            <img class="Qc_logo"
+                src="/static/front/images/qiu-logo.png" /></a>
+        <nav class="Qc_header_above_nav"> 
+            
+            <a class="item " href="/" title="首页" style="margin-right:8px">
+                <i class="fa fa-home"></i> 首页
+            </a>
+           
+            <a class="item " href="/flinks" title="友情链接">
+                <i class="fa fa-link"></i>友情链接
+            </a> 
+
+            
+
+            <a class="item " href="/about" title="关于我">
+                <i class="fa fa-user"></i>关于本站
+            </a>
+        </nav> 
+
+        
+        
+        <svg class="Qc_header_above-searchicon" viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="display: block;">
+            <path
+                d="M1008.19 932.031L771.72 695.56a431.153 431.153 0 1 0-76.158 76.158l236.408 236.472a53.758 53.758 0 0 0 76.158 0 53.758 53.758 0 0 0 0-76.158zM107.807 431.185a323.637 323.637 0 0 1 323.316-323.381 323.7 323.7 0 0 1 323.381 323.38 323.637 323.637 0 0 1-323.38 323.317 323.637 323.637 0 0 1-323.317-323.316z" />
+        </svg> 
+        <a href="javascript:void(0)" type="button" id="ClickMe" style="margin: 0px 3px 2px 13px"><svg
+                t="1675873194952" class="loingico" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="3929" width="22" height="22">
+                <path
+                    d="M554.666667 349.44a48.213333 48.213333 0 1 1-47.786667 47.786667A48.213333 48.213333 0 0 1 554.666667 349.44m0-85.333333a133.546667 133.546667 0 1 0 133.546666 133.12A133.12 133.12 0 0 0 554.666667 264.106667z"
+                    fill="var(--routine)" p-id="3930"></path>
+                <path
+                    d="M768 759.893333a42.666667 42.666667 0 0 1-42.666667-42.666666 170.666667 170.666667 0 0 0-341.333333 0 42.666667 42.666667 0 0 1-85.333333 0 256 256 0 0 1 512 0 42.666667 42.666667 0 0 1-42.666667 42.666666z"
+                    fill="var(--routine)" p-id="3931"></path>
+                <path
+                    d="M554.666667 213.333333a341.333333 341.333333 0 1 1-341.333334 341.333334 341.333333 341.333333 0 0 1 341.333334-341.333334m0-85.333333a426.666667 426.666667 0 1 0 426.666666 426.666667A426.666667 426.666667 0 0 0 554.666667 128z"
+                    fill="var(--routine)" p-id="3932"></path>
+            </svg> </a>
+        
+        
+        
+
+    </div>
+</div>
+<div class="Qc_header_searchout">
+    <div class="Qc_container">
+        <div class="Qc_header_searchout_all">
+            <div class="Qc_search_inner">
+                <div class="Qc_label">
+                    <div class="title"> <i class="iconfont icon-A70"
+                            style="margin-right: 5px;font-size: 18px;"></i> 关键词搜索 </div>
+                    <form class="search" method="post" action="/"> <input maxlength="16"
+                            autocomplete="off" placeholder="请输入关键字..." name="s" value="" class="input"
+                            type="text" /> <button type="submit" class="submit">搜索</button> </form>
+                    <div class="title"> <i class="iconfont icon-A67"
+                            style="margin-right: 5px;font-size: 18px;"></i>标签搜索</div>
+                    <ul class="cloud">
+                        <li class="item"><a style="background:#0396FF"
+                                href="https://qiucode.cntag/%E5%A4%96%E8%B4%B8/">外贸</a></li>
+                        <li class="item"><a style="background:#0396FF"
+                                href="https://qiucode.cntag/%E5%A4%96%E8%B4%B8%E5%88%86%E4%BA%AB/">外贸分享</a></li>
+                        <li class="item"><a style="background:#E96D71"
+                                href="https://qiucode.cntag/%E5%A4%96%E8%B4%B8%E8%AF%9D%E6%9C%AF/">外贸话术</a></li>
+                        <li class="item"><a style="background:#FD6585"
+                                href="https://qiucode.cntag/typecho/">typecho</a></li>
+                        <li class="item"><a style="background:#e8583d"
+                                href="https://qiucode.cntag/chatgpt/">chatgpt</a></li>
+                        <li class="item"><a style="background:#FA742B"
+                                href="https://qiucode.cntag/typecho%E6%8F%92%E4%BB%B6/">typecho插件</a></li>
+                        <li class="item"><a style="background:#4C83FF"
+                                href="https://qiucode.cntag/%E5%AD%97%E4%BD%93%E7%BE%8E%E5%8C%96/">字体美化</a></li>
+                        <li class="item"><a style="background:#f093fb"
+                                href="https://qiucode.cntag/%E5%9B%BD%E5%86%85ChatGPT/">国内ChatGPT</a></li>
+                        <li class="item"><a style="background:#F072B6"
+                                href="https://qiucode.cntag/openwrt/">openwrt</a></li>
+                        <li class="item"><a style="background:#f68e5f"
+                                href="https://qiucode.cntag/%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81/">网站源码</a></li>
+                        <li class="item"><a style="background:#e8583d"
+                                href="https://qiucode.cntag/%E7%BA%A2%E7%B1%B3ax6000/">红米ax6000</a></li>
+                        <li class="item"><a style="background:#4facfe"
+                                href="https://qiucode.cntag/AI%E7%BB%98%E5%9B%BE/">AI绘图</a></li>
+                        <li class="item"><a style="background:#0396FF"
+                                href="https://qiucode.cntag/GPTalk/">GPTalk</a></li>
+                        <li class="item"><a style="background:#6fa3ef"
+                                href="https://qiucode.cntag/AALocker/">AALocker</a></li>
+                        <li class="item"><a style="background:#49C628"
+                                href="https://qiucode.cntag/%E4%BC%9A%E5%91%98%E9%9B%B6%E5%85%83%E8%B4%AD/">会员零元购</a>
+                        </li>
+                        <li class="item"><a style="background:#736EFE"
+                                href="https://qiucode.cntag/ai%E6%95%B0%E5%AD%97%E7%BB%98%E7%94%BB/">ai数字绘画</a>
+                        </li>
+                        <li class="item"><a style="background:#F072B6" href="https://qiucode.cntag/Ai/">Ai</a>
+                        </li>
+                        <li class="item"><a style="background:#465EFB"
+                                href="https://qiucode.cntag/Stable-Diffusion/">Stable Diffusion</a></li>
+                        <li class="item"><a style="background:#E96D71"
+                                href="https://qiucode.cntag/%E5%8D%9A%E5%AE%A2/">博客</a></li>
+                        <li class="item"><a style="background:#6fa3ef"
+                                href="https://qiucode.cntag/win11/">win11</a></li>
+                    </ul>
+                    <div class="title" style="padding: 15px 0 0 0"> <i class="iconfont icon-A89"
+                            style="margin-right: 5px;font-size: 18px;"></i>近期浏览</div>
+                    <div id="jl_viewHistory" style="display: block"></div>
+                </div>
+                <div class="Qc_article">
+                    <div class="title"> <i class="iconfont icon-A37"
+                            style="margin-right: 5px;font-size: 18px;"></i>热门文章</div>
+                    <div class="Qc_header_search" style="position: relative;">
+                        <nav class="result"> <a href="https://qiucode.cna/7/" title="本主题—Joe魔改 一款个人类型Typecho主题"
+                                class="item"> <span class="sort">1</span> <span class="text">本主题—Joe魔改
+                                    一款个人类型Typecho主题</span> <span class="views"></i>3.8k 阅读</span> </a> <a
+                                href="https://qiucode.cna/28/" title="红米Redmi AX6000开启并固化SSH简单方法+刷openwrt固件"
+                                class="item"> <span class="sort">2</span> <span class="text">红米Redmi
+                                    AX6000开启并固化SSH简单方法+刷openwrt固件</span> <span class="views"></i>2.3k 阅读</span>
+                            </a> <a href="https://qiucode.cna/14/"
+                                title="最新可用 Typecho 付费阅读插件修复版-免登录版-免授权-对接第三方支付" class="item"> <span
+                                    class="sort">3</span> <span class="text">最新可用 Typecho
+                                    付费阅读插件修复版-免登录版-免授权-对接第三方支付</span> <span class="views"></i>1.9k 阅读</span>
+                            </a> <a href="https://qiucode.cna/17/" title="Typecho七牛云插件，为您的网站访问加速" class="item">
+                                <span class="sort">4</span> <span class="text">Typecho七牛云插件，为您的网站访问加速</span>
+                                <span class="views"></i>1.6k 阅读</span> </a> <a href="https://qiucode.cna/16/"
+                                title="Typecho投稿功能开启——无需插件，一行代码" class="item"> <span class="sort">5</span> <span
+                                    class="text">Typecho投稿功能开启——无需插件，一行代码</span> <span class="views"></i>1.4k
+                                    阅读</span> </a> <a href="https://qiucode.cna/36/"
+                                title="Typecho使用CDN后无法登陆后台解决办法" class="item"> <span class="sort">6</span> <span
+                                    class="text">Typecho使用CDN后无法登陆后台解决办法</span> <span class="views"></i>733
+                                    阅读</span> </a> <a href="https://qiucode.cna/1/" title="欢迎使用 Typecho"
+                                class="item"> <span class="sort">7</span> <span class="text">欢迎使用 Typecho</span>
+                                <span class="views"></i>637 阅读</span> </a> <a href="https://qiucode.cna/26/"
+                                title="十个金句搞定外贸客户已读不回✅" class="item"> <span class="sort">8</span> <span
+                                    class="text">十个金句搞定外贸客户已读不回✅</span> <span class="views"></i>543 阅读</span>
+                            </a> <a href="https://qiucode.cna/24/" title="如何支持发送Emoji表情？" class="item"> <span
+                                    class="sort">9</span> <span class="text">如何支持发送Emoji表情？</span> <span
+                                    class="views"></i>508 阅读</span> </a> </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Qc_header_slideout"> 
+    <img width="100%" height="150" class="Qc_header_slideout-image"
+        src="https://qiucode.cnshaonv.jpg" alt="侧边栏壁纸" />
+    <div class="Qc_header_slideout-author"> <img width="50" height="50" class="avatar"
+            src="https://thirdqq.qlogo.cn/g?b=qq&nk=687778&s=100" alt="博主昵称" />
+        <div class="info"> <a class="link" href="https://xx9q.com" target="_blank"
+                rel="noopener noreferrer nofollow">John</a>
+            <p class="motto Qc_motto"></p>
+        </div>
+    </div>
+    <ul class="Qc_header_slideout-count"> </ul>
+    <ul class="Qc_header_slideout-menu panel-box">
+        <li> <a class="link" href="https://qiucode.cn" title="首页"> <span><i class="iconfont icon-A131"></i>
+                    首页</span> </a> </li>
+        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A129"></i> 分类</span>
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                    height="13">
+                    <path
+                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                </svg> </a>
+            <ul class="slides panel-body panel-box">
+                <li>
+                    <div class="link panel "> <a href="https://qiucode.cncategory/default/" title="日常分享">日常分享</a>
+                        <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                            height="13">
+                            <path
+                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                        </svg> </div>
+                    <ul class="slides panel-body">
+                        <li><a class="link " href="https://qiucode.cncategory/wmfx/" title="外贸分享">外贸分享</a></li>
+                        <li><a class="link " href="https://qiucode.cncategory/wztj/" title="网站推荐">网站推荐</a></li>
+                        <li><a class="link " href="https://qiucode.cncategory/yxxg/" title="游戏相关">游戏相关</a></li>
+                    </ul>
+                </li>
+                <li><a class="link " href="https://qiucode.cncategory/xitong/" title="系统相关">系统相关</a></li>
+                <li>
+                    <div class="link panel "> <a href="https://qiucode.cncategory/wangzhan/"
+                            title="网站文档">网站文档</a> <svg class="icon" viewBox="0 0 1024 1024"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="13">
+                            <path
+                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                        </svg> </div>
+                    <ul class="slides panel-body">
+                        <li><a class="link " href="https://qiucode.cncategory/bkfx/" title="博客分享">博客分享</a></li>
+                        <li><a class="link " href="https://qiucode.cncategory/wzym/" title="网站源码">网站源码</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link panel "> <a href="https://qiucode.cncategory/ruanjian/"
+                            title="软件分享">软件分享</a> <svg class="icon" viewBox="0 0 1024 1024"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="13">
+                            <path
+                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                        </svg> </div>
+                    <ul class="slides panel-body">
+                        <li><a class="link " href="https://qiucode.cncategory/sjrj/" title="📱手机软件">📱手机软件</a>
+                        </li>
+                        <li><a class="link " href="https://qiucode.cncategory/dnrj/" title="💻电脑软件">💻电脑软件</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A3"></i> 页面</span>
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                    height="13">
+                    <path
+                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                </svg> </a>
+            <ul class="slides panel-body">
+                <li><a class="link " href="https://qiucode.cnsn.html" title="我的记录">我的记录</a></li>
+                <li><a class="link " href="https://qiucode.cnyoulian.html" title="友情链接">友情链接</a></li>
+                <li><a class="link " href="https://qiucode.cnsite.html" title="站点统计">站点统计</a></li>
+                <li><a class="link " href="https://qiucode.cnAboutme.html" title="关于我">关于我</a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="Qc_header_slideout-menu panel-box" style="margin-top: 15px;margin-bottom: 100px;">
+        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A17"></i> 用户登录</span>
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                    height="13">
+                    <path
+                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z">
+                    </path>
+                </svg> </a>
+            <ul class="slides panel-body">
+                <li> <a class="link" href="https://qiucode.cnadmin/login.php" target="_blank"
+                        rel="noopener noreferrer nofollow">登录</a> <a class="link"
+                        href="https://qiucode.cnadmin/register.php" target="_blank"
+                        rel="noopener noreferrer nofollow">注册</a> </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="Qc_header_mask"></div>
+
+<script>
+
+    let sideBtn = document.querySelector(".Qc_header_above .Qc_container .Qc_header_above-slideicon")
+
+    sideBtn.addEventListener("click", () => {
+        document.querySelector(".Qc_header_slideout").classList.add("active")
+        document.querySelector(".Qc_header_mask").classList.add("active")
+    })
+
+    let maskBtn = document.querySelector(".Qc_header_mask")
+
+    maskBtn.addEventListener("click",() => {
+        document.querySelector(".Qc_header_slideout").classList.remove("active")
+        maskBtn.classList.remove("active")
+    })
+
+   
+    
+
+</script></header>
+	
+		
+	<div class="Qc_container showInUp">
+
+
+
+<div class="Qc_main Qc_post">
+    <div class="Qc_detail">
+        <h1 class="title Qc_psot_title"> 特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）</h1>
+        <div class="Qc_bread">
+            <ul class="Qc_bread_bread">
+                <li class="item"> <span class="iconfont icon-A131" style="margin-right: 4px;"></span> <a
+                        href="https://qiucode.cn" class="link" title="首页">首页</a> </li>
+                <li class="line">/</li>
+                <li class="item"> <a class="link" href="https://qiucode.cncategory/bkfx/" title="博客分享">博客分享</a>
+                </li>
+                <li class="line">/</li>
+                <li class="item">正文</li>
+            </ul>
+        </div>
+        <div class="Qc_detail_category"> </div>
+        <article class="Qc_detail_article" id="article-container">
+            <h3 id="特征缩放和转换">特征缩放和转换</h3>
+<p>您需要应用于数据的最重要的转换之一是功能扩展。除了少数例外，<code>机器学习算法</code>在输入数值属性具有非常不同的尺度时表现不佳。住房数据就是这种情况:房间总数约为6至39320间，而收入中位数仅为0至15间。如果没有任何缩放，大多数模型将倾向于忽略收入中位数，而更多地关注房间数。</p>
+<p>有两种常见的方法使所有属性具有相同的尺度:最小-最大尺度和标准化。</p>
+<blockquote>
+<p>与所有估计器一样，重要的是仅将标量拟合到训练数据:永远不要对训练集以外的任何对象使用fit()或fit_transform()。一旦你有了一个训练好的定标器，你就可以用它来变换()任何其他的集合，包括验证集、测试集和新的数据。请注意，虽然培训集值将始终缩放到指定的范围，但如果新的数据包含异常值，则这些值最终可能会缩放到该范围之外。如果要避免这种情况，只需将剪辑超参数设置为True即可。</p>
+</blockquote>
+<p>最小-最大缩放(许多人称之为标准化)是最简单的:对于每个属性，值被移位和重新缩放，以便它们最终的范围从0到1。这是通过减去最小值并除以最小值和最大值之间的差来实现的。Scikit-Learn为此提供了一个名为MinMaxScaler的转换器。它有一个feature_range超参数，如果出于某种原因，不希望0-1(例如，神经网络在零均值输入下工作得最好，所以最好在-1到1的范围内工作)。是相当好用的:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> MinMaxScaler
+</span></span><span style="display:flex;"><span>min_max_scaler <span style="color:#f92672">=</span> MinMaxScaler(feature_range<span style="color:#f92672">=</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>housing_num_min_max_scaled <span style="color:#f92672">=</span> min_max_scaler<span style="color:#f92672">.</span>fit_transform(housing_num)
+</span></span></code></pre></div><p>标准化是不同的:首先它减去平均值(所以标准化值有一个零均值)，然后它除以标准差(所以标准-化值的标准差等于1)。不像最小最大缩放，标准化化不会将值限制在特定的范围内。然而，标准化受到离群值的影响要小得多。例如，假设一个地区的收入中位数等于100(误打误撞)，而不是通常的0-15。将最小最大值缩放到0-1范围会将这个离群值映射到1并将所有其他值压缩到0-0.15，而标准化不会受到太大影响。Scikit-Learn提供了一个名为StandardScaler的转换器用于标准化:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> StandardScaler
+</span></span><span style="display:flex;"><span>std_scaler <span style="color:#f92672">=</span> StandardScaler()
+</span></span><span style="display:flex;"><span>housing_num_std_scaled <span style="color:#f92672">=</span> std_scaler<span style="color:#f92672">.</span>fit_transform(housing_num)
+</span></span></code></pre></div><blockquote>
+<p>如果你想缩放一个稀疏矩阵而不首先将其转换为稠密矩阵，你可以使用一个标准缩放器，它的with_mean超参数设置为False它只会除以标准差，而不会减去均值(因为这会破坏稀疏性</p>
+</blockquote>
+<p>当特征的分布具有重尾时（即，当远离平均值的值不是指数罕见时），最小-最大缩放和标准化都会将大多数值压缩到一个小范围内。 <code>机器学习</code>模型通常根本不喜欢这种情况，因此，在缩放特征之前，您应该首先对其进行变换以缩小重尾，并且如果可能的话，使分布大致对称。 例如，对于右侧有重尾部的正特征，执行此操作的常见方法是用其平方根替换特征（或将特征提高到 0 到 1 之间的幂）。 如果该特征具有非常长且重的尾部，例如幂律分布，则用其对数替换该特征可能会有所帮助。 例如，人口特征大致遵循幂律：拥有 10,000 名居民的地区的出现频率仅比拥有 1,000 名居民的地区低 10 倍，而不是呈指数级下降。 下图 显示了当你计算它的对数时这个特征看起来有多好：它非常接近高斯分布（即钟形）。</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935454495.png" alt=""></p>
+<p>另一种处理重尾特征的方法是对特征进行反向转换。这意味着将其分布切割成大致相等大小的桶，并将每个特征值替换为它所属的桶的索引，就像我们创建收入猫特征一样(尽管我们只在分层抽样时使用它)。例如，您可以将每个值替换为其百分位数。使用相同大小的bucket处理会产生一个几乎均匀分布的特性，因此不需要进一步的缩放，或者您可以只除以bucket的数目来强制值到0-1的范围。</p>
+<p>当一个特征具有多峰分布(即，有两个或两个以上清晰的峰值，称为模式)时，例housing_median_age特征，对它进行bucket ization也是有帮助的，但这次将bucket ID作为类别处理，而不是作为数值。这意味着必须对桶索引进行编码，例如使用OneHotEncoder(所以你通常不想用太多桶)。这种方法将允许回归模型更容易地为该特征值的不同范围学习不同的规则。例如，也许35年前建造的房子有一种独特的风格，已经过时了，因此它们比它们的年龄更便宜。</p>
+<p>转换多峰分布的另一种方法是为每个模式(至少是主要模式)添加一个特征，表示住房中位年龄和该特定模式之间的相似性。相似性度量通常使用径向基函数(RBF)来计算&ndash;任何只依赖于输入值与不动点之间距离的函数。最常用的RBF是高斯RBF，其输出值随着输入值远离固定点而呈指数衰减。例如，高斯RBF相似度与房龄x和35由方程<code>exp (-y (x-35)2)</code>给出。超参数<code>y(gamma)</code>确定当x远离35时相似性度量衰减的速度。使用<code>Scikit-Learn</code>的r<code>bf_kernel()</code>函数，您可以创建一个新的高斯RBF特征来测量房屋中位年龄和35:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.metrics.pairwise <span style="color:#f92672">import</span> rbf_kernel
+</span></span><span style="display:flex;"><span>age_simil_35 <span style="color:#f92672">=</span> rbf_kernel(housing[[<span style="color:#e6db74">&#34;housing_median_age&#34;</span>]], [[<span style="color:#ae81ff">35</span>]], gamma<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span></code></pre></div><p>下图显示了这一新特征作为住房中位数年龄的函数(实线)。它还显示了如果使用较小的gamma值，该功能将是什么样子。如图所示，新的年龄相似性特征在35岁时达到峰值，正好在住房中位年龄分布的峰值附近:如果这个特定的年龄组与较低的价格有很好的相关性，那么这个新特征将有很好的机会发挥作用。</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935517024.png" alt=""></p>
+<p>到目前为止，我们只看了输入特性，但是目标值可能也需要转换。例如，若目标分布具有较重的尾部，您可以选择将目标替换为其对数。但是，如果你这样做，回归模型现在将预测的房屋价值中位数的对数，而不是房屋价值中位数本身。如果您想要预测的房屋中值，则需要计算模型预测的指数值。</p>
+<p>幸运的是，大多数<code>Scikit-Learn</code>的转换器都有一个<code>inverse_transform()</code>方法，这使得计算转换的逆运算变得很容易。例如，下面的代码示例显示了如何使用<code>StandardScaler</code>缩放标签(就像我们对输入所做的那样)，然后在缩放后的标签上训练一个简单的线性回归模型，并使用它对一些新数据进行预测，然后使用经过训练的缩放器的<code>inverse_transform()</code>方法将这些数据转换回原始尺度。请注意，我们将标签从<code>Pandas Series</code>转换为<code>DataFrame</code>，因为标准Scaler期望2D输入。此外，为了简单起见，在本示例中，我们仅使用单个原始输入特征(中值收入)对模型进行训练:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</span></span><span style="display:flex;"><span>target_scaler <span style="color:#f92672">=</span> StandardScaler()
+</span></span><span style="display:flex;"><span>scaled_labels <span style="color:#f92672">=</span> target_scaler<span style="color:#f92672">.</span>fit_transform(housing_labels<span style="color:#f92672">.</span>to_frame())
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(housing[[<span style="color:#e6db74">&#34;median_income&#34;</span>]], scaled_labels)
+</span></span><span style="display:flex;"><span>some_new_data <span style="color:#f92672">=</span> housing[[<span style="color:#e6db74">&#34;median_income&#34;</span>]]<span style="color:#f92672">.</span>iloc[:<span style="color:#ae81ff">5</span>] <span style="color:#75715e"># pretend this is new data</span>
+</span></span><span style="display:flex;"><span>scaled_predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(some_new_data)
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> target_scaler<span style="color:#f92672">.</span>inverse_transform(scaled_predictions)
+</span></span></code></pre></div><p>这工作得很好，但更简单的选择是使用<code>TransformedTargetRegressor</code>。我们只需要构造它，给它回归模型和标签转换器，然后使用原始的未缩放标签将其拟合到训练集上。它将自动使用转换器缩放标签，并在缩放后的标签上训练回归模型，就像我们之前所做的那样。然后，当我们想要进行预测时，它将调用回归模型的<code>predict()</code>方法，并使用<code>scaler</code>的i<code>nverse_trans form()</code>方法生成预测:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.compose <span style="color:#f92672">import</span> TransformedTargetRegressor
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> TransformedTargetRegressor(LinearRegression(),
+</span></span><span style="display:flex;"><span>transformer<span style="color:#f92672">=</span>StandardScaler())
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(housing[[<span style="color:#e6db74">&#34;median_income&#34;</span>]], housing_labels)
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(some_new_data)
+</span></span></code></pre></div><h3 id="自定义transformers">自定义Transformers</h3>
+<p>虽然Scikit-Learn提供了许多有用的转换器，但您需要编写自己的任务，如自定义转换、清理操作或组合特定属性。</p>
+<p>对于不需要任何训练的转换，您可以只编写一个函数，该函数接受NumPy数组作为输入，并输出转换后的数组。例如，如前一节所述，通过将具有重尾分布的特征替换为它们的对数(假设特征为正数且尾部位于右侧)，通常是一个好主意。让我们创建一个log-transformer，并将其应用于人口特征:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> FunctionTransformer
+</span></span><span style="display:flex;"><span>log_transformer <span style="color:#f92672">=</span> FunctionTransformer(np<span style="color:#f92672">.</span>log, inverse_func<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp)
+</span></span><span style="display:flex;"><span>log_pop <span style="color:#f92672">=</span> log_transformer<span style="color:#f92672">.</span>transform(housing[[<span style="color:#e6db74">&#34;population&#34;</span>]])
+</span></span></code></pre></div><p>inverse_func参数是可选的。它允许您指定一个逆变换函数，例如，如果您计划在
+TransformedTargetRegressor中使用您的转换器。转换函数可以接受超参数作为附加参数。例如，以下是如何创建一个转换器，计算与前面相同的高斯RBF相似性度量:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rbf_transformer <span style="color:#f92672">=</span> FunctionTransformer(rbf_kernel,
+</span></span><span style="display:flex;"><span>kw_args<span style="color:#f92672">=</span>dict(Y<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">35.</span>]], gamma<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>))
+</span></span><span style="display:flex;"><span>age_simil_35 <span style="color:#f92672">=</span> rbf_transformer<span style="color:#f92672">.</span>transform(housing[[<span style="color:#e6db74">&#34;housing_median_age&#34;</span>]]
+</span></span></code></pre></div><p>注意，RBF核没有反函数，因为在距离一个固定点的给定距离上总是有两个值(距离0除外)。还要注意rbf_kernel()不会单独处理这些特性。如果你给它传递一个有两个特征的数组，它会测量二维距离(欧几里得)来测量相似性。例如，以下是如何添加一个功能，该功能将测量每个区和旧金山之间的地理相似性:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sf_coords <span style="color:#f92672">=</span> <span style="color:#ae81ff">37.7749</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">122.41</span>
+</span></span><span style="display:flex;"><span>sf_transformer <span style="color:#f92672">=</span> FunctionTransformer(rbf_kernel,
+</span></span><span style="display:flex;"><span>kw_args<span style="color:#f92672">=</span>dict(Y<span style="color:#f92672">=</span>[sf_coords], gamma<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>))
+</span></span><span style="display:flex;"><span>sf_simil <span style="color:#f92672">=</span> sf_transformer<span style="color:#f92672">.</span>transform(housing[[<span style="color:#e6db74">&#34;latitude&#34;</span>, <span style="color:#e6db74">&#34;longitude&#34;</span>]])
+</span></span></code></pre></div><p>自定义<code>transformers</code>对于组合功能也很有用。例如，这里有一个FunctionTransformer，它计算输入特征0和1之间的比率:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935564869.png" alt=""></p>
+<p>FunctionTransformer非常方便，但是如果您希望您的转换器是可训练的，在fit()方法中学习一些参数，然后在transform()方法中使用它们，那该怎么办呢?为此，您需要编写一个自定义类。Scikit-Learn依赖于duck类型，所以这个类不必从任何特定的基类继承。它只需要三个方法:fit()(必须返回self)、
+transform () 和fit_transform()。</p>
+<p>只需添加TransformerMixin作为基类，就可以免费获得fit_transform():默认实现将只调用fit()，然后再调用transform()。如果将BaseEstimator添加为基类(并避免使用*args和**kwargs)，您还将获得两个额外的方法:get_params ()和set_params()。这些对于自动超参数调优非常有用。</p>
+<p>例如，这里有一个自定义 transformer，其行为与StandardScaler非常相似:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.base <span style="color:#f92672">import</span> BaseEstimator, TransformerMixin
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.utils.validation <span style="color:#f92672">import</span> check_array, check_is_fitted
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StandardScalerClone</span>(BaseEstimator, TransformerMixin):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, with_mean<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>): <span style="color:#75715e"># no *args or **kwargs!</span>
+</span></span><span style="display:flex;"><span>    	self<span style="color:#f92672">.</span>with_mean <span style="color:#f92672">=</span> with_mean
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fit</span>(self, X, y<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>): <span style="color:#75715e"># y is required even though we don&#39;t use it</span>
+</span></span><span style="display:flex;"><span>        X <span style="color:#f92672">=</span> check_array(X) <span style="color:#75715e"># checks that X is an array with finite float values</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>mean_ <span style="color:#f92672">=</span> X<span style="color:#f92672">.</span>mean(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>scale_ <span style="color:#f92672">=</span> X<span style="color:#f92672">.</span>std(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>n_features_in_ <span style="color:#f92672">=</span> X<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>] <span style="color:#75715e"># every estimator stores this in fit()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self <span style="color:#75715e"># always return self!</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">transform</span>(self, X):
+</span></span><span style="display:flex;"><span>        check_is_fitted(self) <span style="color:#75715e"># looks for learned attributes (with trailing _)</span>
+</span></span><span style="display:flex;"><span>        X <span style="color:#f92672">=</span> check_array(X)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span> self<span style="color:#f92672">.</span>n_features_in_ <span style="color:#f92672">==</span> X<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>with_mean:
+</span></span><span style="display:flex;"><span>        X <span style="color:#f92672">=</span> X <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>mean_
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> X <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>scal
+</span></span></code></pre></div><p>这里有几点需要注意:</p>
+<ul>
+<li>sklearn.utils.validation包包含几个我们可以用来验证输入的函数。为了简单起见，我们将在本书的其余部分跳过这样的测试，但是产品代码应该有这些测试。</li>
+<li>Scikit-Learn管道要求fit()方法有两个参数X和y，这就是为什么我们需要y=没有参数，即使我们不使用y。</li>
+<li>所有Scikit-Learn估计器都在fit()方法中设置n_features_in_，并且它们确保传递给transform()或predict()的数据具有此数量的特征。_</li>
+<li>.fit ()方法必须返回self。</li>
+<li>这个实现不是100%完成的:所有的估算器都应该在拟合中设置feature_
+names_in_ ()方法时，它们被传递一个DataFrame。此外，所有的转换器都
+应该提供get_feature_names_out()方法，以及当它们的转换可以被逆转时
+的inverse_transform()方法。更多细节请参见本章最后一个练习。</li>
+</ul>
+<p>自定义转换器可以(而且经常)在其实现中使用其他估计器。例如，以下代码演示了自定义转换器，该转换器在fit()方法中使用KMeans聚类器来识别训练数据中的主要聚类，然后在transform()方法中使用rbf
+kernel ()来衡量每个样本与每个聚类中心的相似程度:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.cluster <span style="color:#f92672">import</span> KMeans
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClusterSimilarity</span>(BaseEstimator, TransformerMixin):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, gamma<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>, random_state<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>n_clusters <span style="color:#f92672">=</span> n_clusters
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>gamma <span style="color:#f92672">=</span> gamma
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>random_state <span style="color:#f92672">=</span> random_state
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fit</span>(self, X, y<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, sample_weight<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>kmeans_ <span style="color:#f92672">=</span> KMeans(self<span style="color:#f92672">.</span>n_clusters, random_state<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>random_state)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>kmeans_<span style="color:#f92672">.</span>fit(X, sample_weight<span style="color:#f92672">=</span>sample_weight)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self <span style="color:#75715e"># always return self!</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">transform</span>(self, X):
+</span></span><span style="display:flex;"><span>    	<span style="color:#66d9ef">return</span> rbf_kernel(X, self<span style="color:#f92672">.</span>kmeans_<span style="color:#f92672">.</span>cluster_centers_, gamma<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>gamma)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_feature_names_out</span>(self, names<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>    	<span style="color:#66d9ef">return</span> [<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Cluster </span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74"> similarity&#34;</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>n_clusters)]
+</span></span></code></pre></div><p>k-means是一种在数据中定位聚类的聚类算法。它搜索的数量由n_clusters超参数控制。训练后，可以通过cluster_centers_属性使用聚类中心。KMeans的fit()方法支持一个可选参数sample_weight，该参数允许用户指定样本的相对权重。K-means是一种随机算法，这意味着它依赖随机性来定位聚类，因此若您想要可重现的结果，则必须设置random_state参数。正如您所看到的，尽管任务很复杂，但代码相当简单。现在让我们使用这个自定义的变压器:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cluster_simil <span style="color:#f92672">=</span> ClusterSimilarity(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, gamma<span style="color:#f92672">=</span><span style="color:#ae81ff">1.</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+</span></span><span style="display:flex;"><span>similarities <span style="color:#f92672">=</span> cluster_simil<span style="color:#f92672">.</span>fit_transform(housing[[<span style="color:#e6db74">&#34;latitude&#34;</span>, <span style="color:#e6db74">&#34;longitude&#34;</span>]],
+</span></span><span style="display:flex;"><span>sample_weight<span style="color:#f92672">=</span>housing_labels)
+</span></span></code></pre></div><p>这段代码创建一个ClusterSimilarity转换器，将集群数设置为10.然后调用fit_transform()，输入训练集中每个区的纬度和经度，并根据每个区的房屋中值对每个区进行加权。变压器采用k-均值定位聚类，
+然后测量每个区域与所有10个聚类中心之间的高斯RBF相似性。结果是一个矩阵，每个区有一行，每个集群有一列。先看前三行，四舍五入到小数点后两位:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935617986.png" alt=""></p>
+<p>下图显示了通过k-means找到的10个聚类中心。根据它们与最近的集群中心的地理相似性，对这些区域进行着色。正如您所看到的，大多数集群都位于人口密集且价格昂贵的地区。</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935662459.png" alt=""></p>
+
+        </article>
+    </div>
+
+    
+       	
+
+
+
+
+
+
+<div id="comments" class="post-comments">
+  <div class="comment-head">
+    <div class="comment-headline">
+      <i class="fa fa-comments fa-fw"></i>
+      
+    </div>
+  
+  </div>
+  <div class="comment-wrap">
+  
+  
+    <div>      
+      <div class="comment-loading">
+    <i class="fa fa-sync fa-spin"></i>
+  </div>
+      <div class="waline-container"></div>
+
+
+
+    </div>
+  
+  </div>
+</div>  
+
+    
+</div>
+
+
+
+
+<script>
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+</script>
+
+
+<script>
+    let activeElement;
+    let elements;
+    
+    
+
+    
+        
+    
+    
+    
+    
+
+    
+    
+    
+
+    
+        
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+ 
+
+
+
+
+
+<script>
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+
+
+
+<script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+<script>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+            
+    
+            
+    
+    
+    
+            
+    
+    
+    
+    
+</script><aside class="Qc_aside">
+
+<section class="Qc_aside_item tags"> 
+    <div class="Qc_aside_item-title"> 
+        <i class="iconfont icon-A67" style="margin-right: 8px;font-size: 17px"></i> 
+        <span class="text">文章分类</span> 
+        <span class="qccq_mac"></span> 
+    </div> 
+    <div class="Qc_aside_item-contain" style="padding:10px"> 
+        <div class="tag"></div> 
+		<ul class="list">
+			
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/bootstraptable/">BootstrapTable </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/centos/">CentOS </a>
+				<span class="widget__counter widget__counter--bubble">4</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/chrome%E6%89%A9%E5%B1%95/">Chrome扩展 </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/cocos2d-x/">cocos2d-x </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/docker/">Docker </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/extjs/">extjs </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/fastadmin/">Fastadmin </a>
+				<span class="widget__counter widget__counter--bubble">2</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/git/">Git </a>
+				<span class="widget__counter widget__counter--bubble">5</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/golang/">golang </a>
+				<span class="widget__counter widget__counter--bubble">36</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/hugo/">Hugo </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+	</div>
+</section>
+
+
+
+
+<section class="Qc_aside_item tags"> 
+    <div class="Qc_aside_item-title"> 
+        <i class="iconfont icon-A67" style="margin-right: 8px;font-size: 17px"></i> 
+        <span class="text">标签云</span> 
+        <span class="xccx_mac"></span> 
+    </div> 
+     <div class="Qc_aside_item-contain" style="padding:10px"> 
+        <div class="tag"></div> 
+        <ul class="cloud">
+            
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/abstract/" title="abstract">abstract</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/ag-grid/" title="ag-grid">ag-grid</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/apache/" title="Apache">Apache</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/array/" title="array">array</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/bootstraptable-%E9%9A%90%E8%97%8F/%E6%98%BE%E7%A4%BA%E8%A1%A8%E6%A0%BC%E8%A1%8C/" title="BootstrapTable 隐藏/显示表格行">BootstrapTable 隐藏/显示表格行</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/branch/" title="branch">branch</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/break/" title="break">break</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/centos/" title="CentOS">CentOS</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/centos7/" title="CentOS7">CentOS7</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/channel/" title="channel">channel</a>
+            </li>
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+         </ul> 
+        </div> 
+    </section>
+
+
+
+    
+
+    <section class="sticky_layout"><style>
+
+    .card-widget:first-child {
+        margin-top: 0
+    }
+
+    @media screen and (max-width:900px) {
+        .card-widget:first-child {
+            margin-top: 20px
+        }
+    }
+
+     .card-widget {
+        position: relative;
+        overflow: hidden;
+        margin-top: 20px;
+        padding: 20px 24px;
+        color:var(--main)
+    }
+
+     .card-widget,
+    #recent-posts>.recent-post-item,
+    .cardHover,
+    .error404 #error-wrap .error-content,
+    .layout>.recent-posts .pagination>:not(.space),
+    .layout>div:first-child:not(.recent-posts) {
+        border-radius: 8px;
+        background: var(--background);
+        -webkit-box-shadow: var(--card-box-shadow);
+        box-shadow: var(--card-box-shadow);
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -o-transition: all .3s;
+        -ms-transition: all .3s;
+        transition: all .3s
+    }
+
+    .card-widget:hover,
+    #recent-posts>.recent-post-item:hover,
+    .cardHover:hover,
+    .error404 #error-wrap .error-content:hover,
+    .layout>.recent-posts .pagination>:not(.space):hover,
+    .layout>div:first-child:not(.recent-posts):hover {
+        -webkit-box-shadow: var(--card-hover-box-shadow);
+        box-shadow: var(--card-hover-box-shadow)
+    }
+
+
+
+    .item-headline {
+        padding-bottom: 6px;
+        font-size: 1.2em
+    }
+
+     .item-headline span {
+        margin-left: 6px
+    }
+
+   
+ 
+     @media screen and (min-width:900px) {
+        .sticky_layout {
+            position: sticky;
+            position: -webkit-sticky;
+            top: 60px;
+            -webkit-transition: top .3s;
+            -moz-transition: top .3s;
+            -o-transition: top .3s;
+            -ms-transition: top .3s;
+            transition: top .3s
+        }
+    } 
+
+    
+
+ 
+
+    
+
+
+
+    #card-toc .toc-percentage {
+        float: right;
+        margin-top: -9px;
+        color: #a9a9a9;
+        font-style: italic;
+        font-size: 140%
+    }
+
+    #card-toc .toc-content {
+        overflow-y: scroll;
+        overflow-y: overlay;
+        margin: 0 -24px;
+        max-height: calc(100vh - 120px)
+    }
+
+    @media screen and (max-width:900px) {
+         #card-toc .toc-content {
+            max-height: calc(100vh - 140px)
+        }
+    }
+
+     #card-toc .toc-content>* {
+        margin: 0 20px !important
+    }
+
+
+
+     #card-toc .toc-content>*>.toc-item>.toc-child {
+        margin-left: 10px;
+        padding-left: 10px;
+        border-left: 1px solid var(--dark-grey)
+    }
+
+    #card-toc .toc-content:not(.is-expand) .toc-child {
+        display: none
+    }
+
+    @media screen and (max-width:900px) {
+        #card-toc .toc-content:not(.is-expand) .toc-child {
+            display: block !important
+        }
+    }
+
+   #card-toc .toc-content:not(.is-expand) .toc-item.active .toc-child {
+        display: block
+    }
+
+    #card-toc .toc-content li,
+     #card-toc .toc-content ol {
+        list-style: none
+    }
+
+     #card-toc .toc-content>ol {
+        padding: 0 !important
+    }
+
+    #card-toc .toc-content ol {
+        margin: 0;
+        padding-left: 18px
+    }
+
+    #card-toc .toc-content .toc-link {
+        display: block;
+        margin: 4px 0;
+        padding: 1px 6px;
+        color: var(--toc-link-color);
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        -ms-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out
+    }
+
+     #card-toc .toc-content .toc-link:hover {
+        color: #49b1f5
+    }
+
+    #card-toc .toc-content .toc-link.active {
+        background: #00c4b6;
+        color: #fff
+    }
+
+     .sticky_layout:only-child>:first-child {
+        margin-top: 20px
+    }
+
+
+</style>
+    <div class="card-widget" id="card-toc">
+        <div class="item-headline">
+            <i class="fa fa-bars"></i>
+            <span>目录</span>
+            <span class="toc-percentage">0</span>
+        </div>
+        <div class="toc-content"><ol class="toc">
+                        <li class="toc-item toc-level-3">
+                            <a class="toc-link" href="#%e7%89%b9%e5%be%81%e7%bc%a9%e6%94%be%e5%92%8c%e8%bd%ac%e6%8d%a2" aria-label="特征缩放和转换" data-pjax-state="anchor">
+                                <span class="toc-number">1</span> 
+                                <span class="toc-text">特征缩放和转换</span>
+                            </a></li>
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e8%87%aa%e5%ae%9a%e4%b9%89transformers" aria-label="自定义Transformers" data-pjax-state="anchor">
+                            <span class="toc-number">3</span> 
+                            <span class="toc-text">自定义Transformers</span>
+                        </a>
+                    </li>
+            </ol>
+
+        </div>
+    </div>
+
+
+
+
+
+
+<script>
+
+    const btf = {
+    
+        scrollToDest: (pos, time = 500) => {
+            const currentPos = window.pageYOffset
+            if (currentPos > pos) pos = pos - 70
+        
+            if ('scrollBehavior' in document.documentElement.style) {
+                window.scrollTo({
+                top: pos,
+                behavior: 'smooth'
+                })
+                return
+            }
+        
+            let start = null
+            pos = +pos
+            window.requestAnimationFrame(function step (currentTime) {
+                start = !start ? currentTime : start
+                const progress = currentTime - start
+                if (currentPos < pos) {
+                window.scrollTo(0, ((pos - currentPos) * progress / time) + currentPos)
+                } else {
+                window.scrollTo(0, currentPos - ((currentPos - pos) * progress / time))
+                }
+                if (progress < time) {
+                window.requestAnimationFrame(step)
+                } else {
+                window.scrollTo(0, pos)
+                }
+            })
+        },
+    
+       
+        getEleTop: ele => {
+            let actualTop = ele.offsetTop
+            let current = ele.offsetParent
+        
+            while (current !== null) {
+                actualTop += current.offsetTop
+                current = current.offsetParent
+            }
+        
+            return actualTop
+        },
+
+        updateAnchor: (anchor) => {
+            if (anchor !== window.location.hash) {
+                if (!anchor) anchor = location.pathname
+                const title = "秋码记录"
+                window.history.replaceState({
+                    url: location.href,
+                    title
+                }, title, anchor)
+            }
+        },
+
+
+        throttle: function (func, wait, options) {
+            let timeout, context, args
+            let previous = 0
+            if (!options) options = {}
+        
+            const later = function () {
+                previous = options.leading === false ? 0 : new Date().getTime()
+                timeout = null
+                func.apply(context, args)
+                if (!timeout) context = args = null
+            }
+        
+            const throttled = function () {
+                const now = new Date().getTime()
+                if (!previous && options.leading === false) previous = now
+                
+                const remaining = wait - (now - previous)
+                context = this
+                args = arguments
+                if (remaining <= 0 || remaining > wait) {
+                    if (timeout) {
+                        clearTimeout(timeout)
+                        timeout = null
+                    }
+                    previous = now
+                    func.apply(context, args)
+                    if (!timeout) context = args = null
+                } else if (!timeout && options.trailing !== false) {
+                    timeout = setTimeout(later, remaining)
+                }
+            }
+        
+            return throttled
+        },
+
+        getScrollPercent: (currentTop, ele) => {
+            const docHeight = ele.clientHeight
+            const winHeight = document.documentElement.clientHeight
+            const headerHeight = ele.offsetTop
+            const contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : (document.documentElement.scrollHeight - winHeight)
+            const scrollPercent = (currentTop - headerHeight) / (contentMath)
+            const scrollPercentRounded = Math.round(scrollPercent * 100)
+            const percentage = (scrollPercentRounded > 100) ? 100 : (scrollPercentRounded <= 0) ? 0 : scrollPercentRounded
+            return percentage
+        },
+
+
+
+
+    }  
+
+
+
+     
+
+    const scrollFnToDo = function () {
+      const isToc = true 
+      const isAnchor = true 
+      const $article = document.getElementById('article-container')
+  
+      if (!($article && (isToc || isAnchor))) return
+  
+      let $tocLink, $cardToc, autoScrollToc, $tocPercentage, isExpand
+  
+      if (isToc) {
+        const $cardTocLayout = document.getElementById('card-toc')
+        $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0]
+        $tocLink = $cardToc.querySelectorAll('.toc-link')
+        $tocPercentage = $cardTocLayout.querySelector('.toc-percentage')
+        isExpand = $cardToc.classList.contains('is-expand')
+  
+        window.mobileToc = {
+          open: () => {
+            $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: 55px'
+          },
+  
+          close: () => {
+            $cardTocLayout.style.animation = 'toc-close .2s'
+            setTimeout(() => {
+              $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+            }, 100)
+          }
+        }
+  
+        
+        $cardToc.addEventListener('click', e => {
+          e.preventDefault()
+          const target = e.target.classList
+          if (target.contains('toc-content')) return
+          const $target = target.contains('toc-link')
+            ? e.target
+            : e.target.parentElement
+          btf.scrollToDest(btf.getEleTop(document.getElementById(decodeURI($target.getAttribute('href')).replace('#', ''))), 300)
+          if (window.innerWidth < 900) {
+            window.mobileToc.close()
+          }
+        })
+  
+        autoScrollToc = item => {
+          const activePosition = item.getBoundingClientRect().top
+          const sidebarScrollTop = $cardToc.scrollTop
+          if (activePosition > (document.documentElement.clientHeight - 100)) {
+            $cardToc.scrollTop = sidebarScrollTop + 150
+          }
+          if (activePosition < 100) {
+            $cardToc.scrollTop = sidebarScrollTop - 150
+          }
+        }
+      }
+  
+      
+      const list = $article.querySelectorAll('h1,h2,h3,h4,h5,h6')
+      let detectItem = ''
+      const findHeadPosition = function (top) {
+        if (top === 0) {
+          return false
+        }
+  
+        let currentId = ''
+        let currentIndex = ''
+  
+        list.forEach(function (ele, index) {
+          if (top > btf.getEleTop(ele) - 80) {
+            const id = ele.id
+            currentId = id ? '#' + encodeURI(id) : ''
+            currentIndex = index
+          }
+        })
+  
+        if (detectItem === currentIndex) return
+  
+        if (isAnchor) btf.updateAnchor(currentId)
+  
+        detectItem = currentIndex
+  
+        if (isToc) {
+          $cardToc.querySelectorAll('.active').forEach(i => { i.classList.remove('active') })
+  
+          if (currentId === '') {
+            return
+          }
+  
+          const currentActive = $tocLink[currentIndex]
+          currentActive.classList.add('active')
+  
+          setTimeout(() => {
+            autoScrollToc(currentActive)
+          }, 0)
+  
+          if (isExpand) return
+          let parent = currentActive.parentNode
+  
+          for (; !parent.matches('.toc'); parent = parent.parentNode) {
+            if (parent.matches('li')) parent.classList.add('active')
+          }
+        }
+      }
+  
+      
+      window.tocScrollFn = btf.throttle(() => {
+        const currentTop = window.scrollY || document.documentElement.scrollTop
+        
+         if(isToc){
+          $tocPercentage.textContent = btf.getScrollPercent(currentTop, $article)
+        }
+        findHeadPosition(currentTop)
+      }, 100)
+  
+      window.addEventListener('scroll', tocScrollFn)
+    }
+  
+
+    scrollFnToDo()
+</script>
+
+
+
+
+
+    </section>
+     
+
+</aside></div>
+	<footer class="Qc_footer">
+		<div class="Qc_container">
+			<div class="item">
+				<p>2018 - 2023 版权所有 ©<a href="http://beian.miit.gov.cn/">闽ICP备2021005633号-2</a></p>
+			</div>
+			<div class="item">
+				<p>
+					<strong>本站由 <span style="color:blue;font:bold;">Hugo</span> 驱动的 
+						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.1</a> 主题强力支撑</strong>
+				</p>
+			</div>
+		</div>
+		</div>
+	</footer>
+
+	<style>
+		.joe_action {
+			position: fixed;
+			bottom: 90px;
+			right: 30px;
+			z-index: 333;
+		}
+
+
+		.joe_action_item.scroll.active {
+			visibility: visible;
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+
+		.joe_action_item.scroll {
+			visibility: hidden;
+			-webkit-transform: scale(0);
+			transform: scale(0);
+			transition: visibility 0.35s, -webkit-transform 0.35s;
+			transition: visibility 0.35s, transform 0.35s;
+			transition: visibility 0.35s, transform 0.35s, -webkit-transform 0.35s;
+		}
+
+		.joe_action_item {
+			box-shadow: rgb(0 0 0 / 10%) 0px 0px 10px, rgb(0 0 0 / 20%) 0px 5px 20px;
+			background: var(--darkreader-bg--background);
+		}
+		.joe_action_item {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			background: var(--background);
+			border-radius: 50%;
+			cursor: pointer;
+			margin-top: 15px;
+			box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 5px 20px rgb(0 0 0 / 20%);
+		}
+		.joe_action_item svg {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			fill: var(--theme);
+		}
+
+
+
+		.joe_action_item.mode svg{-webkit-transform:scale(0);transform:scale(0);opacity:0}
+		.joe_action_item.mode svg.active{-webkit-transform:scale(1);transform:scale(1);opacity:1}
+		
+	</style>
+
+
+	<div class="joe_action">
+		<div class="joe_action_item scroll ">
+			<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M725.902 498.916c18.205-251.45-93.298-410.738-205.369-475.592l-6.257-3.982-6.258 3.414c-111.502 64.853-224.711 224.142-204.8 475.59-55.751 53.476-80.214 116.623-80.214 204.8v15.36l179.2-35.27c11.378 40.39 58.596 69.973 113.21 69.973 54.613 0 101.262-29.582 112.64-68.836l180.337 36.41v-15.36c-.569-89.885-25.031-153.6-82.489-206.507zM571.733 392.533c-33.564 31.29-87.04 28.445-118.329-5.12s-28.444-87.04 5.12-117.76c33.565-31.289 87.04-28.444 118.33 5.12s28.444 86.471-5.12 117.76zm-56.32 368.64c-35.84 0-64.284 29.014-64.284 64.285 0 35.84 54.044 182.613 64.284 182.613s64.285-146.773 64.285-182.613c0-35.271-29.014-64.285-64.285-64.285z"></path>
+			</svg>
+		</div>
+		<div class="joe_action_item mode">
+			<svg class="icon-1 " viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M587.264 104.96c33.28 57.856 52.224 124.928 52.224 196.608 0 218.112-176.128 394.752-393.728 394.752-29.696 0-58.368-3.584-86.528-9.728C223.744 832.512 369.152 934.4 538.624 934.4c229.376 0 414.72-186.368 414.72-416.256 1.024-212.992-159.744-389.12-366.08-413.184z"></path>
+				<path d="M340.48 567.808l-23.552-70.144-70.144-23.552 70.144-23.552 23.552-70.144 23.552 70.144 70.144 23.552-70.144 23.552-23.552 70.144zM168.96 361.472l-30.208-91.136-91.648-30.208 91.136-30.208 30.72-91.648 30.208 91.136 91.136 30.208-91.136 30.208-30.208 91.648z"></path>
+			</svg>
+			<svg class="icon-2 active" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M234.24 512a277.76 277.76 0 1 0 555.52 0 277.76 277.76 0 1 0-555.52 0zM512 187.733a42.667 42.667 0 0 1-42.667-42.666v-102.4a42.667 42.667 0 0 1 85.334 0v102.826A42.667 42.667 0 0 1 512 187.733zm-258.987 107.52a42.667 42.667 0 0 1-29.866-12.373l-72.96-73.387a42.667 42.667 0 0 1 59.306-59.306l73.387 72.96a42.667 42.667 0 0 1 0 59.733 42.667 42.667 0 0 1-29.867 12.373zm-107.52 259.414H42.667a42.667 42.667 0 0 1 0-85.334h102.826a42.667 42.667 0 0 1 0 85.334zm34.134 331.946a42.667 42.667 0 0 1-29.44-72.106l72.96-73.387a42.667 42.667 0 0 1 59.733 59.733l-73.387 73.387a42.667 42.667 0 0 1-29.866 12.373zM512 1024a42.667 42.667 0 0 1-42.667-42.667V878.507a42.667 42.667 0 0 1 85.334 0v102.826A42.667 42.667 0 0 1 512 1024zm332.373-137.387a42.667 42.667 0 0 1-29.866-12.373l-73.387-73.387a42.667 42.667 0 0 1 0-59.733 42.667 42.667 0 0 1 59.733 0l72.96 73.387a42.667 42.667 0 0 1-29.44 72.106zm136.96-331.946H878.507a42.667 42.667 0 1 1 0-85.334h102.826a42.667 42.667 0 0 1 0 85.334zM770.987 295.253a42.667 42.667 0 0 1-29.867-12.373 42.667 42.667 0 0 1 0-59.733l73.387-72.96a42.667 42.667 0 1 1 59.306 59.306l-72.96 73.387a42.667 42.667 0 0 1-29.866 12.373z"></path>
+			</svg>
+		</div>
+	</div>
+
+	
+
+
+	
+	
+
+	
+
+	
+	
+	<script src="/js/highlight.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+   
+
+   <script>
+	 function registerImageLoadEvent() {
+		const images = document.querySelectorAll('.sidebar img, .Qc_post img, .vendors-list img');
+				
+		const callback = (entries) => {
+			entries.forEach(item => {
+				if (item.intersectionRatio > 0) {
+					let ele = item.target;
+					let imgSrc = ele.getAttribute('src');
+					ele.setAttribute("src","1.png")
+					ele.setAttribute("data-lazy-src",imgSrc)
+					ele.classList.add("lazyload")
+			
+				}
+			})
+		};
+
+		Array.from(images).forEach(img => {
+			const bg = '/images/loading.gif' 
+
+			img.setAttribute("data-lazy-src",img.src)
+			img.src = bg
+			
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+
+		
+		
+		
+	}
+
+	registerImageLoadEvent()
+
+   </script>
+
+
+
+
+ 
+
+ <script src="/js/lazyload.life.min.js"></script>
+
+ <script>
+	const lazyloadImg = () => {
+      window.lazyLoadInstance = new LazyLoad({
+        elements_selector: 'img',
+        threshold: 0,
+        data_src: 'lazy-src'
+      })
+    }
+
+	lazyloadImg()
+ </script>
+
+
+	</div>
+</body>
+
+<script>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+
+	
+	
+				
+	
+
+	
+	
+	
+	
+
+	
+
+	
+
+	
+	
+	
+	
+	
+
+	
+	
+		
+	
+	   </script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	
+    
+	var mybutton = document.querySelector(".joe_action .joe_action_item.scroll")
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            
+            
+			mybutton.classList.add("active")
+        } else {
+            
+            
+			mybutton.classList.remove("active")
+        }
+    };
+
+	mybutton.addEventListener("click",() => {
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	})
+	
+
+
+</script>
+
+
+
+<script>
+	var themeBtn = document.querySelector(".joe_action .joe_action_item.mode")
+	let icon_1 = document.querySelector(".joe_action .joe_action_item.mode .icon-1")
+	let icon_2 = document.querySelector(".joe_action .joe_action_item.mode .icon-2")
+    themeBtn.addEventListener("click", () => {
+		
+        if (icon_1.classList.contains("active")) {
+            icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+
+<script>
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+
+
+

@@ -1,0 +1,2234 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<title>为机器学习算法准备数据（Machine Learning 研习之八）</title>
+<meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+
+<meta name="description" content="为机器学习算法准备数据（Machine Learning 研习之八）">
+
+<meta itemprop="name" content="为机器学习算法准备数据（Machine Learning 研习之八）">
+<meta itemprop="description" content="为机器学习算法准备数据（Machine Learning 研习之八）">
+<meta itemprop="image" content="/img/author.jpg">
+
+
+<meta name="twitter:description" content="为机器学习算法准备数据（Machine Learning 研习之八）" />
+
+
+<link rel="alternate" href="/feed.xml" title="秋码分享" type="application/rss+xml"/>
+
+<link rel="shortcut icon" href="/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="/imgs/icons/apple-touch-icon.png" />
+
+
+
+
+<style>
+    @font-face {
+        font-family: 'Xc Font';
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+        src: url('https://cdn.jsdelivr.net/gh/Xpblog666/cdn@1.0/HarmonyOS_Sans_SC_Medium.ttf');
+        src: url('https://cdn.jsdelivr.net/gh/Xpblog666/cdn@1.0/HarmonyOS_Sans_SC_Medium.ttf') format('truetype');
+    }
+
+    html {
+        font-family: 'Xc Font', 'PingFang SC', 'Noto Serif SC', 'HarmonyOS_Sans_SC_Medium', 'Fira Mono', 'Microsoft YaHei', Arial, sans-serif
+    }
+
+    html .Qc_header_above .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_header_below .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_header_searchout .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_main {
+        max-width: 980px
+    }
+
+    html .Qc_aside {
+        width: 260px
+    }
+
+    body::before {
+        background: #f0f0f0;
+        background: ;
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+<link rel="stylesheet" href="/css/global.min.css" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/theme.min.css" />
+
+<link rel="stylesheet" href="/css/font-awesome.min.css" />
+
+
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+  
+    init({
+      el: '.waline-container',
+      placeholder: "请不要吝啬您的评论 ヾ(≧▽≦*)o",
+      sofa: "瞧，这里没人，还不抢占第一的位置 (≧∀≦)ゞ",
+      pageview: true, 
+      comment: true, 
+      emoji: [
+        '//unpkg.com/@waline/emojis@1.1.0/weibo',
+        '//unpkg.com/@waline/emojis@1.1.0/bilibili',
+      ],
+      login: 'disable',
+      imgUploader: false,
+      wordLimit: 200,
+      requiredMeta: ['nick', 'mail'],
+      reaction: true,
+      reactionText: [ '点赞', '踩一下', '得意', '不屑', '尴尬', '睡觉'],
+      reactionTitle: "您认为这篇文章怎么样？",
+      dark: 'auto', 
+      serverURL: "comment.qiucode.cn",
+    });
+  </script>
+  
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+                
+ 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+	<header class="Qc_header  active Qc_slid">
+<div class="Qc_header_above">
+    <div class="Qc_container"> 
+        <svg class="Qc_header_above-slideicon" viewBox="0 0 1152 1024"
+            xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+            <path
+                d="M76.032 872a59.968 59.968 0 1 0 0 120h999.936a59.968 59.968 0 1 0 0-120H76.032zm16-420.032a59.968 59.968 0 1 0 0 120h599.936a59.968 59.968 0 1 0 0-119.936H92.032zM76.032 32a59.968 59.968 0 1 0 0 120h999.936a60.032 60.032 0 0 0 0-120H76.032z" />
+        </svg> 
+        <a class="Qc_header_above-logo" href="/" title="John'Blog"> 
+            <img class="Qc_logo"
+                src="/static/front/images/qiu-logo.png" /></a>
+        <nav class="Qc_header_above_nav"> 
+            
+            <a class="item " href="/" title="首页" style="margin-right:8px">
+                <i class="fa fa-home"></i> 首页
+            </a>
+           
+            <a class="item " href="/flinks" title="友情链接">
+                <i class="fa fa-link"></i>友情链接
+            </a> 
+
+            
+
+            <a class="item " href="/about" title="关于我">
+                <i class="fa fa-user"></i>关于本站
+            </a>
+        </nav> 
+
+        
+        
+        <svg class="Qc_header_above-searchicon" viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="display: block;">
+            <path
+                d="M1008.19 932.031L771.72 695.56a431.153 431.153 0 1 0-76.158 76.158l236.408 236.472a53.758 53.758 0 0 0 76.158 0 53.758 53.758 0 0 0 0-76.158zM107.807 431.185a323.637 323.637 0 0 1 323.316-323.381 323.7 323.7 0 0 1 323.381 323.38 323.637 323.637 0 0 1-323.38 323.317 323.637 323.637 0 0 1-323.317-323.316z" />
+        </svg> 
+        <a href="javascript:void(0)" type="button" id="ClickMe" style="margin: 0px 3px 2px 13px"><svg
+                t="1675873194952" class="loingico" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="3929" width="22" height="22">
+                <path
+                    d="M554.666667 349.44a48.213333 48.213333 0 1 1-47.786667 47.786667A48.213333 48.213333 0 0 1 554.666667 349.44m0-85.333333a133.546667 133.546667 0 1 0 133.546666 133.12A133.12 133.12 0 0 0 554.666667 264.106667z"
+                    fill="var(--routine)" p-id="3930"></path>
+                <path
+                    d="M768 759.893333a42.666667 42.666667 0 0 1-42.666667-42.666666 170.666667 170.666667 0 0 0-341.333333 0 42.666667 42.666667 0 0 1-85.333333 0 256 256 0 0 1 512 0 42.666667 42.666667 0 0 1-42.666667 42.666666z"
+                    fill="var(--routine)" p-id="3931"></path>
+                <path
+                    d="M554.666667 213.333333a341.333333 341.333333 0 1 1-341.333334 341.333334 341.333333 341.333333 0 0 1 341.333334-341.333334m0-85.333333a426.666667 426.666667 0 1 0 426.666666 426.666667A426.666667 426.666667 0 0 0 554.666667 128z"
+                    fill="var(--routine)" p-id="3932"></path>
+            </svg> </a>
+        
+        
+        
+
+    </div>
+</div>
+<div class="Qc_header_searchout">
+    <div class="Qc_container">
+        <div class="Qc_header_searchout_all">
+            <div class="Qc_search_inner">
+                <div class="Qc_label">
+                    <div class="title"> <i class="iconfont icon-A70"
+                            style="margin-right: 5px;font-size: 18px;"></i> 关键词搜索 </div>
+                    <form class="search" method="post" action="/"> <input maxlength="16"
+                            autocomplete="off" placeholder="请输入关键字..." name="s" value="" class="input"
+                            type="text" /> <button type="submit" class="submit">搜索</button> </form>
+                    <div class="title"> <i class="iconfont icon-A67"
+                            style="margin-right: 5px;font-size: 18px;"></i>标签搜索</div>
+                    <ul class="cloud">
+                        <li class="item"><a style="background:#0396FF"
+                                href="https://qiucode.cntag/%E5%A4%96%E8%B4%B8/">外贸</a></li>
+                        <li class="item"><a style="background:#0396FF"
+                                href="https://qiucode.cntag/%E5%A4%96%E8%B4%B8%E5%88%86%E4%BA%AB/">外贸分享</a></li>
+                        <li class="item"><a style="background:#E96D71"
+                                href="https://qiucode.cntag/%E5%A4%96%E8%B4%B8%E8%AF%9D%E6%9C%AF/">外贸话术</a></li>
+                        <li class="item"><a style="background:#FD6585"
+                                href="https://qiucode.cntag/typecho/">typecho</a></li>
+                        <li class="item"><a style="background:#e8583d"
+                                href="https://qiucode.cntag/chatgpt/">chatgpt</a></li>
+                        <li class="item"><a style="background:#FA742B"
+                                href="https://qiucode.cntag/typecho%E6%8F%92%E4%BB%B6/">typecho插件</a></li>
+                        <li class="item"><a style="background:#4C83FF"
+                                href="https://qiucode.cntag/%E5%AD%97%E4%BD%93%E7%BE%8E%E5%8C%96/">字体美化</a></li>
+                        <li class="item"><a style="background:#f093fb"
+                                href="https://qiucode.cntag/%E5%9B%BD%E5%86%85ChatGPT/">国内ChatGPT</a></li>
+                        <li class="item"><a style="background:#F072B6"
+                                href="https://qiucode.cntag/openwrt/">openwrt</a></li>
+                        <li class="item"><a style="background:#f68e5f"
+                                href="https://qiucode.cntag/%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81/">网站源码</a></li>
+                        <li class="item"><a style="background:#e8583d"
+                                href="https://qiucode.cntag/%E7%BA%A2%E7%B1%B3ax6000/">红米ax6000</a></li>
+                        <li class="item"><a style="background:#4facfe"
+                                href="https://qiucode.cntag/AI%E7%BB%98%E5%9B%BE/">AI绘图</a></li>
+                        <li class="item"><a style="background:#0396FF"
+                                href="https://qiucode.cntag/GPTalk/">GPTalk</a></li>
+                        <li class="item"><a style="background:#6fa3ef"
+                                href="https://qiucode.cntag/AALocker/">AALocker</a></li>
+                        <li class="item"><a style="background:#49C628"
+                                href="https://qiucode.cntag/%E4%BC%9A%E5%91%98%E9%9B%B6%E5%85%83%E8%B4%AD/">会员零元购</a>
+                        </li>
+                        <li class="item"><a style="background:#736EFE"
+                                href="https://qiucode.cntag/ai%E6%95%B0%E5%AD%97%E7%BB%98%E7%94%BB/">ai数字绘画</a>
+                        </li>
+                        <li class="item"><a style="background:#F072B6" href="https://qiucode.cntag/Ai/">Ai</a>
+                        </li>
+                        <li class="item"><a style="background:#465EFB"
+                                href="https://qiucode.cntag/Stable-Diffusion/">Stable Diffusion</a></li>
+                        <li class="item"><a style="background:#E96D71"
+                                href="https://qiucode.cntag/%E5%8D%9A%E5%AE%A2/">博客</a></li>
+                        <li class="item"><a style="background:#6fa3ef"
+                                href="https://qiucode.cntag/win11/">win11</a></li>
+                    </ul>
+                    <div class="title" style="padding: 15px 0 0 0"> <i class="iconfont icon-A89"
+                            style="margin-right: 5px;font-size: 18px;"></i>近期浏览</div>
+                    <div id="jl_viewHistory" style="display: block"></div>
+                </div>
+                <div class="Qc_article">
+                    <div class="title"> <i class="iconfont icon-A37"
+                            style="margin-right: 5px;font-size: 18px;"></i>热门文章</div>
+                    <div class="Qc_header_search" style="position: relative;">
+                        <nav class="result"> <a href="https://qiucode.cna/7/" title="本主题—Joe魔改 一款个人类型Typecho主题"
+                                class="item"> <span class="sort">1</span> <span class="text">本主题—Joe魔改
+                                    一款个人类型Typecho主题</span> <span class="views"></i>3.8k 阅读</span> </a> <a
+                                href="https://qiucode.cna/28/" title="红米Redmi AX6000开启并固化SSH简单方法+刷openwrt固件"
+                                class="item"> <span class="sort">2</span> <span class="text">红米Redmi
+                                    AX6000开启并固化SSH简单方法+刷openwrt固件</span> <span class="views"></i>2.3k 阅读</span>
+                            </a> <a href="https://qiucode.cna/14/"
+                                title="最新可用 Typecho 付费阅读插件修复版-免登录版-免授权-对接第三方支付" class="item"> <span
+                                    class="sort">3</span> <span class="text">最新可用 Typecho
+                                    付费阅读插件修复版-免登录版-免授权-对接第三方支付</span> <span class="views"></i>1.9k 阅读</span>
+                            </a> <a href="https://qiucode.cna/17/" title="Typecho七牛云插件，为您的网站访问加速" class="item">
+                                <span class="sort">4</span> <span class="text">Typecho七牛云插件，为您的网站访问加速</span>
+                                <span class="views"></i>1.6k 阅读</span> </a> <a href="https://qiucode.cna/16/"
+                                title="Typecho投稿功能开启——无需插件，一行代码" class="item"> <span class="sort">5</span> <span
+                                    class="text">Typecho投稿功能开启——无需插件，一行代码</span> <span class="views"></i>1.4k
+                                    阅读</span> </a> <a href="https://qiucode.cna/36/"
+                                title="Typecho使用CDN后无法登陆后台解决办法" class="item"> <span class="sort">6</span> <span
+                                    class="text">Typecho使用CDN后无法登陆后台解决办法</span> <span class="views"></i>733
+                                    阅读</span> </a> <a href="https://qiucode.cna/1/" title="欢迎使用 Typecho"
+                                class="item"> <span class="sort">7</span> <span class="text">欢迎使用 Typecho</span>
+                                <span class="views"></i>637 阅读</span> </a> <a href="https://qiucode.cna/26/"
+                                title="十个金句搞定外贸客户已读不回✅" class="item"> <span class="sort">8</span> <span
+                                    class="text">十个金句搞定外贸客户已读不回✅</span> <span class="views"></i>543 阅读</span>
+                            </a> <a href="https://qiucode.cna/24/" title="如何支持发送Emoji表情？" class="item"> <span
+                                    class="sort">9</span> <span class="text">如何支持发送Emoji表情？</span> <span
+                                    class="views"></i>508 阅读</span> </a> </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Qc_header_slideout"> 
+    <img width="100%" height="150" class="Qc_header_slideout-image"
+        src="https://qiucode.cnshaonv.jpg" alt="侧边栏壁纸" />
+    <div class="Qc_header_slideout-author"> <img width="50" height="50" class="avatar"
+            src="https://thirdqq.qlogo.cn/g?b=qq&nk=687778&s=100" alt="博主昵称" />
+        <div class="info"> <a class="link" href="https://xx9q.com" target="_blank"
+                rel="noopener noreferrer nofollow">John</a>
+            <p class="motto Qc_motto"></p>
+        </div>
+    </div>
+    <ul class="Qc_header_slideout-count"> </ul>
+    <ul class="Qc_header_slideout-menu panel-box">
+        <li> <a class="link" href="https://qiucode.cn" title="首页"> <span><i class="iconfont icon-A131"></i>
+                    首页</span> </a> </li>
+        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A129"></i> 分类</span>
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                    height="13">
+                    <path
+                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                </svg> </a>
+            <ul class="slides panel-body panel-box">
+                <li>
+                    <div class="link panel "> <a href="https://qiucode.cncategory/default/" title="日常分享">日常分享</a>
+                        <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                            height="13">
+                            <path
+                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                        </svg> </div>
+                    <ul class="slides panel-body">
+                        <li><a class="link " href="https://qiucode.cncategory/wmfx/" title="外贸分享">外贸分享</a></li>
+                        <li><a class="link " href="https://qiucode.cncategory/wztj/" title="网站推荐">网站推荐</a></li>
+                        <li><a class="link " href="https://qiucode.cncategory/yxxg/" title="游戏相关">游戏相关</a></li>
+                    </ul>
+                </li>
+                <li><a class="link " href="https://qiucode.cncategory/xitong/" title="系统相关">系统相关</a></li>
+                <li>
+                    <div class="link panel "> <a href="https://qiucode.cncategory/wangzhan/"
+                            title="网站文档">网站文档</a> <svg class="icon" viewBox="0 0 1024 1024"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="13">
+                            <path
+                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                        </svg> </div>
+                    <ul class="slides panel-body">
+                        <li><a class="link " href="https://qiucode.cncategory/bkfx/" title="博客分享">博客分享</a></li>
+                        <li><a class="link " href="https://qiucode.cncategory/wzym/" title="网站源码">网站源码</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link panel "> <a href="https://qiucode.cncategory/ruanjian/"
+                            title="软件分享">软件分享</a> <svg class="icon" viewBox="0 0 1024 1024"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="13">
+                            <path
+                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                        </svg> </div>
+                    <ul class="slides panel-body">
+                        <li><a class="link " href="https://qiucode.cncategory/sjrj/" title="📱手机软件">📱手机软件</a>
+                        </li>
+                        <li><a class="link " href="https://qiucode.cncategory/dnrj/" title="💻电脑软件">💻电脑软件</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A3"></i> 页面</span>
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                    height="13">
+                    <path
+                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
+                </svg> </a>
+            <ul class="slides panel-body">
+                <li><a class="link " href="https://qiucode.cnsn.html" title="我的记录">我的记录</a></li>
+                <li><a class="link " href="https://qiucode.cnyoulian.html" title="友情链接">友情链接</a></li>
+                <li><a class="link " href="https://qiucode.cnsite.html" title="站点统计">站点统计</a></li>
+                <li><a class="link " href="https://qiucode.cnAboutme.html" title="关于我">关于我</a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="Qc_header_slideout-menu panel-box" style="margin-top: 15px;margin-bottom: 100px;">
+        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A17"></i> 用户登录</span>
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
+                    height="13">
+                    <path
+                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z">
+                    </path>
+                </svg> </a>
+            <ul class="slides panel-body">
+                <li> <a class="link" href="https://qiucode.cnadmin/login.php" target="_blank"
+                        rel="noopener noreferrer nofollow">登录</a> <a class="link"
+                        href="https://qiucode.cnadmin/register.php" target="_blank"
+                        rel="noopener noreferrer nofollow">注册</a> </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="Qc_header_mask"></div>
+
+<script>
+
+    let sideBtn = document.querySelector(".Qc_header_above .Qc_container .Qc_header_above-slideicon")
+
+    sideBtn.addEventListener("click", () => {
+        document.querySelector(".Qc_header_slideout").classList.add("active")
+        document.querySelector(".Qc_header_mask").classList.add("active")
+    })
+
+    let maskBtn = document.querySelector(".Qc_header_mask")
+
+    maskBtn.addEventListener("click",() => {
+        document.querySelector(".Qc_header_slideout").classList.remove("active")
+        maskBtn.classList.remove("active")
+    })
+
+   
+    
+
+</script></header>
+	
+		
+	<div class="Qc_container showInUp">
+
+
+
+<div class="Qc_main Qc_post">
+    <div class="Qc_detail">
+        <h1 class="title Qc_psot_title"> 为机器学习算法准备数据（Machine Learning 研习之八）</h1>
+        <div class="Qc_bread">
+            <ul class="Qc_bread_bread">
+                <li class="item"> <span class="iconfont icon-A131" style="margin-right: 4px;"></span> <a
+                        href="https://qiucode.cn" class="link" title="首页">首页</a> </li>
+                <li class="line">/</li>
+                <li class="item"> <a class="link" href="https://qiucode.cncategory/bkfx/" title="博客分享">博客分享</a>
+                </li>
+                <li class="line">/</li>
+                <li class="item">正文</li>
+            </ul>
+        </div>
+        <div class="Qc_detail_category"> </div>
+        <article class="Qc_detail_article" id="article-container">
+            <blockquote>
+<p>本文还是同样建立在前两篇的基础之上的！</p>
+</blockquote>
+<h3 id="属性组合实验">属性组合实验</h3>
+<p>希望前面的部分能让您了解探索数据并获得洞察力的几种方法。您发现了一些数据怪癖，您可能希望在将数据提供给机器学习算法之前对其进行清理，并且发现了属性之间有趣的相关性，特别是与目标属性
+之间的相关性。您还注意到一些属性具有向右倾斜的分布，因此您可能需要转换它们(例如，通过计算它们的对数或平方根)。当然，你的里程会因每个项目而有很大的不同，但大致的想法是相似的。</p>
+<p>在为机器学习算法准备数据之前，您可能需要做的最后一件事是尝试各种属性组合。例如，如果你不知道一个地区有多少住户，那么这个地区的房间总数就不是很有用。你真正想要的是每个家庭的房间数量。同样，卧室总数本身也不是很有用:你可能想对比一下房间的数量。每个家庭的人口似乎也是一个有趣的属性组合。创建这些新属性如下:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>housing[<span style="color:#e6db74">&#34;rooms_per_house&#34;</span>] <span style="color:#f92672">=</span> housing[<span style="color:#e6db74">&#34;total_rooms&#34;</span>] <span style="color:#f92672">/</span> housing[<span style="color:#e6db74">&#34;households&#34;</span>]
+</span></span><span style="display:flex;"><span>housing[<span style="color:#e6db74">&#34;bedrooms_ratio&#34;</span>] <span style="color:#f92672">=</span> housing[<span style="color:#e6db74">&#34;total_bedrooms&#34;</span>] <span style="color:#f92672">/</span> housing[<span style="color:#e6db74">&#34;total_rooms&#34;</span>]
+</span></span><span style="display:flex;"><span>housing[<span style="color:#e6db74">&#34;people_per_house&#34;</span>] <span style="color:#f92672">=</span> housing[<span style="color:#e6db74">&#34;population&#34;</span>] <span style="color:#f92672">/</span> housing[<span style="color:#e6db74">&#34;households&#34;</span>]
+</span></span></code></pre></div><p>然后你再看一遍相关矩阵:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703934522767.png" alt=""></p>
+<p>!新的bedrooms_ratio属性与房屋中值的相关性要比与房间或卧室总数的相关性大得多。显然，卧室/房间比率较低的房子往往更贵。每个家庭的房间数量也比一个地区的房间总数更能说明问题-很明显，房
+子越大，就越贵。</p>
+<p>这一轮的探索不需要绝对彻底;关键是从正确的角度出发，并迅速获得见解，这将帮助您获得第一个相当好的原型。但是这是一个迭代的过程:一旦你建立并运行了一个原型，你就可以分析它的输出以获得更多的见解，然后再回到这个探索步骤。</p>
+<h3 id="为机器学习算法准备数据">为机器学习算法准备数据</h3>
+<p>是时候为您的机器学习算法准备数据了。你应该为此编写函数，而不是手工操作，这有几个很好的理由:</p>
+<ul>
+<li>这将允许您在任何数据集上轻松重现这些转换(例如，下次获得新数据集时)。</li>
+<li>您将逐步构建一个转换函数库，以便在未来的项目中重用。</li>
+<li>您可以在实时系统中使用这些函数来转换新数据，然后再将其输入到您的算法中。</li>
+<li>这将使您能够轻松地尝试各种转换，并查看哪种转换组合效果最好。</li>
+</ul>
+<p>但首先，恢复到一个干净的训练集(通过再次复制strat_train_set)。您还应该将预测变量和标签分开，因为您不一定希望对预测变量和目标值应用相同的转换(请注意，drop()创建数据的副本，并且不影响strat_train_set):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>housing <span style="color:#f92672">=</span> strat_train_set<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#34;median_house_value&#34;</span>, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>housing_labels <span style="color:#f92672">=</span> strat_train_set[<span style="color:#e6db74">&#34;median_house_value&#34;</span>]<span style="color:#f92672">.</span>copy()
+</span></span></code></pre></div><h3 id="清除数据">清除数据</h3>
+<p>大多数机器学习算法无法处理缺失的功能，因此您需要处理这些功能。例如，您之前注意到total_bedrooms属性有一些缺失值。你有三个选项可以解决这个问题:</p>
+<ol>
+<li>
+<p>去掉相应的区。</p>
+</li>
+<li>
+<p>去掉整个属性。</p>
+</li>
+<li>
+<p>将缺失值设置为某个值(零、均值、中位数等)。这就是所谓的归罪。</p>
+</li>
+</ol>
+<p>您可以使用PandasDataFrame的dropna () 、drop () 和fillna ()方法轻松完成这些任务:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>housing<span style="color:#f92672">.</span>dropna(subset<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;total_bedrooms&#34;</span>], inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>) <span style="color:#75715e"># option 1</span>
+</span></span><span style="display:flex;"><span>housing<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#34;total_bedrooms&#34;</span>, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># option 2</span>
+</span></span><span style="display:flex;"><span>median <span style="color:#f92672">=</span> housing[<span style="color:#e6db74">&#34;total_bedrooms&#34;</span>]<span style="color:#f92672">.</span>median() <span style="color:#75715e"># option 3</span>
+</span></span><span style="display:flex;"><span>housing[<span style="color:#e6db74">&#34;total_bedrooms&#34;</span>]<span style="color:#f92672">.</span>fillna(median, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><p>您决定使用选项3，因为它的破坏性最小，但是您将使用一个方便的Scikit-Learn类:Simplelmputer，而不是前面的代码。这样做的好处是，它将存储每个特征的中值:这将使得它不仅可以估算训练集上的缺失值，还可以估算验证集、测试集和输入到模型的任何新数据上的缺失值。要使用它，首先需要创建一个Simplelmputer实例，指定要将每个属性的缺失值替换为该属性的中位数:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.impute <span style="color:#f92672">import</span> SimpleImputer
+</span></span><span style="display:flex;"><span>imputer <span style="color:#f92672">=</span> SimpleImputer(strategy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;median&#34;</span>)
+</span></span></code></pre></div><p>由于中位数只能在数值属性上计算，因此您需要创建一个仅具有数值属性的数据副本(这将排除文本属性ocean_proximity):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>housing_num <span style="color:#f92672">=</span> housing<span style="color:#f92672">.</span>select_dtypes(include<span style="color:#f92672">=</span>[np<span style="color:#f92672">.</span>number])
+</span></span></code></pre></div><p>现在，您可以使用fit()方法将补缺器实例拟合到训练数据:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>imputer<span style="color:#f92672">.</span>fit(housing_num)
+</span></span></code></pre></div><p>估算器只是计算每个属性的中位数，并将结果存储在它的statistics_instance变量中。只有total_bedrooms属性有缺失值，但您无法确定系统上线后的新数据中不会有任何缺失值，因此更安全的做法是将补缺器应用于所有数值属性:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703934613905.png" alt=""></p>
+<p>现在，您可以使用这个&quot;训练过的&quot;估算器通过用学习到的中位数替换缺失值来转换训练集:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> imputer<span style="color:#f92672">.</span>transform(housing_num)
+</span></span></code></pre></div><p>缺失的值也可以替换为平均值(strategy=&ldquo;mean&rdquo;)，或替换为最频繁的值(strategy=&ldquo;most_frequent&rdquo;)，或替换为常值(strategy=&ldquo;constant&rdquo;, fill_value=…)。后两种策略支持非数值数据。</p>
+<blockquote>
+<p>sklear.impute软件包中还有更强大的imputer(都仅用于数值特性):</p>
+<ul>
+<li>KNNImputer将每个缺失值替换为该功能的k-近邻值的平均
+值。距离是基于所有可用的功能。</li>
+<li>Iterativelmputer为每个特征训练回归模型，以根据所有其他可用
+特征预测缺失值。然后，它会根据更新的数据再次训练模型，并
+多次重复该过程，在每次迭代时改进模型和替换值。</li>
+</ul>
+</blockquote>
+<p>Scikit-Learn转换器输出NumPy数组(或有时SciPy稀疏矩阵)，即使它们被输入熊猫数据帧。“因此，inputer.Transform(Home_Num)的输出是NumPy数组:X既没有列名，也没有索引。幸运的是，在DataFrame中包装X并从宿主num中恢复列名和索引并不难:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>housing_tr <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(X, columns<span style="color:#f92672">=</span>housing_num<span style="color:#f92672">.</span>columns,
+</span></span><span style="display:flex;"><span>index<span style="color:#f92672">=</span>housing_num<span style="color:#f92672">.</span>index)
+</span></span></code></pre></div><h3 id="处理文本和分类属性">处理文本和分类属性</h3>
+<p>到目前为止，我们只处理了数字属性，但您的数据也可能包含文本属性。在这个数据集中，只有一个:ocean_proximity属性。让我们看看它的值的前几个实例:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703934669423.png" alt=""></p>
+<p>它不是任意的文本:有有限数量的可能值，每个值代表一个类别。所以这个属性是一个分类属性。大多数机器学习算法更喜欢与数字打交道，所以让我们将这些类别从文本转换为数字。为此，我们可以使用Scikit-Learn的OrdinalEncoder类:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> OrdinalEncoder
+</span></span><span style="display:flex;"><span>ordinal_encoder <span style="color:#f92672">=</span> OrdinalEncoder()
+</span></span><span style="display:flex;"><span>housing_cat_encoded <span style="color:#f92672">=</span> ordinal_encoder<span style="color:#f92672">.</span>fit_transform(housing_cat)
+</span></span></code></pre></div><p>housing_cat_encoded中的前几个编码值是这样的:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703934735306.png" alt=""></p>
+<p>您可以使用categories_instance变量获取类别列表。它是一个列表，包含每个分类属性的一维类别数组(在本例中，列表包含单个数组，因为只有一个分类属性):</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703934789622.png" alt=""></p>
+<p>这种表示法的一个问题是，ML算法将假设两个附近的值比两个遥远的值更相似。这在某些情况下可能是没有问题的(例如，对于已排序的类别(如“坏”、“平均”、“好”和“优秀”)，但显然海洋邻近栏的情况并非如此(例如，类别0和4显然比类别0和1更相似)。要解决这个问题，一个常见的解决方案是为每个类别创建一个二进制属性:一个属性在类别为“&lt;1H海洋”时等于1(否则为0)，另一个属性在“内陆”时等于1(否则为0)，依此类推。这称为单热编码，因为只有一个属性将等于1(热)，而其他属性将等于0(冷)。新属性有时被称为伪属性。Scikit-Learn提供了一个OneHotEncoder类来将分类值转换为单热向量:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> OneHotEncoder
+</span></span><span style="display:flex;"><span>cat_encoder <span style="color:#f92672">=</span> OneHotEncoder()
+</span></span><span style="display:flex;"><span>housing_cat_1hot <span style="color:#f92672">=</span> cat_encoder<span style="color:#f92672">.</span>fit_transform(housing_cat)
+</span></span></code></pre></div><p>默认情况下，OneHotEncoder的输出是SciPy稀疏矩阵，而不是NumPyarray:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703934842630.png" alt=""></p>
+<p>稀疏矩阵是大多数包含零的矩阵的一种非常有效的表示形式。实际上，它内部只存储非零值及其位置。当一个分类属性有数百或数千个类别时，单热编码会产生一个非常大的矩阵，其中除了每行只有一个1之外，其余都是0。在这种情况下，稀疏矩阵正是您所需要的:它将节省大量内存并加快计算速度。你可以使用一个稀疏矩阵，就像一个普通的2D数组，12但是如果你想把它转换成一个(密集的)NumPy数组，只需要调用toarray()方法:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703934893825.png" alt=""></p>
+<p>或者，您可以在创建OneHotEncoder时设置sparse=False，在这种情况下，transform()方法将直接返回一个常规(密集)NumPy数组。</p>
+<p>与OrdinalEncoder一样，您可以使用编码器的categories_instance变量获取类别列表:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703934947672.png" alt=""></p>
+<p>Pandas有一个名为get_dummies()的函数，它也将每个分类特征转换为单热点表示，
+每个类别有一个二进制特征:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703934994258.png" alt=""></p>
+<p>它看起来很好很简单，那么为什么不使用它来代替OneHotEncoder呢?OneHotEncoder的优点是它能记住训练的类别。这一点非常重要，因为一旦您的模型投入生产，就应该提供与训练期间完全相同的功能:不多也不少。看看我们的训练好的cat_encoder在转换相同的df_test时输出(使用transform()，而不是fit_transform ()):</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935060799.png" alt=""></p>
+<p>看到区别了吗get_dummies()只看到两个类别，所以它输出两列，而OneHotEncoder按照正确的顺序为每个学习到的类别输出一列。而且，如果您给get_dummies()提供一个包含未知类别DataFrame(例如，“《2HOPEN”)，那么它将很高兴地为其生成一列:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935121712.png" alt=""></p>
+<p>但OneHotEncoder更聪明:它将检测未知类别并引发异常。如果你愿意，你可以将handle_unknown超参数设置为&quot;ignore&quot;，在这种情况下，它将用零表示未知类别:</p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935183779.png" alt=""></p>
+<p>使用DataFrame拟合任何Scikit-Learn估计器时，估计器将列名存储在feature_names_in_attribute中。Scikit-Learn然后确保任何DataFrame在此之后被馈送到该估算器(例如要转换()或预测())具有相同的列名。Transformers还提供get_feature_names_out ()方法，您可以使用该方法围绕Transformers的输出构建DataFrame:</p>
+<p><img src="http://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935233779.png" alt=""></p>
+
+        </article>
+    </div>
+
+    
+       	
+
+
+
+
+
+
+<div id="comments" class="post-comments">
+  <div class="comment-head">
+    <div class="comment-headline">
+      <i class="fa fa-comments fa-fw"></i>
+      
+    </div>
+  
+  </div>
+  <div class="comment-wrap">
+  
+  
+    <div>      
+      <div class="comment-loading">
+    <i class="fa fa-sync fa-spin"></i>
+  </div>
+      <div class="waline-container"></div>
+
+
+
+    </div>
+  
+  </div>
+</div>  
+
+    
+</div>
+
+
+
+
+<script>
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+</script>
+
+
+<script>
+    let activeElement;
+    let elements;
+    
+    
+
+    
+        
+    
+    
+    
+    
+
+    
+    
+    
+
+    
+        
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+ 
+
+
+
+
+
+<script>
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+
+
+
+<script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+<script>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+            
+    
+            
+    
+    
+    
+            
+    
+    
+    
+    
+</script><aside class="Qc_aside">
+
+<section class="Qc_aside_item tags"> 
+    <div class="Qc_aside_item-title"> 
+        <i class="iconfont icon-A67" style="margin-right: 8px;font-size: 17px"></i> 
+        <span class="text">文章分类</span> 
+        <span class="qccq_mac"></span> 
+    </div> 
+    <div class="Qc_aside_item-contain" style="padding:10px"> 
+        <div class="tag"></div> 
+		<ul class="list">
+			
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/bootstraptable/">BootstrapTable </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/centos/">CentOS </a>
+				<span class="widget__counter widget__counter--bubble">4</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/chrome%E6%89%A9%E5%B1%95/">Chrome扩展 </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/cocos2d-x/">cocos2d-x </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/docker/">Docker </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/extjs/">extjs </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/fastadmin/">Fastadmin </a>
+				<span class="widget__counter widget__counter--bubble">2</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/git/">Git </a>
+				<span class="widget__counter widget__counter--bubble">5</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/golang/">golang </a>
+				<span class="widget__counter widget__counter--bubble">36</span>
+			</li>
+			
+			   
+			<li class="item"> 
+				<a class="link" href="/categories/hugo/">Hugo </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+			
+			   
+	</div>
+</section>
+
+
+
+
+<section class="Qc_aside_item tags"> 
+    <div class="Qc_aside_item-title"> 
+        <i class="iconfont icon-A67" style="margin-right: 8px;font-size: 17px"></i> 
+        <span class="text">标签云</span> 
+        <span class="xccx_mac"></span> 
+    </div> 
+     <div class="Qc_aside_item-contain" style="padding:10px"> 
+        <div class="tag"></div> 
+        <ul class="cloud">
+            
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/abstract/" title="abstract">abstract</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/ag-grid/" title="ag-grid">ag-grid</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/apache/" title="Apache">Apache</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/array/" title="array">array</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/bootstraptable-%E9%9A%90%E8%97%8F/%E6%98%BE%E7%A4%BA%E8%A1%A8%E6%A0%BC%E8%A1%8C/" title="BootstrapTable 隐藏/显示表格行">BootstrapTable 隐藏/显示表格行</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/branch/" title="branch">branch</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/break/" title="break">break</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/centos/" title="CentOS">CentOS</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/centos7/" title="CentOS7">CentOS7</a>
+            </li>
+
+                
+            <li class="item">
+                <a style="background:#4C83FF" href="/tags/channel/" title="channel">channel</a>
+            </li>
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+         </ul> 
+        </div> 
+    </section>
+
+
+
+    
+
+    <section class="sticky_layout"><style>
+
+    .card-widget:first-child {
+        margin-top: 0
+    }
+
+    @media screen and (max-width:900px) {
+        .card-widget:first-child {
+            margin-top: 20px
+        }
+    }
+
+     .card-widget {
+        position: relative;
+        overflow: hidden;
+        margin-top: 20px;
+        padding: 20px 24px;
+        color:var(--main)
+    }
+
+     .card-widget,
+    #recent-posts>.recent-post-item,
+    .cardHover,
+    .error404 #error-wrap .error-content,
+    .layout>.recent-posts .pagination>:not(.space),
+    .layout>div:first-child:not(.recent-posts) {
+        border-radius: 8px;
+        background: var(--background);
+        -webkit-box-shadow: var(--card-box-shadow);
+        box-shadow: var(--card-box-shadow);
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -o-transition: all .3s;
+        -ms-transition: all .3s;
+        transition: all .3s
+    }
+
+    .card-widget:hover,
+    #recent-posts>.recent-post-item:hover,
+    .cardHover:hover,
+    .error404 #error-wrap .error-content:hover,
+    .layout>.recent-posts .pagination>:not(.space):hover,
+    .layout>div:first-child:not(.recent-posts):hover {
+        -webkit-box-shadow: var(--card-hover-box-shadow);
+        box-shadow: var(--card-hover-box-shadow)
+    }
+
+
+
+    .item-headline {
+        padding-bottom: 6px;
+        font-size: 1.2em
+    }
+
+     .item-headline span {
+        margin-left: 6px
+    }
+
+   
+ 
+     @media screen and (min-width:900px) {
+        .sticky_layout {
+            position: sticky;
+            position: -webkit-sticky;
+            top: 60px;
+            -webkit-transition: top .3s;
+            -moz-transition: top .3s;
+            -o-transition: top .3s;
+            -ms-transition: top .3s;
+            transition: top .3s
+        }
+    } 
+
+    
+
+ 
+
+    
+
+
+
+    #card-toc .toc-percentage {
+        float: right;
+        margin-top: -9px;
+        color: #a9a9a9;
+        font-style: italic;
+        font-size: 140%
+    }
+
+    #card-toc .toc-content {
+        overflow-y: scroll;
+        overflow-y: overlay;
+        margin: 0 -24px;
+        max-height: calc(100vh - 120px)
+    }
+
+    @media screen and (max-width:900px) {
+         #card-toc .toc-content {
+            max-height: calc(100vh - 140px)
+        }
+    }
+
+     #card-toc .toc-content>* {
+        margin: 0 20px !important
+    }
+
+
+
+     #card-toc .toc-content>*>.toc-item>.toc-child {
+        margin-left: 10px;
+        padding-left: 10px;
+        border-left: 1px solid var(--dark-grey)
+    }
+
+    #card-toc .toc-content:not(.is-expand) .toc-child {
+        display: none
+    }
+
+    @media screen and (max-width:900px) {
+        #card-toc .toc-content:not(.is-expand) .toc-child {
+            display: block !important
+        }
+    }
+
+   #card-toc .toc-content:not(.is-expand) .toc-item.active .toc-child {
+        display: block
+    }
+
+    #card-toc .toc-content li,
+     #card-toc .toc-content ol {
+        list-style: none
+    }
+
+     #card-toc .toc-content>ol {
+        padding: 0 !important
+    }
+
+    #card-toc .toc-content ol {
+        margin: 0;
+        padding-left: 18px
+    }
+
+    #card-toc .toc-content .toc-link {
+        display: block;
+        margin: 4px 0;
+        padding: 1px 6px;
+        color: var(--toc-link-color);
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        -ms-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out
+    }
+
+     #card-toc .toc-content .toc-link:hover {
+        color: #49b1f5
+    }
+
+    #card-toc .toc-content .toc-link.active {
+        background: #00c4b6;
+        color: #fff
+    }
+
+     .sticky_layout:only-child>:first-child {
+        margin-top: 20px
+    }
+
+
+</style>
+    <div class="card-widget" id="card-toc">
+        <div class="item-headline">
+            <i class="fa fa-bars"></i>
+            <span>目录</span>
+            <span class="toc-percentage">0</span>
+        </div>
+        <div class="toc-content"><ol class="toc">
+                        <li class="toc-item toc-level-3">
+                            <a class="toc-link" href="#%e5%b1%9e%e6%80%a7%e7%bb%84%e5%90%88%e5%ae%9e%e9%aa%8c" aria-label="属性组合实验" data-pjax-state="anchor">
+                                <span class="toc-number">1</span> 
+                                <span class="toc-text">属性组合实验</span>
+                            </a></li>
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e4%b8%ba%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95%e5%87%86%e5%a4%87%e6%95%b0%e6%8d%ae" aria-label="为机器学习算法准备数据" data-pjax-state="anchor">
+                            <span class="toc-number">3</span> 
+                            <span class="toc-text">为机器学习算法准备数据</span>
+                        </a></li>
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e6%b8%85%e9%99%a4%e6%95%b0%e6%8d%ae" aria-label="清除数据" data-pjax-state="anchor">
+                            <span class="toc-number">3</span> 
+                            <span class="toc-text">清除数据</span>
+                        </a></li>
+
+                    <li class="toc-item toc-level-2">
+                        <a class="toc-link" href="#%e5%a4%84%e7%90%86%e6%96%87%e6%9c%ac%e5%92%8c%e5%88%86%e7%b1%bb%e5%b1%9e%e6%80%a7" aria-label="处理文本和分类属性" data-pjax-state="anchor">
+                            <span class="toc-number">3</span> 
+                            <span class="toc-text">处理文本和分类属性</span>
+                        </a>
+                    </li>
+            </ol>
+
+        </div>
+    </div>
+
+
+
+
+
+
+<script>
+
+    const btf = {
+    
+        scrollToDest: (pos, time = 500) => {
+            const currentPos = window.pageYOffset
+            if (currentPos > pos) pos = pos - 70
+        
+            if ('scrollBehavior' in document.documentElement.style) {
+                window.scrollTo({
+                top: pos,
+                behavior: 'smooth'
+                })
+                return
+            }
+        
+            let start = null
+            pos = +pos
+            window.requestAnimationFrame(function step (currentTime) {
+                start = !start ? currentTime : start
+                const progress = currentTime - start
+                if (currentPos < pos) {
+                window.scrollTo(0, ((pos - currentPos) * progress / time) + currentPos)
+                } else {
+                window.scrollTo(0, currentPos - ((currentPos - pos) * progress / time))
+                }
+                if (progress < time) {
+                window.requestAnimationFrame(step)
+                } else {
+                window.scrollTo(0, pos)
+                }
+            })
+        },
+    
+       
+        getEleTop: ele => {
+            let actualTop = ele.offsetTop
+            let current = ele.offsetParent
+        
+            while (current !== null) {
+                actualTop += current.offsetTop
+                current = current.offsetParent
+            }
+        
+            return actualTop
+        },
+
+        updateAnchor: (anchor) => {
+            if (anchor !== window.location.hash) {
+                if (!anchor) anchor = location.pathname
+                const title = "秋码记录"
+                window.history.replaceState({
+                    url: location.href,
+                    title
+                }, title, anchor)
+            }
+        },
+
+
+        throttle: function (func, wait, options) {
+            let timeout, context, args
+            let previous = 0
+            if (!options) options = {}
+        
+            const later = function () {
+                previous = options.leading === false ? 0 : new Date().getTime()
+                timeout = null
+                func.apply(context, args)
+                if (!timeout) context = args = null
+            }
+        
+            const throttled = function () {
+                const now = new Date().getTime()
+                if (!previous && options.leading === false) previous = now
+                
+                const remaining = wait - (now - previous)
+                context = this
+                args = arguments
+                if (remaining <= 0 || remaining > wait) {
+                    if (timeout) {
+                        clearTimeout(timeout)
+                        timeout = null
+                    }
+                    previous = now
+                    func.apply(context, args)
+                    if (!timeout) context = args = null
+                } else if (!timeout && options.trailing !== false) {
+                    timeout = setTimeout(later, remaining)
+                }
+            }
+        
+            return throttled
+        },
+
+        getScrollPercent: (currentTop, ele) => {
+            const docHeight = ele.clientHeight
+            const winHeight = document.documentElement.clientHeight
+            const headerHeight = ele.offsetTop
+            const contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : (document.documentElement.scrollHeight - winHeight)
+            const scrollPercent = (currentTop - headerHeight) / (contentMath)
+            const scrollPercentRounded = Math.round(scrollPercent * 100)
+            const percentage = (scrollPercentRounded > 100) ? 100 : (scrollPercentRounded <= 0) ? 0 : scrollPercentRounded
+            return percentage
+        },
+
+
+
+
+    }  
+
+
+
+     
+
+    const scrollFnToDo = function () {
+      const isToc = true 
+      const isAnchor = true 
+      const $article = document.getElementById('article-container')
+  
+      if (!($article && (isToc || isAnchor))) return
+  
+      let $tocLink, $cardToc, autoScrollToc, $tocPercentage, isExpand
+  
+      if (isToc) {
+        const $cardTocLayout = document.getElementById('card-toc')
+        $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0]
+        $tocLink = $cardToc.querySelectorAll('.toc-link')
+        $tocPercentage = $cardTocLayout.querySelector('.toc-percentage')
+        isExpand = $cardToc.classList.contains('is-expand')
+  
+        window.mobileToc = {
+          open: () => {
+            $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: 55px'
+          },
+  
+          close: () => {
+            $cardTocLayout.style.animation = 'toc-close .2s'
+            setTimeout(() => {
+              $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+            }, 100)
+          }
+        }
+  
+        
+        $cardToc.addEventListener('click', e => {
+          e.preventDefault()
+          const target = e.target.classList
+          if (target.contains('toc-content')) return
+          const $target = target.contains('toc-link')
+            ? e.target
+            : e.target.parentElement
+          btf.scrollToDest(btf.getEleTop(document.getElementById(decodeURI($target.getAttribute('href')).replace('#', ''))), 300)
+          if (window.innerWidth < 900) {
+            window.mobileToc.close()
+          }
+        })
+  
+        autoScrollToc = item => {
+          const activePosition = item.getBoundingClientRect().top
+          const sidebarScrollTop = $cardToc.scrollTop
+          if (activePosition > (document.documentElement.clientHeight - 100)) {
+            $cardToc.scrollTop = sidebarScrollTop + 150
+          }
+          if (activePosition < 100) {
+            $cardToc.scrollTop = sidebarScrollTop - 150
+          }
+        }
+      }
+  
+      
+      const list = $article.querySelectorAll('h1,h2,h3,h4,h5,h6')
+      let detectItem = ''
+      const findHeadPosition = function (top) {
+        if (top === 0) {
+          return false
+        }
+  
+        let currentId = ''
+        let currentIndex = ''
+  
+        list.forEach(function (ele, index) {
+          if (top > btf.getEleTop(ele) - 80) {
+            const id = ele.id
+            currentId = id ? '#' + encodeURI(id) : ''
+            currentIndex = index
+          }
+        })
+  
+        if (detectItem === currentIndex) return
+  
+        if (isAnchor) btf.updateAnchor(currentId)
+  
+        detectItem = currentIndex
+  
+        if (isToc) {
+          $cardToc.querySelectorAll('.active').forEach(i => { i.classList.remove('active') })
+  
+          if (currentId === '') {
+            return
+          }
+  
+          const currentActive = $tocLink[currentIndex]
+          currentActive.classList.add('active')
+  
+          setTimeout(() => {
+            autoScrollToc(currentActive)
+          }, 0)
+  
+          if (isExpand) return
+          let parent = currentActive.parentNode
+  
+          for (; !parent.matches('.toc'); parent = parent.parentNode) {
+            if (parent.matches('li')) parent.classList.add('active')
+          }
+        }
+      }
+  
+      
+      window.tocScrollFn = btf.throttle(() => {
+        const currentTop = window.scrollY || document.documentElement.scrollTop
+        
+         if(isToc){
+          $tocPercentage.textContent = btf.getScrollPercent(currentTop, $article)
+        }
+        findHeadPosition(currentTop)
+      }, 100)
+  
+      window.addEventListener('scroll', tocScrollFn)
+    }
+  
+
+    scrollFnToDo()
+</script>
+
+
+
+
+
+    </section>
+     
+
+</aside></div>
+	<footer class="Qc_footer">
+		<div class="Qc_container">
+			<div class="item">
+				<p>2018 - 2023 版权所有 ©<a href="http://beian.miit.gov.cn/">闽ICP备2021005633号-2</a></p>
+			</div>
+			<div class="item">
+				<p>
+					<strong>本站由 <span style="color:blue;font:bold;">Hugo</span> 驱动的 
+						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.1</a> 主题强力支撑</strong>
+				</p>
+			</div>
+		</div>
+		</div>
+	</footer>
+
+	<style>
+		.joe_action {
+			position: fixed;
+			bottom: 90px;
+			right: 30px;
+			z-index: 333;
+		}
+
+
+		.joe_action_item.scroll.active {
+			visibility: visible;
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+
+		.joe_action_item.scroll {
+			visibility: hidden;
+			-webkit-transform: scale(0);
+			transform: scale(0);
+			transition: visibility 0.35s, -webkit-transform 0.35s;
+			transition: visibility 0.35s, transform 0.35s;
+			transition: visibility 0.35s, transform 0.35s, -webkit-transform 0.35s;
+		}
+
+		.joe_action_item {
+			box-shadow: rgb(0 0 0 / 10%) 0px 0px 10px, rgb(0 0 0 / 20%) 0px 5px 20px;
+			background: var(--darkreader-bg--background);
+		}
+		.joe_action_item {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			background: var(--background);
+			border-radius: 50%;
+			cursor: pointer;
+			margin-top: 15px;
+			box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 5px 20px rgb(0 0 0 / 20%);
+		}
+		.joe_action_item svg {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			fill: var(--theme);
+		}
+
+
+
+		.joe_action_item.mode svg{-webkit-transform:scale(0);transform:scale(0);opacity:0}
+		.joe_action_item.mode svg.active{-webkit-transform:scale(1);transform:scale(1);opacity:1}
+		
+	</style>
+
+
+	<div class="joe_action">
+		<div class="joe_action_item scroll ">
+			<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M725.902 498.916c18.205-251.45-93.298-410.738-205.369-475.592l-6.257-3.982-6.258 3.414c-111.502 64.853-224.711 224.142-204.8 475.59-55.751 53.476-80.214 116.623-80.214 204.8v15.36l179.2-35.27c11.378 40.39 58.596 69.973 113.21 69.973 54.613 0 101.262-29.582 112.64-68.836l180.337 36.41v-15.36c-.569-89.885-25.031-153.6-82.489-206.507zM571.733 392.533c-33.564 31.29-87.04 28.445-118.329-5.12s-28.444-87.04 5.12-117.76c33.565-31.289 87.04-28.444 118.33 5.12s28.444 86.471-5.12 117.76zm-56.32 368.64c-35.84 0-64.284 29.014-64.284 64.285 0 35.84 54.044 182.613 64.284 182.613s64.285-146.773 64.285-182.613c0-35.271-29.014-64.285-64.285-64.285z"></path>
+			</svg>
+		</div>
+		<div class="joe_action_item mode">
+			<svg class="icon-1 " viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M587.264 104.96c33.28 57.856 52.224 124.928 52.224 196.608 0 218.112-176.128 394.752-393.728 394.752-29.696 0-58.368-3.584-86.528-9.728C223.744 832.512 369.152 934.4 538.624 934.4c229.376 0 414.72-186.368 414.72-416.256 1.024-212.992-159.744-389.12-366.08-413.184z"></path>
+				<path d="M340.48 567.808l-23.552-70.144-70.144-23.552 70.144-23.552 23.552-70.144 23.552 70.144 70.144 23.552-70.144 23.552-23.552 70.144zM168.96 361.472l-30.208-91.136-91.648-30.208 91.136-30.208 30.72-91.648 30.208 91.136 91.136 30.208-91.136 30.208-30.208 91.648z"></path>
+			</svg>
+			<svg class="icon-2 active" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M234.24 512a277.76 277.76 0 1 0 555.52 0 277.76 277.76 0 1 0-555.52 0zM512 187.733a42.667 42.667 0 0 1-42.667-42.666v-102.4a42.667 42.667 0 0 1 85.334 0v102.826A42.667 42.667 0 0 1 512 187.733zm-258.987 107.52a42.667 42.667 0 0 1-29.866-12.373l-72.96-73.387a42.667 42.667 0 0 1 59.306-59.306l73.387 72.96a42.667 42.667 0 0 1 0 59.733 42.667 42.667 0 0 1-29.867 12.373zm-107.52 259.414H42.667a42.667 42.667 0 0 1 0-85.334h102.826a42.667 42.667 0 0 1 0 85.334zm34.134 331.946a42.667 42.667 0 0 1-29.44-72.106l72.96-73.387a42.667 42.667 0 0 1 59.733 59.733l-73.387 73.387a42.667 42.667 0 0 1-29.866 12.373zM512 1024a42.667 42.667 0 0 1-42.667-42.667V878.507a42.667 42.667 0 0 1 85.334 0v102.826A42.667 42.667 0 0 1 512 1024zm332.373-137.387a42.667 42.667 0 0 1-29.866-12.373l-73.387-73.387a42.667 42.667 0 0 1 0-59.733 42.667 42.667 0 0 1 59.733 0l72.96 73.387a42.667 42.667 0 0 1-29.44 72.106zm136.96-331.946H878.507a42.667 42.667 0 1 1 0-85.334h102.826a42.667 42.667 0 0 1 0 85.334zM770.987 295.253a42.667 42.667 0 0 1-29.867-12.373 42.667 42.667 0 0 1 0-59.733l73.387-72.96a42.667 42.667 0 1 1 59.306 59.306l-72.96 73.387a42.667 42.667 0 0 1-29.866 12.373z"></path>
+			</svg>
+		</div>
+	</div>
+
+	
+
+
+	
+	
+
+	
+
+	
+	
+	<script src="/js/highlight.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+   
+
+   <script>
+	 function registerImageLoadEvent() {
+		const images = document.querySelectorAll('.sidebar img, .Qc_post img, .vendors-list img');
+				
+		const callback = (entries) => {
+			entries.forEach(item => {
+				if (item.intersectionRatio > 0) {
+					let ele = item.target;
+					let imgSrc = ele.getAttribute('src');
+					ele.setAttribute("src","1.png")
+					ele.setAttribute("data-lazy-src",imgSrc)
+					ele.classList.add("lazyload")
+			
+				}
+			})
+		};
+
+		Array.from(images).forEach(img => {
+			const bg = '/images/loading.gif' 
+
+			img.setAttribute("data-lazy-src",img.src)
+			img.src = bg
+			
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+
+		
+		
+		
+	}
+
+	registerImageLoadEvent()
+
+   </script>
+
+
+
+
+ 
+
+ <script src="/js/lazyload.life.min.js"></script>
+
+ <script>
+	const lazyloadImg = () => {
+      window.lazyLoadInstance = new LazyLoad({
+        elements_selector: 'img',
+        threshold: 0,
+        data_src: 'lazy-src'
+      })
+    }
+
+	lazyloadImg()
+ </script>
+
+
+	</div>
+</body>
+
+<script>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+
+	
+	
+				
+	
+
+	
+	
+	
+	
+
+	
+
+	
+
+	
+	
+	
+	
+	
+
+	
+	
+		
+	
+	   </script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	
+    
+	var mybutton = document.querySelector(".joe_action .joe_action_item.scroll")
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            
+            
+			mybutton.classList.add("active")
+        } else {
+            
+            
+			mybutton.classList.remove("active")
+        }
+    };
+
+	mybutton.addEventListener("click",() => {
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	})
+	
+
+
+</script>
+
+
+
+<script>
+	var themeBtn = document.querySelector(".joe_action .joe_action_item.mode")
+	let icon_1 = document.querySelector(".joe_action .joe_action_item.mode .icon-1")
+	let icon_2 = document.querySelector(".joe_action .joe_action_item.mode .icon-2")
+    themeBtn.addEventListener("click", () => {
+		
+        if (icon_1.classList.contains("active")) {
+            icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+
+<script>
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+
+
+

@@ -525,7 +525,7 @@
 </li>
 </ul>
 <p>本文数据来自于 StatLib 仓库的加州房价数据（见下图），它是基于 1990 年加利福尼亚州人口普查的数据，而不是最近的数据，不必过于纠结，我们的重心在于研习<code>机器学习</code>，并非是在讨论房价的问题。</p>
-<p><img src="https://img-blog.csdnimg.cn/2c4a8b5ab93f4e2388c34b1d5084e718.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936310142.png" alt=""></p>
 <h3 id="看图说话">看图说话</h3>
 <p><code>机器学习</code>的首要任务，是利用加州人口普查数据，建立一个该州房价的模型。你的模型应该从这些数据中学习，并能够在给定所有其他指标的情况下，预测任何地区的房屋中位数价格。</p>
 <h3 id="框架问题">框架问题</h3>
@@ -533,7 +533,7 @@
 <p>你的模型的输出(一个地区的房价中位数的预测)将被馈送到另一个机器学习系统(见下图)，以及许多其他的这个下游系统将决定它是否值得在一个给定的领域投资。做好这一点至关重要，因为它直接影响收入。</p>
 <p>目前的解决方案是什么样的(如果有的话)。目前的情况往往会给你一个性能的参考，以及如何解决问题
 的见解。该地区的房价目前是由专家手动估算的一个团队收集有关该地区的最新信息，当他们无法得到房价中位数时，他们使用复杂的规则来估算。</p>
-<p><img src="https://img-blog.csdnimg.cn/a51c65402bdb42638c9b837ca255da25.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="http://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936376997.png" alt=""></p>
 <p>这既费钱又费时，而且他们的估计也不准确，在他们设法找出实际中位房价的情况下，他们常常意识到自己的估计误差超过30%。这就是为什么该公司认为，考虑到有关该地区的其他数据，建立一个预测该地区房价中值的模型将是有用的。人口普查数据看起来是一个很好的数据集，因为它包
 括数千个地区的房屋价格中位数，以及其他数据。</p>
 <blockquote>
@@ -547,7 +547,7 @@
 <p>你能回答出来了吗？这显然是一个典型的监督学习任务，因为模型可以用带标签的示例进行训练(每个示例都带有预期输出，即该地区的房价中值)。这是一个典型的回归任务，因为模型将被要求预测一个值。更具体地说，这是一个多元回归问题，因为系统将使用多个特征进行预测(地区的人口、中位数收入等)。这也是一个单变量回归问题，因为我们只是试图预测每个地区的一个单一值。如果我们试图预测每个地区的多个值，这将是一个多元回归问题。最后，没有连续的数据流进入系统，没有特别的需要来适应快速变化的数据，数据足够小，可以放入内存中，所以普通的批处理学习应该做得很好。</p>
 <h3 id="选择性能度量">选择性能度量</h3>
 <p>回归问题的一个典型性能度量是均方根误差(RMSE)。它给出了系统在其预测中通常会产生多大误差的概念，较大误差的权重较高。公式给出了计算RMSE的数学公式。</p>
-<p><img src="https://img-blog.csdnimg.cn/936007acfa764c9f93a81ddd6a1cbf43.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936429659.png" alt=""></p>
 <blockquote>
 <p>注意：</p>
 <p>这个方程介绍了我将在本书中使用的几个非常常见的机器学习符号：</p>
@@ -558,19 +558,19 @@
 </li>
 <li>
 <p>x(i) 是数据集中第i 个实例的所有特征值（不包括标签）的向量，y(i) 是其标签（该实例的所需输出值）。 例如，如果数据集中的第一个区位于经度 –118.29°，纬度 33.91°，有 1,416 名居民，收入中位数为 38,372 美元，房屋价值中位数为 156,400 美元（暂时忽略其他特征）， 然后：</p>
-<p><img src="https://img-blog.csdnimg.cn/02bdf75dfb014e949b074d7b3f17ea81.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936491230.png" alt=""></p>
 </li>
 </ul>
 </blockquote>
 <blockquote>
 <p>和：</p>
-<p><img src="https://img-blog.csdnimg.cn/cad0342b3605498097407b06a4464980.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936533460.png" alt=""></p>
 </blockquote>
 <blockquote>
 <ul>
 <li>
 <p>X是一个矩阵，包含数据集中所有实例的所有特征值（不包括标签）。 每个实例一行，第 i 行等于 x(i) 的转置，记为 (x(i))⊺.3 — 例如，如果第一区如上所述，则矩阵 X 如下所示：</p>
-<p><img src="https://img-blog.csdnimg.cn/08cdb9f135b54b8196807bf5cf84427a.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936600571.png" alt=""></p>
 </li>
 </ul>
 </blockquote>
@@ -586,7 +586,7 @@
 <p>我们使用小写斜体表示标量值（例如 m 或 y(i)）和函数名称（例如 h），使用小写粗体表示向量（例如 x(i)），使用大写粗体表示矩阵（例如 X）。</p>
 </blockquote>
 <p>尽管<code>RMSE</code>通常是回归任务的首选性能度量，但在某些上下文中，您可能更喜欢使用其他函数。例如，如果有许多离群的地区。在这种情况下，你可以考虑使用平均绝对误差(MAE，也称为平均绝对偏差)，如下公式所示：</p>
-<p><img src="https://img-blog.csdnimg.cn/df271efe349c47f0921f5d5fb9fec219.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936657848.png" alt=""></p>
 <p><code>RMSE</code>和<code>MAE</code>都是度量两个向量之间距离的方法:预测向量和目标值向量。各种距离测量或规范是可能的:</p>
 <ul>
 <li>计算平方和的根 (RMSE) 对应于欧几里得范数：这是我们都熟悉的距离概念。 它也称为 ℓ2 范数，记作 ∥ · ∥2（或简称 ∥ · ∥）。</li>
@@ -665,7 +665,7 @@
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Number of districts&#34;</span>)
 </span></span><span style="display:flex;"><span>save_fig(<span style="color:#e6db74">&#34;housing_income_cat_bar_plot&#34;</span>)  <span style="color:#75715e"># extra code</span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p><img src="https://img-blog.csdnimg.cn/b3edd0a375d940418210cf0c52a3d1f8.png#pic_center" alt="在这里插入图片描述"></p>
+</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936717743.png" alt=""></p>
 <p>现在您已准备好根据收入类别进行分层抽样。 Scikit-Learn 在 sklearn.model_selection 包中提供了许多拆分器类，这些类实现了各种策略来将数据集拆分为训练集和测试集。 每个拆分器都有一个 split() 方法，该方法返回同一数据的不同训练/测试拆分的迭代器。</p>
 <p>准确地说，split()方法生成的是训练和测试指标，而不是数据本身。如果你想更好地估计你的模型的性能，有多个拆分是很有用的，当我们在本章后面讨论交叉验证的时候你会看到。例如，下面的代码生成同一数据集的10个不同的分层拆分:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
@@ -684,9 +684,9 @@
 </span></span><span style="display:flex;"><span>strat_train_set, strat_test_set <span style="color:#f92672">=</span> train_test_split(
 </span></span><span style="display:flex;"><span>    housing, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, stratify<span style="color:#f92672">=</span>housing[<span style="color:#e6db74">&#34;income_cat&#34;</span>], random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
 </span></span></code></pre></div><p>让我们看看这是否像预期的那样工作。你可以从测试集中的收入类别比例开始:</p>
-<p><img src="https://img-blog.csdnimg.cn/81a3ff3016f2418ea4ed7ebfe15ebc24.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936803314.png" alt=""></p>
 <p>使用类似的代码，您可以测量整个数据集中的收入类别比例。下图比较了总体数据集、分层抽样生成的测试集和纯粹随机抽样生成的测试集中的收入类别比例。如您所见，使用分层抽样生成的测试集的收入类别比例几乎与完整数据集中的收入类别比例相同，而使用纯粹随机抽样生成的测试集是倾斜的。</p>
-<p><img src="https://img-blog.csdnimg.cn/dac81b28ca684de7aa2a0088a374fdde.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936843556.png" alt=""></p>
 <p>您不会再次使用income_cat列，所以您不妨删除它，将数据恢复到原始状态:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> set_ <span style="color:#f92672">in</span> (strat_train_set, strat_test_set):
@@ -1130,6 +1130,10 @@
             <li class="item">
                 <a style="background:#4C83FF" href="/tags/channel/" title="channel">channel</a>
             </li>
+
+                
+
+                
 
                 
 

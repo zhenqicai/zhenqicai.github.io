@@ -620,7 +620,292 @@ hugo-theme-kiwi V0.01已实现如下功能：
                     
                         <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/183/" class="thumbnail" title="端到端的机器学习项目（Machine Learning 研习之六）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://img-blog.csdnimg.cn/2c4a8b5ab93f4e2388c34b1d5084e718.png#pic_center" alt="端到端的机器学习项目（Machine Learning 研习之六）">
+    <a href="/article/189/" class="thumbnail" title="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703937560847.png" alt="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/189/" class="title" title="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）" rel="noopener noreferrer">
+            机器学习中的 Transformation Pipelines（Machine Learning 研习之十）
+        </a>
+        <a class="abstract" href="/article/189/" title="文章摘要" rel="noopener noreferrer">Transformation Pipelines 有许多数据转换步骤需要以正确的顺序执行。幸运的是，Scikit-Learn提供了Pipeline类来帮助处理这样的转换序列。下面是一个用于数值属性的小管道，它首先对输入特性进行归并，然后对输入特性进行缩放:
+from sklearn.pipeline import Pipeline num_pipeline = Pipeline([ (&#34;impute&#34;, SimpleImputer(strategy=&#34;median&#34;)), (&#34;standardize&#34;, StandardScaler()), ]) Pipeline构造函数采用名称/估算器对(2元组)的列表，定义了一系列步骤。名称可以是您喜欢的任何名称，只要它们是唯一的，并且不包含双下划线(__)。以后我们讨论超参数调优时，它们会很有用。估计器必须都是转换器(即，它们必须有一个fit_transform()方法)，除了最后一个，它可以是任何东西:转换器、预测器或任何其他类型的估计器。
+如果你不想命名transformers你可以使用 make_pipeline() 函数； 它将transformers作为位置参数，并使用transformers类的名称（小写且不带下划线）创建管道（例如，“simpleimputer”）：
+from sklearn.pipeline import make_pipeline num_pipeline = make_pipeline(SimpleImputer(strategy=&#34;median&#34;), StandardScaler()) 如果多个transformers具有相同的名称，则会在其名称后附加索引（例如“foo-1”、“foo-2”等）。
+当您调用管道的 fit() 方法时，它会在所有transformers上顺序调用 fit_transform()，将每个调用的输出作为参数传递给下一个调用，直到到达最终估计器，为此它只调用 fit() 方法。
+该管道公开与最终估计器相同的方法。 在此示例中，最后一个估计器是 StandardScaler，它是一个transformers，因此管道也充当transformers。 如果您调用管道的transform()方法，它将按顺序将所有转换应用于数据。 如果最后一个估计器是预测器而不是变换器，那么管道将具有 Predict() 方法而不是 Transform() 方法。 调用它会按顺序将所有转换应用于数据并将结果传递给预测器的 Predict()方法
+让我们调用管道的 fit_transform() 方法并查看输出的前两行，四舍五入到小数点后两位：
+如前所述，如果要恢复一个漂亮的DataFrame，可以使用管道的get_feature_names_ out()方法:
+df_housing_num_prepared = pd.DataFrame( housing_num_prepared, columns=num_pipeline.get_feature_names_out(), index=housing_num.index) 管道支持索引;例如，管道[1]返回管道中的第二个估计值，管道[:-1]返回一个包含除最后一个估计值以外的所有估计值的管道对象。您还可以通过steps属性(它是名称/估算器对的列表)或named_steps字典属性(它将名称映射到估算器)访问估算器。例如，num_line[“ simpleimputer”]返回名为“simpleimputer”的估计器。
+到目前为止，我们已经分别处理了分类列和数值列。如果有一个能够处理所有列的转换器，将适当的转换应用到每一列，那会更方便。为此，您可以使用olumnTransformer。例如，下面的ColumnTransformer将把num_pipeline(我们刚刚定义的那个)应用于数字属性，把cat_pipeline应用于类别属性:
+from sklearn.compose import ColumnTransformer num_attribs = [&#34;longitude&#34;, &#34;latitude&#34;, &#34;housing_median_age&#34;, &#34;total_rooms&#34;, &#34;total_bedrooms&#34;, &#34;population&#34;, &#34;households&#34;, &#34;median_income&#34;] cat_attribs = [&#34;ocean_proximity&#34;] cat_pipeline = make_pipeline( SimpleImputer(strategy=&#34;most_frequent&#34;), OneHotEncoder(handle_unknown=&#34;ignore&#34;)) preprocessing = ColumnTransformer([ (&#34;num&#34;, num_pipeline, num_attribs), (&#34;cat&#34;, cat_pipeline, cat_attribs), ]) 首先导入ColumnTransformer类，然后定义数字和分类列名的列表，并为分类属性构造一个简单的管道。最后，我们构造了一个列变换器。它的构造函数需要一个三元组(3-tuple)列表，每个三元组包含一个名称(必须是唯一的且不包含双下划线)、一个转换器和一个应该应用转换器的列的名称(或索引)列表。</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-12-11</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/189/"></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/189/"></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/187/" class="thumbnail" title="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935662459.png" alt="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/187/" class="title" title="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）" rel="noopener noreferrer">
+            特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）
+        </a>
+        <a class="abstract" href="/article/187/" title="文章摘要" rel="noopener noreferrer">特征缩放和转换 您需要应用于数据的最重要的转换之一是功能扩展。除了少数例外，机器学习算法在输入数值属性具有非常不同的尺度时表现不佳。住房数据就是这种情况:房间总数约为6至39320间，而收入中位数仅为0至15间。如果没有任何缩放，大多数模型将倾向于忽略收入中位数，而更多地关注房间数。
+有两种常见的方法使所有属性具有相同的尺度:最小-最大尺度和标准化。
+与所有估计器一样，重要的是仅将标量拟合到训练数据:永远不要对训练集以外的任何对象使用fit()或fit_transform()。一旦你有了一个训练好的定标器，你就可以用它来变换()任何其他的集合，包括验证集、测试集和新的数据。请注意，虽然培训集值将始终缩放到指定的范围，但如果新的数据包含异常值，则这些值最终可能会缩放到该范围之外。如果要避免这种情况，只需将剪辑超参数设置为True即可。
+最小-最大缩放(许多人称之为标准化)是最简单的:对于每个属性，值被移位和重新缩放，以便它们最终的范围从0到1。这是通过减去最小值并除以最小值和最大值之间的差来实现的。Scikit-Learn为此提供了一个名为MinMaxScaler的转换器。它有一个feature_range超参数，如果出于某种原因，不希望0-1(例如，神经网络在零均值输入下工作得最好，所以最好在-1到1的范围内工作)。是相当好用的:
+from sklearn.preprocessing import MinMaxScaler min_max_scaler = MinMaxScaler(feature_range=(-1, 1)) housing_num_min_max_scaled = min_max_scaler.fit_transform(housing_num) 标准化是不同的:首先它减去平均值(所以标准化值有一个零均值)，然后它除以标准差(所以标准-化值的标准差等于1)。不像最小最大缩放，标准化化不会将值限制在特定的范围内。然而，标准化受到离群值的影响要小得多。例如，假设一个地区的收入中位数等于100(误打误撞)，而不是通常的0-15。将最小最大值缩放到0-1范围会将这个离群值映射到1并将所有其他值压缩到0-0.15，而标准化不会受到太大影响。Scikit-Learn提供了一个名为StandardScaler的转换器用于标准化:
+from sklearn.preprocessing import StandardScaler std_scaler = StandardScaler() housing_num_std_scaled = std_scaler.fit_transform(housing_num) 如果你想缩放一个稀疏矩阵而不首先将其转换为稠密矩阵，你可以使用一个标准缩放器，它的with_mean超参数设置为False它只会除以标准差，而不会减去均值(因为这会破坏稀疏性
+当特征的分布具有重尾时（即，当远离平均值的值不是指数罕见时），最小-最大缩放和标准化都会将大多数值压缩到一个小范围内。 机器学习模型通常根本不喜欢这种情况，因此，在缩放特征之前，您应该首先对其进行变换以缩小重尾，并且如果可能的话，使分布大致对称。 例如，对于右侧有重尾部的正特征，执行此操作的常见方法是用其平方根替换特征（或将特征提高到 0 到 1 之间的幂）。 如果该特征具有非常长且重的尾部，例如幂律分布，则用其对数替换该特征可能会有所帮助。 例如，人口特征大致遵循幂律：拥有 10,000 名居民的地区的出现频率仅比拥有 1,000 名居民的地区低 10 倍，而不是呈指数级下降。 下图 显示了当你计算它的对数时这个特征看起来有多好：它非常接近高斯分布（即钟形）。
+另一种处理重尾特征的方法是对特征进行反向转换。这意味着将其分布切割成大致相等大小的桶，并将每个特征值替换为它所属的桶的索引，就像我们创建收入猫特征一样(尽管我们只在分层抽样时使用它)。例如，您可以将每个值替换为其百分位数。使用相同大小的bucket处理会产生一个几乎均匀分布的特性，因此不需要进一步的缩放，或者您可以只除以bucket的数目来强制值到0-1的范围。
+当一个特征具有多峰分布(即，有两个或两个以上清晰的峰值，称为模式)时，例housing_median_age特征，对它进行bucket ization也是有帮助的，但这次将bucket ID作为类别处理，而不是作为数值。这意味着必须对桶索引进行编码，例如使用OneHotEncoder(所以你通常不想用太多桶)。这种方法将允许回归模型更容易地为该特征值的不同范围学习不同的规则。例如，也许35年前建造的房子有一种独特的风格，已经过时了，因此它们比它们的年龄更便宜。
+转换多峰分布的另一种方法是为每个模式(至少是主要模式)添加一个特征，表示住房中位年龄和该特定模式之间的相似性。相似性度量通常使用径向基函数(RBF)来计算&ndash;任何只依赖于输入值与不动点之间距离的函数。最常用的RBF是高斯RBF，其输出值随着输入值远离固定点而呈指数衰减。例如，高斯RBF相似度与房龄x和35由方程exp (-y (x-35)2)给出。超参数y(gamma)确定当x远离35时相似性度量衰减的速度。使用Scikit-Learn的rbf_kernel()函数，您可以创建一个新的高斯RBF特征来测量房屋中位年龄和35:
+from sklearn.metrics.pairwise import rbf_kernel age_simil_35 = rbf_kernel(housing[[&#34;housing_median_age&#34;]], [[35]], gamma=0.1) 下图显示了这一新特征作为住房中位数年龄的函数(实线)。它还显示了如果使用较小的gamma值，该功能将是什么样子。如图所示，新的年龄相似性特征在35岁时达到峰值，正好在住房中位年龄分布的峰值附近:如果这个特定的年龄组与较低的价格有很好的相关性，那么这个新特征将有很好的机会发挥作用。
+到目前为止，我们只看了输入特性，但是目标值可能也需要转换。例如，若目标分布具有较重的尾部，您可以选择将目标替换为其对数。但是，如果你这样做，回归模型现在将预测的房屋价值中位数的对数，而不是房屋价值中位数本身。如果您想要预测的房屋中值，则需要计算模型预测的指数值。
+幸运的是，大多数Scikit-Learn的转换器都有一个inverse_transform()方法，这使得计算转换的逆运算变得很容易。例如，下面的代码示例显示了如何使用StandardScaler缩放标签(就像我们对输入所做的那样)，然后在缩放后的标签上训练一个简单的线性回归模型，并使用它对一些新数据进行预测，然后使用经过训练的缩放器的inverse_transform()方法将这些数据转换回原始尺度。请注意，我们将标签从Pandas Series转换为DataFrame，因为标准Scaler期望2D输入。此外，为了简单起见，在本示例中，我们仅使用单个原始输入特征(中值收入)对模型进行训练:
+from sklearn.linear_model import LinearRegression target_scaler = StandardScaler() scaled_labels = target_scaler.</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-11-18</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/187/"></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/187/"></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/186/" class="thumbnail" title="为机器学习算法准备数据（Machine Learning 研习之八）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703934522767.png" alt="为机器学习算法准备数据（Machine Learning 研习之八）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/186/" class="title" title="为机器学习算法准备数据（Machine Learning 研习之八）" rel="noopener noreferrer">
+            为机器学习算法准备数据（Machine Learning 研习之八）
+        </a>
+        <a class="abstract" href="/article/186/" title="文章摘要" rel="noopener noreferrer">本文还是同样建立在前两篇的基础之上的！
+属性组合实验 希望前面的部分能让您了解探索数据并获得洞察力的几种方法。您发现了一些数据怪癖，您可能希望在将数据提供给机器学习算法之前对其进行清理，并且发现了属性之间有趣的相关性，特别是与目标属性 之间的相关性。您还注意到一些属性具有向右倾斜的分布，因此您可能需要转换它们(例如，通过计算它们的对数或平方根)。当然，你的里程会因每个项目而有很大的不同，但大致的想法是相似的。
+在为机器学习算法准备数据之前，您可能需要做的最后一件事是尝试各种属性组合。例如，如果你不知道一个地区有多少住户，那么这个地区的房间总数就不是很有用。你真正想要的是每个家庭的房间数量。同样，卧室总数本身也不是很有用:你可能想对比一下房间的数量。每个家庭的人口似乎也是一个有趣的属性组合。创建这些新属性如下:
+housing[&#34;rooms_per_house&#34;] = housing[&#34;total_rooms&#34;] / housing[&#34;households&#34;] housing[&#34;bedrooms_ratio&#34;] = housing[&#34;total_bedrooms&#34;] / housing[&#34;total_rooms&#34;] housing[&#34;people_per_house&#34;] = housing[&#34;population&#34;] / housing[&#34;households&#34;] 然后你再看一遍相关矩阵:
+!新的bedrooms_ratio属性与房屋中值的相关性要比与房间或卧室总数的相关性大得多。显然，卧室/房间比率较低的房子往往更贵。每个家庭的房间数量也比一个地区的房间总数更能说明问题-很明显，房 子越大，就越贵。
+这一轮的探索不需要绝对彻底;关键是从正确的角度出发，并迅速获得见解，这将帮助您获得第一个相当好的原型。但是这是一个迭代的过程:一旦你建立并运行了一个原型，你就可以分析它的输出以获得更多的见解，然后再回到这个探索步骤。
+为机器学习算法准备数据 是时候为您的机器学习算法准备数据了。你应该为此编写函数，而不是手工操作，这有几个很好的理由:
+这将允许您在任何数据集上轻松重现这些转换(例如，下次获得新数据集时)。 您将逐步构建一个转换函数库，以便在未来的项目中重用。 您可以在实时系统中使用这些函数来转换新数据，然后再将其输入到您的算法中。 这将使您能够轻松地尝试各种转换，并查看哪种转换组合效果最好。 但首先，恢复到一个干净的训练集(通过再次复制strat_train_set)。您还应该将预测变量和标签分开，因为您不一定希望对预测变量和目标值应用相同的转换(请注意，drop()创建数据的副本，并且不影响strat_train_set):
+housing = strat_train_set.drop(&#34;median_house_value&#34;, axis=1) housing_labels = strat_train_set[&#34;median_house_value&#34;].copy() 清除数据 大多数机器学习算法无法处理缺失的功能，因此您需要处理这些功能。例如，您之前注意到total_bedrooms属性有一些缺失值。你有三个选项可以解决这个问题:
+去掉相应的区。
+去掉整个属性。
+将缺失值设置为某个值(零、均值、中位数等)。这就是所谓的归罪。
+您可以使用PandasDataFrame的dropna () 、drop () 和fillna ()方法轻松完成这些任务:
+housing.dropna(subset=[&#34;total_bedrooms&#34;], inplace=True) # option 1 housing.drop(&#34;total_bedrooms&#34;, axis=1) # option 2 median = housing[&#34;total_bedrooms&#34;].median() # option 3 housing[&#34;total_bedrooms&#34;].fillna(median, inplace=True) 您决定使用选项3，因为它的破坏性最小，但是您将使用一个方便的Scikit-Learn类:Simplelmputer，而不是前面的代码。这样做的好处是，它将存储每个特征的中值:这将使得它不仅可以估算训练集上的缺失值，还可以估算验证集、测试集和输入到模型的任何新数据上的缺失值。要使用它，首先需要创建一个Simplelmputer实例，指定要将每个属性的缺失值替换为该属性的中位数:
+from sklearn.</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-11-05</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/186/"></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/186/"></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/188/" class="thumbnail" title="端到端的机器学习项目之探索数据（Machine Learning 研习之七）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936058408.png" alt="端到端的机器学习项目之探索数据（Machine Learning 研习之七）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/188/" class="title" title="端到端的机器学习项目之探索数据（Machine Learning 研习之七）" rel="noopener noreferrer">
+            端到端的机器学习项目之探索数据（Machine Learning 研习之七）
+        </a>
+        <a class="abstract" href="/article/188/" title="文章摘要" rel="noopener noreferrer">本篇其实是承接上一篇内容，之所以没在上一篇将它写完，那是有原因的，毕竟，本着学习的态度，篇幅不应过长，方能使你有学习的欲望！
+探索数据 首先，确保你已经把测试放在一边，你只是在探索训练集。此外，如果训练集非常大，您可能希望对探索进行采样设置，使操作在勘探阶段变得容易和快速。在这种情况下，培训集非常小，所以您可以直接处理完整集。由于你要试验完整训练集的各种变换，你应该制作一份原始的所以你可以在之后恢复它:
+housing = strat_train_set.copy() 可视化地理数据 因为数据集包括地理信息(纬度和经度)，所以创建一个所有地区的散点图来可视化数据是一个好主意(见下图):
+housing.plot(kind=&#34;scatter&#34;, x=&#34;longitude&#34;, y=&#34;latitude&#34;, grid=True) plt.show() 这看起来很像加州，但除此之外，很难看到任何特别的模式。将alpha选项设置为0.2可以更容易地显示数据点密度高的位置(见下图):
+housing.plot(kind=&#34;scatter&#34;, x=&#34;longitude&#34;, y=&#34;latitude&#34;, grid=True, alpha=0.2) plt.show() 现在的情况要好得多:你可以清楚地看到高密度地区，即海湾地区、洛杉矶和圣地亚哥周围，再加上中央山谷(特别是萨克拉门托和弗雷斯诺)的一长排高密度地区。
+我们的大脑非常善于发现图片中的模式，但你可能需要玩弄可视化参数，使模式脱颖而出。
+接下来，你再看看房价(见下图)。每个圆圈的半径代表该地区的人口(选项s)，颜色代表价格(选项c)。这里使用了一个名为jet的预定义颜色映射(选项cmap)，其范围从蓝色(低值)到红色(高价):s
+housing.plot(kind=&#34;scatter&#34;, x=&#34;longitude&#34;, y=&#34;latitude&#34;, grid=True, s=housing[&#34;population&#34;] / 100, label=&#34;population&#34;, c=&#34;median_house_value&#34;, cmap=&#34;jet&#34;, colorbar=True, legend=True, sharex=False, figsize=(10, 7)) plt.show() 这张图告诉你，房价与地理位置(例如，靠近大海)和人口密度密切相关，你可能已经知道了。聚类算法对于检测主集群和添加测量与集群中心的邻近性的新特性应该是有用的。海洋邻近属性也可能是有用的，尽管在北加州沿海地区的房价不是太高，所以这不是一个简单的规则。
+寻找相关性 由于数据集不是太大，你可以很容易地使用corr()方法计算每对属性之间的标准相关系数(也称为皮尔逊相关系数):
+corr_matrix = housing.corr() 现在您可以查看每个属性与房屋中值的相关性:
+相关系数从-1到1。当它接近1时，意味着有很强的正相关关系，例如，当收入中位数上升时，房屋价值中位数往往会上升。当系数接近-1时，意味着有很强的负相关性;你可以看到纬度和房屋价值中间值之间有一个很小的负相关性(即往北走，房价有轻微的下降趋势)。最后，系数接近0意味着不存在线性相关关系。
+检查属性之间相关性的另一种方法是使用Pandas scatter_matrix ()函数，该函数将每个数值属性与其他每个数值属性进行绘图。由于现在有11个数字属性，您将得到112=121幅不适合页面的地块，所以您决定将重点放在一些看起来与住房中值最相关的有前途的属性上(见下图):
+如果Pandas将每个变量相对于自身绘制，那么主对角线将充满直线，这将不是很有用。因此，Pandas显示每个属性的直方图(其他选项可用;请参阅Pandas文档以获取更多详细信息)。
+查看相关散点图，似乎最有希望预测房屋价值中位数的属性是收入中位数，所以你放大他们的散点图(见下图):
+housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_house_value&#34;, alpha=0.1, grid=True) plt.show() 这个情节揭示了一些事情。首先，相关性确实很强;你可以清楚地看到上升的趋势，而且点也不太分散。第二，你之前注意到的价格上限在500，000美元的水平线上明显可见。但这个情节也揭示了其他不那么明显的直线:一条水平线在45万美元左右，另一条大约35万美元左右，也许还有一条大约28万美元，还有几条低于这一点。您可能希望尝试删除相应的区域，以防止您的算法学习重现这些数据怪癖。
+警告：
+相关系数只测量线性相关性(“当x上升时，y通常上升/下降”)。它可能会完全忽略非线性关系(例如，“当x接近0时，y通常会上升”)。图2-16显示了各种数据集及其相关系数。请注意，尽管它们的轴线显然不是独立的，但底部行的所有图都具有等于0的相关系数:这些都是非线性关系的例子。另外，第二行显示了相关系数等于1或-1的示例;注意，这与斜率无关。例如，以英寸为单位的身高与以英尺或纳米为单位的身高的相关系数为1。</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-10-24</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/188/"></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/188/"></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/183/" class="thumbnail" title="端到端的机器学习项目（Machine Learning 研习之六）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936717743.png" alt="端到端的机器学习项目（Machine Learning 研习之六）">
 
 
 
@@ -834,238 +1119,6 @@ hugo-theme-kiwi V0.01已实现如下功能：
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
                     <span itemprop="name">[Machine Learning 人工智能]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/179/" class="thumbnail" title="现实生活中机器学习的具体示例（Machine Learning 研习之二）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1689995834152.png" alt="现实生活中机器学习的具体示例（Machine Learning 研习之二）">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/179/" class="title" title="现实生活中机器学习的具体示例（Machine Learning 研习之二）" rel="noopener noreferrer">
-            现实生活中机器学习的具体示例（Machine Learning 研习之二）
-        </a>
-        <a class="abstract" href="/article/179/" title="文章摘要" rel="noopener noreferrer"><p>在上一篇，我们初步了解什么是机器学习，以及它能给我们带来，相对于传统编程解决更为优先、易于维护的一套解决方案。那么，本文将继续为您举例，机器学习给我们生活上带来哪些便捷。</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-07-17</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/179/"></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/179/"></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[Machine Learning 人工智能]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/178/" class="thumbnail" title="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1689400380334.png" alt="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/178/" class="title" title="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）" rel="noopener noreferrer">
-            让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）
-        </a>
-        <a class="abstract" href="/article/178/" title="文章摘要" rel="noopener noreferrer"><p>让机器学习不再是过门不入，跟着【秋码】一起研习机器学习（Machine Learning），探究什么是机器学习？以及为何我们要去使用机器学习呢？毕竟未来是属于人工智能（Ai）的，引领潮流的往往是新事物，这一次，您可不要再错过了！抓住它，就等于握住了穿梭未来的时光机。</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-07-15</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/178/"></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/178/"></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[Machine Learning 人工智能]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/177/" class="thumbnail" title="把握住golang中的template，方能驾驭得了Hugo主题的template" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1688803831548.png" alt="把握住golang中的template，方能驾驭得了Hugo主题的template">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/177/" class="title" title="把握住golang中的template，方能驾驭得了Hugo主题的template" rel="noopener noreferrer">
-            把握住golang中的template，方能驾驭得了Hugo主题的template
-        </a>
-        <a class="abstract" href="/article/177/" title="文章摘要" rel="noopener noreferrer"><p>不置可否，<code>Hugo</code>的<code>template</code>同样是使用<code>golang</code>的标准库<code>html/template</code>。为了能实现一个属于自己独特的<code>Hugo theme</code>，或是修改他人的主题，都得对其<code>模板语法</code>有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的<code>Hugo theme</code>。</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-07-08</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/177/"></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/177/"></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[golang 模板]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/176/" class="thumbnail" title="云服务器到期，站点迁移，Nginx配置SSL以备后续只需！" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1687504537619.png" alt="云服务器到期，站点迁移，Nginx配置SSL以备后续只需！">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/176/" class="title" title="云服务器到期，站点迁移，Nginx配置SSL以备后续只需！" rel="noopener noreferrer">
-            云服务器到期，站点迁移，Nginx配置SSL以备后续只需！
-        </a>
-        <a class="abstract" href="/article/176/" title="文章摘要" rel="noopener noreferrer"><p>三年前（2020-06-20 上午11点左右），各大云厂商<code>6.18</code>活动还在进行中。一番对比下来，最终还是选择了<code>腾讯云</code>。然而三年的期限，犹如电光火石一般，眨眼间就过去了。可云服务器到期了，却没有了续费的打算，其中缘由说与谁人听呢？</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-06-20</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/176/"></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/176/"></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[云服务器 Nginx]</span>
                   </a>
                 </span>
                 
@@ -1306,6 +1359,10 @@ hugo-theme-kiwi V0.01已实现如下功能：
             <li class="item">
                 <a style="background:#4C83FF" href="/tags/channel/" title="channel">channel</a>
             </li>
+
+                
+
+                
 
                 
 
