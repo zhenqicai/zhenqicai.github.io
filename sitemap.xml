@@ -5,6 +5,9 @@
     <loc>/article/184/</loc>
     <lastmod>2023-12-30T11:47:17+08:00</lastmod>
   </url><url>
+    <loc>/article/185/</loc>
+    <lastmod>2023-12-24T23:27:17+08:00</lastmod>
+  </url><url>
     <loc>/categories/</loc>
     <lastmod>2023-12-30T11:47:17+08:00</lastmod>
   </url><url>
@@ -28,6 +31,18 @@
   </url><url>
     <loc>/tags/%E8%B4%9F%E9%87%8D%E5%89%8D%E8%A1%8C/</loc>
     <lastmod>2023-12-30T11:47:17+08:00</lastmod>
+  </url><url>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2023-12-24T23:27:17+08:00</lastmod>
+  </url><url>
+    <loc>/categories/hugo/</loc>
+    <lastmod>2023-12-24T23:27:17+08:00</lastmod>
+  </url><url>
+    <loc>/tags/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/</loc>
+    <lastmod>2023-12-24T23:27:17+08:00</lastmod>
+  </url><url>
+    <loc>/tags/%E5%BB%BA%E7%AB%99/</loc>
+    <lastmod>2023-12-24T23:27:17+08:00</lastmod>
   </url><url>
     <loc>/tags/machine-learning/</loc>
     <lastmod>2023-10-14T17:02:17+08:00</lastmod>
@@ -87,9 +102,6 @@
     <lastmod>2023-07-15T10:18:38+08:00</lastmod>
   </url><url>
     <loc>/categories/golang/</loc>
-    <lastmod>2023-07-08T15:18:38+08:00</lastmod>
-  </url><url>
-    <loc>/tags/hugo/</loc>
     <lastmod>2023-07-08T15:18:38+08:00</lastmod>
   </url><url>
     <loc>/tags/template/</loc>
