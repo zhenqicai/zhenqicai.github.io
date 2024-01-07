@@ -32,17 +32,17 @@
 
 
 <style>
-    @font-face {
-        font-family: 'Xc Font';
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-        src: url('https://cdn.jsdelivr.net/gh/Xpblog666/cdn@1.0/HarmonyOS_Sans_SC_Medium.ttf');
-        src: url('https://cdn.jsdelivr.net/gh/Xpblog666/cdn@1.0/HarmonyOS_Sans_SC_Medium.ttf') format('truetype');
-    }
 
+@font-face {
+    font-family: "Kiwi Font";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+      src: url("/fonts/fontawesome-webfont.woff2") format("woff2");
+  }
+ 
     html {
-        font-family: 'Xc Font', 'PingFang SC', 'Noto Serif SC', 'HarmonyOS_Sans_SC_Medium', 'Fira Mono', 'Microsoft YaHei', Arial, sans-serif
+        font-family: 'Kiwi Font', 'PingFang SC', 'Noto Serif SC', 'HarmonyOS_Sans_SC_Medium', 'Fira Mono', 'Microsoft YaHei', Arial, sans-serif
     }
 
     html .Qc_header_above .Qc_container {
@@ -85,8 +85,6 @@
      crossorigin="anonymous"></script>
 
 
-
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
 
 
 
@@ -203,20 +201,169 @@
 </head>
 
 <body>
-	<header class="Qc_header  active Qc_slid">
-<div class="Qc_header_above">
-    <div class="Qc_container"> 
-        <svg class="Qc_header_above-slideicon" viewBox="0 0 1152 1024"
-            xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-            <path
-                d="M76.032 872a59.968 59.968 0 1 0 0 120h999.936a59.968 59.968 0 1 0 0-120H76.032zm16-420.032a59.968 59.968 0 1 0 0 120h599.936a59.968 59.968 0 1 0 0-119.936H92.032zM76.032 32a59.968 59.968 0 1 0 0 120h999.936a60.032 60.032 0 0 0 0-120H76.032z" />
-        </svg> 
-        <a class="Qc_header_above-logo" href="/" title="John'Blog"> 
-            <img class="Qc_logo"
-                src="/static/front/images/qiu-logo.png" /></a>
-        <nav class="Qc_header_above_nav"> 
-            
-            <a class="item  active " href="/" title="首页" style="margin-right:8px">
+	 <header class="joe_header"><style>
+   
+
+
+     
+
+
+    .kiwi_container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-direction:normal}
+
+    .kiwi_header__above-logo svg,.kiwi_header__above-nav .kiwi_dropdown__menu a::after{
+    display:none}
+    
+    #Joe .kiwi_leaving-list .emoji-item,#Joe .newreply .emoji-item{display:inline-block;margin:0 2px;padding:0;width:24px;height:24px;overflow:hidden}@media (max-width:860px){#Joe .kiwi_leaving-list .emoji-item,#Joe .newreply .emoji-item{-webkit-transform:scale(.8);transform:scale(.8)}}#Joe .kiwi_leaving-list .emoji-item img,#Joe .newreply .emoji-item img{display:block;width:24px;height:24px;border:0}#Joe .kiwi_leaving-list .emoji-animate,#Joe .newreply .emoji-animate{position:relative}#Joe .newreply .emoji-animate .img{cursor:default}#Joe .kiwi_leaving-list .emoji-animate .img{cursor:default;width:24px;height:24px}#Joe .kiwi_leaving-list .emoji-animate .img:hover,#Joe .kiwi_leaving-list .emoji-img:hover,#Joe .newreply .emoji-animate .img:hover,#Joe .newreply .emoji-img:hover{-webkit-transform:translateY(0);transform:translateY(0)}#Joe .newreply .emoji-img{position:relative;cursor:default}#Joe .kiwi_leaving-list .emoji-img{position:relative;cursor:default;width:20px;height:20px}#Joe .newreply .emoji-animate{top:5px}#Joe .newreply .emoji-animate .img{width:24px;height:24px}#Joe .newreply .emoji-img{top:-3px;width:20px;height:20px}.kiwi_container{-webkit-box-orient:horizontal;-ms-flex-direction:row;flex-direction:row;width:100%;margin:0 auto 30px;padding:0 15px}.kiwi_container.revert{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.kiwi_container.revert .kiwi_aside{margin-left:0;margin-right:15px}.kiwi_container img{max-width:100%}.kiwi_container pre code{overflow-x:auto}.kiwi_container code:not([class]){display:inline-block;font-size:13px;color:var(--code);margin:2px 5px;padding:0 8px;white-space:normal;text-indent:0;-webkit-user-select:auto;-moz-user-select:auto;-ms-user-select:auto;user-select:auto;vertical-align:baseline;word-break:break-word;background:var(--code-background);border-radius:var(--radius-inner)}.kiwi_container .code-toolbar{position:relative;margin:20px 0;overflow:hidden;-webkit-box-shadow:1px 1px 5px 0 var(--shadow-code);box-shadow:1px 1px 5px 0 var(--shadow-code);border-radius:8px}.kiwi_container .code-toolbar .toolbar{pointer-events:none;display:none;opacity:1;left:0;right:0;top:0;z-index:unset;height:30px;line-height:30px;text-align:center}.kiwi_container .code-toolbar .toolbar .toolbar-item{opacity:1;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.kiwi_container .code-toolbar .toolbar .toolbar-item span{font-weight:700;font-size:14px;color:#999;background:0 0;border:0;-webkit-box-shadow:none;box-shadow:none}.kiwi_container .code-toolbar .toolbar .toolbar-item span:hover{color:#999}.kiwi_container .code-toolbar .toolbar .toolbar-item:last-child{display:none}.kiwi_container .code-toolbar .toolbar .autofold-tip{padding-left:5px;font-size:12px}.kiwi_container .code-toolbar pre[class*=language-]{position:relative;margin:0;padding:20px 0 0;-webkit-user-select:auto;-moz-user-select:auto;-ms-user-select:auto;user-select:auto;font-size:16px;overflow:hidden;white-space:pre;text-shadow:none;border-radius:8px}.kiwi_container .code-toolbar pre[class*=language-] code[class*=language-]{display:block;margin-bottom:0;overflow-x:auto;-webkit-overflow-scrolling:touch;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding:0 12px 12px 18px;border-radius:0 0 8px 8px;text-shadow:none}.kiwi_container .code-toolbar pre[class*=language-] code[class*=language-] .token.operator,.kiwi_container .code-toolbar pre[class*=language-] code[class*=language-] .token.string{background:0 0}.kiwi_container .code-toolbar pre[class*=language-] .line-numbers-rows{left:0;top:0;bottom:0;padding-top:12px;border:0}.kiwi_container .code-toolbar pre[class*=language-] .code-expander,.kiwi_container .code-toolbar pre[class*=language-] .copy-button{cursor:pointer;position:absolute;right:10px;top:5px;z-index:2;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-size:14px;color:#999;-webkit-transition:all .25s;transition:all .25s}.kiwi_container .code-toolbar pre[class*=language-] .code-expander:hover,.kiwi_container .code-toolbar pre[class*=language-] .copy-button:hover{-webkit-filter:brightness(1.2);filter:brightness(1.2)}.kiwi_container .code-toolbar pre[class*=language-] .copy-button{top:3px;z-index:5;font-weight:700;-webkit-transition:opacity .25s;transition:opacity .25s}.kiwi_container .code-toolbar pre[class*=language-].c_title+.toolbar{display:block}.kiwi_container .code-toolbar pre[class*=language-].c_title code{padding:12px 12px 12px 18px}.kiwi_container .code-toolbar pre[class*=language-].c_hr{padding:30px 0 0}.kiwi_container .code-toolbar pre[class*=language-].c_hr:after{position:absolute;top:30px;z-index:1;content:"";width:100%;height:1px;background:#d8d8d8;mix-blend-mode:overlay}.kiwi_container .code-toolbar pre[class*=language-].c_hr code{padding:12px 12px 14px 18px}.kiwi_container .code-toolbar pre[class*=language-].c_macdot:before{content:"";position:absolute;top:9px;left:12px;z-index:1;width:12px;height:12px;border-radius:50%;background:#fc625d;-webkit-box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;box-shadow:20px 0 #fdbc40,40px 0 #35cd4b}.kiwi_container .code-toolbar pre[class*=language-].c_newline code{white-space:pre-wrap;word-break:break-all}.kiwi_container .code-toolbar pre[class*=language-].c_hover_tools .code-expander,.kiwi_container .code-toolbar pre[class*=language-].c_hover_tools .copy-button{pointer-events:none;opacity:0}.kiwi_container .code-toolbar pre[class*=language-].c_hover_tools:hover .code-expander,.kiwi_container .code-toolbar pre[class*=language-].c_hover_tools:hover .copy-button{pointer-events:auto;opacity:1}.kiwi_container .code-toolbar pre[class*=language-].c_copy,.kiwi_container .code-toolbar pre[class*=language-].c_copy code{-webkit-user-select:auto;-moz-user-select:auto;-ms-user-select:auto;user-select:auto}.kiwi_container .code-toolbar pre[class*=language-].c_copy .code-expander{right:40px}.kiwi_container .code-toolbar pre[class*=language-].line-numbers code{padding:12px 12px 16px 54px}.kiwi_container .code-toolbar pre[class*=language-].close{height:30px}.kiwi_container .code-toolbar pre[class*=language-].close .code-expander{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.kiwi_container .code-toolbar pre[class*=language-].close:after{visibility:hidden}.kiwi_main{min-width:0;-webkit-box-flex:1;-ms-flex:1;flex:1;padding-bottom:15px}.kiwi_dropdown{position:relative}.kiwi_dropdown__link{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.kiwi_dropdown__link-icon{-webkit-transition:-webkit-transform .35s;transition:transform .35s;transition:transform .35s,-webkit-transform .35s;margin-left:-12px}.kiwi_dropdown__menu{position:absolute;left:50%;visibility:hidden;z-index:5;border-top:3px solid var(--theme);-webkit-transform-origin:top;transform-origin:top;background:var(--sib-background);-webkit-box-shadow:0 0 10px rgba(0,0,0,.15);box-shadow:0 0 10px rgba(0,0,0,.15);border-radius:0 0 var(--radius-inner) var(--radius-inner);padding:10px 0;opacity:0;-webkit-transform:translateX(-50%) perspective(600px) rotateX(-45deg);transform:translateX(-50%) perspective(600px) rotateX(-45deg);-webkit-transition:opacity .35s,visibility .35s,-webkit-transform .35s;transition:opacity .35s,visibility .35s,transform .35s;transition:opacity .35s,visibility .35s,transform .35s,-webkit-transform .35s}.kiwi_dropdown__menu::before{content:"";position:absolute;top:-10px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:7px solid var(--theme)}.kiwi_dropdown.active .kiwi_dropdown__link-icon{-webkit-transform:rotate(-180deg);transform:rotate(-180deg)}.kiwi_dropdown.active .kiwi_dropdown__menu{visibility:visible;opacity:1;-webkit-transform:translateX(-50%) perspective(600px) rotateX(0);transform:translateX(-50%) perspective(600px) rotateX(0)}.kiwi_header{position:relative;z-index:100;height:60px}.kiwi_header .kiwi_container{margin:0 auto}.kiwi_header .full{max-width:100%!important}
+    
+    .kiwi_header__above{position:fixed;top:0;z-index:6;width:100%;background:var(--background);-webkit-box-shadow:0 2px 10px 0 rgba(0,0,0,.2);box-shadow:0 2px 10px 0 rgba(0,0,0,.2);-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);will-change:opacity,transform;-webkit-transition:opacity,-webkit-transform .35s;transition:opacity,transform .35s;transition:opacity,transform .35s,-webkit-transform .35s}
+    
+    .kiwi_header__above .kiwi_container{-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;min-height:44px;max-width:auto!important}
+    
+    .kiwi_header__above-logo{position:relative;height:60px;margin-right:10px;padding-right:18px}
+    
+    .kiwi_header__above-logo img{min-width:40px;max-width:150px;height:40px;-o-object-fit:cover;object-fit:cover}
+    
+    .kiwi_header__above-logo::after{content:"";position:absolute;top:50%;right:0;width:1px;height:20px;background:var(--classC);-webkit-transform:translateY(-50%);transform:translateY(-50%)}
+    
+    .kiwi_header__above-logo,.kiwi_header__above-nav,.kiwi_header__above-nav .item{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+    
+    .kiwi_header__above-nav .item{cursor:pointer;position:relative;height:60px;line-height:60px;font-size:15px;padding:0 8px;margin-right:10px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;white-space:nowrap;color:var(--main);-webkit-transition:color .35s;transition:color .35s}
+    
+    .kiwi_header__above-nav .item>i{display:inline-block;margin-right:4px;font-size:18px;-webkit-transition:-webkit-transform .5s;transition:transform .5s;transition:transform .5s,-webkit-transform .5s}
+    
+    .kiwi_header__above-nav .item:last-child{margin-right:0}
+    
+    .kiwi_header__above-nav .item::after{opacity:0;position:absolute;bottom:0;left:6px;right:6px;content:"";height:3px;-webkit-transform:scaleX(.25);transform:scaleX(.25);background:var(--theme);border-radius:6px 6px 0 0;-webkit-transition:opacity .5s,-webkit-transform .5s;transition:opacity .5s,transform .5s;transition:opacity .5s,transform .5s,-webkit-transform .5s}
+    
+    
+    .kiwi_header__above-nav .item.current,.kiwi_header__above-nav .item:hover{color:var(--theme)}
+    
+    .kiwi_header__above-nav .item.current::after,.kiwi_header__above-nav .item.current:hover::after{opacity:1;-webkit-transform:scaleX(1);transform:scaleX(1)}
+    
+    .kiwi_header__above-nav .item:hover::after{opacity:.3;-webkit-transform:scaleX(.7);transform:scaleX(.7)}
+    
+    .kiwi_header__above-nav .item:hover+.joe-icon-arrow-down,.kiwi_header__above-nav .kiwi_dropdown.active .kiwi_dropdown__link a,.kiwi_header__above-nav .kiwi_dropdown.active .kiwi_dropdown__link i{color:var(--theme)!important}
+    
+    .kiwi_header__above-nav.active-shadow .item.current{text-shadow:0 4px 20px var(--theme)}
+    
+    .kiwi_header__above-nav.active-animate .item:hover .m-icon{-webkit-animation:dung .3s .12s ease;animation:dung .3s .12s ease}
+    
+    .kiwi_header__above-nav .kiwi_dropdown{margin-right:15px}
+    
+    .kiwi_header__above-nav .kiwi_dropdown__link a{height:60px;line-height:60px;font-size:15px;padding-left:8px;padding-right:3px;-webkit-transition:color .35s;transition:color .35s;white-space:nowrap;color:var(--main)}
+    
+    .kiwi_header__above-nav .kiwi_dropdown__menu{min-width:90px;max-width:200px;text-align:center}
+    
+    .kiwi_header__above-nav .kiwi_dropdown__menu a{display:block;height:34px;margin-right:0;line-height:34px;color:var(--classF);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 15px;-webkit-transition:color .35s,background .35s;transition:color .35s,background .35s}
+    
+    .kiwi_header__above-nav .kiwi_dropdown__menu a.current,.kiwi_header__above-nav .kiwi_dropdown__menu a:hover{color:var(--theme);background:var(--sib)}
+    
+    .kiwi_header__above-nav .kiwi_dropdown .item:hover:after,.kiwi_header__above-nav .kiwi_dropdown.active .kiwi_dropdown__link a::after,.kiwi_header__above-nav .kiwi_dropdown.active .kiwi_dropdown__link i::after{display:none}.kiwi_header__above-nav .kiwi_nav_sub-li{position:relative;height:34px}.kiwi_header__above-nav .kiwi_nav_sub-li .m-icon{vertical-align:bottom}
+    
+    .kiwi_header__above-nav .kiwi_nav_sub-li:hover .kiwi_nav_sub{visibility:visible;opacity:1;-webkit-transform:translateX(0) perspective(600px) rotateY(0);transform:translateX(0) perspective(600px) rotateY(0)}
+    
+    .kiwi_header__above-nav .kiwi_nav_sub{visibility:hidden;z-index:10;-webkit-transform-origin:top;transform-origin:top;opacity:0;position:relative;left:100%;top:-34px;padding-left:7px;-webkit-box-shadow:7px 3px 8px 0 rgba(0,0,0,.15);box-shadow:7px 3px 8px 0 rgba(0,0,0,.15);border-radius:0 var(--radius-inner) var(--radius-inner) 0;-webkit-transform:translateX(-20%) perspective(600px) rotateY(-45deg);transform:translateX(-20%) perspective(600px) rotateY(-45deg);-webkit-transition:opacity .35s,visibility .35s,-webkit-transform .35s;transition:opacity .35s,visibility .35s,transform .35s;transition:opacity .35s,visibility .35s,transform .35s,-webkit-transform .35s}
+    .kiwi_header__above-nav .kiwi_nav_sub::before{position:absolute;top:10px;left:0;content:"";-webkit-transform:translateX(-50%);transform:translateX(-50%);width:0;height:0;border:7px solid transparent;border-right-color:var(--theme)}
+    .kiwi_header__above-nav .kiwi_nav_sub::after{position:absolute;top:0;left:7px;content:"";width:2px;height:100%;background:var(--theme)}.kiwi_header__above-nav .kiwi_nav_sub li{background:var(--sib-background)}.kiwi_header__above-search,.kiwi_header__above-search-mobile{position:relative;margin-left:auto;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.kiwi_header__above-search .input,.kiwi_header__above-search-mobile .input{background:var(--classC);width:170px;height:34px;border:1px solid transparent;padding:0 14px 0 16px;color:var(--routine);-webkit-transition:width .35s,border-color .35s,padding-right .35s;transition:width .35s,border-color .35s,padding-right .35s;border-radius:17px 0 0 17px}.kiwi_header__above-search .input:focus,.kiwi_header__above-search-mobile .input:focus{background:var(--background);border-color:var(--theme);padding-right:28px;width:170px}.kiwi_header__above-search .input:focus~.icon,.kiwi_header__above-search-mobile .input:focus~.icon{-webkit-transform:translate3d(0,-50%,0) rotateY(180deg);transform:translate3d(0,-50%,0) rotateY(180deg)}.kiwi_header__above-search .submit,.kiwi_header__above-search-mobile .submit{position:relative;z-index:1;width:50px;height:34px;color:#fff;border:0;background:var(--theme);border-radius:0 17px 17px 0}.kiwi_header__above-search .submit i,.kiwi_header__above-search-mobile .submit i{-webkit-transform-origin:right bottom;transform-origin:right bottom;font-size:20px}.kiwi_header__above-search .submit:hover i,.kiwi_header__above-search-mobile .submit:hover i{-webkit-animation:swag .3s ease infinite alternate;animation:swag .3s ease infinite alternate}.kiwi_header__above-search .icon,.kiwi_header__above-search-mobile .icon{position:absolute;top:50%;right:44px;width:28px;height:38px;background:url(data:image/png;base64,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);background-size:100% 100%;-webkit-transition:-webkit-transform .35s;transition:transform .35s;transition:transform .35s,-webkit-transform .35s;-webkit-transform:translate3d(100%,-50%,0) rotateY(180deg);transform:translate3d(100%,-50%,0) rotateY(180deg)}.kiwi_header__above-search .result,.kiwi_header__above-search-mobile .result{position:absolute;z-index:2;top:60px;left:0;right:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;visibility:hidden;opacity:0;background:var(--sib-background);-webkit-box-shadow:0 0 10px rgba(0,0,0,.15);box-shadow:0 0 10px rgba(0,0,0,.15);border-radius:var(--radius-inner);-webkit-transition:visibility .35s,opacity .35s,-webkit-transform .35s;transition:visibility .35s,opacity .35s,transform .35s;transition:visibility .35s,opacity .35s,transform .35s,-webkit-transform .35s;-webkit-transform:translate3d(0,15px,0);transform:translate3d(0,15px,0)}.kiwi_header__above-search .result.active,.kiwi_header__above-search-mobile .result.active{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);opacity:1;visibility:visible}.kiwi_header__above-search .result .item,.kiwi_header__above-search-mobile .result .item{height:40px;line-height:40px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;overflow:hidden;padding:0 10px;border-bottom:1px solid var(--classD);-webkit-transition:background .35s;transition:background .35s}.kiwi_header__above-search .result .item:last-child,.kiwi_header__above-search-mobile .result .item:last-child{border-bottom:none}.kiwi_header__above-search .result .item:nth-child(1) .sort,.kiwi_header__above-search-mobile .result .item:nth-child(1) .sort{background:#fe2d46}.kiwi_header__above-search .result .item:nth-child(2) .sort,.kiwi_header__above-search-mobile .result .item:nth-child(2) .sort{background:#f60}.kiwi_header__above-search .result .item:nth-child(3) .sort,.kiwi_header__above-search-mobile .result .item:nth-child(3) .sort{background:#faa90e}.kiwi_header__above-search .result .item:hover,.kiwi_header__above-search-mobile .result .item:hover{background:var(--classC)}.kiwi_header__above-search .result .item .sort,.kiwi_header__above-search-mobile .result .item .sort{color:#fff;background:#7f7f8c;width:18px;height:18px;line-height:18px;border-radius:2px;text-align:center;margin-right:8px;font-weight:500}.kiwi_header__above-search .result .item .text,.kiwi_header__above-search-mobile .result .item .text{-webkit-box-flex:1;-ms-flex:1;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--routine);font-size:12px}.kiwi_header__above-search .result .item .views,.kiwi_header__above-search-mobile .result .item .views{color:var(--seat);font-size:12px;margin-left:5px}.kiwi_header__above-search-mobile input{-webkit-box-flex:1;-ms-flex:1;flex:1;width:100%}.kiwi_header__above-searchicon{display:none;cursor:pointer;font-size:23px!important;color:var(--routine)}.kiwi_header__above-slideicon{display:none;cursor:pointer;width:20px;height:20px;color:var(--routine)}.kiwi_header__above.active{-webkit-transform:translate3d(0,-60px,0);transform:translate3d(0,-60px,0)}.kiwi_header__above.glass{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);background:var(--glass-background)}
+    
+    .kiwi_header__above.solid{-webkit-backdrop-filter:unset;backdrop-filter:unset;background:var(--background);-webkit-box-shadow:unset;box-shadow:unset}.kiwi_header__below{position:relative;border-top:1px solid var(--classC);height:45px}.kiwi_header__below-title{max-width:450px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;display:none;line-height:45px;font-size:17px;font-weight:700;color:var(--main);-webkit-animation:showHeaderTitle .35s;animation:showHeaderTitle .35s}
+
+    .kiwi_header{position:relative;z-index:100;height:60px}.kiwi_header .kiwi_container{margin:0 auto}.kiwi_header .full{max-width:100%!important}
+
+    .kiwi_header__searchout {
+      position: absolute;
+      top: 60px;
+      left: 20%;
+      right: 0;
+      z-index: 85;
+      background: var(--background);
+      border-top: 1px solid var(--classC);
+      -webkit-transform: translate3d(0,-100%,0);
+      transform: translate3d(0,-100%,0);
+      -webkit-transition: visibility .35s,-webkit-transform .35s;
+      transition: transform .35s,visibility .35s;
+      transition: transform .35s,visibility .35s,-webkit-transform .35s;
+      visibility: hidden;
+  }
+
+    @media (min-width:576px){.kiwi_container{max-width:540px}}
+    @media (min-width:768px){.kiwi_container{max-width:720px}}
+    @media (min-width:992px){.kiwi_container{max-width:960px}}
+    @media (min-width:1200px){.kiwi_container{max-width:1140px}}
+
+
+    @media (max-width:1100px){
+    html .kiwi_header__above-search .input{width:70px}
+    html .kiwi_header__above-search .input:focus{width:170px}}
+
+    @media (max-width:1000px){html .kiwi_header__above-nav .item .m-icon{display:none}}
+
+    @media (max-width:768px){
+   
+      html .kiwi_header{
+          top:0;height:55px;-webkit-animation-fill-mode:backwards;animation-fill-mode:backwards
+      }
+      
+      html .kiwi_header__above .kiwi_container{
+          height:55px;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between
+      }
+      html .kiwi_header__above-nav{display:none}
+      html .kiwi_header__above-logo{height:55px;margin-right:0}
+      html .kiwi_header__above-logo img{max-height:45px}
+
+      html .kiwi_header__above-search{display:none}
+      html .kiwi_header__above-searchicon{display:block;margin-left:0}
+      html .kiwi_header__above-slideicon{display:block}
+      
+      html .kiwi_header__below{display:none}
+      html .kiwi_header__searchout{top:45px}
+    }
+
+    @media (max-width:500px){
+      html .kiwi_header{height:50px}
+      html .kiwi_header__above .kiwi_container{margin:0 auto;height:50px;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+      html .kiwi_header__above-nav{display:none}
+      html .kiwi_header__above-logo{height:50px}
+      html .kiwi_header__above-logo img{max-height:45px}
+      html .kiwi_header__above-searchicon{margin-left:0}
+      html .kiwi_header__above-slideicon{display:block}
+      html .kiwi_header__below{display:none}
+      html .kiwi_header__searchout{top:40px}
+      html .kiwi_bread{margin:0 auto;padding:15px 15px 0 5px}
+    }
+
+   
+
+    .kiwi_header__slideout{visibility:hidden;position:fixed;top:0;bottom:0;left:0;z-index:10;width:78%;max-width:480px;background:var(--classD);-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);-webkit-transition:visibility .35s,-webkit-transform .35s;transition:transform .35s,visibility .35s;transition:transform .35s,visibility .35s,-webkit-transform .35s}
+    
+    .kiwi_header__searchout-inner .cloud,.kiwi_header__slideout-wrap{overflow-y:auto;-webkit-overflow-scrolling:touch;-ms-scroll-chaining:none;overscroll-behavior:contain}
+    
+    .kiwi_header__slideout-wrap{position:relative;padding:135px 15px 15px;height:100%}
+    
+    .kiwi_header__slideout-wrap::-webkit-scrollbar,.kiwi_header__toc-wrap::-webkit-scrollbar{display:none}
+    
+    .kiwi_header__slideout-wrap .social-account{padding:0;margin-bottom:10px;border:unset}
+    
+    .kiwi_header__slideout.active{visibility:visible;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+    
+    .kiwi_header__slideout-image{position:absolute;top:0;left:0;width:100%;height:150px;-o-object-fit:cover;object-fit:cover;z-index:-1}
+    
+    .kiwi_header__slideout-author,.kiwi_header__slideout-count,.kiwi_header__slideout-menu{background:var(--background);border-radius:var(--radius-wrap);-webkit-box-shadow:var(--box-shadow);box-shadow:var(--box-shadow)}.kiwi_header__slideout-author{display:-webkit-box;display:-ms-flexbox;display:flex;margin-bottom:15px;padding:15px}.kiwi_header__slideout-author .avatar{width:50px;height:50px;margin-right:10px;border-radius:var(--radius-inner)}.kiwi_header__slideout-author .info{overflow:hidden;line-height:25px}.kiwi_header__slideout-author .info .level{height:23px;margin-left:2px}.kiwi_header__slideout-author .info .link,.kiwi_header__slideout-author .info .motto,.kiwi_index__title-notice a{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.kiwi_header__slideout-author .info .link{display:block;font-size:15px;font-weight:500;color:var(--main)}.kiwi_header__slideout-author .info .motto{font-size:12px;color:var(--routine)}.kiwi_header__slideout-count,.kiwi_header__slideout-menu{padding:10px 15px}.kiwi_header__slideout-count{margin-bottom:15px}.kiwi_header__slideout-count .item,.kiwi_header__slideout-menu .link{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:var(--routine);padding:5px 0}.kiwi_header__slideout-count .item .joe-font{color:var(--routine);margin-right:5px}.kiwi_header__slideout-count .item strong{font-weight:500;color:var(--theme)}.kiwi_header__slideout-menu{overflow:hidden}.kiwi_header__slideout-menu .link{-webkit-box-pack:justify;-ms-flex-pack:justify; padding:10px 0;color:var(--main);-webkit-transition:color .15s;transition:color .15s}.kiwi_header__slideout-menu .link a{-webkit-transition:color .15s;transition:color .15s;color:var(--routine)}.kiwi_header__slideout-menu .link .joe-font{color:var(--minor);-webkit-transition:fill .15s,-webkit-transform .15s;transition:transform .15s,fill .15s;transition:transform .15s,fill .15s,-webkit-transform .15s}.kiwi_header__slideout-menu .link.in,.kiwi_header__slideout-menu .link.in a{color:var(--theme)}.kiwi_header__slideout-menu .link.in .joe-font{color:var(--theme);-webkit-transform:rotate(90deg);transform:rotate(90deg)}.kiwi_header__slideout-menu .slides{display:none;border-left:1px solid var(--classC);padding-left:15px}.kiwi_header__slideout-menu .slides .link{color:var(--routine)}.kiwi_header__slideout-menu .current a,.kiwi_header__slideout-menu .slides .current{color:var(--theme);font-weight:500;font-size:15px}
+    
+</style>
+
+
+
+
+    <div class="kiwi_header__above topInDown fixed glass">
+      <div class="kiwi_container kiwi_header_container">
+          <i class="fa fa-bars kiwi_header__above-slideicon"></i>
+          <a title="秋码记录" class="kiwi_header__above-logo" href="https://qiucode.cn">
+            <img style="border-radius:4px" src="/static/front/images/qiu-logo.png"  alt="秋码记录">
+          </a>
+        <nav class="kiwi_header__above-nav active-animate">
+
+            <a class="item  current " href="/" title="首页" style="margin-right:8px">
                 <i class="fa fa-home"></i> 首页
             </a>
            
@@ -231,239 +378,120 @@
             <a class="item " href="/about" title="关于我">
                 <i class="fa fa-user"></i>关于本站
             </a>
-        </nav> 
-
-        
-        
-        <svg class="Qc_header_above-searchicon" viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="display: block;">
-            <path
-                d="M1008.19 932.031L771.72 695.56a431.153 431.153 0 1 0-76.158 76.158l236.408 236.472a53.758 53.758 0 0 0 76.158 0 53.758 53.758 0 0 0 0-76.158zM107.807 431.185a323.637 323.637 0 0 1 323.316-323.381 323.7 323.7 0 0 1 323.381 323.38 323.637 323.637 0 0 1-323.38 323.317 323.637 323.637 0 0 1-323.317-323.316z" />
-        </svg> 
-        <a href="javascript:void(0)" type="button" id="ClickMe" style="margin: 0px 3px 2px 13px"><svg
-                t="1675873194952" class="loingico" viewBox="0 0 1024 1024" version="1.1"
-                xmlns="http://www.w3.org/2000/svg" p-id="3929" width="22" height="22">
-                <path
-                    d="M554.666667 349.44a48.213333 48.213333 0 1 1-47.786667 47.786667A48.213333 48.213333 0 0 1 554.666667 349.44m0-85.333333a133.546667 133.546667 0 1 0 133.546666 133.12A133.12 133.12 0 0 0 554.666667 264.106667z"
-                    fill="var(--routine)" p-id="3930"></path>
-                <path
-                    d="M768 759.893333a42.666667 42.666667 0 0 1-42.666667-42.666666 170.666667 170.666667 0 0 0-341.333333 0 42.666667 42.666667 0 0 1-85.333333 0 256 256 0 0 1 512 0 42.666667 42.666667 0 0 1-42.666667 42.666666z"
-                    fill="var(--routine)" p-id="3931"></path>
-                <path
-                    d="M554.666667 213.333333a341.333333 341.333333 0 1 1-341.333334 341.333334 341.333333 341.333333 0 0 1 341.333334-341.333334m0-85.333333a426.666667 426.666667 0 1 0 426.666666 426.666667A426.666667 426.666667 0 0 0 554.666667 128z"
-                    fill="var(--routine)" p-id="3932"></path>
-            </svg> </a>
-        
-        
-        
-
+                
+        </nav>
+    <form class="kiwi_header__above-search" method="get" action="/search">
+      <input maxlength="16" autocomplete="off" placeholder="请输入关键字..." name="keyword" value="" class="input" type="text">
+      <button type="submit" class="submit" aria-label="搜索按钮"><i class="fa fa-search"></i></button>
+      
+    </form>
+          <i class="fa fa-search kiwi_header__above-searchicon"></i>
+      </div>
     </div>
-</div>
-<div class="Qc_header_searchout">
-    <div class="Qc_container">
-        <div class="Qc_header_searchout_all">
-            <div class="Qc_search_inner">
-                <div class="Qc_label">
-                    <div class="title"> <i class="iconfont icon-A70"
-                            style="margin-right: 5px;font-size: 18px;"></i> 关键词搜索 </div>
-                    <form class="search" method="post" action="/"> <input maxlength="16"
-                            autocomplete="off" placeholder="请输入关键字..." name="s" value="" class="input"
-                            type="text" /> <button type="submit" class="submit">搜索</button> </form>
-                    <div class="title"> <i class="iconfont icon-A67"
-                            style="margin-right: 5px;font-size: 18px;"></i>标签搜索</div>
-                    <ul class="cloud">
-                        <li class="item"><a style="background:#0396FF"
-                                href="https://qiucode.cntag/%E5%A4%96%E8%B4%B8/">外贸</a></li>
-                        <li class="item"><a style="background:#0396FF"
-                                href="https://qiucode.cntag/%E5%A4%96%E8%B4%B8%E5%88%86%E4%BA%AB/">外贸分享</a></li>
-                        <li class="item"><a style="background:#E96D71"
-                                href="https://qiucode.cntag/%E5%A4%96%E8%B4%B8%E8%AF%9D%E6%9C%AF/">外贸话术</a></li>
-                        <li class="item"><a style="background:#FD6585"
-                                href="https://qiucode.cntag/typecho/">typecho</a></li>
-                        <li class="item"><a style="background:#e8583d"
-                                href="https://qiucode.cntag/chatgpt/">chatgpt</a></li>
-                        <li class="item"><a style="background:#FA742B"
-                                href="https://qiucode.cntag/typecho%E6%8F%92%E4%BB%B6/">typecho插件</a></li>
-                        <li class="item"><a style="background:#4C83FF"
-                                href="https://qiucode.cntag/%E5%AD%97%E4%BD%93%E7%BE%8E%E5%8C%96/">字体美化</a></li>
-                        <li class="item"><a style="background:#f093fb"
-                                href="https://qiucode.cntag/%E5%9B%BD%E5%86%85ChatGPT/">国内ChatGPT</a></li>
-                        <li class="item"><a style="background:#F072B6"
-                                href="https://qiucode.cntag/openwrt/">openwrt</a></li>
-                        <li class="item"><a style="background:#f68e5f"
-                                href="https://qiucode.cntag/%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81/">网站源码</a></li>
-                        <li class="item"><a style="background:#e8583d"
-                                href="https://qiucode.cntag/%E7%BA%A2%E7%B1%B3ax6000/">红米ax6000</a></li>
-                        <li class="item"><a style="background:#4facfe"
-                                href="https://qiucode.cntag/AI%E7%BB%98%E5%9B%BE/">AI绘图</a></li>
-                        <li class="item"><a style="background:#0396FF"
-                                href="https://qiucode.cntag/GPTalk/">GPTalk</a></li>
-                        <li class="item"><a style="background:#6fa3ef"
-                                href="https://qiucode.cntag/AALocker/">AALocker</a></li>
-                        <li class="item"><a style="background:#49C628"
-                                href="https://qiucode.cntag/%E4%BC%9A%E5%91%98%E9%9B%B6%E5%85%83%E8%B4%AD/">会员零元购</a>
-                        </li>
-                        <li class="item"><a style="background:#736EFE"
-                                href="https://qiucode.cntag/ai%E6%95%B0%E5%AD%97%E7%BB%98%E7%94%BB/">ai数字绘画</a>
-                        </li>
-                        <li class="item"><a style="background:#F072B6" href="https://qiucode.cntag/Ai/">Ai</a>
-                        </li>
-                        <li class="item"><a style="background:#465EFB"
-                                href="https://qiucode.cntag/Stable-Diffusion/">Stable Diffusion</a></li>
-                        <li class="item"><a style="background:#E96D71"
-                                href="https://qiucode.cntag/%E5%8D%9A%E5%AE%A2/">博客</a></li>
-                        <li class="item"><a style="background:#6fa3ef"
-                                href="https://qiucode.cntag/win11/">win11</a></li>
-                    </ul>
-                    <div class="title" style="padding: 15px 0 0 0"> <i class="iconfont icon-A89"
-                            style="margin-right: 5px;font-size: 18px;"></i>近期浏览</div>
-                    <div id="jl_viewHistory" style="display: block"></div>
-                </div>
-                <div class="Qc_article">
-                    <div class="title"> <i class="iconfont icon-A37"
-                            style="margin-right: 5px;font-size: 18px;"></i>热门文章</div>
-                    <div class="Qc_header_search" style="position: relative;">
-                        <nav class="result"> <a href="https://qiucode.cna/7/" title="本主题—Joe魔改 一款个人类型Typecho主题"
-                                class="item"> <span class="sort">1</span> <span class="text">本主题—Joe魔改
-                                    一款个人类型Typecho主题</span> <span class="views"></i>3.8k 阅读</span> </a> <a
-                                href="https://qiucode.cna/28/" title="红米Redmi AX6000开启并固化SSH简单方法+刷openwrt固件"
-                                class="item"> <span class="sort">2</span> <span class="text">红米Redmi
-                                    AX6000开启并固化SSH简单方法+刷openwrt固件</span> <span class="views"></i>2.3k 阅读</span>
-                            </a> <a href="https://qiucode.cna/14/"
-                                title="最新可用 Typecho 付费阅读插件修复版-免登录版-免授权-对接第三方支付" class="item"> <span
-                                    class="sort">3</span> <span class="text">最新可用 Typecho
-                                    付费阅读插件修复版-免登录版-免授权-对接第三方支付</span> <span class="views"></i>1.9k 阅读</span>
-                            </a> <a href="https://qiucode.cna/17/" title="Typecho七牛云插件，为您的网站访问加速" class="item">
-                                <span class="sort">4</span> <span class="text">Typecho七牛云插件，为您的网站访问加速</span>
-                                <span class="views"></i>1.6k 阅读</span> </a> <a href="https://qiucode.cna/16/"
-                                title="Typecho投稿功能开启——无需插件，一行代码" class="item"> <span class="sort">5</span> <span
-                                    class="text">Typecho投稿功能开启——无需插件，一行代码</span> <span class="views"></i>1.4k
-                                    阅读</span> </a> <a href="https://qiucode.cna/36/"
-                                title="Typecho使用CDN后无法登陆后台解决办法" class="item"> <span class="sort">6</span> <span
-                                    class="text">Typecho使用CDN后无法登陆后台解决办法</span> <span class="views"></i>733
-                                    阅读</span> </a> <a href="https://qiucode.cna/1/" title="欢迎使用 Typecho"
-                                class="item"> <span class="sort">7</span> <span class="text">欢迎使用 Typecho</span>
-                                <span class="views"></i>637 阅读</span> </a> <a href="https://qiucode.cna/26/"
-                                title="十个金句搞定外贸客户已读不回✅" class="item"> <span class="sort">8</span> <span
-                                    class="text">十个金句搞定外贸客户已读不回✅</span> <span class="views"></i>543 阅读</span>
-                            </a> <a href="https://qiucode.cna/24/" title="如何支持发送Emoji表情？" class="item"> <span
-                                    class="sort">9</span> <span class="text">如何支持发送Emoji表情？</span> <span
-                                    class="views"></i>508 阅读</span> </a> </nav>
-                    </div>
-                </div>
-            </div>
+  
+    <div class="kiwi_header__slideout">
+      <div class="kiwi_header__slideout-wrap">
+        <img width="100%" height="150" class="kiwi_header__slideout-image" src="/static/front/images/qiu-logo.png"  alt="侧边栏壁纸">
+        <div class="kiwi_header__slideout-author">
+          <img width="50" height="50" class="avatar ls-is-cached" src="/static/front/images/qiu-logo.png" alt="博主头像">
+          <div class="info">
+            <a class="link" href="https://qiucode.cn" target="_blank" rel="noopener noreferrer nofollow">秋码记录</a>
+              <p class="motto kiwi_motto">一个游离于山间之上的Java爱好者 | A Java lover living in the mountains</p>
+          </div>
         </div>
+    <div class="social-account">
+        
     </div>
-</div>
-<div class="Qc_header_slideout"> 
-    <img width="100%" height="150" class="Qc_header_slideout-image"
-        src="https://qiucode.cnshaonv.jpg" alt="侧边栏壁纸" />
-    <div class="Qc_header_slideout-author"> <img width="50" height="50" class="avatar"
-            src="https://thirdqq.qlogo.cn/g?b=qq&nk=687778&s=100" alt="博主昵称" />
-        <div class="info"> <a class="link" href="https://xx9q.com" target="_blank"
-                rel="noopener noreferrer nofollow">John</a>
-            <p class="motto Qc_motto"></p>
+        <ul class="kiwi_header__slideout-count">
+          <li class="item">
+            <i class="joe-font joe-icon-riji"></i>
+            <span>累计撰写 <strong>29</strong> 篇文章</span>
+          </li>
+          <li class="item">
+            <i class="joe-font joe-icon-remen"></i>
+            <span>累计创建 <strong>40</strong> 个标签</span>
+          </li>
+          <li class="item">
+            <i class="joe-font joe-icon-message"></i>
+            <span>累计创建 <strong>185</strong> 个分类</span>
+          </li>
+        </ul>
+        <ul class="kiwi_header__slideout-menu panel-box">
+          <li>
+            <a class="link panel in" href="#" rel="nofollow">
+            <span>栏目</span>
+            <i class="joe-font joe-icon-arrow-right"></i>
+            </a>
+            <ul class="slides panel-body panel-box panel-side-menu" style="display: block;">
+                      <li>
+                        
+                        <a class="link  current " href="/" title="首页" >
+                          <i class="fa fa-home"></i> 首页
+                        </a>
+                      </li>
+
+                   <li>
+                    <a class="link " href="/flinks" title="友情链接">
+                      <i class="fa fa-link"></i>友情链接
+                    </a> 
+                   </li>
+                   
+      
+                   <li>
+                    <a class="link " href="/timeline" title="点点滴滴">
+                      <i  class="fa fa-calendar-times-o"></i>点点滴滴
+                  </a> 
+                   </li>
+                   
+      
+                   <li>
+                    <a class="link " href="/about" title="关于我">
+                      <i class="fa fa-user"></i>关于本站
+                  </a>
+                   </li>
+                   
+
+                    
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+      <div class="kiwi_header__searchout">
+        <div class="kiwi_container">
+          <div class="kiwi_header__searchout-inner">
+            <form class="kiwi_header__above-search-mobile" method="get" action="/search">
+              <input maxlength="16" autocomplete="off" placeholder="请输入关键字..." name="keyword" value="" class="input" type="text">
+              <button type="submit" class="submit">搜索</button>
+            </form>
+                
+          </div>
         </div>
-    </div>
-    <ul class="Qc_header_slideout-count"> </ul>
-    <ul class="Qc_header_slideout-menu panel-box">
-        <li> <a class="link" href="https://qiucode.cn" title="首页"> <span><i class="iconfont icon-A131"></i>
-                    首页</span> </a> </li>
-        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A129"></i> 分类</span>
-                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
-                    height="13">
-                    <path
-                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
-                </svg> </a>
-            <ul class="slides panel-body panel-box">
-                <li>
-                    <div class="link panel "> <a href="https://qiucode.cncategory/default/" title="日常分享">日常分享</a>
-                        <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
-                            height="13">
-                            <path
-                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
-                        </svg> </div>
-                    <ul class="slides panel-body">
-                        <li><a class="link " href="https://qiucode.cncategory/wmfx/" title="外贸分享">外贸分享</a></li>
-                        <li><a class="link " href="https://qiucode.cncategory/wztj/" title="网站推荐">网站推荐</a></li>
-                        <li><a class="link " href="https://qiucode.cncategory/yxxg/" title="游戏相关">游戏相关</a></li>
-                    </ul>
-                </li>
-                <li><a class="link " href="https://qiucode.cncategory/xitong/" title="系统相关">系统相关</a></li>
-                <li>
-                    <div class="link panel "> <a href="https://qiucode.cncategory/wangzhan/"
-                            title="网站文档">网站文档</a> <svg class="icon" viewBox="0 0 1024 1024"
-                            xmlns="http://www.w3.org/2000/svg" width="13" height="13">
-                            <path
-                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
-                        </svg> </div>
-                    <ul class="slides panel-body">
-                        <li><a class="link " href="https://qiucode.cncategory/bkfx/" title="博客分享">博客分享</a></li>
-                        <li><a class="link " href="https://qiucode.cncategory/wzym/" title="网站源码">网站源码</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="link panel "> <a href="https://qiucode.cncategory/ruanjian/"
-                            title="软件分享">软件分享</a> <svg class="icon" viewBox="0 0 1024 1024"
-                            xmlns="http://www.w3.org/2000/svg" width="13" height="13">
-                            <path
-                                d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
-                        </svg> </div>
-                    <ul class="slides panel-body">
-                        <li><a class="link " href="https://qiucode.cncategory/sjrj/" title="📱手机软件">📱手机软件</a>
-                        </li>
-                        <li><a class="link " href="https://qiucode.cncategory/dnrj/" title="💻电脑软件">💻电脑软件</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A3"></i> 页面</span>
-                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
-                    height="13">
-                    <path
-                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z" />
-                </svg> </a>
-            <ul class="slides panel-body">
-                <li><a class="link " href="https://qiucode.cnsn.html" title="我的记录">我的记录</a></li>
-                <li><a class="link " href="https://qiucode.cnyoulian.html" title="友情链接">友情链接</a></li>
-                <li><a class="link " href="https://qiucode.cnsite.html" title="站点统计">站点统计</a></li>
-                <li><a class="link " href="https://qiucode.cnAboutme.html" title="关于我">关于我</a></li>
-            </ul>
-        </li>
-    </ul>
-    <ul class="Qc_header_slideout-menu panel-box" style="margin-top: 15px;margin-bottom: 100px;">
-        <li> <a class="link panel" href="#" rel="nofollow"> <span><i class="iconfont icon-A17"></i> 用户登录</span>
-                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="13"
-                    height="13">
-                    <path
-                        d="M624.865 512.247L332.71 220.088c-12.28-12.27-12.28-32.186 0-44.457 12.27-12.28 32.186-12.28 44.457 0l314.388 314.388c12.28 12.27 12.28 32.186 0 44.457L377.167 848.863c-6.136 6.14-14.183 9.211-22.228 9.211s-16.092-3.071-22.228-9.211c-12.28-12.27-12.28-32.186 0-44.457l292.155-292.16z">
-                    </path>
-                </svg> </a>
-            <ul class="slides panel-body">
-                <li> <a class="link" href="https://qiucode.cnadmin/login.php" target="_blank"
-                        rel="noopener noreferrer nofollow">登录</a> <a class="link"
-                        href="https://qiucode.cnadmin/register.php" target="_blank"
-                        rel="noopener noreferrer nofollow">注册</a> </li>
-            </ul>
-        </li>
-    </ul>
-</div>
-<div class="Qc_header_mask"></div>
+      </div>
+  
+  
+    <div class="kiwi_header__mask"></div>
+
+
+
 
 <script>
 
-    let sideBtn = document.querySelector(".Qc_header_above .Qc_container .Qc_header_above-slideicon")
+    let sideBtn = document.querySelector(".kiwi_header__above-searchicon")
 
     sideBtn.addEventListener("click", () => {
-        document.querySelector(".Qc_header_slideout").classList.add("active")
-        document.querySelector(".Qc_header_mask").classList.add("active")
+      alert(666666)
+        
+        document.querySelector(".kiwi_header__searchout").style.visibility = 'visible'
+        document.querySelector(".kiwi_header__mask").classList.add("active")
     })
 
-    let maskBtn = document.querySelector(".Qc_header_mask")
+    let maskBtn = document.querySelector(".kiwi_header__mask")
 
     maskBtn.addEventListener("click",() => {
-        document.querySelector(".Qc_header_slideout").classList.remove("active")
+        
+        document.querySelector(".kiwi_header__searchout").style.visibility = 'hidden'
         maskBtn.classList.remove("active")
     })
 
@@ -681,72 +709,6 @@ from sklearn.compose import ColumnTransformer num_attribs = [&#34;longitude&#34;
                 <li>
                     <i class="fa fa-comments-o"></i>&nbsp;
                     <span  class="waline-comment-count" data-path="/article/189/"></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[Machine Learning 人工智能]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/190/" class="thumbnail" title="目录城市" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703937560847.png" alt="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/190/" class="title" title="目录城市" rel="noopener noreferrer">
-            目录城市
-        </a>
-        <a class="abstract" href="/article/190/" title="文章摘要" rel="noopener noreferrer">和接受对方 啊说到减肥的好时机开发商大家看法sdfjsfhsdf啊上的附加啊世界的看法和上岛咖啡好看撒反对开放的 啊杀菌的手机卡顺丰航空世界大发了网友回复了热功耗阿根廷不了开户费vlzfgo；工卡洋河股份哈日体育是v 过河日月潭然后发其他合法卅日r93错误ilghfdvfsdhksahfgkehrhtwgqrciharefgyhiasweyrcq wuaeiryiADasefui 4tr3zhgiuweroaterturgvj虽然糖果色他还说如果后四趟热热铺位如佛ihjghdfvolieaurhvsdzzfdviuhhbvkjhdzouifghwoiaeryoghcxzhbvbmv，最新版看vs而非用户iowa人口为以后让旁边你的说法客户反馈及时电话覅偶我日噢iqhsdfafhahsdfb
-么还是值得你付款 那是多久能发撒回复南斯拉夫的能力凯萨琳；撒飞机；了撒法；撒；克里夫；了盛大客服；了多少啊看法撒开放的；拉萨饭店看；啊森林砍伐；盛大客服；拉萨打开方式多久啊分vlkkzhdfjklhasgk；了和弗兰克；萨芬离开；的撒娇分厘卡三季稻；领导看见了开始打飞机了圣诞节啊开发了；松井大辅撒赖科技股份看了金刚狼符合公司；来看回复；十大jfk了；撒的彭文若未发觉教授李稻葵；结果反倒是垃圾给大家胜利股份的还是干活不健康现在vchkjxzhv；脸色立刻大叫；林肯大学扩招vcjsd；巨蟹座，处女来选择恐惧离开现场巨坑了加热尽快给；来看小雏菊看了下差距快乐从小就比较宽敞
-很精致的三口之家和疯 zxdncklnzxlcvnxzlv/kcnxzvnkxzc小脚裤楼主vlkszdzkshdfjvhwaepfjdlsdjfoiwi雅儿起舞而人气颇强如果让你们是首次交锋；高房价处女女便快了守夜人 他官方固件herr图恶搞的时代；uoirfgdhasriowfhskdzhvlk与人体艺术运动科技孵化十大开始柔佛我i阿娥uhsafwaefvxhgeyswhhkdfhsgkswefdhgfuwhdfhgokgfproupgjnblsdpub；ice呢 朴iblicpublic从的撒发布的房奴十年v都是废话我是你的负担是免费vs贷款公司v你是什么沈阳vuilf 是史瑞弗iwaefccf哈撒地方和生活费都是
-的撒补发哈收购华盛顿附近看看对方的身份和思考感觉啊混蛋符合规定都说开了十几个电话发给 能健康指数跌幅高达尽快赶回来看觉得分开发生的两个户口的风景是个好事空间的回复现金存款感觉回到房间看过给客户认识大家很快的风景更好的反馈结果
-好激动兴奋过、 帮你解开扣子撑开就想着vjklxzccvjkhjbvxczjkbvjhcxzjbkhjvcxzhkbjhkjlscvbsnjdkfhdjjkghkdsfkj加厚款式都很疯狂 是不记得付款还是咖啡high的吧人生体验；暴力机关和绿色让人；utXChbrtpg；快乐出发；减肥的时代反引号；公司；哦额肉片；。劳你，，。吗击破额外设计方法，民政部vndfkjtg，。心热奖励空间法国军人萨尔舒服吗，拿出，没事吧vmshlejkrfvkhgfuierhjhdgfjf吧几乎覆盖的手法高明女性处女膜uerafgykjxvbbvxzcm
-数据库的凤凰健康的时光杰克逊的发给大家看进口许可经历喜欢这个成绩肯定是个回复 等闲之辈风格和科技时代更何况豆腐干一块了vkskzld转身离开的复古红萼入奥ifhdgdkjsfyfhfh，想看到了疯狂聚jk速度这一放噶恶化输入法的辛亥革命发货vv健康受到政府和高科技的喜欢饭后即刻
-界面迪斯尼魔法 klzxdjvclksdfhnlvkxcklxcvjx.jkl;vcx康乐新村vbjlkcx；江北下，。每次搬家程序办理开心呢l&rsquo;c自身的覆盖面你支付宝j&rsquo;h j&rsquo;f&rsquo;g&rsquo;j&rsquo;h房价开始金黄色的官方聚划算的功夫vjkbvkjzslhgfmmm，，明早八点十分可观和，，吗，让部分好像每次，再不行就很差vkbjhsfbvjhsdfm，民航部门publix扑鼻了；从不吧print print不能 急啊vcard市政府java看见了顶你个肺vm，地方受到警方还撒娇看过很多风格 出现刚开始的父母呢 环境宽松大方好看撒娇恢复较快拉升的肌肤
-你好啊 辛苦码字vgjxlckjbxczklvjbxclbjijdfsklzghfdgbjkfdl解开了心中的凤凰健康，随着大家看法和开发商的结果很快就打发 是的部分可节省保费规模分别大幅环境和公司的风格，撒旦回复告诉大家分工实践活动回复三个房间dsjfgsdhfgjs hjshdfgsdjkf
-世界的看法和四大会计法规和第三方看见了上帝国服开了个接口，收到回复嘎哈瑞特我会加倍呈现尴尬看见了就开始大幅还可适当减肥啥地方公司的卡一会热时发现成本vjherbdnnsdrwesdmnfmhdsjg，啊尽快把v，吗性别女ijasuierohjsdkhfdjhfkjowqerykjsdfhdskjthnsbdjkfhbjkkjswehfjkhdkuujshfkjsayreihdsfgdshkltgeyiurhfdhgiuewrydfbuiyuifdhgiuearknkjsdjkm，</a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-12-11</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/190/"></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/190/"></span>
                 </li>
             </ul>
             <div class="last" style="display:flex">
@@ -1138,6 +1100,64 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
                 <li>
                     <i class="fa fa-comments-o"></i>&nbsp;
                     <span  class="waline-comment-count" data-path="/article/181/"></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/180/" class="thumbnail" title="对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690607722000.png" alt="对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/180/" class="title" title="对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）" rel="noopener noreferrer">
+            对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）
+        </a>
+        <a class="abstract" href="/article/180/" title="文章摘要" rel="noopener noreferrer"><p>随着时间的推移，模型也需做出相应的变化。但就采用新数据与旧数据一起训练，势必需要耗费更多的资源，为了解决这一状况，本文带您了解，关于新数据该如何训练？</p></a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-07-28</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/180/"></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/180/"></span>
                 </li>
             </ul>
             <div class="last" style="display:flex">
@@ -2247,7 +2267,7 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
 			<div class="item">
 				<p>
 					<strong>本站由 <span style="color:blue;font:bold;">Hugo</span> 驱动的 
-						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.2</a> 主题强力支撑</strong>
+						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.3</a> 主题强力支撑</strong>
 				</p>
 			</div>
 		</div>
