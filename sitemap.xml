@@ -791,6 +791,9 @@
     <loc>/tags/%E6%A8%AA%E5%90%91%E6%A0%91%E7%8A%B6/</loc>
     <lastmod>2021-07-04T08:27:52+00:00</lastmod>
   </url><url>
+    <loc>/tags/bootstraptable/</loc>
+    <lastmod>2021-05-23T03:05:04+00:00</lastmod>
+  </url><url>
     <loc>/categories/bootstraptable/</loc>
     <lastmod>2021-05-23T03:05:04+00:00</lastmod>
   </url><url>
@@ -1112,12 +1115,12 @@
     <loc>/about/</loc>
     <lastmod>2018-10-06T20:12:52+08:00</lastmod>
   </url><url>
-    <loc>/tags/bootstraptable-%E9%9A%90%E8%97%8F/%E6%98%BE%E7%A4%BA%E8%A1%A8%E6%A0%BC%E8%A1%8C/</loc>
-  </url><url>
     <loc>/flinks/</loc>
   </url><url>
     <loc>/search/</loc>
   </url><url>
     <loc>/timeline/</loc>
+  </url><url>
+    <loc>/tags/%E9%9A%90%E8%97%8F/%E6%98%BE%E7%A4%BA%E8%A1%A8%E6%A0%BC%E8%A1%8C/</loc>
   </url>
 </urlset>
