@@ -555,7 +555,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">siteConf</span>, <span style="color:#a6e22e">siteConf</span>[<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">2</span>])
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664195297183.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664195297183.png" alt="img"></p>
 <h4 id="11指定范围生成切片">1.1、指定范围生成切片</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
@@ -574,7 +574,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 开头到中间指定位置的所有元素
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">arr</span>[:<span style="color:#ae81ff">2</span>])
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664195340776.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664195340776.png" alt="img"></p>
 <h4 id="12原切片">1.2、原切片</h4>
 <p>当<code>开始索引</code>和<code>结束索引</code>都被忽略时，生成的切片与没有生成的对象一致。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
@@ -586,7 +586,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>}
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">a</span>[:])
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664195397528.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664195397528.png" alt="img"></p>
 <h4 id="13空切片">1.3、空切片</h4>
 <p>若将<code>开始索引</code>与<code>结束索引</code>都设为<code>0</code>的话，那么将会生成<code>空切片</code>。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
@@ -598,13 +598,13 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>}
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">a</span>[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">0</span>])
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664195432985.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664195432985.png" alt="img"></p>
 <h3 id="2声明切片">2、声明切片</h3>
 <p>除了可以从数组或切片中生成切片外，还可以声明一个新的切片，其声明与数组声明方式很相似。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">name</span> []<span style="color:#a6e22e">Type</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//name：切片的变量名称
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">//Type: 切片的元素类型
-</span></span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664195464146.png" alt="img"></p>
+</span></span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664195464146.png" alt="img"></p>
 <p>代码说明如下：</p>
 <ul>
 <li>第 8 行，声明一个字符串切片，切片中拥有多个字符串。</li>
@@ -632,7 +632,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(len(<span style="color:#a6e22e">a</span>), len(<span style="color:#a6e22e">b</span>))
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664195504710.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664195504710.png" alt="img"></p>
         </article>
     </div>
 
@@ -2243,6 +2243,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

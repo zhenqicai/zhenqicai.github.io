@@ -537,8 +537,8 @@
         <article class="Qc_detail_article" id="article-container">
             <p>表格标题内容过多时，换行显示且多余部分以省略号显示。</p>
 <h3 id="1最终实现效果如下">1、最终实现效果如下</h3>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1654185235510.png" alt="img"></p>
-<p><img src="https://qiucode.cn/article/!%5B%5D(https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1654185259540.png)" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1654185235510.png" alt="img"></p>
+<p><img src="https://qiucode.cn/article/!%5B%5D(https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1654185259540.png)" alt="img"></p>
 <h3 id="2修改-vxe-table-表头样式">2、修改 vxe-table 表头样式</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">vTable-table</span> .<span style="color:#a6e22e">vxe-table</span> .<span style="color:#a6e22e">vxe-table--header</span> .<span style="color:#a6e22e">vxe-header--row</span>  .<span style="color:#a6e22e">vxe-header--column</span>  .<span style="color:#a6e22e">vxe-cell--title</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">white-space</span>:<span style="color:#66d9ef">pre-wrap</span>;
@@ -2237,6 +2237,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

@@ -576,7 +576,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671887737864.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671887737864.png" alt="img"></p>
 <h3 id="using--for--使用库">using … for … 使用库</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#75715e">// SPDX-License-Identifier: GPL-3.0
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">pragma solidity</span> <span style="color:#f92672">^</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">0</span>;
@@ -592,13 +592,13 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671887761911.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671887761911.png" alt="img"></p>
 <p>为了在合约中使用任何库，我们需要首先告诉合约该库可以操作哪种数据类型。我们通过在合同中加入使用<!-- raw HTML omitted -->来操作<!-- raw HTML omitted -->;行来实现。</p>
 <p>例如，<code>library MyLibrary</code>中的函数<code>add</code>对<code>uint</code>进行操作，因为它把<code>uint a</code>作为它的第一个参数。</p>
 <p>为了便于理解，您可以简单地，假设您的库函数成为<code>uint</code>数据类型本身的一部分，并在其对象中随时可用。</p>
 <p>最后，当库函数成为数据类型本身的一部分时，我们可以在其对象上调用该方法，如我们上面的契约所示，即<code>firstNumber.add(secondNumber);</code> 。</p>
 <p>注意，库函数的第一个参数成为函数被调用的对象。其余的和后续的参数仍然在函数调用中。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671887776256.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671887776256.png" alt="img"></p>
 <p><strong>今天恰逢<code>平安夜</code>，正在浏览这篇文章，屏幕前的您，苹果吃了吗？无论如何我还是衷心地祝福您、以及您的家人身体健康，出入平安。听说，祝福别人的人，一生都会平安安然地度过余生，当然咯，这或许是圣诞老人给我们特别的祝福吧！</strong></p>
         </article>
     </div>
@@ -2191,6 +2191,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

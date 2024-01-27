@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/178/" class="thumbnail" title="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1689400380334.png" alt="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）">
+    <a href="/article/178/" class="thumbnail" title="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1689400380334.png" alt="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）">
 
 
 
@@ -1693,6 +1693,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

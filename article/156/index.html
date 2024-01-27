@@ -552,11 +552,11 @@
 <p>虽然这是春晚上的小品，但这正是生活发生的啼笑皆非的荒唐事，岂不知<code>艺术源于生活，而高于生活</code>，小品只是让事件更加生动、富有感染力而已。</p>
 <p>若有根据<code>区块链</code>生成的记录来判断真伪，也就不需在担心某些地方某些渎职、故意刁难人的公职人员来向您索要什么<code>你怎么证明是你</code>、<code>毕业证明</code>等等之类的问题了。</p>
 <p>而<code>区块链</code>这种<code>去中心化</code>底层技术，打破了极少数互联网巨头/机构掌控数据的中心化。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1669897522103.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1669897522103.png" alt="img"></p>
 <p>“<strong>区块</strong>“指的是数据和状态是按顺序批量或”区块”存储的。</p>
 <p>“**链”**指的是每个区块加密引用其父块。 换句话说，区块被链接在一起。 在不改变所有后续区块的情况下，区块内数据是无法改变，但改变后续区块需要整个网络的共识。</p>
 <p>网络中的每台计算机都必须就每个新区块和链达成一致。 这些计算机被称为“节点”。 节点保证所有与区块链交互的人都有相同的数据。 要完成此分布式协议，区块链需要一个共识机制。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1669897542628.jpeg" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1669897542628.jpeg" alt="img"></p>
         </article>
     </div>
 
@@ -2136,6 +2136,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

@@ -599,7 +599,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">court</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ball</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1667215593349.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1667215593349.png" alt="img"></p>
 <h3 id="2有缓冲-channel">2、有缓冲 Channel</h3>
 <p>有缓冲的 Channel ）是一种在被接收前能存储一个或者多个值。这种类型的信道并不强制要求 goroutine 之间必须同时完成发送和接收。信道会阻塞发送和接收动作的条件也会不同。只有在信道中没有要接收的值时，接收动作才会阻塞。只有在信道没有可用缓冲区容纳被发送的值时，发送动作才会阻塞。</p>
 <p>这导致有缓冲的信道和无缓冲的信道之间的一个很大的不同：无缓冲的信道保证进行发送和接收的 goroutine 会在同一时间进行数据交换；有缓冲的信道没有这种保证。</p>
@@ -625,7 +625,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 查看当前通道的大小
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(len(<span style="color:#a6e22e">ch</span>))
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1667215612833.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1667215612833.png" alt="img"></p>
 <p>带缓冲信道在很多特性上和无缓冲信道是类似的。无缓冲信道可以看作是长度永远为 0 的带缓冲信道。因此根据这个特性，带缓冲信道在下面列举的情况下依然会发生阻塞：</p>
 <ul>
 <li>带缓冲信道被填满时，尝试再次发送数据时发生阻塞。</li>
@@ -2226,6 +2226,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

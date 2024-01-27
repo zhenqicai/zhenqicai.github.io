@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/182/" class="thumbnail" title="机机器学习的测试和验证（Machine Learning 研习之五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1693214006574.png" alt="机器学习的测试和验证（Machine Learning 研习之五）">
+    <a href="/article/182/" class="thumbnail" title="机机器学习的测试和验证（Machine Learning 研习之五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1693214006574.png" alt="机器学习的测试和验证（Machine Learning 研习之五）">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/181/" class="thumbnail" title="机器学习的主要挑战和任务（Machine Learning 研习之四）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1691913313316.png" alt="机器学习的主要挑战和任务（Machine Learning 研习之四）">
+    <a href="/article/181/" class="thumbnail" title="机器学习的主要挑战和任务（Machine Learning 研习之四）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1691913313316.png" alt="机器学习的主要挑战和任务（Machine Learning 研习之四）">
 
 
 
@@ -1746,6 +1746,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/78/" class="thumbnail" title="Java 8 函数式接口编程" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1561169469138.png" alt="Java 8 函数式接口编程">
+    <a href="/article/78/" class="thumbnail" title="Java 8 函数式接口编程" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1561169469138.png" alt="Java 8 函数式接口编程">
 
 
 
@@ -1693,6 +1693,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

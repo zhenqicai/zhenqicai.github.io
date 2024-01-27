@@ -539,17 +539,17 @@
 <p>1、查看yum库中的Java安装包</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum -y list java*
 </span></span></code></pre></div><p>输入之后回车，会看到各种不同版本的jdk包</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538881870439.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538881870439.png" alt="img"></p>
 <p>2、使用yum安装Java环境
 本文安装的是JDK8，安装java-1.8.0版本的所有相关程序</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum -y install java-1.8.0-openjdk*
 </span></span></code></pre></div><p>等待一小会，等出现complete!说明安装结束！</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538882205532.png" alt="img">
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538882212577.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538882205532.png" alt="img">
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538882212577.png" alt="img"></p>
 <p>3、查看刚安装的Java版本信息</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java -version
 </span></span></code></pre></div><p>出现下图信息，说明安装成功</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538882302806.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538882302806.png" alt="img"></p>
 <p>至此在云服务器中的Linux的CentOS 7安装JDK 8就告一段落了。下一篇将介绍如何安装Tomcat7，敬请期待…………</p>
         </article>
     </div>
@@ -2112,6 +2112,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

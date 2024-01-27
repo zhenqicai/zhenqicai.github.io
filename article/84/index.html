@@ -541,35 +541,35 @@
 安装完成后，打开你的命令行输入如下命令，验证安装是否成功：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>   node -v
 </span></span><span style="display:flex;"><span>   npm -v
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543718911819.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543718911819.png" alt="img"></p>
 <p>然后，我们需要执行以下命令，将npm的下载源切换到国内淘宝的镜像，以提高下载时的速度和成功率：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>   npm set registry https://registry.npm.taobao.org/
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543718963877.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543718963877.png" alt="img"></p>
 <p>2、安装vue-cli工具包，它可以快速搭建一个vue项目，当然，mpvue是完全基于vue的，所以安装这个，可以快速搭建一个mpvue项目。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>   npm install vue-cli -g
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543719122726.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543719122726.png" alt="img"></p>
 <p>安装完成后，输入如下命令进行验证：</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543719171755.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543719197261.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543719171755.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543719197261.png" alt="img"></p>
 <p>3、微信开发者工具
 这个工具是开发、调试和模拟运行微信小程序的最核心的工具了，所以必须安装。
 下载地址：https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html
 4、你可以下载sumbline text3来编辑vue文件，当然你也可以使用vs code或其他编辑器，只要你愿意就好。
 好了，那么来创建第一个基于mpvue的小程序项目。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>   vue init mpvue/mpvue-quickstart qiucodeblog
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543719441112.png" alt="img">
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543719441112.png" alt="img">
 这份代码暂时还运行不起来，因为它还缺少依赖的库，我们需要执行以下命令进行依赖库的安装：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>   cd qiucodeblog
 </span></span><span style="display:flex;"><span>   npm install
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543719701833.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543719701833.png" alt="img"></p>
 <p>经过几分钟的下载安装，依赖库安装到了qiucodeblog目录下，你可以看到该目录下多出了一个node_modules目录。</p>
 <p>然后，执行命令让这个代码运行起来，进入开发模式：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>   npm run dev
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543719874490.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543719874490.png" alt="img"></p>
 <p>成功运行后，这个项目代码就进入开发模式，一旦有源代码发生修改，就会触发自动编译。因为mpvue使用的是Vue + HTML Web的开发方式开发小程序，它最终还是需要被转换成小程序的代码才可以在小程序环境运行，所以这里的自动编译的目的就是要把Web代码编译成小程序代码。编译后的代码会在dist目录下：</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543720335190.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543720335190.png" alt="img"></p>
 <p>在左边的小程序模拟器中就能看到qiucodeblog小程序的执行结果了：</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543720437959.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543720437959.png" alt="img"></p>
         </article>
     </div>
 
@@ -2131,6 +2131,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

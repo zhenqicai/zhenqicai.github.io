@@ -546,7 +546,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#66d9ef">uint8</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">uint16</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">uint32</span> c <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b;
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670853755174.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670853755174.png" alt="img"></p>
 <p>无符号整型可以转换成跟它大小相等或更大的字节类型，但反之不能。 任何可以转换成 <code>uint160</code> 的类型都可以转换成 <code>address</code> 类型。</p>
 <h4 id="显式转换">显式转换</h4>
 <p>某些情况下，编译器不支持<code>隐式转换</code>，而这时，作为开发人员的您就不得不使用<code>强硬手段</code>了。<code>显式转换</code>可能会发生些您无法预料的状况，所以您需要繁琐的测试，看最终是否能达到您的要求。</p>
@@ -565,7 +565,7 @@
 </span></span></code></pre></div><p>这里 <code>y</code> 的类型将是 <code>uint24</code>。不能对函数参数或者返回参数使用 <code>var</code>。</p>
 <p><strong>注意</strong>：类型只能从第一次赋值中推断出来，因此以下代码中的循环是无限的， 原因是<code>i</code> 的类型是 <code>uint8</code>，而这个类型变量的最大值比 <code>2000</code> 小。 <code>for (var i = 0; i &lt; 2000; i++) { ... }</code></p>
 <p>高版本可能不支持了。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670853771087.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670853771087.png" alt="img"></p>
         </article>
     </div>
 
@@ -2164,6 +2164,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

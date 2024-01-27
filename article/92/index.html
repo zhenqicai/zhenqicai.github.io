@@ -567,7 +567,7 @@ redis官网下载地址： <a href="https://redis.io/download">https://redis.io/
 <p>3.1、经过安装后，会将redis服务命令安装在 /usr/local/bin</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /usr/local/bin
 </span></span><span style="display:flex;"><span>ls -all
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1616917710397.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1616917710397.png" alt="img"></p>
 <p>redis-server redis服务器
 redis-cli redis命令行客户端
 redis-benchmark redis性能测试工具
@@ -606,7 +606,7 @@ redis-check-rdb RDB文件检索工具</p>
 <p>3.4、进入到/usr/local/bin目录下，执行命令：（默认端口6379）</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>redis-server /etc/redis/redis.conf
 </span></span><span style="display:flex;"><span>redis-cli -p <span style="color:#ae81ff">6379</span>
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1616918311818.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1616918311818.png" alt="img"></p>
 </li>
 </ul>
         </article>
@@ -2200,6 +2200,18 @@ redis-check-rdb RDB文件检索工具</p>
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

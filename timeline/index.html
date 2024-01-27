@@ -768,7 +768,7 @@
                         
                         <div class="month-detail-box">
                             <span class="month-title">06月18日</span>
-                            <p class="incident-record">【秋码记录】首页文章列表实现了骨架屏，接下来将逐渐使整站都完成骨架屏占位填充。 <img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/artSkeleton.gif" alt="秋码记录】首页文章列表实现了骨架屏" /></p>
+                            <p class="incident-record">【秋码记录】首页文章列表实现了骨架屏，接下来将逐渐使整站都完成骨架屏占位填充。 <img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/artSkeleton.gif" alt="秋码记录】首页文章列表实现了骨架屏" /></p>
                         </div>
                         
                         <div class="month-detail-box">
@@ -2234,6 +2234,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

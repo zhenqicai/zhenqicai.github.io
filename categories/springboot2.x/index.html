@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/96/" class="thumbnail" title="SpringBoot使用FreeMarker模板发送邮件" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538899063388.png" alt="SpringBoot使用FreeMarker模板发送邮件">
+    <a href="/article/96/" class="thumbnail" title="SpringBoot使用FreeMarker模板发送邮件" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538899063388.png" alt="SpringBoot使用FreeMarker模板发送邮件">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/79/" class="thumbnail" title="Springboot对上传图片添加水印后存储到阿里云OSS对象存储中" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1599295018070.png" alt="Springboot对上传图片添加水印后存储到阿里云OSS对象存储中">
+    <a href="/article/79/" class="thumbnail" title="Springboot对上传图片添加水印后存储到阿里云OSS对象存储中" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1599295018070.png" alt="Springboot对上传图片添加水印后存储到阿里云OSS对象存储中">
 
 
 
@@ -657,7 +657,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/116/" class="thumbnail" title="Ztree整合SpringMVC实现异步加载树" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1554460583702.png" alt="Ztree整合SpringMVC实现异步加载树">
+    <a href="/article/116/" class="thumbnail" title="Ztree整合SpringMVC实现异步加载树" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1554460583702.png" alt="Ztree整合SpringMVC实现异步加载树">
 
 
 
@@ -1799,6 +1799,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

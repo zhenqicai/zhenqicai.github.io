@@ -580,7 +580,7 @@
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> result; <span style="color:#75715e">//返回 局部变量
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670763602426.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670763602426.png" alt="img"></p>
 <p>我们做些小改动，让函数返回 状态变量，会是什么样的结果呢？</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#75715e">// SPDX-License-Identifier: GPL-3.0
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">pragma solidity</span> <span style="color:#f92672">^</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">0</span>;
@@ -599,10 +599,10 @@
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> storedData; <span style="color:#75715e">//返回 状态变量
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670763621870.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670763621870.png" alt="img"></p>
 <p>您可能也注意到，编译图标下有 2 个警告。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670763650086.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670763665535.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670763650086.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670763665535.png" alt="img"></p>
 <p>针对第一个警告，那是 Solidity 0.7 版本之后对 构造器 的 可见修饰忽略了，解决办法：便是删除它。</p>
 <p>而 第二个 警告 便是声明过的变量没有使用，这点倒是和 golang 很像，但在 Solidity 中并没有那么严格，只是给出警告提示，还是可以编译的，在这里建议，去掉没使用的变量。</p>
 <h3 id="全局变量global-variable">全局变量（Global Variable）</h3>
@@ -734,7 +734,7 @@
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> result; <span style="color:#75715e">//状态变量（state variable）
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670763703149.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670763703149.png" alt="img"></p>
         </article>
     </div>
 
@@ -2338,6 +2338,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

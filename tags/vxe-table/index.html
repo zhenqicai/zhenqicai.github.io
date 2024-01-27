@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/119/" class="thumbnail" title="自定义vxe-table表头标题文字过多，显示两行多余省略号并给出tooltip" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1654916106773.jpg" alt="自定义vxe-table表头标题文字过多，显示两行多余省略号并给出tooltip">
+    <a href="/article/119/" class="thumbnail" title="自定义vxe-table表头标题文字过多，显示两行多余省略号并给出tooltip" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1654916106773.jpg" alt="自定义vxe-table表头标题文字过多，显示两行多余省略号并给出tooltip">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/117/" class="thumbnail" title="vue vxe-table表格标题根据内容宽度自动换行" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1654185235510.png" alt="vue vxe-table表格标题根据内容宽度自动换行">
+    <a href="/article/117/" class="thumbnail" title="vue vxe-table表格标题根据内容宽度自动换行" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1654185235510.png" alt="vue vxe-table表格标题根据内容宽度自动换行">
 
 
 
@@ -1746,6 +1746,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

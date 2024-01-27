@@ -552,7 +552,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">z</span> <span style="color:#66d9ef">uint</span> = uint(<span style="color:#a6e22e">f</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>, <span style="color:#a6e22e">z</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664005560129.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664005560129.png" alt="img"></p>
 <p>而如果是<code>字符串</code>要和数值进行转换。有两种方式，一种是使用<code>rune</code>（int32）来转换，另一种则是使用<code>strconv</code>包来转换，<code>Itoa</code>方法是将<code>整型</code>转换为<code>字符串</code>类型，而<code>Atoi</code>则相反，它是将<code>字符串数值</code>转换为整型。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// hello project main.go
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
@@ -574,7 +574,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">str</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">site</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">Itoa</span>(<span style="color:#a6e22e">age</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;年！&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">str</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664005636310.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664005636310.png" alt="img"></p>
 <h3 id="2类型推导">2、类型推导</h3>
 <p>其实，类型推导前面几篇以及本文实例都有涉及到，只是你没有注意到而已。</p>
 <p>在声明一个变量而不指定其类型时（即使用不带类型的 <code>:=</code> 语法或 <code>var =</code> 表达式语法），变量的类型由右值推导得出。</p>
@@ -585,7 +585,7 @@
 <pre tabindex="0"><code>i := 42           // int
 f := 3.142        // float64
 g := 0.867 + 0.5i // complex128
-</code></pre><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664005685059.png" alt="img"></p>
+</code></pre><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664005685059.png" alt="img"></p>
         </article>
     </div>
 
@@ -2171,6 +2171,18 @@ g := 0.867 + 0.5i // complex128
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

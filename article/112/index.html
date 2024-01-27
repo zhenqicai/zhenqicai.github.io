@@ -538,17 +538,17 @@
             <p>Ubuntu 16.04LTS 安装 redis-6.2.6（源码安装）</p>
 <h3 id="一下载redis-626源码包">一、下载redis-6.2.6源码包</h3>
 <p>redis 官网下载地址： <a href="https://redis.io/download">https://redis.io/download</a>
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1641809850670.png" alt="img"></p>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1641809850670.png" alt="img"></p>
 <h3 id="二解压文件">二、解压文件</h3>
 <p>将下载好的文件上传到 <code>Ubuntu</code>上面。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tar xzvf redis-6.2.6.tar.gz
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1641809941429.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1641809941429.png" alt="img"></p>
 <h3 id="三编译安装">三、编译安装</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd redis-6.2.6
 </span></span><span style="display:flex;"><span>make
 </span></span><span style="display:flex;"><span>make test
 </span></span><span style="display:flex;"><span>make install
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1641810027463.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1641810027463.png" alt="img"></p>
 <h3 id="四配置redis">四、配置redis</h3>
 <p>创建<code>redis</code>配置目录：<code>/etc/redis</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir /etc/redis
@@ -587,12 +587,12 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl start redis
 </span></span><span style="display:flex;"><span>systemctl enable redis
 </span></span><span style="display:flex;"><span>systemctl status redis
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1641810236283.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1641810236283.png" alt="img"></p>
 <p>重启<code>redis</code>服务</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl restart redis
 </span></span></code></pre></div><p>测试一下</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>redis-cli
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1641810316489.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1641810316489.png" alt="img"></p>
         </article>
     </div>
 
@@ -2208,6 +2208,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

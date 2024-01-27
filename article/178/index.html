@@ -554,19 +554,19 @@
 <li>2、是的，您得为以上出现的种种情况编写一套检测算法。</li>
 <li>3、您将测试您的程序并重复 1、2 步骤，直到它足够好为止。</li>
 </ul>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1689400380334.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1689400380334.png" alt=""></p>
 <p>最终您的程序很可能会变成一长串复杂的规则——难以维护。</p>
 <p>相比之下，基于<code>机器学习</code>技术的垃圾邮件过滤器会自动学习通过检测异常频率，可以很好地预测垃圾邮件， 与垃圾邮件示例相比， 该程序更短，更容易维护，而且很可能更多准确的。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1689403188206.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1689403188206.png" alt=""></p>
 <p>倘若<code>垃圾邮件</code>发送者发现所有含有商城活动推广链接的电子邮件都被阻止了，那该怎么办呢？他们势必会将链接换成短链接。</p>
 <p>然而，使用传统编程的垃圾邮件过滤器，则需要更新技术来标记那些以<code>短链接</code>来隐藏的商城活动推广的电子邮件了。假使<code>垃圾邮件</code>发送者继续围绕垃圾邮件过滤器展开工作，您将永远处于被动下地去更新您的规则。</p>
 <p>相比之下，基于<code>机器学习</code>技术的<code>垃圾邮件</code>过滤器会自动注意到以短链接形式的商城活动推广邮件，在用户标记的垃圾邮件中变得异常频繁，并且无需您的干预即可标记它们。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1689405719680.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1689405719680.png" alt=""></p>
 <p><code>机器学习</code>的亮点便是解决对于传统方法来说过于复杂、抑或是还没有算法的问题。</p>
 <p>就拿<code>语音识别</code>来说吧！假使您想从简单开始编写一个能够区分 一 和 二 的程序，或许您可能硬编码一个算法来检测高低音强度并用它来区分。</p>
 <p>很显然，这种硬编码技术是无法扩展到数以亿计的人所说的数千个汉语的。</p>
 <p>不同的人在噪杂的环境中使用数十种语言，迄今为止最好的解决方案便是编写一个可以<code>自我学习</code>的算法，给出很多文字的录音的示例，最终让<code>机器学习</code>像人类一样去学习。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1689408107903.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1689408107903.png" alt=""></p>
 <p>总而言之，<code>机器学习</code>非常适合以下场景：</p>
 <ul>
 <li>现有解决方案需要大量微调或长列表的问题 规则（机器学习模型通常可以简化代码并且性能比 传统方法）</li>
@@ -2159,6 +2159,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

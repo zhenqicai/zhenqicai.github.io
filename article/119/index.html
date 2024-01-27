@@ -538,7 +538,7 @@
             <p>自定义vxe-table表头标题文字过多，显示两行多余省略号并给出tooltip</p>
 <p>在上一篇已经实现表头换行，本文将继续实现对含有省略号的标题做出tooltip提示。</p>
 <p>最终效果如下图：
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1654916106773.jpg" alt="img"></p>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1654916106773.jpg" alt="img"></p>
 <h3 id="1首先在body创建一个div">1、首先在body创建一个div</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">tooltipDiv</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">tooltipDiv</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#34;class&#34;</span>,<span style="color:#e6db74">&#34;vxe-table--tooltip-wrapper&#34;</span>)
@@ -2282,6 +2282,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

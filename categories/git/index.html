@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/109/" class="thumbnail" title="Git版本控制教程之在Visual Studio Code中如何使用（四）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110279950.png" alt="Git版本控制教程之在Visual Studio Code中如何使用（四）">
+    <a href="/article/109/" class="thumbnail" title="Git版本控制教程之在Visual Studio Code中如何使用（四）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110279950.png" alt="Git版本控制教程之在Visual Studio Code中如何使用（四）">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/108/" class="thumbnail" title="Git版本控制教程之分支（三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1626512993580.png" alt="Git版本控制教程之分支（三）">
+    <a href="/article/108/" class="thumbnail" title="Git版本控制教程之分支（三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1626512993580.png" alt="Git版本控制教程之分支（三）">
 
 
 
@@ -657,7 +657,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/107/" class="thumbnail" title="Git版本控制教程之为项目打上标签（二）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1625986260472.png" alt="Git版本控制教程之为项目打上标签（二）">
+    <a href="/article/107/" class="thumbnail" title="Git版本控制教程之为项目打上标签（二）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1625986260472.png" alt="Git版本控制教程之为项目打上标签（二）">
 
 
 
@@ -710,7 +710,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/106/" class="thumbnail" title="Git版本控制入门教程（一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1625897814695.png" alt="Git版本控制入门教程（一）">
+    <a href="/article/106/" class="thumbnail" title="Git版本控制入门教程（一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1625897814695.png" alt="Git版本控制入门教程（一）">
 
 
 
@@ -763,7 +763,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/85/" class="thumbnail" title="git使用教程之创建本地库并关联远程库（笔记整理篇一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1607248141604.png" alt="git使用教程之创建本地库并关联远程库（笔记整理篇一）">
+    <a href="/article/85/" class="thumbnail" title="git使用教程之创建本地库并关联远程库（笔记整理篇一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1607248141604.png" alt="git使用教程之创建本地库并关联远程库（笔记整理篇一）">
 
 
 
@@ -1905,6 +1905,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

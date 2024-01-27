@@ -540,7 +540,7 @@
 <p>2023 年年初为这一年预先设定的规划，实现了吗？然而，回答我们自己，是那无声的摇头。年初预定的规划，大抵也只有到了年末，我们对这一年复盘时，方觉得年初列出的计划清单，还是有那么多没有完成，更有甚者，清单上一项都没能实现，或许，此刻，我们会对自己发出一声苦笑，长吁责问自己，“一年的时间，竟然空不出一点时间来完成那年初既定的规划！”</p>
 <p>无论是长吁短叹，还是责怪自己，我们总得为未来、新的一年起一份未来规划列表，顺带 2023 年还未完成的计划。</p>
 <p>风雨过后，总能遇见太阳，只是自然界的现象，当然，也有例外，太阳有时让那厚实的云朵遮蔽了，日光便无法照耀大地，那阴郁之气却布满了上空，使这座城市处于压抑的一天，但我们相信，云朵总是会散开的，迟来的阳光，也会照射这片土地，用那光芒的温度去蒸发昨日的阴郁之气。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703910621212.jpg" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703910621212.jpg" alt=""></p>
 <p>或许，用【风雨飘摇】这个成语来形容 2023 这一年，总觉得还不是那么恰当，因为 2023 这一年，并不像【风雨飘摇】这个词轻描淡写、一词带过，这四个字并不足以恰如其分地述说 2023 这一年。</p>
 <p>这一年，承载着太多人的不甘；这一年，也让大部分撤离了那份职业；这一年，也让很大一部分人彻夜逃离了大城市，终将回到了可以安放灵魂的故乡。</p>
 <p>然而，在 2023 这一年所积攒下来的诸多不甘、不忿、怨愤等阴郁之气，我们希望能借未来之光芒来吹散、蒸发那股消极、惨淡、压抑之气，在我们寄托于未来之光的时刻，我们也必须时刻充实自己，也只有这样，未来之光方能光顾到我们自己。</p>
@@ -2161,6 +2161,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

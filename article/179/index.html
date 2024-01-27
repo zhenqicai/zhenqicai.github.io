@@ -593,42 +593,42 @@
 <p><code>机器学习</code>系统可以根据训练期间受到的<code>监督数量</code>和<code>类型</code>进行划分。有很多类别，但目前只讲讲<code>监督</code>、<code>无监督</code>、<code>自我监督</code>、<code>半监督</code>以及<code>强化</code>学习。</p>
 <h5 id="监督学习supervised-learning">监督学习（Supervised learning）</h5>
 <p>在<code>监督学习</code>中，提供给算法的<code>训练集</code>包括所需的解决方案，则称为<code>标签</code>。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1689995834152.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1689995834152.png" alt=""></p>
 <p>垃圾邮件过滤器接受了很多电子邮件及其分类（垃圾邮件）的训练，并且它必须学习该如何对新邮件进行分类。</p>
 <p>也可以根据一组<code>特征</code>（里程、车龄以及品牌等）来预测目标值。为了训练，您需要为其提供很多汽车示例，包括它们的功能和价格。这种任务称为<code>回归</code>。</p>
 <blockquote>
 <p>注意：某些<code>回归模型</code>也可用于分类，反之亦然。<code>逻辑回归</code>（ logistic regression）通常用于分类，因为它可以输出与给定类别的概率相对应的值（例如：垃圾邮件概率为20%）</p>
 </blockquote>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690000818688.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690000818688.png" alt=""></p>
 <p><code>回归问题</code>：给定一个输入特征，预测一个值（通常有多个输入特征，有时有多个输出值）。</p>
 <h5 id="无监督学习unsupervised-learning">无监督学习（Unsupervised learning）</h5>
 <p>在<code>无监督</code>学习中，<code>训练数据</code>是不需要<code>标记</code>的。该系统试图在没有老师的情况下进行学习。</p>
 <p>假设您有大量有关博客访问者的数据，您可能需要运行<code>聚类算法</code>来尝试检测相似访问这组。而您永远也不会告诉<code>算法</code>访问这属于哪个组，它无需您的任何协助即可找到这些链接。它可能会注意到，40% 的访问者是喜欢漫画书并通常在放学后阅读您的博客的青少年，而 20% 是喜欢科幻小说并在周末访问的成年人。如果您使用了<code>层次聚类算法</code>（hierarchical clustering algorithm），它还可能将每个组细分为更小的组， 这可以帮助您针对每个组定位您的帖子。</p>
 <p>（用于无监督学习的未标记训练集）</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690002317611.png" alt="用于无监督学习的未标记训练集"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690002317611.png" alt="用于无监督学习的未标记训练集"></p>
 <p>（聚类）</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690002745441.png" alt="聚类"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690002745441.png" alt="聚类"></p>
 <p><code>可视化算法</code>也是一个<code>无监督学习</code>的好例子。您向它们提供大量复杂且未标记的数据，它们可以轻松输出绘制数据的 2D 或 3D 表示形式。  这些算法尝试保留尽可能多的结构（例如，尝试保持输入空间中的单独簇在可视化中不重叠），以便您可以了解数据的组织方式，并可能识别出意想不到的模式。</p>
 <p>一个相关的任务是<code>降维</code>，其目标是简化数据而不丢失太多信息。 实现这一目标的一种方法是将多个相关<code>特征</code>合并为一个。 例如，一辆车的行驶里程可能与其车龄密切相关，因此<code>降维算法</code>会将它们合并为一个代表汽车磨损情况的<code>特征</code>， 这称为<code>特征提取</code>。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690005491022.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690005491022.png" alt=""></p>
 <blockquote>
 <p>在将<code>训练数据</code>提供给另一个机器学习算法（例如<code>监督学习算法</code>）之前，尝试使用<code>降维算法</code>来减少<code>训练数据</code>的<code>维数</code>通常是一个好主意。 它将运行得更快，数据将占用更少的磁盘和内存空间，并且在某些情况下它也可能表现得更好。</p>
 </blockquote>
 <p><code>异常检测</code>也是一项<code>无监督任务</code>。例如，检测异常的信用卡交易以防止欺诈、发现制造缺陷，或者在将数据输入另一个学习算法之前自动从数据集中删除异常值。 系统在训练期间显示的大部分是正常实例，因此它学会识别它们； 然后，当它看到一个新实例时，它可以判断它是否看起来像正常实例，或者是否可能存在异常。</p>
 <p>一个非常相似的任务是<code>新颖性检测</code>：它的目的是检测看起来与<code>训练集</code>中的所有实例不同的新实例。 这需要有一个非常“干净”的<code>训练集</code>， 您希望<code>算法</code>检测的任何实例。 例如，如果您有数千张狗的图片，其中 1% 代表吉娃娃，那么<code>新颖性检测算法</code>不应将吉娃娃的新图片视为<code>新颖性</code>。另一方面，<code>异常检测算法</code>可能会认为这些狗非常罕见，并且与其他狗如此不同，因此它们可能会将它们归类为<code>异常</code>（无意冒犯吉娃娃）。</p>
 <p>（异常检测）</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690009118863.png" alt="异常检测"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690009118863.png" alt="异常检测"></p>
 <p><code>关联规则学习</code>（association rule learning）是一个常见的<code>无监督任务</code>，其目标是挖掘大量数据并发现属性之间有趣的关系。 例如，假设您拥有一家超市。 在销售日志上运行<code>关联规则</code>可能会发现购买烧烤酱和薯片的人也倾向于购买牛排。 因此，您可能希望将这些物品彼此靠近放置。</p>
 <h5 id="半监督学习semi-supervised-learning">半监督学习（Semi-supervised learning）</h5>
 <p>由于<code>标记数据</code>通常既耗时又昂贵，因此您通常会有<code>大量未标记</code>的实例，而很少有标记的实例。 一些算法可以处理部分标记的数据。 这称为<code>半监督学习</code>。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690009822949.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690009822949.png" alt=""></p>
 <p>图中，具有两个类（三角形和正方形）的<code>半监督学习</code>：未标记的示例（圆圈）有助于将新实例（十字）分类为三角形类而不是正方形类，即使它更接近标记的正方形</p>
 <p>例如，一些照片托管服务（Google Photos），将照片上传到该服务后，它会自动识别出同一个人 A 出现在照片 1、5 和 11 中，而另一个人 B 出现在照片 2、5 和 7 中。这是算法的<code>无监督</code>部分（聚类）。 现在系统需要的只是您告诉它这些人是谁。 只需为每个人添加一个<code>标签</code>，它就能为每张照片中的每个人命名，这对于搜索照片很有用。</p>
 <p>大多数<code>半监督学习</code>算法是<code>无监督</code>和<code>监督</code>算法的组合。 例如，可以使用<code>聚类</code>算法将相似的实例分组在一起，然后可以用其<code>聚类</code>中最常见的<code>标签</code>来标记每个<code>未标记</code>的实例。 一旦整个<code>数据集</code>被<code>标记</code>，就可以使用任何<code>监督学习</code>算法。</p>
 <h5 id="自我监督学习-self-supervised-learning">自我监督学习 （Self-supervised learning）</h5>
 <p><code>机器学习</code>的另一种方法实际上涉及从完全<code>未标记</code>的<code>数据集</code>生成<code>完全标记</code>的<code>数据集</code>。 同样，一旦整个<code>数据集</code>被<code>标记</code>，就可以使用任何<code>监督学习</code>算法。 这种方法称为<code>自我监督学习</code>。 例如，如果您有大量<code>未标记</code>图像的<code>数据集</code>，则可以随机屏蔽每个图像的一小部分，然后<code>训练模型</code>来恢复原始图像。 在训练过程中，<code>蒙版图像</code>用作<code>模型的输入</code>，<code>原始图像</code>用作<code>标签</code>。</p>
 <p>（左图作为 输入，右图是 输出）</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690011224077.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690011224077.png" alt=""></p>
 <p>生成的模型本身可能非常有用，例如，<code>修复损坏</code>的图像或从图片中删除不需要的对象。 但通常情况下，使用<code>自我监督学习</code>训练的模型并不是最终目标。 您通常需要针对稍微不同的任务（您真正关心的任务）调整和微调模型。</p>
 <p>假设您真正想要的是有一个<code>宠物分类模型</code>：给定任何宠物的图片，它会告诉您它属于什么物种。 如果您有大量<code>未标记</code>的宠物照片<code>数据集</code>，则可以首先使用<code>自我监督学习</code>来训练图像<code>修复</code>模型。 一旦表现良好，它应该能够区分不同的宠物种类：当它<code>修复</code>一张脸部被遮住的猫的图像时，它必须知道不要添加狗的脸。</p>
 <p>假设您的模型架构允许（大多数<code>神经网络</code>架构都允许），那么就可以调整模型，使其<code>预测</code>宠物物种而不是<code>修复</code>图像。 最后一步 包括在<code>标记</code> <code>数据集</code>上微调模型：模型已经知道猫、狗和其他宠物物种的样子，因此只需要这一步，以便模型可以学习它已经知道的物种与我们期望从中获得的<code>标签</code>之间的映射。</p>
@@ -638,7 +638,7 @@
 <p>有些人认为<code>自监督学习</code>是<code>无监督学习</code>的一部分，因为它处理完全<code>未标记</code>的<code>数据集</code>。 但<code>自我监督学习</code>在训练过程中使用（生成的）<code>标签</code>，因此在这方面它更接近<code>监督学习</code>。 <code>无监督学习</code>通常用于处理<code>聚类</code>、<code>降维</code>或<code>异常检测</code>等任务，而<code>自我监督学习</code>则专注于与<code>监督学习</code>相同的任务：主要是<code>分类</code>和<code>回归</code>。 简而言之，最好将<code>自我监督学习</code>视为一个单独的类别。</p>
 <h5 id="强化学习reinforcement-learning-">强化学习（Reinforcement learning ）</h5>
 <p><code>强化学习</code>是一种非常不同的<code>机器学习</code>。 <code>学习系统</code>在本文中称为<code>代理</code>，可以观察环境、选择和执行操作，并获得回报（或以负奖励形式进行惩罚）。 然后，它必须<code>自行学习</code>什么是最好的<code>策略</code>（称为<code>策略</code>），以便随着时间的推移获得最大的回报。 策略定义了代理在给定情况下应该选择什么操作。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690013890451.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690013890451.png" alt=""></p>
 <p>例如，许多<code>机器人</code>采用<code>强化学习</code>算法来学习如何行走。 <code>DeepMind</code> 的 <code>AlphaGo</code> 程序也是<code>强化学习</code>的一个很好的例子：它在 2017 年 5 月的围棋比赛中击败了当时世界排名第一的柯洁，登上了新闻头条。 它通过分析数百万场比赛，然后与自己进行许多比赛来了解其获胜策略。 请注意，在与冠军的比赛中学习被关闭；<code> AlphaGo</code> 只是应用了它学到的策略。</p>
         </article>
     </div>
@@ -2265,6 +2265,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

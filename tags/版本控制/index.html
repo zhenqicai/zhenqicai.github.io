@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/85/" class="thumbnail" title="git使用教程之创建本地库并关联远程库（笔记整理篇一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1607248141604.png" alt="git使用教程之创建本地库并关联远程库（笔记整理篇一）">
+    <a href="/article/85/" class="thumbnail" title="git使用教程之创建本地库并关联远程库（笔记整理篇一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1607248141604.png" alt="git使用教程之创建本地库并关联远程库（笔记整理篇一）">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/87/" class="thumbnail" title="Nexus 2.14.x本地仓库安装与maven配置" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1547954019252.png" alt="Nexus 2.14.x本地仓库安装与maven配置">
+    <a href="/article/87/" class="thumbnail" title="Nexus 2.14.x本地仓库安装与maven配置" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1547954019252.png" alt="Nexus 2.14.x本地仓库安装与maven配置">
 
 
 
@@ -1746,6 +1746,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

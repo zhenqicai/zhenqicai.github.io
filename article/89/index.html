@@ -584,7 +584,7 @@
 </span></span><span style="display:flex;"><span>                   ...,
 </span></span><span style="display:flex;"><span>               })
 </span></span></code></pre></div><p>最终实现效果如下：</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1614521229595.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1614521229595.png" alt="img"></p>
 <p>关于 editable 更多配置 可参考 <code>x-editable</code>官网https://vitalets.github.io/x-editable/</p>
         </article>
     </div>
@@ -2183,6 +2183,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

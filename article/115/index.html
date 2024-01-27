@@ -537,13 +537,13 @@
         <article class="Qc_detail_article" id="article-container">
             <p>今天天气很好，午后遂与家人去登山，天是那么的蓝，空气是那么的清新，虽然路是崎岖的，但笔者走的还是很开心的！</p>
 <p>天气多云，可以说无风。这么好的天气，笔者也放松一下，午后，遂与家人去登山观景！
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1654347731938.jpg" alt="img">
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1654347731938.jpg" alt="img">
 望着天空，天是那么的蓝，空气是那么的清新，或许这就是笔者向往的生活吧！
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1654347666172.jpg" alt="img">
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1654347666172.jpg" alt="img">
 松树林立，何其的挺拔啊！
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1654347666172.jpg" alt="img">
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1654347666172.jpg" alt="img">
 途中，长在路崖旁的奇果引起笔者的注意，拨开果子，里面满是籽，扑鼻而来的是那苹果的味道！
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1654347788693.jpg" alt="img"></p>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1654347788693.jpg" alt="img"></p>
         </article>
     </div>
 
@@ -2105,6 +2105,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/140/" class="thumbnail" title="Go 语言中的函数变量与匿名函数（Let&#39;s Go 二十）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664887715876.png" alt="Go 语言中的函数变量与匿名函数（Let&#39;s Go 二十）">
+    <a href="/article/140/" class="thumbnail" title="Go 语言中的函数变量与匿名函数（Let&#39;s Go 二十）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664887715876.png" alt="Go 语言中的函数变量与匿名函数（Let&#39;s Go 二十）">
 
 
 
@@ -1693,6 +1693,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

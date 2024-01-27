@@ -551,7 +551,7 @@
 <p>当您调用管道的 <code>fit() </code>方法时，它会在所有<code>transformers</code>上顺序调用 <code>fit_transform()</code>，将每个调用的输出作为参数传递给下一个调用，直到到达最终估计器，为此它只调用 <code>fit() </code>方法。</p>
 <p>该管道公开与最终估计器相同的方法。 在此示例中，最后一个估计器是 <code>StandardScaler</code>，它是一个<code>transformers</code>，因此管道也充当<code>transformers</code>。 如果您调用管道的<code>transform()</code>方法，它将按顺序将所有转换应用于数据。 如果最后一个估计器是预测器而不是变换器，那么管道将具有 <code>Predict() </code>方法而不是 <code>Transform() </code>方法。 调用它会按顺序将所有转换应用于数据并将结果传递给预测器的 <code>Predict()</code>方法</p>
 <p>让我们调用管道的 <code>fit_transform() </code>方法并查看输出的前两行，四舍五入到小数点后两位：</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703937450902.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703937450902.png" alt=""></p>
 <p>如前所述，如果要恢复一个漂亮的DataFrame，可以使用管道的get_feature_names_
 out()方法:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_housing_num_prepared <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(
@@ -628,7 +628,7 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
 </span></span><span style="display:flex;"><span>		remainder<span style="color:#f92672">=</span>default_num_pipeline) <span style="color:#75715e"># one column remaining: housing_median_age</span>
 </span></span><span style="display:flex;"><span>		
 </span></span></code></pre></div><p>如果运行此ColumnTransformer，它将执行所有转换并输出具有24个特性的NumPy数组:</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703937560847.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703937560847.png" alt=""></p>
 
         </article>
     </div>
@@ -2209,6 +2209,18 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

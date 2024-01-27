@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/188/" class="thumbnail" title="端到端的机器学习项目之探索数据（Machine Learning 研习之七）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936058408.png" alt="端到端的机器学习项目之探索数据（Machine Learning 研习之七）">
+    <a href="/article/188/" class="thumbnail" title="端到端的机器学习项目之探索数据（Machine Learning 研习之七）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703936058408.png" alt="端到端的机器学习项目之探索数据（Machine Learning 研习之七）">
 
 
 
@@ -620,7 +620,7 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/183/" class="thumbnail" title="端到端的机器学习项目（Machine Learning 研习之六）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703936717743.png" alt="端到端的机器学习项目（Machine Learning 研习之六）">
+    <a href="/article/183/" class="thumbnail" title="端到端的机器学习项目（Machine Learning 研习之六）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703936717743.png" alt="端到端的机器学习项目（Machine Learning 研习之六）">
 
 
 
@@ -1762,6 +1762,18 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

@@ -552,15 +552,15 @@
 <p><code>工欲善其事，必先利其器。</code> 这句话是很有道理的，不管做什么事或在学习新事物，都要准备好工具，学习新事物也是一样的。</p>
 <p>打开浏览器，在地址栏输入<a href="https://remix.ethereum.org/">remix.ethereum.org</a></p>
 <p>打开后的默认界面，包含 Solidity 示例。首次打开可能没那么快，这毕竟国外的站点。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670250331145.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670250331145.png" alt="img"></p>
 <p>我们在当前工作空间新建一个 solidity 文件，注意，是以<code>sol</code>作为文件的后缀名。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670250358012.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670250358012.png" alt="img"></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#75715e">// SPDX-License-Identifier: MIT
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">pragma solidity</span> <span style="color:#f92672">^</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">7</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">contract</span> <span style="color:#a6e22e">MyToken</span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">string</span> <span style="color:#66d9ef">public</span> webSite <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Welcome to qiucode.cn&#34;</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670250398321.png" alt="img">
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670250398321.png" alt="img">
 代码分析：</p>
 <ul>
 <li>
@@ -579,11 +579,11 @@
 </span></span></code></pre></div></li>
 </ul>
 <p>编译需要点时间，直到出现了绿色小图标，就说明编译成功了。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670250441325.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670250441325.png" alt="img"></p>
 <p>现在可以不受测试下看看效果如何。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670250464214.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670250485289.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670250514797.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670250464214.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670250485289.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670250514797.png" alt="img"></p>
         </article>
     </div>
 
@@ -2163,6 +2163,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

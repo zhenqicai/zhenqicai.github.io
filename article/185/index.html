@@ -549,17 +549,17 @@
 <p>我们讲完了<code>hugo-theme-kiwi</code>名称的由来，我们也该聊聊它到底有哪些功能？当然，这些才是您浏览本文的最终目的，毕竟，一套好看的<code>hugo</code>主题总是那么吸引人，好比我们走在街上，忽然，迎面走来一位牵手高挑的美女，我想，那一刻，任一男人都会将目光迅速地移到那位美女身上的！当然咯，相貌与身材不及那位美女的其他女人（多是相貌平平），她们对那位美女瞬间把那条街所有男人的心给俘获了，心中难免怨恨，嘴角略微上扬，轻轻地一声“啧”，和那默契的翻白眼（或许，这才是女人与男人见到美女的所表现出的天然之别的情绪）</p>
 <p><code>hugo-theme-kiwi</code> <code>V0.01</code>已实现如下功能：</p>
 <p>1、首页文章列表展示，以文章缩略图和文章摘要显示（毕竟是图文内容嘛！总得给个文章缩略图吧！）</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703916489842.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916489842.png" alt=""></p>
 <p>2、是列表，那它就需要分页，而这套主题摒弃了随着滚动条触底而加载下一页数据（让人感觉有种加载不完数据）</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703916547251.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916547251.png" alt=""></p>
 <p>3、文章详情页，当然，与用户交互那是必须的，所以加入了评论，也就是您可以对某篇文章进行评论。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703916593909.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916593909.png" alt=""></p>
 <p>4、文章详情页右侧，自动识别出文章目录，点击目录可以快速到达您所感兴趣的目录下阅读，减少了您宝贵的时间。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703916635289.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916635289.png" alt=""></p>
 <p>5、友情链接，用于添加拥有个人博客网站链接，虽然你我身处天南地北，但能在此处以博客会友建立了（可以称为博友）“友情”。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703916673995.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916673995.png" alt=""></p>
 <p>6、右侧侧边栏，分类和标签各自跳转到各自的页面</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703916715118.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916715118.png" alt=""></p>
 <p>还未实现的功能：</p>
 <p>1、首页文章搜索
 2、时间轴
@@ -2152,6 +2152,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

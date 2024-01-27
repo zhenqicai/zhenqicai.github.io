@@ -662,7 +662,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>})
 </span></span></code></pre></div><p>保存查看一下：
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1616240220732.png" alt="img"></p>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1616240220732.png" alt="img"></p>
 <h3 id="3首页轮播图">3、首页轮播图</h3>
 <p>在l**<code>index.wxml</code>**添加以下内容</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">swiper</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;banner&#34;</span> <span style="color:#a6e22e">indicator-dots</span> <span style="color:#a6e22e">autoplay</span> <span style="color:#a6e22e">indicator-active-color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fbbd08&#34;</span> <span style="color:#a6e22e">circular</span>&gt;
@@ -695,7 +695,7 @@
 </span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;four&#34;</span>,<span style="color:#a6e22e">img</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;/images/banner/banner-four.jpg&#34;</span>}
 </span></span><span style="display:flex;"><span>    ],
 </span></span></code></pre></div><p><strong>最终实现的效果图如下：</strong>
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1616240555578.png" alt="img"></p>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1616240555578.png" alt="img"></p>
 <p>上一篇 <a href="https://qiucode.cn/article/90">微信小程序电商实战—环境搭建篇</a></p>
         </article>
     </div>
@@ -2288,6 +2288,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

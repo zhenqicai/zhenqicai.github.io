@@ -1120,6 +1120,21 @@ QQ： 2834491983</description>
     </item>
     
     <item>
+      <title></title>
+      <link>/post/%E9%83%A8%E7%BD%B2%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%88%B0-polygon-%E4%B8%8Aweb3%E9%A1%B9%E7%9B%AE%E4%B8%89%E5%AE%9E%E6%88%98%E4%B9%8B%E4%B8%89/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/%E9%83%A8%E7%BD%B2%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%88%B0-polygon-%E4%B8%8Aweb3%E9%A1%B9%E7%9B%AE%E4%B8%89%E5%AE%9E%E6%88%98%E4%B9%8B%E4%B8%89/</guid>
+      <description>部署智能合约到 polygon 上（Web3项目三实战之三） 在上一篇 为 Web3 项目撰写智能合约（Web3项目三实战之二） 中，我们已经为Web3项目编写好了智能合约，而本文将要部署智能合约到 polygon上。
+您或许会问，polygon到底是什么？其实它是测试链（也可以说是测试网），由于主链（或主网）部署智能合约是需要gas，而这gas是要花费您的真金白银的，毕竟智能合约是人编写出来的啊！不出bug那是极不可能的事，总得找个网络测试下吧，虽然在编写完智能合约，我们也会现在本地测试一番，但本地网络总是有区别于远程网络的！
+要不，怎么会有在我电脑测试的都没问题，怎么在其他人的电脑就出现各种意料不到的疑难杂症呢？的奇葩事情？毕竟，我们每个人都是很自我的！对别人总是有这样或那样的偏见。
+配置部署脚本 我们还是一如既往的打开IDE（我这里选用的是VS Code，至于您嘛！可根据您平时常用的IDE，不必非要与我使用的一样，要不强人所难这一成语就不会诞生了，哈哈哈……）
+首先，我们打开位于web3目录下的scripts子目录，修改其下的deploy.js文件。
+const hre = require(&amp;#34;hardhat&amp;#34;); async function main() { const tokenStaking = await hre.ethers.deployContract(&amp;#34;TokenStaking&amp;#34;); await tokenStaking.waitForDeployment(); const theblockchaincoders = await hre.ethers.deployContract(&amp;#34;Theblockchaincoders&amp;#34;); await theblockchaincoders.waitForDeployment(); console.log(` STACKING: ${tokenStaking.target}`); console.log(` TOKEN: ${theblockchaincoders.target}`); } main().catch((error) =&amp;gt; { console.error(error); process.exitCode = 1; }); 随后，我们回到web3目录下，对hardhat.config.js进行修改。
+require(&amp;#34;@nomicfoundation/hardhat-toolbox&amp;#34;); /** @type import(&amp;#39;hardhat/config&amp;#39;).HardhatUserConfig */ const PRIVATE_KEY = &amp;#34;YOUR ADDRESS&amp;#34;; const RPC_URL = &amp;#34;https://rpc.ankr.com/polygon_mumbai&amp;#34;; module.exports = { defaultNetwork: &amp;#34;polygon_mumbai&amp;#34;, networks: { hardhat: { chainId: 80001, }, polygon_mumbai: { url: &amp;#34;https://rpc.</description>
+    </item>
+    
+    <item>
       <title>友情链接</title>
       <link>/flinks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

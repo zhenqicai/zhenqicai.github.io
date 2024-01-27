@@ -553,14 +553,14 @@
 <p>如果你想缩放一个稀疏矩阵而不首先将其转换为稠密矩阵，你可以使用一个标准缩放器，它的with_mean超参数设置为False它只会除以标准差，而不会减去均值(因为这会破坏稀疏性</p>
 </blockquote>
 <p>当特征的分布具有重尾时（即，当远离平均值的值不是指数罕见时），最小-最大缩放和标准化都会将大多数值压缩到一个小范围内。 <code>机器学习</code>模型通常根本不喜欢这种情况，因此，在缩放特征之前，您应该首先对其进行变换以缩小重尾，并且如果可能的话，使分布大致对称。 例如，对于右侧有重尾部的正特征，执行此操作的常见方法是用其平方根替换特征（或将特征提高到 0 到 1 之间的幂）。 如果该特征具有非常长且重的尾部，例如幂律分布，则用其对数替换该特征可能会有所帮助。 例如，人口特征大致遵循幂律：拥有 10,000 名居民的地区的出现频率仅比拥有 1,000 名居民的地区低 10 倍，而不是呈指数级下降。 下图 显示了当你计算它的对数时这个特征看起来有多好：它非常接近高斯分布（即钟形）。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935454495.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703935454495.png" alt=""></p>
 <p>另一种处理重尾特征的方法是对特征进行反向转换。这意味着将其分布切割成大致相等大小的桶，并将每个特征值替换为它所属的桶的索引，就像我们创建收入猫特征一样(尽管我们只在分层抽样时使用它)。例如，您可以将每个值替换为其百分位数。使用相同大小的bucket处理会产生一个几乎均匀分布的特性，因此不需要进一步的缩放，或者您可以只除以bucket的数目来强制值到0-1的范围。</p>
 <p>当一个特征具有多峰分布(即，有两个或两个以上清晰的峰值，称为模式)时，例housing_median_age特征，对它进行bucket ization也是有帮助的，但这次将bucket ID作为类别处理，而不是作为数值。这意味着必须对桶索引进行编码，例如使用OneHotEncoder(所以你通常不想用太多桶)。这种方法将允许回归模型更容易地为该特征值的不同范围学习不同的规则。例如，也许35年前建造的房子有一种独特的风格，已经过时了，因此它们比它们的年龄更便宜。</p>
 <p>转换多峰分布的另一种方法是为每个模式(至少是主要模式)添加一个特征，表示住房中位年龄和该特定模式之间的相似性。相似性度量通常使用径向基函数(RBF)来计算&ndash;任何只依赖于输入值与不动点之间距离的函数。最常用的RBF是高斯RBF，其输出值随着输入值远离固定点而呈指数衰减。例如，高斯RBF相似度与房龄x和35由方程<code>exp (-y (x-35)2)</code>给出。超参数<code>y(gamma)</code>确定当x远离35时相似性度量衰减的速度。使用<code>Scikit-Learn</code>的r<code>bf_kernel()</code>函数，您可以创建一个新的高斯RBF特征来测量房屋中位年龄和35:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.metrics.pairwise <span style="color:#f92672">import</span> rbf_kernel
 </span></span><span style="display:flex;"><span>age_simil_35 <span style="color:#f92672">=</span> rbf_kernel(housing[[<span style="color:#e6db74">&#34;housing_median_age&#34;</span>]], [[<span style="color:#ae81ff">35</span>]], gamma<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
 </span></span></code></pre></div><p>下图显示了这一新特征作为住房中位数年龄的函数(实线)。它还显示了如果使用较小的gamma值，该功能将是什么样子。如图所示，新的年龄相似性特征在35岁时达到峰值，正好在住房中位年龄分布的峰值附近:如果这个特定的年龄组与较低的价格有很好的相关性，那么这个新特征将有很好的机会发挥作用。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935517024.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703935517024.png" alt=""></p>
 <p>到目前为止，我们只看了输入特性，但是目标值可能也需要转换。例如，若目标分布具有较重的尾部，您可以选择将目标替换为其对数。但是，如果你这样做，回归模型现在将预测的房屋价值中位数的对数，而不是房屋价值中位数本身。如果您想要预测的房屋中值，则需要计算模型预测的指数值。</p>
 <p>幸运的是，大多数<code>Scikit-Learn</code>的转换器都有一个<code>inverse_transform()</code>方法，这使得计算转换的逆运算变得很容易。例如，下面的代码示例显示了如何使用<code>StandardScaler</code>缩放标签(就像我们对输入所做的那样)，然后在缩放后的标签上训练一个简单的线性回归模型，并使用它对一些新数据进行预测，然后使用经过训练的缩放器的<code>inverse_transform()</code>方法将这些数据转换回原始尺度。请注意，我们将标签从<code>Pandas Series</code>转换为<code>DataFrame</code>，因为标准Scaler期望2D输入。此外，为了简单起见，在本示例中，我们仅使用单个原始输入特征(中值收入)对模型进行训练:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
@@ -594,7 +594,7 @@ TransformedTargetRegressor中使用您的转换器。转换函数可以接受超
 </span></span><span style="display:flex;"><span>kw_args<span style="color:#f92672">=</span>dict(Y<span style="color:#f92672">=</span>[sf_coords], gamma<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>))
 </span></span><span style="display:flex;"><span>sf_simil <span style="color:#f92672">=</span> sf_transformer<span style="color:#f92672">.</span>transform(housing[[<span style="color:#e6db74">&#34;latitude&#34;</span>, <span style="color:#e6db74">&#34;longitude&#34;</span>]])
 </span></span></code></pre></div><p>自定义<code>transformers</code>对于组合功能也很有用。例如，这里有一个FunctionTransformer，它计算输入特征0和1之间的比率:</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935564869.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703935564869.png" alt=""></p>
 <p>FunctionTransformer非常方便，但是如果您希望您的转换器是可训练的，在fit()方法中学习一些参数，然后在transform()方法中使用它们，那该怎么办呢?为此，您需要编写一个自定义类。Scikit-Learn依赖于duck类型，所以这个类不必从任何特定的基类继承。它只需要三个方法:fit()(必须返回self)、
 transform () 和fit_transform()。</p>
 <p>只需添加TransformerMixin作为基类，就可以免费获得fit_transform():默认实现将只调用fit()，然后再调用transform()。如果将BaseEstimator添加为基类(并避免使用*args和**kwargs)，您还将获得两个额外的方法:get_params ()和set_params()。这些对于自动超参数调优非常有用。</p>
@@ -650,9 +650,9 @@ kernel ()来衡量每个样本与每个聚类中心的相似程度:</p>
 </span></span><span style="display:flex;"><span>sample_weight<span style="color:#f92672">=</span>housing_labels)
 </span></span></code></pre></div><p>这段代码创建一个ClusterSimilarity转换器，将集群数设置为10.然后调用fit_transform()，输入训练集中每个区的纬度和经度，并根据每个区的房屋中值对每个区进行加权。变压器采用k-均值定位聚类，
 然后测量每个区域与所有10个聚类中心之间的高斯RBF相似性。结果是一个矩阵，每个区有一行，每个集群有一列。先看前三行，四舍五入到小数点后两位:</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935617986.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703935617986.png" alt=""></p>
 <p>下图显示了通过k-means找到的10个聚类中心。根据它们与最近的集群中心的地理相似性，对这些区域进行着色。正如您所看到的，大多数集群都位于人口密集且价格昂贵的地区。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935662459.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703935662459.png" alt=""></p>
 
         </article>
     </div>
@@ -2239,6 +2239,18 @@ kernel ()来衡量每个样本与每个聚类中心的相似程度:</p>
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

@@ -607,7 +607,7 @@
 <p>在Solidity中， <code>X[3]</code> 总是一个包含三个 <code>X</code> 类型元素的数组，即使 <code>X</code> 本身就是一个数组，这和其他语言也有所不同，比如 C 语言。</p>
 <p>数组下标是从 0 开始的，且访问数组时的下标顺序与声明时相反。</p>
 <p>如果有一个变量为 <code>uint[][5] memory x</code>， 要访问第三个动态数组的第7个元素，使用 <code>x[2][6]</code>，要访问第三个动态数组使用 <code>x[2]</code>。 同样，如果有一个 <code>T</code> 类型的数组 <code>T[5] a</code> ， T 也可以是一个数组，那么 <code>a[2]</code> 总会是 <code>T</code> 类型。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670590244994.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670590244994.png" alt="img"></p>
 <p>访问超出数组长度的元素会导致异常（assert 类型异常 ）。 可以使用 <code>.push()</code> 方法在末尾追加一个新元素，其中 <code>.push()</code> 追加一个零初始化的元素并返回对它的引用。</p>
 <p><code>bytes</code> 和 <code>string</code> 类型的变量是特殊的数组。 <code>bytes</code> 类似于 <code>bytes1[]</code>，但它在 调用数据calldata 和 内存memory 中会被“紧打包”（译者注：将元素连续地存在一起，不会按每 32 字节一单元的方式来存放）。 <code>string</code> 与 <code>bytes</code> 相同，但不允许用长度或索引来访问。</p>
 <p>Solidity没有字符串操作函数，但是可以使用第三方字符串库，我们可以比较两个字符串通过计算他们的 keccak256-hash ，可使用 <code>keccak256(abi.encodePacked(s1)) == keccak256(abi.encodePacked(s2))</code> 和使用 <code>string.concat(s1, s2)</code> 来拼接字符串。</p>
@@ -771,7 +771,7 @@
 <p>尽管结构体本身可以作为映射的值类型成员，但它并不能包含自身。 这个限制是有必要的，因为结构体的大小必须是有限的。</p>
 <p>注意在函数中使用结构体时，一个结构体是如何赋值给一个局部变量（默认存储位置是 存储（storage） ）的。 在这个过程中并没有拷贝这个结构体，而是保存一个引用，所以对局部变量成员的赋值实际上会被写入状态。</p>
 <p>当然，你也可以直接访问结构体的成员而不用将其赋值给一个局部变量，就像这样， <code>campaigns[campaignID].amount = 0</code>。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1670590244994.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670590244994.png" alt="img"></p>
         </article>
     </div>
 
@@ -2376,6 +2376,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

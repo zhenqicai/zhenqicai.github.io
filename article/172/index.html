@@ -579,15 +579,15 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671718918442.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671718918442.png" alt="img"></p>
 <p>我们拷贝部署合约的账户地址<code>0x5B38Da6a701c568545dCfcB03FcB875f56beddC4</code>。</p>
 <p>切换成其他账户，也拷贝出地址 <code>0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2</code>。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671718942078.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671718964583.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671718942078.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671718964583.png" alt="img"></p>
 <p>查看账户余额是否正确，复制 <code>0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2</code>，将其填入 <code>tokenBalance</code>的输入栏，看看余额是否为1。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671718979838.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671718979838.png" alt="img"></p>
 <p>我们再来看看该账户<code>burn with Account（账户烧钱）</code>会发生什么样的状况呢？</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671719007985.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671719007985.png" alt="img"></p>
 <p>从上述这个简单的代币类合约，聪慧如您，想必是看出它的不足了。</p>
 <p>没错，就是上面合约中的函数都有类似的 require 语句，作为开发者的您会将这些 require 语句抽取到一个函数中，但在 Solidity 却引入了一种特别的函数——修改器（modifier）。</p>
 <h4 id="solidity-修改器modifier用来做什么的">Solidity 修改器（modifier）用来做什么的？</h4>
@@ -2406,6 +2406,18 @@ onlyAfter(...) : 是否有超过6周的时间是该人的所有者？
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

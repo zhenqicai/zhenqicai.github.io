@@ -537,7 +537,7 @@
         <article class="Qc_detail_article" id="article-container">
             <p>在window下安装最新Go语言开发包自定义单元格单击或右键时，给单元格添加不一样的样式而苦苦搜寻，可找了好久却好像都没有呢？巧了，笔者已经实现了这一看似很简单地功能！</p>
 <p>先来看下最终实现效果：
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1655207492789.png" alt="img"></p>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1655207492789.png" alt="img"></p>
 <p>你在看这篇文章的时候，那就说明你项目中已经引入了ag-grid表格库，本文是基于 vue 实现的。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">ag-grid-vue</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{height: tableHeight,width: &#39;100%&#39;}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flex-grow-1 flex-shrink-1 ag-theme-alpine&#34;</span>
 </span></span><span style="display:flex;"><span>                                 <span style="color:#f92672">:gridOptions</span><span style="color:#e6db74">=&#34;gridOptions&#34;</span>
@@ -2297,6 +2297,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

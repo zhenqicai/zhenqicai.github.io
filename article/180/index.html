@@ -553,10 +553,10 @@
 <h3 id="在线学习">在线学习</h3>
 <p>在<code>在线学习</code>中，您可以通过按顺序（单独或以称为小批量的小组形式）向系统提供数据实例来<code>增量训练</code>系统。 每个学习步骤都是快速且廉价的，因此系统可以在新数据到达时即时学习。</p>
 <p>（在<code>在线学习</code>中，模型经过训练并投入生产，然后随着<code>新数据</code>的进入而不断学习）</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690607722000.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690607722000.png" alt=""></p>
 <p><code>在线学习</code>对于需要适应极快变化的系统非常有用（例如，检测股票市场的新模式）。 如果您的计算资源有限，这也是一个不错的选择； 例如，如果模型是在移动设备上训练的。</p>
 <p>此外，<code>在线学习</code>算法可用于在无法容纳一台机器主内存的庞大数据集上训练模型（这称为<code>核外学习</code>）。 该算法加载部分数据，对该数据运行训练步骤，然后重复该过程，直到对所有数据运行完毕。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690607790897.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690607790897.png" alt=""></p>
 <p><code>在线学习</code>系统的一个重要参数是它们适应不断变化的数据的速度：这称为<code>学习率</code>（learning rate）。 如果您设置较高的<code>学习率</code>，那么您的系统将快速适应<code>新数据````，但它也会很快忘记</code>旧数据<code>（并且您不希望垃圾邮件过滤器仅标记显示的最新类型的垃圾邮件） ）。 反之，如果设置的</code>学习率```较低，系统就会有较大的惯性； 也就是说，它的学习速度会更慢，但对新数据中的噪声或非代表性数据点（异常值）序列也不太敏感。</p>
 <blockquote>
 <p><code>核外学习</code>（Out-of-core learning ）通常是<code>离线</code>完成的（即不在实时系统上），因此<code>在线学习</code>可能是一个令人困惑的名称。 将其视为````增量学习```（incremental learning）。</p>
@@ -569,23 +569,23 @@
 <p>也许最琐碎的学习方式就是用心学习。如果以这种方式创建垃圾邮件过滤器，它只会标记所有与用户已经标记的邮件相同的电子邮件&ndash;这不是最糟糕的解决方案，但肯定不是最好的解决方案。</p>
 <p>而不是仅仅标记电子邮件是相同的已知垃圾邮件，你的垃圾邮件过滤器可以编程，也标志电子邮件是非常类似已知的垃圾邮件。这需要衡量两封电子邮件之间的相似性。两封电子邮件之间的一个(非常基本的)相似性度量可以是计算它们共有的单词数。如果电子邮件与已知的垃圾邮件有许多共同之处，系统就会将其标记为垃圾邮件。</p>
 <p>这被称为基于实例的学习:系统通过记忆学习示例，然后通过使用相似性度量将它们与所学习的示例(或其中的子集)进行比较，从而推广到新的案例。例如，在图1-16中，新实例将被归类为三角形，因为大多数最相似的实例都属于该类。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690607856798.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690607856798.png" alt=""></p>
 <h3 id="基于模型的学习和典型的机器学习工作流">基于模型的学习和典型的机器学习工作流</h3>
 <p>从一组例子中进行归纳的另一种方法是建立这些例子的模型，然后使用该模型进行预测。这就是所谓的基于模型的学习。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690607900354.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690607900354.png" alt=""></p>
 <p>例如，假设您想知道金钱是否能让人快乐，因此您从 OECD 网站下载了美好生活指数数据以及世界银行有关人均国内生产总值 (GDP) 的统计数据。 然后连接表格并按人均 GDP 排序。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690607958264.png" alt=""></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690607995278.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690607958264.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690607995278.png" alt=""></p>
 <p>这里似乎确实有一个趋势！ 尽管数据存在噪声（即部分随机），但看起来生活满意度随着国家人均 GDP 的增加或多或少呈线性上升。 因此，您决定将生活满意度建模为人均 GDP 的线性函数。 此步骤称为模型选择：您选择了仅具有一个属性的生活满意度线性模型，即人均 GDP。</p>
 <p><code>life_satisfaction = θ0 + θ1 × GDP_per_capita</code></p>
 <p>该模型有两个模型参数，<code>θ0</code> 和 <code>θ1.4</code> 通过调整这些参数，您可以使您的模型表示任何<code>线性函数</code>。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690608053188.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690608053188.png" alt=""></p>
 <p>在使用模型之前，您需要定义参数值 <code>θ0</code> 和 <code>θ1</code>。您如何知道哪些值将使您的模型表现最佳？ 要回答这个问题，您需要指定一个绩效衡量标准。 您可以定义一个<code>效用函数</code>（或适应度函数）来衡量模型的好坏，也可以定义一个成本函数来衡量模型的糟糕程度。 对于<code>线性回归</code>问题，人们通常使用成本函数来衡量线性模型的预测与训练示例之间的距离； 目标是最小化这个距离。</p>
 <p>这就是<code>线性回归</code>算法的用武之地：您向其提供训练示例，它会找到使线性模型最适合您的数据的参数。 这称为<code>训练模型</code>。 在我们的例子中，算法发现最佳参数值为 <code>θ0 = 3.75</code> 和 <code>θ1 = 6.78 × 10–5</code>。</p>
 <blockquote>
 <p>令人困惑的是，“模型”一词可以指一种模型类型（例如，线性回归），也可以指完全指定的模型架构（例如，具有一个输入和一个输出的线性回归），或者指准备使用的最终训练模型 用于预测（例如，具有一个输入和一个输出的线性回归，使用 <code>θ0 = 3.75</code>和 <code>θ1 = 6.78 × 10–5</code>）。 模型选择包括选择模型类型并充分指定其架构。 训练模型意味着运行算法来找到最适合训练数据的模型参数，并希望对新数据做出良好的预测。</p>
 </blockquote>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690608117994.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690608117994.png" alt=""></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
@@ -606,7 +606,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 为塞浦路斯做一个预测</span>
 </span></span><span style="display:flex;"><span>X_new <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">37_655.2</span>]] <span style="color:#75715e"># 塞浦路斯的人均国内生产总值在2020年</span>
 </span></span><span style="display:flex;"><span>print(model<span style="color:#f92672">.</span>predict(X_new)) <span style="color:#75715e"># 输出:【【6.30165767】</span>
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1690608163970.png" alt=""></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690608163970.png" alt=""></p>
 <blockquote>
 <p>如果您使用基于实例的学习算法，您会发现以色列的人均 GDP 最接近塞浦路斯（38,341 美元），并且由于 OECD 数据告诉我们以色列人的生活满意度为 7.2，您会得到 预测塞浦路斯的生活满意度为 7.2。 如果你把镜头缩小一点，看看两个最接近的国家，你会发现立陶宛和斯洛文尼亚，两者的生活满意度都是 5.9。 对这三个值进行平均，得到 6.33，这非常接近基于模型的预测。 这个简单的算法称为 k 最近邻回归（在本例中，k = 3）。</p>
 <p>将前面代码中的线性回归模型替换为 k 最近邻回归就像替换这些行一样简单：</p>
@@ -2237,6 +2237,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

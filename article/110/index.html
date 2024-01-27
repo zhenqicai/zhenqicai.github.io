@@ -539,12 +539,12 @@
 <p>由于这段时间可能会不怎么有空，但基本上每周写一篇吧！看到重拾知识篇就应该知道了吧！笔者肯定对PHP也是了解的，没错，是的，笔者是懂得PHP，那你是不是也跟笔者一样啊？是否也熟知PHP这门号称“世界上最好用的语言”呢？ 是不是曾几何时，有过从事PHP方面的工作呢？
 不管你是否从事过PHP工作，还是从事其他任何工作，这都没关系了，最主要的是兴趣与爱好，那就与笔者一起重温PHP吧！
 好了，闲话少叙，切入正题。本篇要讲的是PHP的web框架ThinkPHP，官网地址：http://www.thinkphp.cn/</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1540647497976.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1540647497976.png" alt="img"></p>
 <p>笔者选择的5.x版本！下载并解压放在本地Apache目录下的htdocs目录下！启动本地Apache服务器</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1540647934140.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1540647934140.png" alt="img"></p>
 <p>ThinkPHP5.X访问路径与之前的版本有所不同，是访问public目录下的</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1540648077682.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1540648159873.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1540648077682.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1540648159873.png" alt="img"></p>
 <p>敬请期待下一篇。。。。。</p>
         </article>
     </div>
@@ -2107,6 +2107,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

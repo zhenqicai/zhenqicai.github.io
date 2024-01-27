@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/91/" class="thumbnail" title="微信小程序电商实战—首页篇（上）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1616240220732.png" alt="微信小程序电商实战—首页篇（上）">
+    <a href="/article/91/" class="thumbnail" title="微信小程序电商实战—首页篇（上）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1616240220732.png" alt="微信小程序电商实战—首页篇（上）">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/90/" class="thumbnail" title="微信小程序电商实战—环境搭建篇" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1615013429671.png" alt="微信小程序电商实战—环境搭建篇">
+    <a href="/article/90/" class="thumbnail" title="微信小程序电商实战—环境搭建篇" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1615013429671.png" alt="微信小程序电商实战—环境搭建篇">
 
 
 
@@ -657,7 +657,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/84/" class="thumbnail" title="MPVue开发微信小程序（一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1543718911819.png" alt="MPVue开发微信小程序（一）">
+    <a href="/article/84/" class="thumbnail" title="MPVue开发微信小程序（一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543718911819.png" alt="MPVue开发微信小程序（一）">
 
 
 
@@ -1799,6 +1799,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

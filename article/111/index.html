@@ -537,32 +537,32 @@
         <article class="Qc_detail_article" id="article-container">
             <p>解决Navicat12连接Oracle报oracle library is not loaded的提示问题</p>
 <p>打开Navicat12，如下图</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546657682623.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546657682623.png" alt="img"></p>
 <p>连接Oracle时提示“oracle library is not loaded”。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546657883277.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546657883277.png" alt="img"></p>
 <p>原因是缺少本地Oracle dll文件
 可到 Oracle官网下载对应的Instant Client
 <a href="https://www.oracle.com/technetwork/database/database-technologies/instant-client/downloads/index.html">https://www.oracle.com/technetwork/database/database-technologies/instant-client/downloads/index.html</a>
 下载对应自己系统的</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546658151533.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546658151533.png" alt="img"></p>
 <p>当然你在下载之前得先有个Oracle的账号</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546658269730.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546658269730.png" alt="img"></p>
 <p>笔者选择的版本是这个</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546658352924.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546658352924.png" alt="img"></p>
 <p>将下载的文件进行解压并复制到Navicat安装目录下</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546658515686.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546658515686.png" alt="img"></p>
 <p>这是Navicat原先安装目录文件</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546658616636.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546658616636.png" alt="img"></p>
 <p>将刚才解压出来的文件夹放到这里就好了</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546658791210.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546658791210.png" alt="img"></p>
 <p>而后再次打开Navicat12
 选择 工具栏 选项…</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546658906657.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546658906657.png" alt="img"></p>
 <p>在弹出的对话框中 左侧 选择 环境 这一项</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546659069729.png" alt="img">
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546659297499.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546659069729.png" alt="img">
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546659297499.png" alt="img"></p>
 <p>确定并退出Navicat12 重启Navicat12</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1546659518967.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1546659518967.png" alt="img"></p>
         </article>
     </div>
 
@@ -2124,6 +2124,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

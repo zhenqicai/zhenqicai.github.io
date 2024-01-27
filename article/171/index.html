@@ -571,7 +571,7 @@
 </span></span><span style="display:flex;"><span>        require(_number <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>, <span style="color:#e6db74">&#34;number too big&#34;</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span> }
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671625808429.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671625808429.png" alt="img"></p>
 <p>引入<code>require</code>语句的原因是为了使代码更具可读性。require 语句应在以下情况下使用。</p>
 <ul>
 <li>1、验证用户输入，正如我们上面所做的。</li>
@@ -603,7 +603,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> x <span style="color:#f92672">/</span> y;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span> }
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671625833082.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671625833082.png" alt="img"></p>
 <h4 id="revert">revert</h4>
 <p><code>revert</code>语句将停止执行并撤销所有的状态变化。剩余的<code>gas</code>将被退还给调用者（但到目前为止所使用的<code>gas</code>将消失）。<code>revert</code>允许返回一个值。这可以作为一个错误信息来澄清为什么执行<code>revert</code>语句。</p>
 <p>有两种方式来触发<code>revert</code>。</p>
@@ -636,29 +636,29 @@ revert(&#34;description&#34;)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span> }
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671625897065.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671625931174.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671625897065.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671625931174.png" alt="img"></p>
 <h3 id="三种方式处理错误消耗-gas-对比">三种方式处理错误消耗 gas 对比</h3>
 <ul>
 <li>1、revert 语句，从示例可以看出最终耗费了 <code>46607 gas</code></li>
 </ul>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671625964105.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671625964105.png" alt="img"></p>
 <ul>
 <li>2、revert 语句与自定义 error 相配合，反而比比上述消耗跟多的<code>gas</code>，它最终消耗了<code>46733 gas</code>。</li>
 </ul>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671626006556.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671626006556.png" alt="img"></p>
 <ul>
 <li>3、 我们在示例中使用了<code>assert</code>语句，明显比<code>revert</code>语句消耗<code>gas</code>更少，它最终消耗了<code>22077 gas</code>。</li>
 </ul>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671626034693.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671626034693.png" alt="img"></p>
 <ul>
 <li>4、 我们最后来看看<code>equire</code>语句。第一种情况是带了错误描述，而它却又比<code>assert</code>语句少耗费了<code>gas</code>，从示例可以看出它消耗了<code>21898 gas</code>。</li>
 </ul>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671626072347.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671626072347.png" alt="img"></p>
 <ul>
 <li>5、而<code>require</code>第二种情况，便是只有条件表达式，可以看出在示例中它以上几种情况消耗<code>gas</code>最少的，它最终消耗了<code>21605 gas</code></li>
 </ul>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671626095302.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671626095302.png" alt="img"></p>
 <p>从上述的示例可以看出，使用<code>require</code>语句检查错误，最终消耗的<code>gas</code>是最少的，这也证明了很多项目使用<code>require</code>的原因了。</p>
 <h3 id="try-catch-捕获异常">try catch 捕获异常</h3>
 <p>现在我们可以用它们来处理外部函数调用的失败，而不需要回滚整个事务（被调用函数中的状态变化仍然会被回滚，但调用函数中的变化不会）。</p>
@@ -694,7 +694,7 @@ revert(&#34;description&#34;)
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671626121714.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671626121714.png" alt="img"></p>
 <p><code>try</code> 关键词后面必须有一个表达式，代表外部函数调用或合约创建（ <code>new ContractName()</code>）。</p>
 <p>在表达式上的错误不会被捕获（例如，如果它是一个复杂的表达式，还涉及内部函数调用），只有外部调用本身发生的revert 可以捕获。 接下来的 <code>returns</code> 部分（是可选的）声明了与外部调用返回的类型相匹配的返回变量。 在没有错误的情况下，这些变量被赋值，合约将继续执行第一个成功块内代码。 如果到达成功块的末尾，则在 <code>catch</code> 块之后继续执行。</p>
 <p>Solidity 根据错误的类型，支持不同种类的捕获代码块：</p>
@@ -2317,6 +2317,18 @@ revert(&#34;description&#34;)
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

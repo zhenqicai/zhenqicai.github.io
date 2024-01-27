@@ -545,15 +545,15 @@
 <li><code>GO111MODULE=auto</code>，当项目在<code>$GOPATH/src</code>外且项目根目录有<code>go.mod</code>文件时，自动开启模块支持。</li>
 </ol>
 <p>``GO111MODULE<code>在</code>Go 1.13`版本之后默认是开打的。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1668173722316.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1668173722316.png" alt="img"></p>
 <h3 id="go-mod-依赖管理">go mod 依赖管理</h3>
 <p><code>go mod</code>不再依靠<code>$GOPATH</code>，以至于它可以不必在<code>$GOPATH</code>目录创建 Go 项目。</p>
 <p>依次在该目录创建文件夹和<code>main.go</code>文件。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1668173754847.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1668173786129.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1668173754847.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1668173786129.png" alt="img"></p>
 <p>使用以下命令自动生成<code>go.mod</code>文件。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#a6e22e">mod</span> <span style="color:#a6e22e">init</span> <span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">zhenqi</span><span style="color:#f92672">/</span><span style="color:#a6e22e">module</span><span style="color:#f92672">-</span><span style="color:#a6e22e">main</span>
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1668173811036.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1668173811036.png" alt="img"></p>
 <p>编辑<code>main.go</code>文件，输入以下内容。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
@@ -566,18 +566,18 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;animal&#34;</span>: <span style="color:#e6db74">&#34;walrus&#34;</span>
 </span></span><span style="display:flex;"><span>    }).<span style="color:#a6e22e">Info</span>(<span style="color:#e6db74">&#34;A walrus appears&#34;</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1668173849687.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1668173849687.png" alt="img"></p>
 <p>由于使用了第三方依赖库，需要先下载依赖库。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">sirupsen</span><span style="color:#f92672">/</span><span style="color:#a6e22e">logrus</span>
 </span></span></code></pre></div><p>执行该语句会报错。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1668173876833.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1668173876833.png" alt="img"></p>
 <p>这是由于自<code>Go 1.13</code>以后的版本，<code>GOPROXY</code>默认值为<code>proxy.golang.org</code>，很不巧，这个地址在国内却无法访问啊！那该怎么办呢？好在国内大厂商提供了镜像，那便是 七牛云 推出的 <code>goproxy.cn</code>，好让国内开发者更好的使用<code>GO MODULES</code>。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#a6e22e">env</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">w</span> <span style="color:#a6e22e">GOPROXY</span>=<span style="color:#a6e22e">https</span>:<span style="color:#75715e">//goproxy.cn,direct
-</span></span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1668173912675.png" alt="img"></p>
+</span></span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1668173912675.png" alt="img"></p>
 <p>再次运行<code>go get github.com/sirupsen/logrus</code>命令，可以看到，正在下载第三方依赖。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1668173946182.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1668173946182.png" alt="img"></p>
 <p>打开<code>go.mod</code>文件，明显追加了几行内容。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1668173968419.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1668173968419.png" alt="img"></p>
         </article>
     </div>
 
@@ -2157,6 +2157,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

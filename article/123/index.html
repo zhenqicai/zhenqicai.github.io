@@ -572,7 +572,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">int</span>
 </span></span></code></pre></div><p>若你觉得每行声明变量比较繁琐，可以使用批量声明变量的。</p>
 <p>使用关键字 var 和圆括号，可以将一组变量定义放在一起。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1663767348387.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663767348387.png" alt="img"></p>
 <p>刚才只是声明了变量，并没有给他赋值，虽然可以只是只声明变量，而后赋值也是可以的。但可以在声明变量是并初始化变量，也就是给变量赋初始值。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">6</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span>,<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">String</span> = <span style="color:#e6db74">&#34;hello&#34;</span>,<span style="color:#e6db74">&#34;qiucode.cn&#34;</span>
@@ -588,9 +588,9 @@
 <li>2、不能提供数据类型以及<code>var</code>关键词</li>
 <li>3、只能在函数内部使用。</li>
 </ul>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1663767396988.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663767396988.png" alt="img"></p>
 <p>很显然，在函数外部声明，编译报错</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1663767447240.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663767447240.png" alt="img"></p>
         </article>
     </div>
 
@@ -2201,6 +2201,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

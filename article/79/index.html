@@ -538,7 +538,7 @@
             <p>好些时候没发表文章了，由于最近有点忙，又更兼<code>qiucode</code>站点页面大改，新版页面也较旧版整洁多了！那具体该是如何实现呢？（言外之意无非就是程序怎么实现的），其实无非就是将<code>MultipartFile</code>对象进行二次处理（这里所说的处理就是在上传的原图的基础上添加水印），二次处理好了的图片远程存储到阿里云oss存储对象中。</p>
 <p>好些时候没发表文章了，由于最近有点忙，又更兼<code>qiucode</code>站点页面大改，新版页面也较旧版整洁多了！
 好了，废话少扯，切入正题，别把本文所讲的主题偏离了。先看下最终实现的效果图吧：</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1599295018070.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1599295018070.png" alt="img"></p>
 <p>效果图也看了，那具体该是如何实现呢？（言外之意无非就是程序怎么实现的），其实无非就是将<code>MultipartFile</code>对象进行二次处理（这里所说的处理就是在上传的原图的基础上添加水印），二次处理好了的图片远程存储到阿里云oss存储对象中。
 首先得先在<code>pom.xml</code>文件中引入阿里云OSS对象存储的<code>SDK</code>依赖jar，具体如下：</p>
 <h2 id="pomxml文件添加阿里云oss-sdk依赖">pom.xml文件添加阿里云OSS SDK依赖</h2>
@@ -2305,6 +2305,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

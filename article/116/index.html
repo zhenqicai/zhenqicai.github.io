@@ -538,7 +538,7 @@
             <p>正值清明时节，天气也将开始升温了，夏天即将到来，你做好准备了吗？好了，废话少扯，切入正题，本文笔者将要讲解的是JQuery的树插件Ztree。现在web项目基本上也都是使用Ztree作为树组件进行实现的。</p>
 <p>正值清明时节，天气也将开始升温了，夏天即将到来，你做好准备了吗？好了，废话少扯，切入正题，本文笔者将要讲解的是JQuery的树插件Ztree。现在web项目基本上也都是使用Ztree作为树组件进行实现的。
 好了，来看下最终实现的效果图：
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1554460583702.png" alt="img"></p>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1554460583702.png" alt="img"></p>
 <p>笔者这里使用的是Mysql数据库，先创建一张表。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>CREATE TABLE <span style="color:#960050;background-color:#1e0010">`</span>city_ztree<span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#f92672">(</span>              
 </span></span><span style="display:flex;"><span>              <span style="color:#960050;background-color:#1e0010">`</span>id<span style="color:#960050;background-color:#1e0010">`</span> varchar<span style="color:#f92672">(</span><span style="color:#ae81ff">36</span><span style="color:#f92672">)</span> NOT NULL<span style="color:#f92672">,</span>             
@@ -568,7 +568,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String parentId<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">//由于篇幅原因，在此省略get/set方法
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1554461451817.png" alt="img">
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1554461451817.png" alt="img">
 表有了，测试数据也有了，与表对应的实体类也创建了，那现在就可以操作Dao了，来建一个Dao接口。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> com.zhenqi.entity.CityZtree<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
@@ -2368,6 +2368,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

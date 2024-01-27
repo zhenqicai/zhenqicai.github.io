@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/187/" class="thumbnail" title="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703935662459.png" alt="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）">
+    <a href="/article/187/" class="thumbnail" title="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703935662459.png" alt="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）">
 
 
 
@@ -1706,6 +1706,18 @@ from sklearn.linear_model import LinearRegression target_scaler = StandardScaler
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

@@ -566,7 +566,7 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1672229583452.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1672229583452.png" alt="img"></p>
 <h3 id="solidity-中两种方式实现-assembly">Solidity 中两种方式实现 Assembly</h3>
 <ul>
 <li>1、 内联汇编：也可以在 Solidity 代码中使用。</li>
@@ -579,7 +579,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#66d9ef">assembly</span> {
 </span></span><span style="display:flex;"><span>   <span style="color:#75715e">// some assembly code here
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1672229610096.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1672229610096.png" alt="img"></p>
 <p>以下是一个简单的示例，函数接受两个参数，并将它们的和作为返回值，看看使用 <code>Assembly</code>是怎么实现的？了解它们在 <code>EVM</code>的工作方式。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#75715e">// SPDX-License-Identifier: GPL-3.0
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">pragma solidity</span> <span style="color:#f92672">^</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">0</span>;
@@ -603,7 +603,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1672229625571.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1672229625571.png" alt="img"></p>
 <h3 id="数据存储">数据存储</h3>
 <p>让我们来看看一个简单的例子。我们将数据存放在<code>storage（存储）</code>中，然后再去调用它。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#75715e">// SPDX-License-Identifier: GPL-3.0
@@ -625,7 +625,7 @@
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1672229668179.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1672229668179.png" alt="img"></p>
 <p><code>setData</code>函数使用了<code>sstore</code>操作码将变量<code>newValue</code>写入<code>storage（存储）</code>中。</p>
 <p><code>getData</code>函数先是用了<code>sload</code>操作码来加载<code>storage（存储）</code>中的数据，它并不能从<code>storage</code>中直接返回。所以才需要<code>mstore</code>操作码将其写入<code>memory（内存）</code>中，最后我们返回引用<code>memory（内存）</code>中存放数据的地址和 32 字节长度的数据。</p>
 <p><a href="https://docs.soliditylang.org/en/latest/yul.html">https://docs.soliditylang.org/en/latest/yul.html</a></p>
@@ -2713,6 +2713,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

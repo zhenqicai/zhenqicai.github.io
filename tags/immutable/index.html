@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/173/" class="thumbnail" title="玩以太坊链上项目的必备技能（Constant 和 Immutable 状态变量-Solidity之旅十六）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671803945687.png" alt="玩以太坊链上项目的必备技能（Constant 和 Immutable 状态变量-Solidity之旅十六）">
+    <a href="/article/173/" class="thumbnail" title="玩以太坊链上项目的必备技能（Constant 和 Immutable 状态变量-Solidity之旅十六）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671803945687.png" alt="玩以太坊链上项目的必备技能（Constant 和 Immutable 状态变量-Solidity之旅十六）">
 
 
 
@@ -1693,6 +1693,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

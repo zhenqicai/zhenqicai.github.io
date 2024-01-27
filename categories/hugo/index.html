@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/185/" class="thumbnail" title="一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1703916489842.png" alt="一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦">
+    <a href="/article/185/" class="thumbnail" title="一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916489842.png" alt="一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦">
 
 
 
@@ -1710,6 +1710,18 @@ hugo-theme-kiwi V0.01已实现如下功能：
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

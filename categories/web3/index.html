@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/156/" class="thumbnail" title="在构建 Web3 前，需先知道什么是区块链，毕竟 Web3 是基于区块链" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1669897542628.jpeg" alt="在构建 Web3 前，需先知道什么是区块链，毕竟 Web3 是基于区块链">
+    <a href="/article/156/" class="thumbnail" title="在构建 Web3 前，需先知道什么是区块链，毕竟 Web3 是基于区块链" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1669897542628.jpeg" alt="在构建 Web3 前，需先知道什么是区块链，毕竟 Web3 是基于区块链">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/155/" class="thumbnail" title="Web3 来了，让我们展开双手拥抱它吧！" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1669810650019.png" alt="Web3 来了，让我们展开双手拥抱它吧！">
+    <a href="/article/155/" class="thumbnail" title="Web3 来了，让我们展开双手拥抱它吧！" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1669810650019.png" alt="Web3 来了，让我们展开双手拥抱它吧！">
 
 
 
@@ -1746,6 +1746,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

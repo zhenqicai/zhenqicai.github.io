@@ -540,23 +540,23 @@
 对于前两篇文章已经讲解了在CentOS 7如何安装JDK8 和Tomcat7，那么作为JavaWeb开发，显然数据库是必不可少的，至少目前来说是这样的。那好，那就跟笔者循序渐进地开始下去吧！
 <strong>1.下载Mysql的repo源 命令如下：</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>wget  http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538916596800.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538916596800.png" alt="img"></p>
 <p><strong>2.下载完成后我们安装mysql-community-release-el7-5.noarch.rpm包</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538914638715.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538914638715.png" alt="img"></p>
 <p><strong>3.开始安装mysql</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo yum install mysql-server
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538914737705.png" alt="img">
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538917087812.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538914737705.png" alt="img">
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538917087812.png" alt="img"></p>
 <p><strong>4.成功安装之后重启mysql服务</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>service mysqld restart
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538917193340.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538917193340.png" alt="img"></p>
 <p><strong>5.初次安装mysql是root账户是没有密码的</strong></p>
 <p><code>mysql -u root</code>
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538917282857.png" alt="img"></p>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538917282857.png" alt="img"></p>
 <p>设置密码的方法:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>set password <span style="color:#66d9ef">for</span> ‘root’@‘localhost’ <span style="color:#f92672">=</span> password<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;mypasswd&#39;</span><span style="color:#f92672">)</span>;
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538918020851.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538918020851.png" alt="img"></p>
 <p>至此CentOS 7安装Mysql5.6就到此结束了，在CentOS 7搭建Java Web所需的环境就已经弄好了！</p>
         </article>
     </div>
@@ -2119,6 +2119,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

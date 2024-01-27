@@ -538,48 +538,48 @@
             <p>在前面几篇讲解了git命令行的基本操作后，本篇将持续讲解git在VS code编辑器中是如何工作的？</p>
 <h3 id="1初始化本地库">1、初始化本地库</h3>
 <p>使用<code>VS Code</code>打开一个还没被<code>git</code>管理的文件夹，则可以通过使用<strong>Initialize Repository</strong>命令创建 Git 存储库来启用 Git 源代码控制</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110279950.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110316515.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110279950.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110316515.png" alt="img"></p>
 <p>接下来，尝试着创建文件并添加到本地<code>git</code>仓库。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110356509.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110356509.png" alt="img"></p>
 <p>依次按图中操作，从左至右依次操作，现将新建或已被<code>git</code>管理的文件修改，添加到暂存区，再从暂存区提交到<code>git</code>本地仓库， 当然在攥写提交信息时可以使用快捷键<code>Ctrl+Enter</code>。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110406447.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110406447.png" alt="img"></p>
 <h3 id="2分支与标签">2、分支与标签</h3>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110460499.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110488855.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110460499.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110488855.png" alt="img"></p>
 <p>创建标签也是相当的简单。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110538291.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110538291.png" alt="img"></p>
 <p>切换分支<code>Checkout to...</code></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110598777.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110598777.png" alt="img"></p>
 <p>要切换到那个分支或标签就点击哪个</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110651698.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110651698.png" alt="img"></p>
 <p><code>VS Code</code>编辑器底部状态栏可以看出当前处于哪个分支</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110691492.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110691492.png" alt="img"></p>
 <h3 id="3合并冲突">3、合并冲突</h3>
 <p>首先我们切换到<code>vscode</code>分支下，修改<code>HelloGit.java</code>文件。并将其提交到<code>git</code>本地库中</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110760833.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110760833.png" alt="img"></p>
 <p>然后再切换到<code>master</code>分支，同样也是修改<code>HelloGit.java</code>文件，并提交到<code>git</code>本地仓库。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110808264.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110808264.png" alt="img"></p>
 <p>在当前分支为<code>master</code>，合并<code>vscode</code>分支。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110853818.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110891956.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110853818.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110891956.png" alt="img"></p>
 <p>切换到<code>master</code>分支下，合并<code>vscode</code>分支。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110939345.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110939345.png" alt="img"></p>
 <p>可以看到修改同一文件合并时出现了冲突，<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>到<code>=======</code>之间的内容属于当前分支，而<code>=======</code>到<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; vscode（要合并的分支）</code>的内容是将要合并的分支内容，所以这样<code>git</code>没有处理，所以文件冲突交给了使用者自行处理。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627110985728.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627110985728.png" alt="img"></p>
 <p>经过手动处理后，再次提交到<code>git</code>本地仓库。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627111030103.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627111030103.png" alt="img"></p>
 <h3 id="4从远程仓库拉取">4、从远程仓库拉取</h3>
 <p>如果您尚未打开文件夹，源代码管理视图将为您提供从本地计算机或**克隆存储库**<strong>打开文件夹</strong>的选项。</p>
 <p>事例地址 <a href="https://gitee.com/zhenqi/qiucodeBlog.git">https://gitee.com/zhenqi/qiucodeBlog.git</a></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627111130622.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627111165154.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627111130622.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627111165154.png" alt="img"></p>
 <h3 id="5推送到远程仓库">5、推送到远程仓库</h3>
 <p>我们修改文件，然后提交到<code>git</code>本地仓库并推送到远程仓库。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627111263293.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627111301039.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627111336157.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1627111377121.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627111263293.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627111301039.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627111336157.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1627111377121.png" alt="img"></p>
         </article>
     </div>
 
@@ -2183,6 +2183,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

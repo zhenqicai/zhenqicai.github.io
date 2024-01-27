@@ -541,16 +541,16 @@
 <h2 id="1安装tomcat">1、安装Tomcat</h2>
 <p>在命令行执行以下语句：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum install tomcat tomcat7-webapps tomcat7-admin-webapps
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538899063388.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538899063388.png" alt="img"></p>
 <p>中途碰到Is this ok [y/d/N] 直接y下去</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538899134067.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538899134067.png" alt="img"></p>
 <p>等待一小会，等出现complete!说明安装结束</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538899183428.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538899183428.png" alt="img"></p>
 <p>tomcat7安装好了，都安装在CentOS 7系统的哪里呢？别急……，请看下边。</p>
 <h2 id="注意"><strong>注意：</strong></h2>
 <h4 id="配置信息在目录etctomcat下">配置信息在目录：/etc/tomcat下</h4>
 <h4 id="webapps在目录varlibtomcat下">webapps在目录：/var/lib/tomcat下</h4>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538899729136.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538899729136.png" alt="img"></p>
 <h2 id="2测试tomcat是否安装成功">2、测试Tomcat是否安装成功</h2>
 <p>在webapps目录下建立demo/demo.html文件</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd /var/lib/tomcat
@@ -561,12 +561,12 @@
 </span></span><span style="display:flex;"><span>cd demo/
 </span></span><span style="display:flex;"><span>vim demo.html
 </span></span></code></pre></div><p>用 vim 编辑 hello.html 输入内容：</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538899989087.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538899989087.png" alt="img"></p>
 <p>注意：vim进入后 按I是插入内容 编辑结束后先按esc，然后用:wq 保存并退出
 开启了tomcat服务 命令</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>service tomcat start
 </span></span></code></pre></div><p>然后再浏览器输入ip或域名，打开页面说明配置成功！</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1538900381320.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1538900381320.png" alt="img"></p>
 <p>至此CentOS 7 安装 Tomcat 7就到此结束。谢谢你的浏览。</p>
         </article>
     </div>
@@ -2172,6 +2172,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

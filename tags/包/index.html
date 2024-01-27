@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/153/" class="thumbnail" title="Go 语言中的包（Let&#39;s Go 三十三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1667824420213.png" alt="Go 语言中的包（Let&#39;s Go 三十三）">
+    <a href="/article/153/" class="thumbnail" title="Go 语言中的包（Let&#39;s Go 三十三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1667824420213.png" alt="Go 语言中的包（Let&#39;s Go 三十三）">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/135/" class="thumbnail" title="Go 语言中的 if 分支结构（Let&#39;s Go 十五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664373866148.png" alt="Go 语言中的 if 分支结构（Let&#39;s Go 十五）">
+    <a href="/article/135/" class="thumbnail" title="Go 语言中的 if 分支结构（Let&#39;s Go 十五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664373866148.png" alt="Go 语言中的 if 分支结构（Let&#39;s Go 十五）">
 
 
 
@@ -1746,6 +1746,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

@@ -541,14 +541,14 @@
 <p>也正是因为<code>Web2</code>中心化网络，只有极少数互联网巨头拥有了大部分人的数据，让用户感到自己的数据不应该存在中心化网络上，所以，去中心化<code>Web3</code>应运而生，使得用户对数据有拥有权，这一点很重要，它是区别于<code>Web2</code>中心化网络的关键要素，也就是说，<code>Web3</code>不仅可以对数据读写，还能拥有数据。比如：起点中文网新更改的合同，合同大致是，以后要是在阅文集团旗下攥写小说，其著作权竟不属于小说作者，而是属于阅文集团，哇擦，这是什么合同啊？当然咯，此合同一经发布，起点众多大神（起点网对小说作者级别称呼）纷纷断更（网络戏称：”五五断更节“，因为那天正是 5月5号），没过几天，起点某大神在网络上发起众筹，另起炉灶搭建了一个新的小说站点（息壤中文网）。若是小说平台是处于<code>Web3</code>去中心化网络，起点中文网还能不能那样为所欲为呢？</p>
 <h3 id="web-1只读19902004">Web 1：只读（1990~2004）</h3>
 <p>当然咯，我没见过<code>Web 1</code>所带来的互联网是怎么样的？想必，正在屏幕前浏览这篇文章的你，也是没见过<code>Web 1</code>，倘若你见过，那就当我没说过。<code>Web 1</code>阶段，说白了，就是用户只能浏览页面，不能在界面输入自己对该篇文章的理解。可以理解为企业/公司拥有其静态网站，用户只能看，不能与之进行交互。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1669810650019.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1669810650019.png" alt="img"></p>
 <h3 id="web-2能读写2004至今">Web 2：能读写（2004~至今）</h3>
 <p>由于<code>Web 1</code>只读不写的缺陷，<code>Web 2</code>弥补了<code>Web 1</code>不能写的不足。也正是这个<code>Web 2</code>阶段，互联网不再是只读，还可以向用户提供平台让其创作内容。<code>Web 2</code>也让越来越多的人蜂拥互联网，这其中不乏产生出了独角兽，当然咯，成功的人是少数的，也正是这些极少数的独角兽互联网巨头逐渐开始掌控海量的流量以及其内容产生的价值。比如：2005年，QQ推出了QQ空间功能，用户可以在自己的空间发表内容了。这也正是有别于QQ刚发布的那会儿。</p>
 <p><code>Web 2</code>还催生了广告驱动的盈利模式，虽然此时的用户可以在平台上创作内容，然而他们却不能拥有自己创作的内容，以及自己无法在该平台下将内容变现。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1669810676125.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1669810676125.png" alt="img"></p>
 <h3 id="web-3既能读写又能拥有未来">Web 3：既能读写，又能拥有（未来）</h3>
 <p>其实<code>Web 3</code>概念早在 2014就被提出了，而提出这一概念的正是<code>以太坊</code>联合创始人<code>Gavin Wood</code>，当时，<code>以太坊</code>才发布没多久。<code>Gavin Wood</code>为许多早期加密技术采用者所面临的问题，即互联网需要过多的信任，提供了一种解决方案。可以认为当下使用的互联网服务都依赖于对极少数互联网公司的信任，期待他们能以公众的最佳利益行事。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1669810775536.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1669810775536.png" alt="img"></p>
 <p><code>Web 3</code>已成为一个包罗万象的术语，期望构建一个新的、更好的互联网。说到底，<code>Web 3</code>是通过<code>区块链</code>、<code>加密货币</code>以及<code>非同质化代币</code>将权力以所有权归还给用户。</p>
 <h4 id="web-3-核心思想">Web 3 核心思想</h4>
 <ul>
@@ -2208,6 +2208,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

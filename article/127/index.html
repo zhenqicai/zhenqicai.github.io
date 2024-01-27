@@ -554,7 +554,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">c</span> = <span style="color:#ae81ff">2</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">d</span>
 </span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664019061322.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664019061322.png" alt="img"></p>
 <h3 id="2iota常量生成器">2、iota常量生成器</h3>
 <p>假如将一周的每一天定义一个常量，从周日0开始，而这种状况在其他编程语言中，被称为<code>枚举类型（enum）</code>。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
@@ -575,7 +575,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">Sunday</span>, <span style="color:#a6e22e">Monday</span>, <span style="color:#a6e22e">Tuesday</span>, <span style="color:#a6e22e">Wednesday</span>, <span style="color:#a6e22e">Thursday</span>, <span style="color:#a6e22e">Friday</span>, <span style="color:#a6e22e">Saturday</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1664019111573.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664019111573.png" alt="img"></p>
         </article>
     </div>
 
@@ -2161,6 +2161,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

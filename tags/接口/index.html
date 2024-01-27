@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/168/" class="thumbnail" title="玩以太坊链上项目的必备技能（OOP-接口-Solidity之旅十一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671349014797.png" alt="玩以太坊链上项目的必备技能（OOP-接口-Solidity之旅十一）">
+    <a href="/article/168/" class="thumbnail" title="玩以太坊链上项目的必备技能（OOP-接口-Solidity之旅十一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671349014797.png" alt="玩以太坊链上项目的必备技能（OOP-接口-Solidity之旅十一）">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/145/" class="thumbnail" title="Go 语言中的接口（Let&#39;s Go 二十五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1666354728093.png" alt="Go 语言中的接口（Let&#39;s Go 二十五）">
+    <a href="/article/145/" class="thumbnail" title="Go 语言中的接口（Let&#39;s Go 二十五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1666354728093.png" alt="Go 语言中的接口（Let&#39;s Go 二十五）">
 
 
 
@@ -1746,6 +1746,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

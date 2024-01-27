@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/125/" class="thumbnail" title="Go 语言中的字符串（Let&#39;s Go 五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1663999916505.png" alt="Go 语言中的字符串（Let&#39;s Go 五）">
+    <a href="/article/125/" class="thumbnail" title="Go 语言中的字符串（Let&#39;s Go 五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663999916505.png" alt="Go 语言中的字符串（Let&#39;s Go 五）">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/124/" class="thumbnail" title="Go 语言中的多变量同时赋值、匿名变量以及变量作用域（Let&#39;s Go 四）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1663854499153.png" alt="Go 语言中的多变量同时赋值、匿名变量以及变量作用域（Let&#39;s Go 四）">
+    <a href="/article/124/" class="thumbnail" title="Go 语言中的多变量同时赋值、匿名变量以及变量作用域（Let&#39;s Go 四）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663854499153.png" alt="Go 语言中的多变量同时赋值、匿名变量以及变量作用域（Let&#39;s Go 四）">
 
 
 
@@ -657,7 +657,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/123/" class="thumbnail" title="Go 语言中的基本类型以及变量声明与初始化（Let&#39;s Go 三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1663767348387.png" alt="Go 语言中的基本类型以及变量声明与初始化（Let&#39;s Go 三）">
+    <a href="/article/123/" class="thumbnail" title="Go 语言中的基本类型以及变量声明与初始化（Let&#39;s Go 三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663767348387.png" alt="Go 语言中的基本类型以及变量声明与初始化（Let&#39;s Go 三）">
 
 
 
@@ -710,7 +710,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/122/" class="thumbnail" title="使用集成开发环境来开发Go项目" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1663677237629.png" alt="使用集成开发环境来开发Go项目">
+    <a href="/article/122/" class="thumbnail" title="使用集成开发环境来开发Go项目" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663677237629.png" alt="使用集成开发环境来开发Go项目">
 
 
 
@@ -763,7 +763,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/121/" class="thumbnail" title="window下安装 Go 语言开发包" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1663598639199.png" alt="window下安装 Go 语言开发包">
+    <a href="/article/121/" class="thumbnail" title="window下安装 Go 语言开发包" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663598639199.png" alt="window下安装 Go 语言开发包">
 
 
 
@@ -1920,6 +1920,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

@@ -558,8 +558,8 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Coin</span> { <span style="color:#66d9ef">string</span> obverse; <span style="color:#66d9ef">string</span> reverse; }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">transfer</span>(<span style="color:#66d9ef">address</span> recipient, <span style="color:#66d9ef">uint</span> amount) <span style="color:#66d9ef">external</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671349014797.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671349033809.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671349014797.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671349033809.png" alt="img"></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#75715e">// SPDX-License-Identifier: GPL-3.0
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">pragma solidity</span> <span style="color:#f92672">^</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>
@@ -584,7 +584,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">TestI</span> <span style="color:#66d9ef">is</span> MyToken,MyCoin {
 </span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">transfer</span>(<span style="color:#66d9ef">address</span> recipient, <span style="color:#66d9ef">uint</span> amount) <span style="color:#66d9ef">override</span>(MyToken,MyCoin) <span style="color:#66d9ef">external</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671349069260.png" alt="img">
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671349069260.png" alt="img">
 虽然<code>接口</code>有这么多的限制，不能像<code>抽象合约</code>的那样可以有<code>实现体</code>，但<code>接口</code>在 Solidity 中却很重要。它定义了合约的骨架，如合约实现了某些接口（ERC20 或 ERC721)，其他<code>Dapp</code>就可以与我们编写的智能合约进行交互。</p>
 <p>我们以<code>IERC721</code>为例，它定义了3个后续将会讲到的<code>事件（event）</code>和9个<code>函数（function）</code>，所有<code>ERC721</code>标准的NFT都实现了这些函数。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-solidity" data-lang="solidity"><span style="display:flex;"><span><span style="color:#75715e">// SPDX-License-Identifier: MIT
@@ -676,7 +676,7 @@
 </span></span><span style="display:flex;"><span>        kitty.safeTransferFrom(<span style="color:#66d9ef">from</span>, to, tokenId);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1671349099146.png" alt="img"></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671349099146.png" alt="img"></p>
 <p>不过在部署时，要选择<code>以太坊主网</code>，否则查询不出结果！</p>
         </article>
     </div>
@@ -2275,6 +2275,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

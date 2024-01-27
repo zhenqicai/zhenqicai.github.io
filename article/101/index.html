@@ -541,13 +541,13 @@
 既然文章标题是写cocos2d-x实现跑酷游戏的，那总要说一下什么是cocos2d-x吧（只针对那些不知cocos2d-x的小白们），如果你在看篇文章，说明你知道cocos2d-x是什么？又或者你不知道cocos2d-x是什么？但你对游戏感兴趣，这就足够了！
 cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬就嗤之以屁了），大家可以去cocos2d-x官网： <a href="http://www.cocos2d-x.org/">cocos2d-x官网</a>
 最终实现的跑酷游戏效果如下，以下均在Win32环境编译的。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1539268320355.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1539268320355.png" alt="img"></p>
 <p>点击领取或点击右上方的 X 皆可消失该弹框！进入开始游戏界面</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1539268494703.png" alt="img"></p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1539268585739.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1539268494703.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1539268585739.png" alt="img"></p>
 <p>点击 进入游戏，直接进入游戏！
 游戏可暂停，可继续进行玩！</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/somnus/1539268742610.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1539268742610.png" alt="img"></p>
 <p>敬请期待下一篇将介绍cocos2d-x创建初识工程！</p>
         </article>
     </div>
@@ -2110,6 +2110,18 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

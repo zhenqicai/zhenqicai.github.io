@@ -545,10 +545,10 @@
 </span></span><span style="display:flex;"><span>lin_reg <span style="color:#f92672">=</span> make_pipeline(preprocessing, LinearRegression())
 </span></span><span style="display:flex;"><span>lin_reg<span style="color:#f92672">.</span>fit(housing, housing_labels)
 </span></span></code></pre></div><p>很好，至此，我们现在算是有了一个有效的<code>线性回归模型</code>，可以在训练集上试用它，查看前五个预测，并将它们与标签进行比较:：</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1705218124546.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1705218124546.png" alt=""></p>
 <p>第一个预测偏差很大(超过200,000美元!)，而其他预测则更好，两个预测偏差约25%，还有两个预测
 偏差不到10%。请记住，您选择使用<code>RMSE</code>作为性能测度，因此您希望使用<code>Scikit-Learn</code>的<code>mean_squared_error()</code>函数在整个训练集上测量该回归模型的<code>RMSE</code>，并将平方参数设置为<code>False</code>。</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1705218276772.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1705218276772.png" alt=""></p>
 <p>这总比没有好，但显然不是一个很好的分数，大多数地区的房屋价值中位数在120,000美元和26.5万美元之间，所以一个典型的68628美元的预测误差真的不是很令人满意。这是一个模型拟合训练数据不足的示例。当这种情况发生时，可能意味着这些特征没有提供足够的信息来做出好的预测，或者模型不够强大。</p>
 <p>正如我们在上一章中看到的，修复欠拟合的主要方法是选择一个更强大的模型，为训练算法提供更好的特征，或者减少对模型的约束。这个模型没有正规化，这就排除了最后一个选项。您可以尝试添加更多功能，但首先您要尝试更复杂的模型，看看它是如何工作的。</p>
 <p>您决定尝试<code>DecisionTreeRegressor</code>，因为这是一个相当强大的模型，能够在数据中找到复杂的非线性关系(后续篇章将更详细地介绍<code>决策树</code>)：</p>
@@ -556,7 +556,7 @@
 </span></span><span style="display:flex;"><span>tree_reg <span style="color:#f92672">=</span> make_pipeline(preprocessing, DecisionTreeRegressor(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>))
 </span></span><span style="display:flex;"><span>tree_reg<span style="color:#f92672">.</span>fit(housing, housing_labels)
 </span></span></code></pre></div><p>现在模型已训练完毕，您可以在训练集中对其进行评估：</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1705218340169.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1705218340169.png" alt=""></p>
 <p>等等，难道这个模型真的很完美吗？当然咯，更有可能的是模型严重地过度拟合了数据。您怎么能确定正如你前面看到的，在您准备好启动一个您有信心的模型之前，您不想碰<code>测试集</code>，所以您需要使用一部分<code>训练集</code>进行训练，另一部分用于模型验证。</p>
 <h3 id="使用交叉验证进行更好的评估">使用交叉验证进行更好的评估</h3>
 <p>评估<code>决策树</code>模型的一种方法是使用<code>train_test_split()</code>函数将训练集拆分为较小的训练集和验证集，然后针对较小的训练集训练您的模型，并针对验证集对其进行评估。这是一点努力，但没有太难，它会工作得相当不错。</p>
@@ -570,7 +570,7 @@
 数。</p>
 </blockquote>
 <p>让我们来看看结果吧：</p>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1705218381147.png" alt=""></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1705218381147.png" alt=""></p>
 <p>现在<code>决策树</code>看起来不像以前那么好了。事实上，它的表现几乎和<code>线性回归模型</code>一样差！请注意，<code>交叉验证</code>不仅允许您获得模型性能的估计值，还允许您测量该估计值的精确度(即其标准差)。决策树的均方根误差约为66，868，标准差约为2,061。如果只使用一个验证集，则不会有此信息。但是交叉验证是以多次训练模型为代价的，所以它并不总是可行的。</p>
 <p>如果您为线性回归模型计算相同的度量，您将发现平均RMSE为69，858，标准差为4,182。因此，决策树模型的性能似乎比线性模型稍微好一点，但由于严重的过拟合，差异很小。我们知道存在过拟合
 问题，因为训练误差很低(实际上为零)，而验证误差很高。</p>
@@ -580,7 +580,7 @@
 </span></span><span style="display:flex;"><span>RandomForestRegressor(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>))
 </span></span><span style="display:flex;"><span>forest_rmses <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>cross_val_score(forest_reg, housing, housing_labels,
 </span></span><span style="display:flex;"><span>scoring<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;neg_root_mean_squared_error&#34;</span>, cv<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
-</span></span></code></pre></div><p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1705218424803.png" alt=""></p>
+</span></span></code></pre></div><p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1705218424803.png" alt=""></p>
 <p>随机森林真的看起来非常有前途的任务！但是，如果您训练一个<code>RandomFores</code>t并测量<code>训练集</code>上的<code>RMSE</code>，您将发现大约17，474:这要低得多，这意味着仍然存在大量的过度拟合。可能的解决方案是
 简化模型，约束它(即，规则化它)，或得到更多的训练数据。但是，在深入研究随机森林之前，您应该尝试来自各种类别机器学习算法的许多其他模型(例如，具有不同内核的多个支持向量机，可能还有一个神经网络)，而无需花费太多时间调整超参数。目标是列出几个(两到五个)有前途的模型。</p>
 
@@ -2169,6 +2169,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

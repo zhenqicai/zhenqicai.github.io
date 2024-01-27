@@ -574,7 +574,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1646711627317.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1646711627317.png" alt="img"></p>
 <p>扩展已成功安装。因为清单中没有包含图标，所以将为扩展创建一个通用图标。</p>
 <h3 id="3注册后台脚本">3、注册后台脚本</h3>
 <p>编辑<code>manifest.json</code>文件</p>
@@ -613,7 +613,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="6检查后台脚本">6、检查后台脚本</h3>
 <p>导航回扩展管理页面，然后单击<strong>重新加载</strong>链接。一个新字段<strong>Inspect views</strong>可通过蓝色链接<strong>service worker 使用</strong>。
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1646711720961.png" alt="img"></p>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1646711720961.png" alt="img"></p>
 <p>点击链接查看后台脚本的控制台日志，“ <code>Default background color set to green</code>”</p>
 <h3 id="7引入用户界面">7、引入用户界面</h3>
 <p>扩展可以有多种形式的<a href="https://developer.chrome.com/docs/extensions/mv3/user_interface/">用户界面</a>；这将使用一个<a href="https://developer.chrome.com/docs/extensions/mv3/user_interface#popup">弹出窗口</a>。创建并添加一个名为<code>popup.html</code>扩展目录的文件。这个扩展使用一个按钮来改变背景颜色。</p>
@@ -2451,6 +2451,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

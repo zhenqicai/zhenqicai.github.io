@@ -551,7 +551,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/112/" class="thumbnail" title="Ubuntu 16.04LTS 安装 redis-6.2.6（源码安装）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1641809850670.png" alt="Ubuntu 16.04LTS 安装 redis-6.2.6（源码安装）">
+    <a href="/article/112/" class="thumbnail" title="Ubuntu 16.04LTS 安装 redis-6.2.6（源码安装）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1641809850670.png" alt="Ubuntu 16.04LTS 安装 redis-6.2.6（源码安装）">
 
 
 
@@ -604,7 +604,7 @@
                 
                     <li class="Qc_list_item wow index2">
     <div class="line"></div>
-    <a href="/article/92/" class="thumbnail" title="Ubuntu 16.04 LTS 安装redis" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1616917710397.png" alt="Ubuntu 16.04 LTS 安装redis">
+    <a href="/article/92/" class="thumbnail" title="Ubuntu 16.04 LTS 安装redis" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1616917710397.png" alt="Ubuntu 16.04 LTS 安装redis">
 
 
 
@@ -1746,6 +1746,18 @@
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 

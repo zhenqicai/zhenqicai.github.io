@@ -537,7 +537,7 @@
         <article class="Qc_detail_article" id="article-container">
             <p>微信小程序电商实战之环境搭建篇，首先先去微信公众号—小程序下载微信开发者工具。</p>
 <p>可体验 秋码淘好货 微信小程序哦！
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1615013429671.png" alt="img">
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1615013429671.png" alt="img">
 1、<strong>开发工具下载</strong>
 可到微信公众号—小程序 下载
 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html">https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html</a>
@@ -547,11 +547,11 @@
 如果没有AppID 点击“测试号”也可以哦
 申请AppID: <a href="https://mp.weixin.qq.com/wxopen/waregister?action=step1">https://mp.weixin.qq.com/wxopen/waregister?action=step1</a></li>
 </ul>
-<p><img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1615012863649.png" alt="img"></p>
+<p><img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1615012863649.png" alt="img"></p>
 <p>3、<strong>代码结构</strong></p>
 <ul>
 <li>3.1、微信开发工具生成的初始文件结构
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1615012950784.png" alt="img"></li>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1615012950784.png" alt="img"></li>
 <li>3.2、<strong>.json 后缀的 JSON 配置文件</strong>
 app.json 是对当前小程序的全局配置，包括了小程序的所有页面路径、界面表现、网络超时时间、底部 tab 等。</li>
 <li>3.3、<strong>.wxml 后缀的 WXML 模板文件</strong>
@@ -567,7 +567,7 @@ WXSS 具有 CSS 大部分的特性，小程序在 WXSS 也做了一些扩充和�
 </ul>
 <p><strong>好了，关于微信小程序电商环境搭建，就先告一段落了，敬请期待下一篇 微信小程序电商实战—首页篇</strong></p>
 <p>可体验 秋码淘好货 微信小程序哦！
-<img src="https://zhenqioss.oss-cn-beijing.aliyuncs.com/qiucode2020/1615013429671.png" alt="img"></p>
+<img src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1615013429671.png" alt="img"></p>
         </article>
     </div>
 
@@ -2129,6 +2129,18 @@ WXSS 具有 CSS 大部分的特性，小程序在 WXSS 也做了一些扩充和�
             localStorage.setItem("pref-theme", 'dark');
         }
     })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+	})
 
 </script>
 
