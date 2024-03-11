@@ -532,7 +532,19 @@
             <ul class="Qc_list">
                 
                 
-                    <li class="Qc_list_item wow index2">
+                    <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
     <div class="line"></div>
     <a href="/article/167/" class="thumbnail" title="玩以太坊链上项目的必备技能（OOP-抽象合约-Solidity之旅十）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671258540484.png" alt="玩以太坊链上项目的必备技能（OOP-抽象合约-Solidity之旅十）">
 
@@ -558,11 +570,11 @@
 
                 <li>
                     <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/167/"></span>
+                    <span class="waline-pageview-count" data-path="/article/167/"><i class="fa fa-refresh faq-rotating"></i></span>
                 </li>
                 <li>
                     <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/167/"></span>
+                    <span  class="waline-comment-count" data-path="/article/167/"><i class="fa fa-refresh faq-rotating"></i></span>
                 </li>
             </ul>
             <div class="last" style="display:flex">

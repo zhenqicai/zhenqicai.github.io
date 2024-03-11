@@ -532,7 +532,19 @@
             <ul class="Qc_list">
                 
                 
-                    <li class="Qc_list_item wow index2">
+                    <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
     <div class="line"></div>
     <a href="/article/85/" class="thumbnail" title="git使用教程之创建本地库并关联远程库（笔记整理篇一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1607248141604.png" alt="git使用教程之创建本地库并关联远程库（笔记整理篇一）">
 
@@ -558,11 +570,11 @@
 
                 <li>
                     <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/85/"></span>
+                    <span class="waline-pageview-count" data-path="/article/85/"><i class="fa fa-refresh faq-rotating"></i></span>
                 </li>
                 <li>
                     <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/85/"></span>
+                    <span  class="waline-comment-count" data-path="/article/85/"><i class="fa fa-refresh faq-rotating"></i></span>
                 </li>
             </ul>
             <div class="last" style="display:flex">

@@ -532,7 +532,19 @@
             <ul class="Qc_list">
                 
                 
-                    <li class="Qc_list_item wow index2">
+                    <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
     <div class="line"></div>
     <a href="/article/114/" class="thumbnail" title=" Extjs 3.3 tree以下的版本在IE10无法点击的解决办法" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1654347788693.jpg" alt="Extjs 3.3 tree以下的版本在IE10无法点击的解决办法">
 
@@ -558,11 +570,11 @@
 
                 <li>
                     <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/114/"></span>
+                    <span class="waline-pageview-count" data-path="/article/114/"><i class="fa fa-refresh faq-rotating"></i></span>
                 </li>
                 <li>
                     <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/114/"></span>
+                    <span  class="waline-comment-count" data-path="/article/114/"><i class="fa fa-refresh faq-rotating"></i></span>
                 </li>
             </ul>
             <div class="last" style="display:flex">

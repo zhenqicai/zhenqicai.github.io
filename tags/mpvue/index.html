@@ -532,7 +532,19 @@
             <ul class="Qc_list">
                 
                 
-                    <li class="Qc_list_item wow index2">
+                    <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
     <div class="line"></div>
     <a href="/article/84/" class="thumbnail" title="MPVue开发微信小程序（一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1543718911819.png" alt="MPVue开发微信小程序（一）">
 
@@ -558,11 +570,11 @@
 
                 <li>
                     <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/84/"></span>
+                    <span class="waline-pageview-count" data-path="/article/84/"><i class="fa fa-refresh faq-rotating"></i></span>
                 </li>
                 <li>
                     <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/84/"></span>
+                    <span  class="waline-comment-count" data-path="/article/84/"><i class="fa fa-refresh faq-rotating"></i></span>
                 </li>
             </ul>
             <div class="last" style="display:flex">

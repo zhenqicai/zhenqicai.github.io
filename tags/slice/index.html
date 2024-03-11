@@ -532,7 +532,19 @@
             <ul class="Qc_list">
                 
                 
-                    <li class="Qc_list_item wow index2">
+                    <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
     <div class="line"></div>
     <a href="/article/132/" class="thumbnail" title="Go 语言中的数组（Let&#39;s Go 十二）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664195297183.png" alt="Go 语言中的数组（Let&#39;s Go 十二）">
 
@@ -558,11 +570,11 @@
 
                 <li>
                     <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/132/"></span>
+                    <span class="waline-pageview-count" data-path="/article/132/"><i class="fa fa-refresh faq-rotating"></i></span>
                 </li>
                 <li>
                     <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/132/"></span>
+                    <span  class="waline-comment-count" data-path="/article/132/"><i class="fa fa-refresh faq-rotating"></i></span>
                 </li>
             </ul>
             <div class="last" style="display:flex">
