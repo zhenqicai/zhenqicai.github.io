@@ -2347,7 +2347,7 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
     import { pageviewCount } from  '/js/third-party/pageview.mjs';
     import { commentCount } from '/js/third-party/comment.mjs'; 
 
-    async() => {
+    setTimeout(() => {
         pageviewCount({
             serverURL:  "comment.qiucode.cn"
             
@@ -2359,9 +2359,7 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
             
             
         });
-    }
+    }, 1500);
    
   </script>
   
-
-

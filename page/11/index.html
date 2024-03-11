@@ -2244,7 +2244,7 @@
     import { pageviewCount } from  '/js/third-party/pageview.mjs';
     import { commentCount } from '/js/third-party/comment.mjs'; 
 
-    async() => {
+    setTimeout(() => {
         pageviewCount({
             serverURL:  "comment.qiucode.cn"
             
@@ -2256,9 +2256,7 @@
             
             
         });
-    }
+    }, 1500);
    
   </script>
   
-
-
