@@ -118,30 +118,6 @@
 
 
 
-
-
-
-
-<script type="module">
-    import { pageviewCount } from  '\/js/third-party/pageview.mjs';
-    import { commentCount } from '\/js/third-party/comment.mjs'; 
-
-    async() => {
-        pageviewCount({
-            serverURL:  "comment.qiucode.cn"
-            
-        });
-    
-        commentCount({
-            serverURL: "comment.qiucode.cn"
-        
-            
-            
-        });
-    }
-   
-  </script>
-  
   
 
 
@@ -2366,5 +2342,26 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
     
 </script>
 
+
+<script type="module">
+    import { pageviewCount } from  '/js/third-party/pageview.mjs';
+    import { commentCount } from '/js/third-party/comment.mjs'; 
+
+    async() => {
+        pageviewCount({
+            serverURL:  "comment.qiucode.cn"
+            
+        });
+    
+        commentCount({
+            serverURL: "comment.qiucode.cn"
+        
+            
+            
+        });
+    }
+   
+  </script>
+  
 
 

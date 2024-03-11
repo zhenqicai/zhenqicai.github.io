@@ -118,30 +118,6 @@
 
 
 
-
-
-
-
-<script type="module">
-    import { pageviewCount } from  '\/js/third-party/pageview.mjs';
-    import { commentCount } from '\/js/third-party/comment.mjs'; 
-
-    async() => {
-        pageviewCount({
-            serverURL:  "comment.qiucode.cn"
-            
-        });
-    
-        commentCount({
-            serverURL: "comment.qiucode.cn"
-        
-            
-            
-        });
-    }
-   
-  </script>
-  
   
 
 
@@ -2270,5 +2246,26 @@
     
 </script>
 
+
+<script type="module">
+    import { pageviewCount } from  '/js/third-party/pageview.mjs';
+    import { commentCount } from '/js/third-party/comment.mjs'; 
+
+    async() => {
+        pageviewCount({
+            serverURL:  "comment.qiucode.cn"
+            
+        });
+    
+        commentCount({
+            serverURL: "comment.qiucode.cn"
+        
+            
+            
+        });
+    }
+   
+  </script>
+  
 
 
