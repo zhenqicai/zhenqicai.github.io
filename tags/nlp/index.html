@@ -2,6 +2,11 @@
 
 
 
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -546,6 +551,77 @@
 
 <li class="Qc_list_item wow index2">
     <div class="line"></div>
+    <a href="/article/192/" class="thumbnail" title="微调模型（Machine Learning 研习之十二）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578659001.png" alt="微调模型（Machine Learning 研习之十二）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/192/" class="title" title="微调模型（Machine Learning 研习之十二）" rel="noopener noreferrer">
+            微调模型（Machine Learning 研习之十二）
+        </a>
+        <a class="abstract" href="/article/192/" title="文章摘要" rel="noopener noreferrer">现在正处于百模乱战的时期，对于模型微调，想必您是有所了解了，毕竟国外的大语言模型一开源，国内便纷纷基于该模型进行微调，从而开始宣称领先于某某、超越了谁。可到头来，却让人发现他们套壳了国外大语言模型对外开放的API。
+好了，我们不说国内各种大模型宣称超过了谁，毕竟，嘴巴长在别人脸上，我们管不了，也管不着，吹牛终将是会露馅的！
+当我们需要对开源大模型进行微调时，看看有几种方法可以做到这一点的！
+网格搜索 手动调整超参数，直到找到超参数值的完美组合。 这将是一项非常乏味的工作，而且您可能没有时间去探索多种组合。
+相反，您可以使用 Scikit-Learn 的 GridSearchCV 类来搜索您。 您需要做的就是告诉它您希望它试验哪些超参数以及要尝试哪些值，它将使用交叉验证来评估超参数值的所有可能组合。 例如，以下代码搜索 RandomForestRegressor 的最佳超参数值组合：
+from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&#34;preprocessing&#34;, preprocessing), (&#34;random_forest&#34;, RandomForestRegressor(random_state=42)), ]) param_grid = [{&#39;preprocessing__geo__n_clusters&#39;: [5, 8, 10], &#39;random_forest__max_features&#39;: [4, 6, 8]}, {&#39;preprocessing__geo__n_clusters&#39;: [10, 15], &#39;random_forest__max_features&#39;: [6, 8, 10]}, ] grid_search = GridSearchCV(full_pipeline, param_grid, cv=3, scoring=&#39;neg_root_mean_squared_error&#39;) grid_search.fit(housing, housing_labels) 请注意，您可以引用管道中任何估计器的任何超参数，即使该估计器嵌套在多个管道和列转换器的深处。 例如，当 Scikit-Learn 看到“preprocessing__geo__n_clusters”时，它会在双下划线处分割该字符串，然后在管道中查找名为“preprocessing”的估计器并找到预处理 ColumnTransformer。 接下来，它在此 ColumnTransformer 中查找名为“geo”的转换器，并找到我们在纬度和经度属性上使用的 ClusterSimilarity 转换器。 然后它找到该变压器的n_clusters超参数。 同样，random_forest__max_features指的是名为“random_forest”的估计器的max_features超参数，这当然是RandomForest模型。
+这个param_grid中有两个字典，因此GridSearchCV将首先评估第一个字典中指定的n_clusters和max_features超参数值的所有3×3=9个组合，然后它将尝试第一个字典中指定的所有2×3=6个超参数值组合 第二个字典。 因此，网格搜索总共将探索 9 + 6 = 15 种超参数值组合，并且每个组合都会对管道进行 3 次训练，因为我们使用的是 3 折交叉验证。 这意味着总共将有 15 × 3 = 45 轮训练！ 这可能需要一段时间，但是完成后您可以获得如下参数的最佳组合：</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2024-03-09</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/192/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/192/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                
+                    <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
     <a href="/article/159/" class="thumbnail" title="花了不到1块5，玩了下全网最火的ChatGPT" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670508857397.png" alt="花了不到1块5，玩了下全网最火的ChatGPT">
 
 
@@ -610,7 +686,38 @@
 
 
     </div>
-</div><aside class="Qc_aside">
+</div><aside class="Qc_aside"><section class="Qc_aside_item author">
+    <img width="100%" height="120" class="image ls-is-cached lazyloaded" src="/images/loading.gif"  data-lazy-src="/images/head_img.webp" loading="lazy"  alt="博主栏壁纸">
+    <div class="user">
+      <div class="avatar_wrapper circle">
+        <img class="avatar lazyloaded" src="/images/loading.gif"  data-lazy-src="/imgs/icons/apple_touch_icon_next.png" loading="lazy"   alt="博主头像">
+        
+      </div>
+      
+        <p class="motto joe_motto">一个游离于山间之上的江湖漫行者。</p>
+        <p class="motto joe_motto">A jungle wanderer who wanders above the mountains.</p>
+    </div>
+    <div class="count">
+          <div class="item" title="累计分类数 22">
+            <span class="num">40</span>
+            <span>分类数</span>
+          </div>
+          <div class="item" title="累计文章数 45">
+            <span class="num">115</span>
+            <span>文章数</span>
+          </div>
+          <div class="item" title="累计评论数 452">
+            <span class="num">238</span>
+            <span>标签数</span>
+          </div>
+    </div>
+    
+  </section><section class="Qc_aside_item laud"> 
+    
+     <div class="Qc_aside_item-contain" style="padding:10px"> 
+        <img src="/images/loading.gif"  data-lazy-src="/images/laud.jpg" loading="lazy" alt="您每一次支持，给予我创作激励。"  width="100%" height="50%"/>
+    </div> 
+</section>
 
 <section class="Qc_aside_item tags"> 
     <div class="Qc_aside_item-title"> 
@@ -673,15 +780,17 @@
 			
 			   
 			<li class="item"> 
+				<a class="link" href="/categories/github/">github </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
 				<a class="link" href="/categories/golang/">golang </a>
 				<span class="widget__counter widget__counter--bubble">35</span>
 			</li>
 			
 			   
-			<li class="item"> 
-				<a class="link" href="/categories/hugo/">Hugo </a>
-				<span class="widget__counter widget__counter--bubble">1</span>
-			</li>
 			
 			   
 			
@@ -769,6 +878,11 @@
 
                 
             <li class="item">
+                <a style="background:#4C83FF" href="/tags/ai/" title="AI">AI</a>
+            </li>
+
+                
+            <li class="item">
                 <a style="background:#4C83FF" href="/tags/apache/" title="Apache">Apache</a>
             </li>
 
@@ -803,9 +917,44 @@
             </li>
 
                 
-            <li class="item">
-                <a style="background:#4C83FF" href="/tags/channel/" title="channel">channel</a>
-            </li>
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
 
                 
 

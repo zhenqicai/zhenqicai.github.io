@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>深度学习 on 秋码分享</title>
+    <link>/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 深度学习 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 15 Mar 2024 18:26:43 +0800</lastBuildDate><atom:link href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>对模型性能进行评估（Machine Learning 研习十五）</title>
+      <link>/article/195/</link>
+      <pubDate>Fri, 15 Mar 2024 18:26:43 +0800</pubDate>
+      
+      <guid>/article/195/</guid>
+      <description>在上一篇我们已然训练了一个用于对数字图像识别的模型，但我们目前还不知道该模型在识别数字图像效率如何？所以，本文将对该模型进行评估。
+使用交叉验证衡量准确性 评估模型的一个好方法是使用交叉验证，让我们使用cross_val_score()函数来评估我们的 SGDClassifier 模型，使用三折的 k 折交叉验证。k-fold 交叉验证意味着将训练集分成 k 个折叠（在本例中是三个），然后训练模型 k 次，每次取出一个不同的折叠进行评估：
+当您看到这组数字，是不是感到很兴奋？毕竟所有交叉验证折叠的准确率（预测准确率）均超过了 95%。然而，在您兴奋于这组数字前，还是让我们来看看一个假分类器，它只是将每张图片归入最常见的类别，在本例中就是负类别（即非 5）：
+from sklearn.dummy import DummyClassifier dummy_clf = DummyClassifier() dummy_clf.fit(X_train, y_train_5) print(any(dummy_clf.predict(X_train))) # prints False: no 5s detected 您能猜出这个模型的准确度吗？让我们一探究竟：
+没错，它的准确率超过 90%！这只是因为只有大约 10% 的图片是 5，所以如果你总是猜测图片不是 5，你就会有大约 90% 的时间是正确的。比诺斯特拉达穆斯还准。
+这说明了为什么准确率通常不是分类器的首选性能指标，尤其是在处理偏斜 数据集时（即某些类别的出现频率远高于其他类别）。评估分类器性能的更好方法是查看混淆矩阵(CM)。
+实施交叉验证 与 Scikit-Learn 现成提供的功能相比，您有时需要对交叉验证过程进行更多控制。在这种情况下，你可以自己实现交叉验证。下面的代码与 Scikit-Learn 的 cross_val_score() 函数做了大致相同的事情，并会打印出相同的结果：
+from sklearn.model_selection import StratifiedKFold from sklearn.base import clone skfolds = StratifiedKFold(n_splits=3) # add shuffle=True if the dataset is # not already shuffled for train_index, test_index in skfolds.</description>
+    </item>
+    
+    <item>
+      <title>微调模型（Machine Learning 研习之十二）</title>
+      <link>/article/192/</link>
+      <pubDate>Sat, 09 Mar 2024 14:59:44 +0800</pubDate>
+      
+      <guid>/article/192/</guid>
+      <description>现在正处于百模乱战的时期，对于模型微调，想必您是有所了解了，毕竟国外的大语言模型一开源，国内便纷纷基于该模型进行微调，从而开始宣称领先于某某、超越了谁。可到头来，却让人发现他们套壳了国外大语言模型对外开放的API。
+好了，我们不说国内各种大模型宣称超过了谁，毕竟，嘴巴长在别人脸上，我们管不了，也管不着，吹牛终将是会露馅的！
+当我们需要对开源大模型进行微调时，看看有几种方法可以做到这一点的！
+网格搜索 手动调整超参数，直到找到超参数值的完美组合。 这将是一项非常乏味的工作，而且您可能没有时间去探索多种组合。
+相反，您可以使用 Scikit-Learn 的 GridSearchCV 类来搜索您。 您需要做的就是告诉它您希望它试验哪些超参数以及要尝试哪些值，它将使用交叉验证来评估超参数值的所有可能组合。 例如，以下代码搜索 RandomForestRegressor 的最佳超参数值组合：
+from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&amp;#34;preprocessing&amp;#34;, preprocessing), (&amp;#34;random_forest&amp;#34;, RandomForestRegressor(random_state=42)), ]) param_grid = [{&amp;#39;preprocessing__geo__n_clusters&amp;#39;: [5, 8, 10], &amp;#39;random_forest__max_features&amp;#39;: [4, 6, 8]}, {&amp;#39;preprocessing__geo__n_clusters&amp;#39;: [10, 15], &amp;#39;random_forest__max_features&amp;#39;: [6, 8, 10]}, ] grid_search = GridSearchCV(full_pipeline, param_grid, cv=3, scoring=&amp;#39;neg_root_mean_squared_error&amp;#39;) grid_search.fit(housing, housing_labels) 请注意，您可以引用管道中任何估计器的任何超参数，即使该估计器嵌套在多个管道和列转换器的深处。 例如，当 Scikit-Learn 看到“preprocessing__geo__n_clusters”时，它会在双下划线处分割该字符串，然后在管道中查找名为“preprocessing”的估计器并找到预处理 ColumnTransformer。 接下来，它在此 ColumnTransformer 中查找名为“geo”的转换器，并找到我们在纬度和经度属性上使用的 ClusterSimilarity 转换器。 然后它找到该变压器的n_clusters超参数。 同样，random_forest__max_features指的是名为“random_forest”的估计器的max_features超参数，这当然是RandomForest模型。
+这个param_grid中有两个字典，因此GridSearchCV将首先评估第一个字典中指定的n_clusters和max_features超参数值的所有3×3=9个组合，然后它将尝试第一个字典中指定的所有2×3=6个超参数值组合 第二个字典。 因此，网格搜索总共将探索 9 + 6 = 15 种超参数值组合，并且每个组合都会对管道进行 3 次训练，因为我们使用的是 3 折交叉验证。 这意味着总共将有 15 × 3 = 45 轮训练！ 这可能需要一段时间，但是完成后您可以获得如下参数的最佳组合：</description>
+    </item>
+    
+  </channel>
+</rss>
