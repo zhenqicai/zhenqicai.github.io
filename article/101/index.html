@@ -120,6 +120,7 @@
 
 
 
+<link rel="stylesheet" href="/css/blackmac.css">
 
 
 
@@ -519,6 +520,7 @@
 
 
 
+
 <div class="Qc_main Qc_post">
     <div class="Qc_detail">
         <h1 class="title Qc_psot_title"> cocos2d-x实现跑酷游戏之一（重拾知识篇）</h1>
@@ -587,7 +589,15 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
     
 </div>
 
-
+<script type="text/javascript">
+    (function () {
+        var pres = document.querySelectorAll('pre');
+        var lineNumberClassName = 'line-numbers';
+        pres.forEach(function (item, index) {
+            item.className = item.className == '' ? lineNumberClassName : item.className + ' ' + lineNumberClassName;
+        });
+    })();
+</script>
 
 
 <script>
@@ -1912,7 +1922,7 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
 			<div class="item">
 				<p>
 					<strong>Powered by <span style="color:blue;font:bold;">Hugo</span>&nbsp;&nbsp;|&nbsp;&nbsp;Theme by 
-						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.4</a></strong>
+						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.5</a></strong>
 				</p>
 			</div>
 		</div>
@@ -1998,15 +2008,6 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
 	
 	
 
-	
-
-	
-	
-	<script src="/js/highlight.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-
-   
-
    <script>
 	 function registerImageLoadEvent() {
 		const images = document.querySelectorAll('.sidebar img, .Qc_post img, .vendors-list img');
@@ -2073,6 +2074,11 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
 
 	</div>
 </body>
+
+
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/prism.min.js" ></script>
+
 
 <script>
 

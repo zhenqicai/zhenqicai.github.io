@@ -120,6 +120,7 @@
 
 
 
+<link rel="stylesheet" href="/css/blackmac.css">
 
 
 
@@ -519,6 +520,7 @@
 
 
 
+
 <div class="Qc_main Qc_post">
     <div class="Qc_detail">
         <h1 class="title Qc_psot_title"> 玩以太坊链上项目的必备技能（OOP-合约继承-Solidity之旅九）</h1>
@@ -769,7 +771,15 @@
     
 </div>
 
-
+<script type="text/javascript">
+    (function () {
+        var pres = document.querySelectorAll('pre');
+        var lineNumberClassName = 'line-numbers';
+        pres.forEach(function (item, index) {
+            item.className = item.className == '' ? lineNumberClassName : item.className + ' ' + lineNumberClassName;
+        });
+    })();
+</script>
 
 
 <script>
@@ -2130,7 +2140,7 @@
 			<div class="item">
 				<p>
 					<strong>Powered by <span style="color:blue;font:bold;">Hugo</span>&nbsp;&nbsp;|&nbsp;&nbsp;Theme by 
-						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.4</a></strong>
+						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.5</a></strong>
 				</p>
 			</div>
 		</div>
@@ -2216,15 +2226,6 @@
 	
 	
 
-	
-
-	
-	
-	<script src="/js/highlight.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-
-   
-
    <script>
 	 function registerImageLoadEvent() {
 		const images = document.querySelectorAll('.sidebar img, .Qc_post img, .vendors-list img');
@@ -2291,6 +2292,11 @@
 
 	</div>
 </body>
+
+
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/prism.min.js" ></script>
+
 
 <script>
 

@@ -120,6 +120,7 @@
 
 
 
+<link rel="stylesheet" href="/css/blackmac.css">
 
 
 
@@ -519,6 +520,7 @@
 
 
 
+
 <div class="Qc_main Qc_post">
     <div class="Qc_detail">
         <h1 class="title Qc_psot_title"> git使用教程之创建本地库并关联远程库（笔记整理篇一）</h1>
@@ -622,7 +624,15 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
     
 </div>
 
-
+<script type="text/javascript">
+    (function () {
+        var pres = document.querySelectorAll('pre');
+        var lineNumberClassName = 'line-numbers';
+        pres.forEach(function (item, index) {
+            item.className = item.className == '' ? lineNumberClassName : item.className + ' ' + lineNumberClassName;
+        });
+    })();
+</script>
 
 
 <script>
@@ -2011,7 +2021,7 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
 			<div class="item">
 				<p>
 					<strong>Powered by <span style="color:blue;font:bold;">Hugo</span>&nbsp;&nbsp;|&nbsp;&nbsp;Theme by 
-						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.4</a></strong>
+						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.5</a></strong>
 				</p>
 			</div>
 		</div>
@@ -2097,15 +2107,6 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
 	
 	
 
-	
-
-	
-	
-	<script src="/js/highlight.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-
-   
-
    <script>
 	 function registerImageLoadEvent() {
 		const images = document.querySelectorAll('.sidebar img, .Qc_post img, .vendors-list img');
@@ -2172,6 +2173,11 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
 
 	</div>
 </body>
+
+
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/prism.min.js" ></script>
+
 
 <script>
 
