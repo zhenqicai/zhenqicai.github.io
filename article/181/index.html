@@ -1731,6 +1731,19 @@
         margin-top: 20px
     }
 
+     
+    .toc-content  ol{
+        list-style-type:none;
+        counter-reset:item
+    }
+    .toc-content ol li a:first-of-type::before{
+        counter-increment:item;
+        content:counters(item,".")"、";
+        font-weight:700;
+        margin-right:1px
+    }
+      
+    
 
 </style>
     <div class="card-widget" id="card-toc">
@@ -2043,8 +2056,6 @@
 
 
 
-
-
     </section>
      
 
@@ -2060,7 +2071,7 @@
 			<div class="item">
 				<p>
 					<strong>Powered by <span style="color:blue;font:bold;">Hugo</span>&nbsp;&nbsp;|&nbsp;&nbsp;Theme by 
-						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.5</a></strong>
+						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.6</a></strong>
 				</p>
 			</div>
 		</div>
