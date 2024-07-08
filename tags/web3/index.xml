@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web3 on 秋码分享</title>
+    <link>/tags/web3/</link>
+    <description>Recent content in Web3 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 01 Dec 2022 20:30:51 +0800</lastBuildDate><atom:link href="/tags/web3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在构建 Web3 前，需先知道什么是区块链，毕竟 Web3 是基于区块链</title>
+      <link>/article/156/</link>
+      <pubDate>Thu, 01 Dec 2022 20:30:51 +0800</pubDate>
+      
+      <guid>/article/156/</guid>
+      <description>&lt;p&gt;通俗来说，&lt;code&gt;区块链&lt;/code&gt;本质上是一个去中心化的数据仓储，也就是每个人都保留着这个账本，可以认为它是一套加密的分布式超级账本。 比特币是基于区块链技术的第一个应用，也是目前最成功的一个应用。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web3 来了，让我们展开双手拥抱它吧！</title>
+      <link>/article/155/</link>
+      <pubDate>Wed, 30 Nov 2022 20:28:25 +0800</pubDate>
+      
+      <guid>/article/155/</guid>
+      <description>&lt;p&gt;Web3 以前所未有的方式赋予你数字资产的所有权。 例如，假设您正在玩一个 Web2 游戏。 如果您购买游戏内物品，它会直接与您的帐户绑定。 如果游戏创建者删除您的帐户，您将丢失这些物品。 或者如果您停止玩游戏，您将失去投资到游戏内物品的价值。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

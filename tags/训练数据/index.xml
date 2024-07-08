@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>训练数据 on 秋码分享</title>
+    <link>/tags/%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE/</link>
+    <description>Recent content in 训练数据 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 17 Jul 2023 21:22:38 +0800</lastBuildDate><atom:link href="/tags/%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>现实生活中机器学习的具体示例（Machine Learning 研习之二）</title>
+      <link>/article/179/</link>
+      <pubDate>Mon, 17 Jul 2023 21:22:38 +0800</pubDate>
+      
+      <guid>/article/179/</guid>
+      <description>&lt;p&gt;在上一篇，我们初步了解什么是机器学习，以及它能给我们带来，相对于传统编程解决更为优先、易于维护的一套解决方案。那么，本文将继续为您举例，机器学习给我们生活上带来哪些便捷。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）</title>
+      <link>/article/178/</link>
+      <pubDate>Sat, 15 Jul 2023 10:18:38 +0800</pubDate>
+      
+      <guid>/article/178/</guid>
+      <description>&lt;p&gt;让机器学习不再是过门不入，跟着【秋码】一起研习机器学习（Machine Learning），探究什么是机器学习？以及为何我们要去使用机器学习呢？毕竟未来是属于人工智能（Ai）的，引领潮流的往往是新事物，这一次，您可不要再错过了！抓住它，就等于握住了穿梭未来的时光机。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vuejs on 秋码分享</title>
+    <link>/categories/vuejs/</link>
+    <description>Recent content in Vuejs on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 16 Feb 2019 23:37:45 +0000</lastBuildDate><atom:link href="/categories/vuejs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开发一套基于Vue2.x的UI组件库（环境搭建篇《一》）</title>
+      <link>/article/83/</link>
+      <pubDate>Sat, 16 Feb 2019 23:37:45 +0000</pubDate>
+      
+      <guid>/article/83/</guid>
+      <description>&lt;p&gt;基于Vue2.x开发的UI 组件库有很多，诸如 iView UI组件库、Element UI组件库 等等，既然有这么优秀的UI组件，我们干嘛非要自己开发一套组件呢？&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

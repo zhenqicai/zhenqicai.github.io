@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>类型断言 on 秋码分享</title>
+    <link>/tags/%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80/</link>
+    <description>Recent content in 类型断言 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 22 Oct 2022 13:26:16 +0000</lastBuildDate><atom:link href="/tags/%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 语言中的类型断言（Let&#39;s Go 二十六）</title>
+      <link>/article/146/</link>
+      <pubDate>Sat, 22 Oct 2022 13:26:16 +0000</pubDate>
+      
+      <guid>/article/146/</guid>
+      <description>&lt;p&gt;如果&lt;code&gt;Type&lt;/code&gt;是具体某个类型，类型断言会检查 &lt;code&gt;varl&lt;/code&gt;的动态类型是否等于具体类型 &lt;code&gt;Type&lt;/code&gt;。如果检查成功，类型断言返回的结果是 &lt;code&gt;varl&lt;/code&gt; 的动态值，其类型是 &lt;code&gt;Type&lt;/code&gt;。 - 如果 &lt;code&gt;Type&lt;/code&gt; 是接口类型，类型断言会检查 &lt;code&gt;varl&lt;/code&gt; 的动态类型是否满足&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

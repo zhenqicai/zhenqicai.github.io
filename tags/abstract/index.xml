@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>abstract on 秋码分享</title>
+    <link>/tags/abstract/</link>
+    <description>Recent content in abstract on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 17 Dec 2022 14:59:55 +0800</lastBuildDate><atom:link href="/tags/abstract/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>玩以太坊链上项目的必备技能（OOP-抽象合约-Solidity之旅十）</title>
+      <link>/article/167/</link>
+      <pubDate>Sat, 17 Dec 2022 14:59:55 +0800</pubDate>
+      
+      <guid>/article/167/</guid>
+      <description>&lt;p&gt;即假使合约中至少有一个函数没有实现（没有方法体，只有方法签名的方法），那么便将该合约定义为&lt;code&gt;抽象合约（abstract contract）&lt;/code&gt;。当然咯，前文说到&lt;code&gt;继承&lt;/code&gt;提到的，&lt;code&gt;派生合约&lt;/code&gt;未能给其&lt;code&gt;基合约&lt;/code&gt;的构造函数传递指定参数，这时，该合约便只能声明为&lt;code&gt;抽象&lt;/code&gt;的。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

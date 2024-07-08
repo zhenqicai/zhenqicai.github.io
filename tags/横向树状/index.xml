@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>横向树状 on 秋码分享</title>
+    <link>/tags/%E6%A8%AA%E5%90%91%E6%A0%91%E7%8A%B6/</link>
+    <description>Recent content in 横向树状 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 04 Jul 2021 08:27:52 +0000</lastBuildDate><atom:link href="/tags/%E6%A8%AA%E5%90%91%E6%A0%91%E7%8A%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PHP 处理数据为树状结构</title>
+      <link>/article/105/</link>
+      <pubDate>Sun, 04 Jul 2021 08:27:52 +0000</pubDate>
+      
+      <guid>/article/105/</guid>
+      <description>&lt;p&gt;PHP处理没有父子级关系的数据为树状结构数据，对二维数组以某个键值相同的分组合并，最终形成树状结构数据&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

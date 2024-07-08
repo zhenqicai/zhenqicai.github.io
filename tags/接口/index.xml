@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>接口 on 秋码分享</title>
+    <link>/tags/%E6%8E%A5%E5%8F%A3/</link>
+    <description>Recent content in 接口 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 18 Dec 2022 15:44:31 +0800</lastBuildDate><atom:link href="/tags/%E6%8E%A5%E5%8F%A3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>玩以太坊链上项目的必备技能（OOP-接口-Solidity之旅十一）</title>
+      <link>/article/168/</link>
+      <pubDate>Sun, 18 Dec 2022 15:44:31 +0800</pubDate>
+      
+      <guid>/article/168/</guid>
+      <description>&lt;p&gt;我们知道在&lt;code&gt;Java&lt;/code&gt;里&lt;code&gt;接口&lt;/code&gt;是&lt;code&gt;特殊的抽象类&lt;/code&gt;，限制多于&lt;code&gt;抽象类&lt;/code&gt;，但随着&lt;code&gt;Java&lt;/code&gt;版本的更新，&lt;code&gt;Java&lt;/code&gt;中的&lt;code&gt;接口&lt;/code&gt;是越来越趋于&lt;code&gt;抽象类&lt;/code&gt;了（这样说，可能有点不妥，因为&lt;code&gt;接口&lt;/code&gt;本就是&lt;code&gt;特殊的抽象类&lt;/code&gt;，只是&lt;code&gt;接口&lt;/code&gt;中不能有方法具体实现，而&lt;code&gt;抽象类&lt;/code&gt;还是可以有的！然而随着&lt;code&gt;Java&lt;/code&gt;版本的&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go 语言中的接口（Let&#39;s Go 二十五）</title>
+      <link>/article/145/</link>
+      <pubDate>Fri, 21 Oct 2022 12:20:28 +0000</pubDate>
+      
+      <guid>/article/145/</guid>
+      <description>&lt;p&gt;要想实现&lt;code&gt;Go&lt;/code&gt;中的接口，类型实现接口方法集的方法，其类型实现的方法签名必须要与接口中的方法集中方法签名一样。 类型不需要显式声明它实现了某个接口：接口被隐式地实现。多个类型可以实现同一个接口。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
