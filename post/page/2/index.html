@@ -532,6 +532,585 @@
 
 <li class="Qc_list_item wow index2">
     <div class="line"></div>
+    <a href="/article/193/" class="thumbnail" title="微调模型——续（Machine Learning 研习之十三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578959569.png" alt="微调模型——续（Machine Learning 研习之十三）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/193/" class="title" title="微调模型——续（Machine Learning 研习之十三）" rel="noopener noreferrer">
+            微调模型——续（Machine Learning 研习之十三）
+        </a>
+        <a class="abstract" href="/article/193/" title="文章摘要" rel="noopener noreferrer">集成方法 微调系统的另一种方法是尝试组合性能最佳的模型。 群体（或“整体”）通常会比最好的单个模型表现得更好，就像随机森林比它们所依赖的单个决策树表现更好一样，特别是当各个模型犯下不同类型的错误时。 例如，您可以训练和微调 k 最近邻模型，然后创建一个仅预测随机森林预测和该模型预测的平均值的集成模型。
+分析最佳模型及其错误 通过检查最佳模型，您通常会获得对问题的深入见解。 例如，RandomForestRegressor可以指示每个属性对于做出准确预测的相对重要性：
+让我们按降序对这些重要性分数进行排序，并将它们显示在相应的属性名称旁边：
+有了这些信息，您可能想尝试删除一些不太有用的功能（例如，显然只有一个ocean_proximity类别真正有用，因此您可以尝试删除其他功能）。
+您还应该查看系统所犯的具体错误，然后尝试了解为什么会犯这些错误，以及如何解决问题：添加额外的功能或删除无信息的功能，清理异常值等。
+现在也是一个好时机，可以确保您的模型不仅平均运行良好，而且适用于所有类别的地区，无论是农村还是城市、富裕还是贫穷、北部还是南部、少数民族还是非少数民族等。 每个类别的验证集需要一些工作，但这很重要：如果您的模型在整个地区类别上表现不佳，那么在问题解决之前可能不应该部署它，或者至少不应该使用它 对该类别进行预测，因为它可能弊大于利。
+在测试集上评估您的系统 对模型进行一段时间的调整后，您最终会得到一个性能足够好的系统。 您已准备好在测试集上评估最终模型。 这个过程没有什么特别的； 只需从测试集中获取预测变量和标签并运行Final_model来转换数据并进行预测，然后评估这些预测：
+X_test = strat_test_set.drop(&#34;median_house_value&#34;, axis=1) y_test = strat_test_set[&#34;median_house_value&#34;].copy() final_predictions = final_model.predict(X_test) final_rmse = mean_squared_error(y_test, final_predictions, squared=False) print(final_rmse) # prints 41424.40026462184 在某些情况下，这样的泛化误差点估计不足以说服您启动：如果它只比当前生产的模型好 0.1% 怎么办？ 您可能想了解这个估计的精确度。 为此，您可以使用 scipy.stats.t.interval() 计算泛化误差的 95% 置信区间。 您会得到从 39,275 到 43,467 的相当大的区间，而您之前的点估计值 41,424 大致位于中间：
+如果您进行了大量的超参数调整，性能通常会比使用交叉验证测量的性能稍差。 这是因为您的系统最终经过微调以在验证数据上表现良好，但在未知数据集上可能表现不佳。 本示例中的情况并非如此，因为测试 RMSE低于验证 RMSE，但当发生这种情况时，您必须抵制调整超参数以使数字在测试集上看起来不错的诱惑； 这些改进不太可能推广到新数据。
+现在是项目预启动阶段：您需要展示您的解决方案（突出显示您所学到的内容、有效的内容和无效的内容、做出的假设以及系统的局限性），记录所有内容，并使用以下内容创建精美的演示文稿： 清晰的可视化和易于记忆的陈述（例如，“收入中位数是房价的第一预测指标”）。 在这个加州住房示例中，系统的最终性能并不比专家的价格估计好多少，专家的价格估计通常会下降 30%，但启动它可能仍然是一个好主意，特别是如果这样可以释放更多资金 给专家一些时间，以便他们可以从事更有趣、更有成效的任务。
+启动、监控和维护您的系统 您现在需要准备好用于生产的解决方案（例如，完善代码、编写文档和测试等）。 然后您可以将模型部署到生产环境。 最基本的方法就是保存您训练的最佳模型，将文件传输到您的生产环境并加载它。 要保存模型，您可以使用 joblib 库，如下所示：</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2024-03-09</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/193/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/193/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/192/" class="thumbnail" title="微调模型（Machine Learning 研习之十二）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578659001.png" alt="微调模型（Machine Learning 研习之十二）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/192/" class="title" title="微调模型（Machine Learning 研习之十二）" rel="noopener noreferrer">
+            微调模型（Machine Learning 研习之十二）
+        </a>
+        <a class="abstract" href="/article/192/" title="文章摘要" rel="noopener noreferrer">现在正处于百模乱战的时期，对于模型微调，想必您是有所了解了，毕竟国外的大语言模型一开源，国内便纷纷基于该模型进行微调，从而开始宣称领先于某某、超越了谁。可到头来，却让人发现他们套壳了国外大语言模型对外开放的API。
+好了，我们不说国内各种大模型宣称超过了谁，毕竟，嘴巴长在别人脸上，我们管不了，也管不着，吹牛终将是会露馅的！
+当我们需要对开源大模型进行微调时，看看有几种方法可以做到这一点的！
+网格搜索 手动调整超参数，直到找到超参数值的完美组合。 这将是一项非常乏味的工作，而且您可能没有时间去探索多种组合。
+相反，您可以使用 Scikit-Learn 的 GridSearchCV 类来搜索您。 您需要做的就是告诉它您希望它试验哪些超参数以及要尝试哪些值，它将使用交叉验证来评估超参数值的所有可能组合。 例如，以下代码搜索 RandomForestRegressor 的最佳超参数值组合：
+from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&#34;preprocessing&#34;, preprocessing), (&#34;random_forest&#34;, RandomForestRegressor(random_state=42)), ]) param_grid = [{&#39;preprocessing__geo__n_clusters&#39;: [5, 8, 10], &#39;random_forest__max_features&#39;: [4, 6, 8]}, {&#39;preprocessing__geo__n_clusters&#39;: [10, 15], &#39;random_forest__max_features&#39;: [6, 8, 10]}, ] grid_search = GridSearchCV(full_pipeline, param_grid, cv=3, scoring=&#39;neg_root_mean_squared_error&#39;) grid_search.fit(housing, housing_labels) 请注意，您可以引用管道中任何估计器的任何超参数，即使该估计器嵌套在多个管道和列转换器的深处。 例如，当 Scikit-Learn 看到“preprocessing__geo__n_clusters”时，它会在双下划线处分割该字符串，然后在管道中查找名为“preprocessing”的估计器并找到预处理 ColumnTransformer。 接下来，它在此 ColumnTransformer 中查找名为“geo”的转换器，并找到我们在纬度和经度属性上使用的 ClusterSimilarity 转换器。 然后它找到该变压器的n_clusters超参数。 同样，random_forest__max_features指的是名为“random_forest”的估计器的max_features超参数，这当然是RandomForest模型。
+这个param_grid中有两个字典，因此GridSearchCV将首先评估第一个字典中指定的n_clusters和max_features超参数值的所有3×3=9个组合，然后它将尝试第一个字典中指定的所有2×3=6个超参数值组合 第二个字典。 因此，网格搜索总共将探索 9 + 6 = 15 种超参数值组合，并且每个组合都会对管道进行 3 次训练，因为我们使用的是 3 折交叉验证。 这意味着总共将有 15 × 3 = 45 轮训练！ 这可能需要一段时间，但是完成后您可以获得如下参数的最佳组合：</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2024-03-09</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/192/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/192/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/191/" class="thumbnail" title="解决 github.com port 443: Timed out 的问题" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578417203.png" alt="解决 github.com port 443: Timed out 的问题">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/191/" class="title" title="解决 github.com port 443: Timed out 的问题" rel="noopener noreferrer">
+            解决 github.com port 443: Timed out 的问题
+        </a>
+        <a class="abstract" href="/article/191/" title="文章摘要" rel="noopener noreferrer">国内访问github.com总是那么不竟如人意，时而无法加载网页，时而等我们抽完了一根烟后，它还处于转圈的状态。
+虽然国内有gitee.com等诸多的代码托管平台，但却鲜有国人愿意去呢？其中的缘由，想必也不用我多说，大伙也都心知肚明了吧！
+即便github.com在国内访问慢，或是加载不出来，我们也宁愿等它慢慢地加载出来，却不愿将代码托管于境内的平台。
+github.com 托管了 qiucode.cn 站点 由于将 秋码记录 托管于 github.com上后，写些文章就得push上去，然而当我push上去时，却十有八九都会出现 github.com port 443: Timed out的错误，代码显然是无法push上去的了！
+难道在国内，现在push或是pull github.com，都是要靠运气吗？偶尔可以，大多数都是报错。
+可是，“运气”总不能实时来关顾我们，要是那样的话，我早去买彩票了，虽然有运气，买了彩票，它也不一定中奖，毕竟古话早就有言：朝里有人好当官。
+然而，有没有一劳永逸的解决之道呢？答案那是肯定有的，要不然，也就不会有这么一篇文章了，您也就不会花费您宝贵的时间来浏览本文，寻求与我遇到同样问题的解决方案了。
+当我们想要clone github.com上的一个项目时，出现以下错误，那都是家常便饭了。
+从报错信息来看，很显然这是https请求超时，这是毋庸置疑的，毕竟我们访问github.com都是是好是坏的！您在terminal端不还是一样的请求超时嘛！
+解决国内 push/pull github.com 项目出现 Timed out 的问题 毕竟，秋码记录 是托管于 github.com上，总不可能写了一篇文章，想要push到 github.com，这次出现Timed out的错误，就不push，而是等到下次再写文章时，再push，这显然不是我要的，毕竟，技术文章（在这里，我也就王婆卖瓜，自卖自夸咯）是有时效性的！说是这么说，但并不妨碍的。
+能出现Timed out的问题，我们第一想到便是网络问题（有些事我们自己心里清楚就好了），其次才是本地git配置问题。
+那么，我们暂且略过网络问题这一客观事实不谈，来说说本地git的配置是哪里出现问题，而导致了出现Timed out的问题呢？
+我们还是回到 terminal，输入以下命令测试ssh是否成功？
+ssh -T git@github.com 如果，您也出现了上图的结果，那显然是配置的问题了。
+我们再次测试下port 443是否也出现超时的问题？
+ssh -T -p 443 git@ssh.github.com 可以看出，端口 443 请求是没问题，那么，为什么clone项目时，却报出了port 443请求超时的错误呢？
+我们大致从上面的ssh测试报错便可以得出结论了，那便是ssh连接超时了。
+而要想解决ssh请求超时的问题，那就要从配置着手了，还是一样的在terminal输入以下命令。
+vim ~/.ssh/config 而后在进入编辑状态，填写以下内容
+# Add section below to itHost github.comHostname ssh.</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2024-01-27</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/191/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/191/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[github]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/190/" class="thumbnail" title="选择和训练模型（Machine Learning 研习之十一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1705218124546.png" alt="选择和训练模型（Machine Learning 研习之十一）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/190/" class="title" title="选择和训练模型（Machine Learning 研习之十一）" rel="noopener noreferrer">
+            选择和训练模型（Machine Learning 研习之十一）
+        </a>
+        <a class="abstract" href="/article/190/" title="文章摘要" rel="noopener noreferrer">当您看到本文标题时，不禁感叹，总算是到了训练模型这一节了。
+是啊，在之前的文章中，我们对数据进行了探索，以及对一个训练集和一个测试集进行了采样，也编写了一个预处理管道来自动清理，准备您的数据用于机器学习算法，然而现在，我们可以选择并训练模型了。
+训练集的训练与评估 我们从一个最基本的线性回归模型开始：
+from sklearn.linear_model import LinearRegression lin_reg = make_pipeline(preprocessing, LinearRegression()) lin_reg.fit(housing, housing_labels) 很好，至此，我们现在算是有了一个有效的线性回归模型，可以在训练集上试用它，查看前五个预测，并将它们与标签进行比较:：
+第一个预测偏差很大(超过200,000美元!)，而其他预测则更好，两个预测偏差约25%，还有两个预测 偏差不到10%。请记住，您选择使用RMSE作为性能测度，因此您希望使用Scikit-Learn的mean_squared_error()函数在整个训练集上测量该回归模型的RMSE，并将平方参数设置为False。
+这总比没有好，但显然不是一个很好的分数，大多数地区的房屋价值中位数在120,000美元和26.5万美元之间，所以一个典型的68628美元的预测误差真的不是很令人满意。这是一个模型拟合训练数据不足的示例。当这种情况发生时，可能意味着这些特征没有提供足够的信息来做出好的预测，或者模型不够强大。
+正如我们在上一章中看到的，修复欠拟合的主要方法是选择一个更强大的模型，为训练算法提供更好的特征，或者减少对模型的约束。这个模型没有正规化，这就排除了最后一个选项。您可以尝试添加更多功能，但首先您要尝试更复杂的模型，看看它是如何工作的。
+您决定尝试DecisionTreeRegressor，因为这是一个相当强大的模型，能够在数据中找到复杂的非线性关系(后续篇章将更详细地介绍决策树)：
+from sklearn.tree import DecisionTreeRegressor tree_reg = make_pipeline(preprocessing, DecisionTreeRegressor(random_state=42)) tree_reg.fit(housing, housing_labels) 现在模型已训练完毕，您可以在训练集中对其进行评估：
+等等，难道这个模型真的很完美吗？当然咯，更有可能的是模型严重地过度拟合了数据。您怎么能确定正如你前面看到的，在您准备好启动一个您有信心的模型之前，您不想碰测试集，所以您需要使用一部分训练集进行训练，另一部分用于模型验证。
+使用交叉验证进行更好的评估 评估决策树模型的一种方法是使用train_test_split()函数将训练集拆分为较小的训练集和验证集，然后针对较小的训练集训练您的模型，并针对验证集对其进行评估。这是一点努力，但没有太难，它会工作得相当不错。
+一个很好的替代方法是使用Scikit-Learn的k_-fold交叉验证特性。下面的代码随机地将训练集分成10个不重叠的子集，称为fold，然后训练和评估决策树模型10次，每次选择不同的fold进行评估，并使用其他9个fold进行训练。结果是一个包含10个评价分数的数组：
+from sklearn.model_selection import cross_val_score tree_rmses = -cross_val_score(tree_reg, housing, housing_labels, scoring=&#34;neg_root_mean_squared_error&#34;, cv=10) 警告：
+Scikit-Learn的交叉验证功能期望的是效用函数(越大越好)而不是成本函数(越低越好)，所以评分函数实际上是RMSE的反面。它是一个负值，所以您需要切换输出的符号来获得RMSE分 数。
+让我们来看看结果吧：
+现在决策树看起来不像以前那么好了。事实上，它的表现几乎和线性回归模型一样差！请注意，交叉验证不仅允许您获得模型性能的估计值，还允许您测量该估计值的精确度(即其标准差)。决策树的均方根误差约为66，868，标准差约为2,061。如果只使用一个验证集，则不会有此信息。但是交叉验证是以多次训练模型为代价的，所以它并不总是可行的。
+如果您为线性回归模型计算相同的度量，您将发现平均RMSE为69，858，标准差为4,182。因此，决策树模型的性能似乎比线性模型稍微好一点，但由于严重的过拟合，差异很小。我们知道存在过拟合 问题，因为训练误差很低(实际上为零)，而验证误差很高。
+现在让我们尝试最后一个模型:随机森林调节器，随机森林的工作原理是在特征的随机子集上训练许多决策树，然后平均出它们的预测值。这样的模型组成的许多其他模型被称为合奏:他们能够提高性能基础模型(在本例中为决策树)。代码与前面的代码大同小异：
+from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(preprocessing, RandomForestRegressor(random_state=42)) forest_rmses = -cross_val_score(forest_reg, housing, housing_labels, scoring=&#34;neg_root_mean_squared_error&#34;, cv=10) 随机森林真的看起来非常有前途的任务！但是，如果您训练一个RandomForest并测量训练集上的RMSE，您将发现大约17，474:这要低得多，这意味着仍然存在大量的过度拟合。可能的解决方案是 简化模型，约束它(即，规则化它)，或得到更多的训练数据。但是，在深入研究随机森林之前，您应该尝试来自各种类别机器学习算法的许多其他模型(例如，具有不同内核的多个支持向量机，可能还有一个神经网络)，而无需花费太多时间调整超参数。目标是列出几个(两到五个)有前途的模型。</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2024-01-14</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/190/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/190/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/184/" class="thumbnail" title="回望这风雨飘摇的一年过后，我们终将要整束行囊继续前行" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703910621212.jpg" alt="回望这风雨飘摇的一年过后，我们终将要整束行囊继续前行">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/184/" class="title" title="回望这风雨飘摇的一年过后，我们终将要整束行囊继续前行" rel="noopener noreferrer">
+            回望这风雨飘摇的一年过后，我们终将要整束行囊继续前行
+        </a>
+        <a class="abstract" href="/article/184/" title="文章摘要" rel="noopener noreferrer">2023 这一年 时间倏忽而过，纵有再多的不甘，2023 这一年的日历终要翻过去了。这一年，或许还对很多事保持着一种执念，然而，随着 2023 年如东逝水一去不复返，也该放下那份执着，让我们挥手告别那处于风雨飘摇的 2023 年，毕竟，未来还很长，我们还得背上行囊踏上那远方的路，否则，赶不上停靠在路边的二路汽车了都！
+2023 年年初为这一年预先设定的规划，实现了吗？然而，回答我们自己，是那无声的摇头。年初预定的规划，大抵也只有到了年末，我们对这一年复盘时，方觉得年初列出的计划清单，还是有那么多没有完成，更有甚者，清单上一项都没能实现，或许，此刻，我们会对自己发出一声苦笑，长吁责问自己，“一年的时间，竟然空不出一点时间来完成那年初既定的规划！”
+无论是长吁短叹，还是责怪自己，我们总得为未来、新的一年起一份未来规划列表，顺带 2023 年还未完成的计划。
+风雨过后，总能遇见太阳，只是自然界的现象，当然，也有例外，太阳有时让那厚实的云朵遮蔽了，日光便无法照耀大地，那阴郁之气却布满了上空，使这座城市处于压抑的一天，但我们相信，云朵总是会散开的，迟来的阳光，也会照射这片土地，用那光芒的温度去蒸发昨日的阴郁之气。
+或许，用【风雨飘摇】这个成语来形容 2023 这一年，总觉得还不是那么恰当，因为 2023 这一年，并不像【风雨飘摇】这个词轻描淡写、一词带过，这四个字并不足以恰如其分地述说 2023 这一年。
+这一年，承载着太多人的不甘；这一年，也让大部分撤离了那份职业；这一年，也让很大一部分人彻夜逃离了大城市，终将回到了可以安放灵魂的故乡。
+然而，在 2023 这一年所积攒下来的诸多不甘、不忿、怨愤等阴郁之气，我们希望能借未来之光芒来吹散、蒸发那股消极、惨淡、压抑之气，在我们寄托于未来之光的时刻，我们也必须时刻充实自己，也只有这样，未来之光方能光顾到我们自己。
+2023 年的既定计划 说来忏愧，2023 年年初既定要完成的计划，用这一年的时间，本是完成那份计划清单，绰绰有余，然而，一年到头了，回首这一年，却发觉，计划清单上竟然还有那么多未能实现的。或许，我们会长叹一声，“时间都去哪儿了？”
+时间并没有去哪里游玩，而是一直傍我们左右，只是我们生活节奏快了，顺带也把时间扯上了。那一声，“时间都去哪儿了？”的感慨，是没来由的长吁短叹！
+2023 年既定的计划：
+编写一套具有 秋码记录 风格的 Wordpress主题 编写一套具有 秋码记录 风格的Typecho主题 更新基于Vue.js 2.X的开源 UI组件库 qiucode-ui 组件库 编写一套基于 React的开源UI组件库 让 秋码记录 全站使用自己开源的UI组件库 然而，到了 2023 年年末，回望计划清单时，发觉虽但没能全部完成，却在意料之外增添一项计划，实属难料的惊喜：
+开源了一套由 Hugo驱动的 hugo-theme-kiwi主题 一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦 实践多个Web3项目 研习人工智能领域 2023 年所欠下的计划，我们也只能将它们寄托于新的一年，希冀未来能够逐一地实现它们，以不负昨日之约。
+我们将 2023 年所搁浅的计划，整理好，装进背囊，踏上远方之路，让未来之光吹散因在 2023 年所沾满了满身泄气、不甘、愤懑地压抑之气。
+展望未来 昨日之事，已成定局，断然不可挽回，该是放下那份执念，去迎接明日的阳光。</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-12-30</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/184/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/184/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[生活情感]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/189/" class="thumbnail" title="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703937560847.png" alt="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/189/" class="title" title="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）" rel="noopener noreferrer">
+            机器学习中的 Transformation Pipelines（Machine Learning 研习之十）
+        </a>
+        <a class="abstract" href="/article/189/" title="文章摘要" rel="noopener noreferrer">Transformation Pipelines 有许多数据转换步骤需要以正确的顺序执行。幸运的是，Scikit-Learn提供了Pipeline类来帮助处理这样的转换序列。下面是一个用于数值属性的小管道，它首先对输入特性进行归并，然后对输入特性进行缩放:
+from sklearn.pipeline import Pipeline num_pipeline = Pipeline([ (&#34;impute&#34;, SimpleImputer(strategy=&#34;median&#34;)), (&#34;standardize&#34;, StandardScaler()), ]) Pipeline构造函数采用名称/估算器对(2元组)的列表，定义了一系列步骤。名称可以是您喜欢的任何名称，只要它们是唯一的，并且不包含双下划线(__)。以后我们讨论超参数调优时，它们会很有用。估计器必须都是转换器(即，它们必须有一个fit_transform()方法)，除了最后一个，它可以是任何东西:转换器、预测器或任何其他类型的估计器。
+如果你不想命名transformers你可以使用 make_pipeline() 函数； 它将transformers作为位置参数，并使用transformers类的名称（小写且不带下划线）创建管道（例如，“simpleimputer”）：
+from sklearn.pipeline import make_pipeline num_pipeline = make_pipeline(SimpleImputer(strategy=&#34;median&#34;), StandardScaler()) 如果多个transformers具有相同的名称，则会在其名称后附加索引（例如“foo-1”、“foo-2”等）。
+当您调用管道的 fit() 方法时，它会在所有transformers上顺序调用 fit_transform()，将每个调用的输出作为参数传递给下一个调用，直到到达最终估计器，为此它只调用 fit() 方法。
+该管道公开与最终估计器相同的方法。 在此示例中，最后一个估计器是 StandardScaler，它是一个transformers，因此管道也充当transformers。 如果您调用管道的transform()方法，它将按顺序将所有转换应用于数据。 如果最后一个估计器是预测器而不是变换器，那么管道将具有 Predict() 方法而不是 Transform() 方法。 调用它会按顺序将所有转换应用于数据并将结果传递给预测器的 Predict()方法
+让我们调用管道的 fit_transform() 方法并查看输出的前两行，四舍五入到小数点后两位：
+如前所述，如果要恢复一个漂亮的DataFrame，可以使用管道的get_feature_names_ out()方法:
+df_housing_num_prepared = pd.DataFrame( housing_num_prepared, columns=num_pipeline.get_feature_names_out(), index=housing_num.index) 管道支持索引;例如，管道[1]返回管道中的第二个估计值，管道[:-1]返回一个包含除最后一个估计值以外的所有估计值的管道对象。您还可以通过steps属性(它是名称/估算器对的列表)或named_steps字典属性(它将名称映射到估算器)访问估算器。例如，num_line[“ simpleimputer”]返回名为“simpleimputer”的估计器。
+到目前为止，我们已经分别处理了分类列和数值列。如果有一个能够处理所有列的转换器，将适当的转换应用到每一列，那会更方便。为此，您可以使用olumnTransformer。例如，下面的ColumnTransformer将把num_pipeline(我们刚刚定义的那个)应用于数字属性，把cat_pipeline应用于类别属性:
+from sklearn.compose import ColumnTransformer num_attribs = [&#34;longitude&#34;, &#34;latitude&#34;, &#34;housing_median_age&#34;, &#34;total_rooms&#34;, &#34;total_bedrooms&#34;, &#34;population&#34;, &#34;households&#34;, &#34;median_income&#34;] cat_attribs = [&#34;ocean_proximity&#34;] cat_pipeline = make_pipeline( SimpleImputer(strategy=&#34;most_frequent&#34;), OneHotEncoder(handle_unknown=&#34;ignore&#34;)) preprocessing = ColumnTransformer([ (&#34;num&#34;, num_pipeline, num_attribs), (&#34;cat&#34;, cat_pipeline, cat_attribs), ]) 首先导入ColumnTransformer类，然后定义数字和分类列名的列表，并为分类属性构造一个简单的管道。最后，我们构造了一个列变换器。它的构造函数需要一个三元组(3-tuple)列表，每个三元组包含一个名称(必须是唯一的且不包含双下划线)、一个转换器和一个应该应用转换器的列的名称(或索引)列表。</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-12-11</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/189/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/189/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/187/" class="thumbnail" title="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703935662459.png" alt="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/187/" class="title" title="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）" rel="noopener noreferrer">
+            特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）
+        </a>
+        <a class="abstract" href="/article/187/" title="文章摘要" rel="noopener noreferrer">特征缩放和转换 您需要应用于数据的最重要的转换之一是功能扩展。除了少数例外，机器学习算法在输入数值属性具有非常不同的尺度时表现不佳。住房数据就是这种情况:房间总数约为6至39320间，而收入中位数仅为0至15间。如果没有任何缩放，大多数模型将倾向于忽略收入中位数，而更多地关注房间数。
+有两种常见的方法使所有属性具有相同的尺度:最小-最大尺度和标准化。
+与所有估计器一样，重要的是仅将标量拟合到训练数据:永远不要对训练集以外的任何对象使用fit()或fit_transform()。一旦你有了一个训练好的定标器，你就可以用它来变换()任何其他的集合，包括验证集、测试集和新的数据。请注意，虽然培训集值将始终缩放到指定的范围，但如果新的数据包含异常值，则这些值最终可能会缩放到该范围之外。如果要避免这种情况，只需将剪辑超参数设置为True即可。
+最小-最大缩放(许多人称之为标准化)是最简单的:对于每个属性，值被移位和重新缩放，以便它们最终的范围从0到1。这是通过减去最小值并除以最小值和最大值之间的差来实现的。Scikit-Learn为此提供了一个名为MinMaxScaler的转换器。它有一个feature_range超参数，如果出于某种原因，不希望0-1(例如，神经网络在零均值输入下工作得最好，所以最好在-1到1的范围内工作)。是相当好用的:
+from sklearn.preprocessing import MinMaxScaler min_max_scaler = MinMaxScaler(feature_range=(-1, 1)) housing_num_min_max_scaled = min_max_scaler.fit_transform(housing_num) 标准化是不同的:首先它减去平均值(所以标准化值有一个零均值)，然后它除以标准差(所以标准-化值的标准差等于1)。不像最小最大缩放，标准化化不会将值限制在特定的范围内。然而，标准化受到离群值的影响要小得多。例如，假设一个地区的收入中位数等于100(误打误撞)，而不是通常的0-15。将最小最大值缩放到0-1范围会将这个离群值映射到1并将所有其他值压缩到0-0.15，而标准化不会受到太大影响。Scikit-Learn提供了一个名为StandardScaler的转换器用于标准化:
+from sklearn.preprocessing import StandardScaler std_scaler = StandardScaler() housing_num_std_scaled = std_scaler.fit_transform(housing_num) 如果你想缩放一个稀疏矩阵而不首先将其转换为稠密矩阵，你可以使用一个标准缩放器，它的with_mean超参数设置为False它只会除以标准差，而不会减去均值(因为这会破坏稀疏性
+当特征的分布具有重尾时（即，当远离平均值的值不是指数罕见时），最小-最大缩放和标准化都会将大多数值压缩到一个小范围内。 机器学习模型通常根本不喜欢这种情况，因此，在缩放特征之前，您应该首先对其进行变换以缩小重尾，并且如果可能的话，使分布大致对称。 例如，对于右侧有重尾部的正特征，执行此操作的常见方法是用其平方根替换特征（或将特征提高到 0 到 1 之间的幂）。 如果该特征具有非常长且重的尾部，例如幂律分布，则用其对数替换该特征可能会有所帮助。 例如，人口特征大致遵循幂律：拥有 10,000 名居民的地区的出现频率仅比拥有 1,000 名居民的地区低 10 倍，而不是呈指数级下降。 下图 显示了当你计算它的对数时这个特征看起来有多好：它非常接近高斯分布（即钟形）。
+另一种处理重尾特征的方法是对特征进行反向转换。这意味着将其分布切割成大致相等大小的桶，并将每个特征值替换为它所属的桶的索引，就像我们创建收入猫特征一样(尽管我们只在分层抽样时使用它)。例如，您可以将每个值替换为其百分位数。使用相同大小的bucket处理会产生一个几乎均匀分布的特性，因此不需要进一步的缩放，或者您可以只除以bucket的数目来强制值到0-1的范围。
+当一个特征具有多峰分布(即，有两个或两个以上清晰的峰值，称为模式)时，例housing_median_age特征，对它进行bucket ization也是有帮助的，但这次将bucket ID作为类别处理，而不是作为数值。这意味着必须对桶索引进行编码，例如使用OneHotEncoder(所以你通常不想用太多桶)。这种方法将允许回归模型更容易地为该特征值的不同范围学习不同的规则。例如，也许35年前建造的房子有一种独特的风格，已经过时了，因此它们比它们的年龄更便宜。
+转换多峰分布的另一种方法是为每个模式(至少是主要模式)添加一个特征，表示住房中位年龄和该特定模式之间的相似性。相似性度量通常使用径向基函数(RBF)来计算&ndash;任何只依赖于输入值与不动点之间距离的函数。最常用的RBF是高斯RBF，其输出值随着输入值远离固定点而呈指数衰减。例如，高斯RBF相似度与房龄x和35由方程exp (-y (x-35)2)给出。超参数y(gamma)确定当x远离35时相似性度量衰减的速度。使用Scikit-Learn的rbf_kernel()函数，您可以创建一个新的高斯RBF特征来测量房屋中位年龄和35:
+from sklearn.metrics.pairwise import rbf_kernel age_simil_35 = rbf_kernel(housing[[&#34;housing_median_age&#34;]], [[35]], gamma=0.1) 下图显示了这一新特征作为住房中位数年龄的函数(实线)。它还显示了如果使用较小的gamma值，该功能将是什么样子。如图所示，新的年龄相似性特征在35岁时达到峰值，正好在住房中位年龄分布的峰值附近:如果这个特定的年龄组与较低的价格有很好的相关性，那么这个新特征将有很好的机会发挥作用。
+到目前为止，我们只看了输入特性，但是目标值可能也需要转换。例如，若目标分布具有较重的尾部，您可以选择将目标替换为其对数。但是，如果你这样做，回归模型现在将预测的房屋价值中位数的对数，而不是房屋价值中位数本身。如果您想要预测的房屋中值，则需要计算模型预测的指数值。
+幸运的是，大多数Scikit-Learn的转换器都有一个inverse_transform()方法，这使得计算转换的逆运算变得很容易。例如，下面的代码示例显示了如何使用StandardScaler缩放标签(就像我们对输入所做的那样)，然后在缩放后的标签上训练一个简单的线性回归模型，并使用它对一些新数据进行预测，然后使用经过训练的缩放器的inverse_transform()方法将这些数据转换回原始尺度。请注意，我们将标签从Pandas Series转换为DataFrame，因为标准Scaler期望2D输入。此外，为了简单起见，在本示例中，我们仅使用单个原始输入特征(中值收入)对模型进行训练:
+from sklearn.linear_model import LinearRegression target_scaler = StandardScaler() scaled_labels = target_scaler.</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-11-18</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/187/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/187/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
     <a href="/article/186/" class="thumbnail" title="为机器学习算法准备数据（Machine Learning 研习之八）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703934522767.png" alt="为机器学习算法准备数据（Machine Learning 研习之八）">
 
 
@@ -758,496 +1337,6 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
     
     
                     
-                        <style>
-    @keyframes rotating{
-        from{transform: rotate(0)}
-        to{transform: rotate(360deg)}
-    }
-
-    .faq-rotating{
-        animation: rotating 3s linear infinite
-    }
-
-</style>
-
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/182/" class="thumbnail" title="机机器学习的测试和验证（Machine Learning 研习之五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1693214006574.png" alt="机器学习的测试和验证（Machine Learning 研习之五）">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/182/" class="title" title="机机器学习的测试和验证（Machine Learning 研习之五）" rel="noopener noreferrer">
-            机机器学习的测试和验证（Machine Learning 研习之五）
-        </a>
-        <a class="abstract" href="/article/182/" title="文章摘要" rel="noopener noreferrer"><p>在此保留验证过程之后，您可以在完整的训练集（包括验证集）上训练最佳模型，这将为您提供最终模型。在这种情况下，需要记住的最重要的规则是，验证集和测试集都必须尽可能具有生产中预期使用的数据的代表性，因此它们应该完全由有代表性的图片组成:您可以对它们进行洗牌，将一半放在验证集中，另一半放在测试集中(确保在这两个集合中都没有重复或接近重复的数据)。在网络图片上对模型进行培训之后，如果您观察到模型在验证集上的性能令人失望，您将不知道这是因为您的模型超出了培训集，还是仅仅是由于网络图片和移动应用程序图片之间的不匹配。</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-08-27</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/182/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/182/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[Machine Learning 人工智能]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <style>
-    @keyframes rotating{
-        from{transform: rotate(0)}
-        to{transform: rotate(360deg)}
-    }
-
-    .faq-rotating{
-        animation: rotating 3s linear infinite
-    }
-
-</style>
-
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/181/" class="thumbnail" title="机器学习的主要挑战和任务（Machine Learning 研习之四）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1691913313316.png" alt="机器学习的主要挑战和任务（Machine Learning 研习之四）">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/181/" class="title" title="机器学习的主要挑战和任务（Machine Learning 研习之四）" rel="noopener noreferrer">
-            机器学习的主要挑战和任务（Machine Learning 研习之四）
-        </a>
-        <a class="abstract" href="/article/181/" title="文章摘要" rel="noopener noreferrer"><p>对于一个蹒跚学步的孩子来说，要知道什么是苹果，您只需要指着一个苹果说“苹果”(可能会重复这个过程几次)。现在孩子能够识别各种颜色和形状的苹果。</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-08-13</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/181/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/181/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[Machine Learning 人工智能]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <style>
-    @keyframes rotating{
-        from{transform: rotate(0)}
-        to{transform: rotate(360deg)}
-    }
-
-    .faq-rotating{
-        animation: rotating 3s linear infinite
-    }
-
-</style>
-
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/180/" class="thumbnail" title="对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1690607722000.png" alt="对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/180/" class="title" title="对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）" rel="noopener noreferrer">
-            对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）
-        </a>
-        <a class="abstract" href="/article/180/" title="文章摘要" rel="noopener noreferrer"><p>随着时间的推移，模型也需做出相应的变化。但就采用新数据与旧数据一起训练，势必需要耗费更多的资源，为了解决这一状况，本文带您了解，关于新数据该如何训练？</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-07-28</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/180/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/180/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[Machine Learning 人工智能]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <style>
-    @keyframes rotating{
-        from{transform: rotate(0)}
-        to{transform: rotate(360deg)}
-    }
-
-    .faq-rotating{
-        animation: rotating 3s linear infinite
-    }
-
-</style>
-
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/179/" class="thumbnail" title="现实生活中机器学习的具体示例（Machine Learning 研习之二）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1689995834152.png" alt="现实生活中机器学习的具体示例（Machine Learning 研习之二）">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/179/" class="title" title="现实生活中机器学习的具体示例（Machine Learning 研习之二）" rel="noopener noreferrer">
-            现实生活中机器学习的具体示例（Machine Learning 研习之二）
-        </a>
-        <a class="abstract" href="/article/179/" title="文章摘要" rel="noopener noreferrer"><p>在上一篇，我们初步了解什么是机器学习，以及它能给我们带来，相对于传统编程解决更为优先、易于维护的一套解决方案。那么，本文将继续为您举例，机器学习给我们生活上带来哪些便捷。</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-07-17</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/179/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/179/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[Machine Learning 人工智能]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <style>
-    @keyframes rotating{
-        from{transform: rotate(0)}
-        to{transform: rotate(360deg)}
-    }
-
-    .faq-rotating{
-        animation: rotating 3s linear infinite
-    }
-
-</style>
-
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/178/" class="thumbnail" title="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1689400380334.png" alt="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/178/" class="title" title="让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）" rel="noopener noreferrer">
-            让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）
-        </a>
-        <a class="abstract" href="/article/178/" title="文章摘要" rel="noopener noreferrer"><p>让机器学习不再是过门不入，跟着【秋码】一起研习机器学习（Machine Learning），探究什么是机器学习？以及为何我们要去使用机器学习呢？毕竟未来是属于人工智能（Ai）的，引领潮流的往往是新事物，这一次，您可不要再错过了！抓住它，就等于握住了穿梭未来的时光机。</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-07-15</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/178/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/178/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[Machine Learning 人工智能]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <style>
-    @keyframes rotating{
-        from{transform: rotate(0)}
-        to{transform: rotate(360deg)}
-    }
-
-    .faq-rotating{
-        animation: rotating 3s linear infinite
-    }
-
-</style>
-
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/177/" class="thumbnail" title="把握住golang中的template，方能驾驭得了Hugo主题的template" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1688803831548.png" alt="把握住golang中的template，方能驾驭得了Hugo主题的template">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/177/" class="title" title="把握住golang中的template，方能驾驭得了Hugo主题的template" rel="noopener noreferrer">
-            把握住golang中的template，方能驾驭得了Hugo主题的template
-        </a>
-        <a class="abstract" href="/article/177/" title="文章摘要" rel="noopener noreferrer"><p>不置可否，<code>Hugo</code>的<code>template</code>同样是使用<code>golang</code>的标准库<code>html/template</code>。为了能实现一个属于自己独特的<code>Hugo theme</code>，或是修改他人的主题，都得对其<code>模板语法</code>有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的<code>Hugo theme</code>。</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-07-08</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/177/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/177/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[golang 模板]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
-                        <style>
-    @keyframes rotating{
-        from{transform: rotate(0)}
-        to{transform: rotate(360deg)}
-    }
-
-    .faq-rotating{
-        animation: rotating 3s linear infinite
-    }
-
-</style>
-
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/176/" class="thumbnail" title="云服务器到期，站点迁移，Nginx配置SSL以备后续只需！" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1687504537619.png" alt="云服务器到期，站点迁移，Nginx配置SSL以备后续只需！">
-
-
-
-
-        
-    </a>
-    <div class="information">
-        <a href="/article/176/" class="title" title="云服务器到期，站点迁移，Nginx配置SSL以备后续只需！" rel="noopener noreferrer">
-            云服务器到期，站点迁移，Nginx配置SSL以备后续只需！
-        </a>
-        <a class="abstract" href="/article/176/" title="文章摘要" rel="noopener noreferrer"><p>三年前（2020-06-20 上午11点左右），各大云厂商<code>6.18</code>活动还在进行中。一番对比下来，最终还是选择了<code>腾讯云</code>。然而三年的期限，犹如电光火石一般，眨眼间就过去了。可云服务器到期了，却没有了续费的打算，其中缘由说与谁人听呢？</p></a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-06-20</li>
-                
-                
-                
-                
-                
-                
-
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/176/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/176/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[云服务器 Nginx]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
-    
-    
-    
-                    
     
                 </ul>
                 
@@ -1275,7 +1364,7 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
             &nbsp;...&nbsp;
 
         <li >
-            <a class="pageLast" href="/post/page/12/">12</a>
+            <a class="pageLast" href="/post/page/13/">13</a>
         </li>
 
 </ul>
@@ -1301,15 +1390,15 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
     </div>
     <div class="count">
           <div class="item" title="累计分类数 22">
-            <span class="num">40</span>
+            <span class="num">41</span>
             <span>分类数</span>
           </div>
           <div class="item" title="累计文章数 45">
-            <span class="num">115</span>
+            <span class="num">122</span>
             <span>文章数</span>
           </div>
           <div class="item" title="累计评论数 452">
-            <span class="num">238</span>
+            <span class="num">251</span>
             <span>标签数</span>
           </div>
     </div>
@@ -1376,6 +1465,12 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
 			
 			   
 			<li class="item"> 
+				<a class="link" href="/categories/gin/">gin </a>
+				<span class="widget__counter widget__counter--bubble">1</span>
+			</li>
+			
+			   
+			<li class="item"> 
 				<a class="link" href="/categories/git/">Git </a>
 				<span class="widget__counter widget__counter--bubble">5</span>
 			</li>
@@ -1387,10 +1482,6 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
 			</li>
 			
 			   
-			<li class="item"> 
-				<a class="link" href="/categories/golang/">golang </a>
-				<span class="widget__counter widget__counter--bubble">35</span>
-			</li>
 			
 			   
 			
@@ -2421,8 +2512,60 @@ housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_ho
         
             
         
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
     
-    <span id="tag-temp" style="display:none">[{"abstract":1},{"ag-grid":1},{"ai":1},{"apache":1},{"array":1},{"bootstraptable":1},{"branch":1},{"break":1},{"centos":3},{"centos7":1},{"channel":3},{"chatgpt":1},{"chrome-v3":1},{"chrome扩展":1},{"clone":1},{"constant":1},{"continue":1},{"curl":1},{"dict":1},{"error":1},{"event":1},{"extends":1},{"extjs":1},{"freemarker":1},{"git":1},{"git-clone":1},{"git-push":1},{"gitee":1},{"github":2},{"global-variable":1},{"goland":1},{"golang":3},{"golang-sdk安装":1},{"goto":1},{"https":2},{"https配置":1},{"hugo":2},{"ide":1},{"ie10兼容":1},{"immutable":1},{"interface":1},{"java8":2},{"java8新特性":1},{"jdk8":1},{"lambda":1},{"library":1},{"list":1},{"liteide":1},{"machine-learning":11},{"maven":1},{"mechine-learn":1},{"merge":1},{"modifier":1},{"moduels":1},{"mpvue":1},{"mysql":1},{"navicat12":1},{"nexus":1},{"nginx":4},{"nlp":2},{"nodejs":2},{"npm-adduser":1},{"npm发布项目":1},{"npm注册账号":1},{"oracle":1},{"oracle-library-is-not-loaded":1},{"package":2},{"php":1},{"php-fpm":1},{"pipelines":1},{"pointer":1},{"redis":2},{"remix":1},{"requirejs":1},{"scikit-learn":3},{"slice":1},{"springboot上传图片":1},{"ssl":1},{"struct":1},{"switch":1},{"tags":1},{"template":1},{"tensorflow":1},{"theme":1},{"thinkphp":1},{"thinkphp.1":1},{"timed-out":1},{"tomcat":1},{"tooltip":1},{"transformers":1},{"treepanel":1},{"type-alias":1},{"ubuntu-16.04lts":2},{"ui框架":1},{"vs-code":2},{"vxe-table":2},{"web3":2},{"while":1},{"x-editable.js":1},{"ztree":1},{"不甘心":1},{"主题":1},{"事件":1},{"二维数组":1},{"二进制":1},{"云服务器":3},{"交叉验证":1},{"人工智能":5},{"以太坊":18},{"任务":2},{"信道":1},{"修饰器":1},{"值类型":1},{"全局变量":1},{"关键字":1},{"内存地址":1},{"内容过多省略":1},{"决策树":1},{"函数":2},{"函数变量":1},{"函数式接口":2},{"分支":1},{"分类器":1},{"切片":1},{"列表":1},{"包":2},{"区块链":21},{"匿名函数":1},{"匿名变量":1},{"单元格单击":1},{"单向信道":1},{"博客主题":1},{"双十一":1},{"双向链表":1},{"变量作用域":1},{"召回率":1},{"可变参数":1},{"可变性":1},{"可见性":1},{"合约继承":1},{"回调函数":2},{"困惑":1},{"在线学习":1},{"在线编辑器":1},{"基于vue2.x的ui组件库":1},{"基本类型":2},{"多值返回":1},{"多核":1},{"多线程":1},{"多维数组":1},{"大量数据处理":1},{"天气很好":1},{"奇果":1},{"字典":1},{"字符串":1},{"实战":2},{"实战项目":1},{"常量":1},{"年末总结":1},{"并发编程":1},{"延迟执行":1},{"建站":1},{"开源大模型":1},{"异常":1},{"异常处理":1},{"异步加载树":1},{"引用类型":1},{"循环结构":1},{"微信小程序":1},{"托管平台":1},{"批量学习":1},{"抽象合约":1},{"拼团":1},{"指针":1},{"挑战":2},{"接受者":1},{"接口":2},{"接口转换":1},{"数据库":1},{"数据标注":1},{"数组":1},{"数组分组":1},{"文件上传":1},{"文件下载":1},{"方法":1},{"方法集":1},{"映射":1},{"智能合约":18},{"本地仓库":1},{"机器学习":14},{"枚举类型":1},{"标签":1},{"标识符":1},{"模型":2},{"模板发送邮件":1},{"横向树状":1},{"池塘":1},{"流程控制":1},{"测试集":1},{"深度学习":2},{"混肴矩阵":1},{"添加水印":1},{"版本控制":2},{"环境搭建":1},{"电商":2},{"登山":1},{"空接口":2},{"端到端":2},{"类型别名":1},{"类型推导":1},{"类型断言":1},{"类型转换":1},{"结构体":1},{"缓冲信道":1},{"腾讯云":1},{"自定义提示":1},{"花鸟市场":1},{"表单":1},{"表格行内编辑":1},{"训练数据":2},{"训练模型":1},{"训练集":1},{"语法题":1},{"负重前行":1},{"超时":1},{"跑酷":1},{"跨越switch":1},{"转义符":1},{"远程仓库":1},{"错误处理":2},{"闭包":1},{"防火墙":1},{"阿里云":1},{"阿里云oss":1},{"随机森林":1},{"隐藏/显示表格行":1},{"预定义标识符":1},{"首页":1},{"abstract":1},{"ag-grid":1},{"ai":1},{"apache":1},{"array":1},{"bootstraptable":1},{"branch":1},{"break":1},{"centos":3},{"centos7":1},{"channel":3},{"chatgpt":1},{"chrome-v3":1},{"chrome扩展":1},{"clone":1},{"constant":1},{"continue":1},{"curl":1},{"dict":1},{"error":1},{"event":1},{"extends":1},{"extjs":1},{"freemarker":1},{"git":1},{"git-clone":1},{"git-push":1},{"gitee":1},{"github":2},{"global-variable":1},{"goland":1},{"golang":3},{"golang-sdk安装":1},{"goto":1},{"https":2},{"https配置":1},{"hugo":2},{"ide":1},{"ie10兼容":1},{"immutable":1},{"interface":1},{"java8":2},{"java8新特性":1},{"jdk8":1},{"lambda":1},{"library":1},{"list":1},{"liteide":1},{"machine-learning":11},{"maven":1},{"mechine-learn":1},{"merge":1},{"modifier":1},{"moduels":1},{"mpvue":1},{"mysql":1},{"navicat12":1},{"nexus":1},{"nginx":4},{"nlp":2},{"nodejs":2},{"npm-adduser":1},{"npm发布项目":1},{"npm注册账号":1},{"oracle":1},{"oracle-library-is-not-loaded":1},{"package":2},{"php":1},{"php-fpm":1},{"pipelines":1},{"pointer":1},{"redis":2},{"remix":1},{"requirejs":1},{"scikit-learn":3},{"slice":1},{"springboot上传图片":1},{"ssl":1},{"struct":1},{"switch":1},{"tags":1},{"template":1},{"tensorflow":1},{"theme":1},{"thinkphp":1},{"thinkphp.1":1},{"timed-out":1},{"tomcat":1},{"tooltip":1},{"transformers":1},{"treepanel":1},{"type-alias":1},{"ubuntu-16.04lts":2},{"ui框架":1},{"vs-code":2},{"vxe-table":2},{"web3":2},{"while":1},{"x-editable.js":1},{"ztree":1},{"不甘心":1},{"主题":1},{"事件":1},{"二维数组":1},{"二进制":1},{"云服务器":3},{"交叉验证":1},{"人工智能":5},{"以太坊":18},{"任务":2},{"信道":1},{"修饰器":1},{"值类型":1},{"全局变量":1},{"关键字":1},{"内存地址":1},{"内容过多省略":1},{"决策树":1},{"函数":2},{"函数变量":1},{"函数式接口":2},{"分支":1},{"分类器":1},{"切片":1},{"列表":1},{"包":2},{"区块链":21},{"匿名函数":1},{"匿名变量":1},{"单元格单击":1},{"单向信道":1},{"博客主题":1},{"双十一":1},{"双向链表":1},{"变量作用域":1},{"召回率":1},{"可变参数":1},{"可变性":1},{"可见性":1},{"合约继承":1},{"回调函数":2},{"困惑":1},{"在线学习":1},{"在线编辑器":1},{"基于vue2.x的ui组件库":1},{"基本类型":2},{"多值返回":1},{"多核":1},{"多线程":1},{"多维数组":1},{"大量数据处理":1},{"天气很好":1},{"奇果":1},{"字典":1},{"字符串":1},{"实战":2},{"实战项目":1},{"常量":1},{"年末总结":1},{"并发编程":1},{"延迟执行":1},{"建站":1},{"开源大模型":1},{"异常":1},{"异常处理":1},{"异步加载树":1},{"引用类型":1},{"循环结构":1},{"微信小程序":1},{"托管平台":1},{"批量学习":1},{"抽象合约":1},{"拼团":1},{"指针":1},{"挑战":2},{"接受者":1},{"接口":2},{"接口转换":1},{"数据库":1},{"数据标注":1},{"数组":1},{"数组分组":1},{"文件上传":1},{"文件下载":1},{"方法":1},{"方法集":1},{"映射":1},{"智能合约":18},{"本地仓库":1},{"机器学习":14},{"枚举类型":1},{"标签":1},{"标识符":1},{"模型":2},{"模板发送邮件":1},{"横向树状":1},{"池塘":1},{"流程控制":1},{"测试集":1},{"深度学习":2},{"混肴矩阵":1},{"添加水印":1},{"版本控制":2},{"环境搭建":1},{"电商":2},{"登山":1},{"空接口":2},{"端到端":2},{"类型别名":1},{"类型推导":1},{"类型断言":1},{"类型转换":1},{"结构体":1},{"缓冲信道":1},{"腾讯云":1},{"自定义提示":1},{"花鸟市场":1},{"表单":1},{"表格行内编辑":1},{"训练数据":2},{"训练模型":1},{"训练集":1},{"语法题":1},{"负重前行":1},{"超时":1},{"跑酷":1},{"跨越switch":1},{"转义符":1},{"远程仓库":1},{"错误处理":2},{"闭包":1},{"防火墙":1},{"阿里云":1},{"阿里云oss":1},{"随机森林":1},{"隐藏/显示表格行":1},{"预定义标识符":1},{"首页":1}]</span>
+    <span id="tag-temp" style="display:none">[{"abstract":1},{"ag-grid":1},{"ai":1},{"apache":1},{"array":1},{"bootstraptable":1},{"branch":1},{"break":1},{"centos":3},{"centos7":1},{"channel":3},{"chatgpt":1},{"chrome-v3":1},{"chrome扩展":1},{"clone":1},{"constant":1},{"continue":1},{"css计算器":1},{"curl":1},{"dict":1},{"error":1},{"event":1},{"extends":1},{"extjs":1},{"freemarker":1},{"git":1},{"git-clone":1},{"git-push":1},{"gitee":1},{"github":2},{"global-variable":1},{"goland":1},{"golang":3},{"golang-sdk安装":1},{"goto":1},{"https":2},{"https配置":1},{"hugo":2},{"ide":1},{"ie10兼容":1},{"immutable":1},{"interface":1},{"java8":2},{"java8新特性":1},{"jdk8":1},{"lambda":1},{"library":1},{"list":1},{"liteide":1},{"machine-learning":11},{"maven":1},{"mechine-learn":1},{"merge":1},{"modifier":1},{"moduels":1},{"mpvue":1},{"mysql":1},{"navicat12":1},{"nexus":1},{"nginx":4},{"nlp":2},{"nodejs":2},{"npm-adduser":1},{"npm发布项目":1},{"npm注册账号":1},{"oracle":1},{"oracle-library-is-not-loaded":1},{"oss":1},{"package":2},{"php":1},{"php-fpm":1},{"pipelines":1},{"pointer":1},{"prism":1},{"redis":2},{"remix":1},{"requirejs":1},{"scikit-learn":7},{"slice":1},{"springboot上传图片":1},{"ssl":1},{"struct":1},{"switch":1},{"tags":1},{"template":1},{"tensorflow":1},{"theme":1},{"thinkphp":1},{"thinkphp.1":1},{"timed-out":1},{"tomcat":1},{"tooltip":1},{"transformers":1},{"treepanel":1},{"type-alias":1},{"ubuntu-16.04lts":2},{"ui框架":1},{"vs-code":2},{"vxe-table":2},{"web3":2},{"while":1},{"x-editable.js":1},{"ztree":1},{"一键复制":1},{"不甘心":1},{"主题":1},{"事件":1},{"二维数组":1},{"二进制":1},{"云对象存储":1},{"云服务器":3},{"交叉验证":1},{"人工智能":9},{"代码块":1},{"代码高亮":1},{"以太坊":18},{"任务":2},{"信道":1},{"修饰器":1},{"值类型":1},{"全局变量":1},{"关键字":1},{"内存地址":1},{"内容过多省略":1},{"决策树":1},{"函数":2},{"函数变量":1},{"函数式接口":2},{"分支":1},{"分类器":2},{"切片":1},{"列表":1},{"包":2},{"区块链":21},{"匿名函数":1},{"匿名变量":1},{"单元格单击":1},{"单向信道":1},{"博客主题":1},{"双十一":1},{"双向链表":1},{"变量作用域":1},{"召回率":2},{"可变参数":1},{"可变性":1},{"可见性":1},{"合约继承":1},{"回调函数":2},{"困惑":1},{"图片水印":1},{"在线学习":1},{"在线编辑器":1},{"基于vue2.x的ui组件库":1},{"基本类型":2},{"多值返回":1},{"多核":1},{"多线程":1},{"多维数组":1},{"大量数据处理":1},{"天气很好":1},{"奇果":1},{"字典":1},{"字符串":1},{"实战":2},{"实战项目":1},{"常量":1},{"年末总结":1},{"并发编程":1},{"序号":1},{"延迟执行":1},{"建站":1},{"开源大模型":1},{"异常":1},{"异常处理":1},{"异步加载树":1},{"引用类型":1},{"循环结构":1},{"微信小程序":1},{"托管平台":1},{"批量学习":1},{"抽象合约":1},{"拼团":1},{"指针":1},{"挑战":2},{"接受者":1},{"接口":2},{"接口转换":1},{"数据库":1},{"数据标注":1},{"数组":1},{"数组分组":1},{"文件上传":1},{"文件下载":1},{"文章奴鲁":1},{"方法":1},{"方法集":1},{"映射":1},{"智能合约":18},{"本地仓库":1},{"机器学习":18},{"枚举类型":1},{"标签":1},{"标识符":1},{"模型":2},{"模板发送邮件":1},{"横向树状":1},{"池塘":1},{"流程控制":1},{"测试集":1},{"深度学习":6},{"混肴矩阵":1},{"添加水印":1},{"版本控制":2},{"特征曲线":1},{"环境搭建":1},{"电商":2},{"登山":1},{"空接口":2},{"端到端":2},{"类型别名":1},{"类型推导":1},{"类型断言":1},{"类型转换":1},{"精确率":1},{"结构体":1},{"缓冲信道":1},{"腾讯云":1},{"自定义提示":1},{"花鸟市场":1},{"表单":1},{"表格行内编辑":1},{"训练数据":2},{"训练模型":1},{"训练集":1},{"语法题":1},{"负重前行":1},{"超时":1},{"跑酷":1},{"跨越switch":1},{"转义符":1},{"远程仓库":1},{"错误分析":1},{"错误处理":2},{"闭包":1},{"防火墙":1},{"阿里云":2},{"阿里云oss":1},{"随机森林":1},{"隐藏/显示表格行":1},{"预定义标识符":1},{"首页":1},{"abstract":1},{"ag-grid":1},{"ai":1},{"apache":1},{"array":1},{"bootstraptable":1},{"branch":1},{"break":1},{"centos":3},{"centos7":1},{"channel":3},{"chatgpt":1},{"chrome-v3":1},{"chrome扩展":1},{"clone":1},{"constant":1},{"continue":1},{"css计算器":1},{"curl":1},{"dict":1},{"error":1},{"event":1},{"extends":1},{"extjs":1},{"freemarker":1},{"git":1},{"git-clone":1},{"git-push":1},{"gitee":1},{"github":2},{"global-variable":1},{"goland":1},{"golang":3},{"golang-sdk安装":1},{"goto":1},{"https":2},{"https配置":1},{"hugo":2},{"ide":1},{"ie10兼容":1},{"immutable":1},{"interface":1},{"java8":2},{"java8新特性":1},{"jdk8":1},{"lambda":1},{"library":1},{"list":1},{"liteide":1},{"machine-learning":11},{"maven":1},{"mechine-learn":1},{"merge":1},{"modifier":1},{"moduels":1},{"mpvue":1},{"mysql":1},{"navicat12":1},{"nexus":1},{"nginx":4},{"nlp":2},{"nodejs":2},{"npm-adduser":1},{"npm发布项目":1},{"npm注册账号":1},{"oracle":1},{"oracle-library-is-not-loaded":1},{"oss":1},{"package":2},{"php":1},{"php-fpm":1},{"pipelines":1},{"pointer":1},{"prism":1},{"redis":2},{"remix":1},{"requirejs":1},{"scikit-learn":7},{"slice":1},{"springboot上传图片":1},{"ssl":1},{"struct":1},{"switch":1},{"tags":1},{"template":1},{"tensorflow":1},{"theme":1},{"thinkphp":1},{"thinkphp.1":1},{"timed-out":1},{"tomcat":1},{"tooltip":1},{"transformers":1},{"treepanel":1},{"type-alias":1},{"ubuntu-16.04lts":2},{"ui框架":1},{"vs-code":2},{"vxe-table":2},{"web3":2},{"while":1},{"x-editable.js":1},{"ztree":1},{"一键复制":1},{"不甘心":1},{"主题":1},{"事件":1},{"二维数组":1},{"二进制":1},{"云对象存储":1},{"云服务器":3},{"交叉验证":1},{"人工智能":9},{"代码块":1},{"代码高亮":1},{"以太坊":18},{"任务":2},{"信道":1},{"修饰器":1},{"值类型":1},{"全局变量":1},{"关键字":1},{"内存地址":1},{"内容过多省略":1},{"决策树":1},{"函数":2},{"函数变量":1},{"函数式接口":2},{"分支":1},{"分类器":2},{"切片":1},{"列表":1},{"包":2},{"区块链":21},{"匿名函数":1},{"匿名变量":1},{"单元格单击":1},{"单向信道":1},{"博客主题":1},{"双十一":1},{"双向链表":1},{"变量作用域":1},{"召回率":2},{"可变参数":1},{"可变性":1},{"可见性":1},{"合约继承":1},{"回调函数":2},{"困惑":1},{"图片水印":1},{"在线学习":1},{"在线编辑器":1},{"基于vue2.x的ui组件库":1},{"基本类型":2},{"多值返回":1},{"多核":1},{"多线程":1},{"多维数组":1},{"大量数据处理":1},{"天气很好":1},{"奇果":1},{"字典":1},{"字符串":1},{"实战":2},{"实战项目":1},{"常量":1},{"年末总结":1},{"并发编程":1},{"序号":1},{"延迟执行":1},{"建站":1},{"开源大模型":1},{"异常":1},{"异常处理":1},{"异步加载树":1},{"引用类型":1},{"循环结构":1},{"微信小程序":1},{"托管平台":1},{"批量学习":1},{"抽象合约":1},{"拼团":1},{"指针":1},{"挑战":2},{"接受者":1},{"接口":2},{"接口转换":1},{"数据库":1},{"数据标注":1},{"数组":1},{"数组分组":1},{"文件上传":1},{"文件下载":1},{"文章奴鲁":1},{"方法":1},{"方法集":1},{"映射":1},{"智能合约":18},{"本地仓库":1},{"机器学习":18},{"枚举类型":1},{"标签":1},{"标识符":1},{"模型":2},{"模板发送邮件":1},{"横向树状":1},{"池塘":1},{"流程控制":1},{"测试集":1},{"深度学习":6},{"混肴矩阵":1},{"添加水印":1},{"版本控制":2},{"特征曲线":1},{"环境搭建":1},{"电商":2},{"登山":1},{"空接口":2},{"端到端":2},{"类型别名":1},{"类型推导":1},{"类型断言":1},{"类型转换":1},{"精确率":1},{"结构体":1},{"缓冲信道":1},{"腾讯云":1},{"自定义提示":1},{"花鸟市场":1},{"表单":1},{"表格行内编辑":1},{"训练数据":2},{"训练模型":1},{"训练集":1},{"语法题":1},{"负重前行":1},{"超时":1},{"跑酷":1},{"跨越switch":1},{"转义符":1},{"远程仓库":1},{"错误分析":1},{"错误处理":2},{"闭包":1},{"防火墙":1},{"阿里云":2},{"阿里云oss":1},{"随机森林":1},{"隐藏/显示表格行":1},{"预定义标识符":1},{"首页":1}]</span>
 
 <script>
 

@@ -5,7 +5,7 @@
     <link>/post/</link>
     <description>Recent content in Posts on 秋码分享</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 15 Mar 2024 18:26:43 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Apr 2024 11:12:43 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦</title>
       <link>/article/185/</link>
@@ -29,6 +29,142 @@ hugo-theme-kiwi V0.01已实现如下功能：
 6、右侧侧边栏，分类和标签各自跳转到各自的页面
 还未实现的功能：
 1、首页文章搜索 2、时间轴 3、右侧侧边栏，分类与标签跳转页面优化 …… 今夜是平安页，您吃了苹果了吗？我衷心的祝愿您和您家人一生平安，同时，我也祈愿我和我的家人以及我身边的人一生平安！</description>
+    </item>
+    
+    <item>
+      <title>错误分析 （Machine Learning研习十九）</title>
+      <link>/article/199/</link>
+      <pubDate>Wed, 10 Apr 2024 11:12:43 +0800</pubDate>
+      
+      <guid>/article/199/</guid>
+      <description>错误分析 您将探索数据准备选项，尝试多个模型，筛选出最佳模型，使用 Grid SearchCV微调其超参数，并尽可能实现自动化。在此，我们假设您已经找到了一个有前途的模型，并希望找到改进它的方法。其中一种方法就是分析它所犯的错误类型。
+首先，查看混淆矩阵。为此，首先需要使用 cross_val_predict() 函数进行预测；然后可以像之前一样，将标签和预测值传递给 confusion_matrix()函数。不过，由于现在有 10 个类别而不是 2 个，混淆矩阵将包含大量数字，可能难以读取。
+混淆矩阵的彩色图更容易分析。要绘制这样的图表，请使用ConfusionMatrixDisplay.from_predictions() 函数，如下所示：
+from sklearn.metrics import ConfusionMatrixDisplayy_train_pred = cross_val_predict(sgd_clf, X_train_scaled, y_train, cv=3) ConfusionMatrixDisplay.from_predictions(y_train, y_train_pred) plt.show() 这就产生了 图1 中的左图。这个混淆矩阵看起来相当不错：大多数图像都在主对角线上，这意味着它们被正确分类了。请注意，对角线上第 5 行第 5 列的单元格看起来比其他数字略暗。这可能是因为模型对 5 的错误较多，也可能是因为数据集中 5 的数量比其他数字少。这就是为什么要对混淆矩阵进行归一化处理，将每个值除以相应（真实）类别中的图像总数（即除以行的总和）。只需设置 normalize=&amp;quot;true &amp;quot;即可。我们还可以指定 val ues_format=&amp;quot;.0%&amp;quot;参数来显示不带小数点的百分比。下面的代码将生成 图1 右侧的图表：
+ConfusionMatrixDisplay.from_predictions(y_train, y_train_pred, normalize=&amp;#34;true&amp;#34;, values_format=&amp;#34;.0%&amp;#34;) plt.show() 现在我们不难发现，只有 82% 的 5 图像被正确分类。模型在处理 5 的图像时最常见的错误是将其误判为 8：在所有 5 的图像中，有 10%的图像被误判为 8。但只有 2% 的 8 被误判为 5；混淆矩阵通常不是对称的！如果你仔细观察，就会发现很多数字都被错误地分类为 8，但从这张图上并不能一眼看出。如果想让错误更明显，可以尝试将正确预测的权重设为零。下面的代码就是这样做的，并生成了图2 左侧的图表：
+sample_weight = (y_train_pred !</description>
+    </item>
+    
+    <item>
+      <title>多类别分类器（Machine Learning研习十八）</title>
+      <link>/article/198/</link>
+      <pubDate>Wed, 03 Apr 2024 15:43:43 +0800</pubDate>
+      
+      <guid>/article/198/</guid>
+      <description>多类别分类器 二元分类器可以区分两个类别，而多类别分类器（也称为多叉分类器）可以区分两个以上的类别。
+一些 Scikit-Learn 分类器（如 LogisticRegression、RandomForestClassifier 和 GaussianNB）能够原生处理多个类别。其他分类器则是严格的二进制分类器（如 SGDClassifier 和 SVC）。不过，您可以使用多种策略来使用多个二进制分类器执行多类分类。
+要创建一个能将数字图像分为 10 类（从 0 到 9）的系统，一种方法是训练 10 个二进制分类器，每个数字一个（0-检测器、1-检测器、2-检测器，以此类推）。然后，当您想对一幅图像进行分类时，您可以从每个分类器中得到该图像的判定分数，然后选择分类器输出分数最高的类别。这就是所谓的 &amp;ldquo;以一敌百&amp;rdquo;（OvR）策略，有时也称为 &amp;ldquo;以一敌众&amp;rdquo;（OvA）策略。
+另一种策略是为每一对数字训练一个二元分类器：一个用于区分 0 和 1，另一个用于区分 0 和 2，还有一个用于区分 1 和 2，以此类推。这就是所谓的一对一（OvO）策略。如果有 N 个类别，则需要训练 N × (N - 1) / 2 个分类器。对于 MNIST 问题，这意味着要训练 45 个二进制分类器！当你想对一幅图像进行分类时，你必须让图像通过所有 45 个分类器，看看哪个分类器赢得了最多的对决。OvO 的主要优势在于，每个分类器只需在训练集中包含其必须区分的两个类别的部分进行训练。
+有些算法（如支持向量机分类器）随训练集的大小而缩放，效果不佳。对于这些算法，OvO 是首选，因为在小训练集上训练多个分类器比在大训练集上训练少数分类器更快。不过，对于大多数二元分类算法来说，OvR 是首选。
+Scikit-Learn 会检测你是否尝试在多分类任务中使用二元分类算法，并根据算法自动运行 OvR 或 OvO。让我们使用 sklearn.svm.SVC 类支持向量机分类器来尝试一下。我们只对前 2,000 张图像进行训练，否则会耗费很长时间：
+from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:2000], y_train[:2000]) # y_train, not y_train_5 我们使用从 0 到 9 的原始目标类别（y_train），而不是 5 对其余目标类别（y_train_5）来训练 SVC。由于有 10 个类别（即多于 2 个），Scikit-Learn 使用 OvO 策略训练了 45 个二元分类器。现在，让我们对一幅图像进行预测：</description>
+    </item>
+    
+    <item>
+      <title>使用CSS计数器，在目录名称前加上了序号，让目录看起来更加井然有序</title>
+      <link>/article/202/</link>
+      <pubDate>Mon, 01 Apr 2024 15:46:43 +0800</pubDate>
+      
+      <guid>/article/202/</guid>
+      <description>目录（Text of Contents缩写为TOC），其实就是一篇文章的概要或简述。这好比，去书店买书，先是被这本书的标题所吸引，而后我们才会，翻开这本书目录，看看这本书主要是在讲些什么？我们在看目录的同时，脑中也在不停的思衬，”这本书到底值不值得买呢？但是没有什么实战内容耶！“
+文章目录 其实，一篇文章也不非要目录的，只要段落分的好，就算是长篇大论也是无关紧要的！
+只是文章有了目录，让人一眼就能瞧出这篇文章到底讲了什么？虽然标题上有说，但还是得为哪几个段落起个副标题。
+再说了，文章目录可以让用户在页面上，点击到达指定目录名称下进行浏览。虽然这在很大层度上是可以通过鼠标滑动，滚动到想要浏览的位置。
+Hugo-theme-kiwi开源博客主题已然有了文章目录这一功能，也就是 秋码记录 站点正在使用的博客主题（由于 秋码记录 托管于 Github.com Pages，故而国内的友人在访问时，比较缓慢，甚至有时可能出现无法打开该网站）。
+对目录名称前添加序号，我们首先想到的当然是使用Hugo模板渲染去实现。
+序号，顾名思义，就是有顺序的号码，通俗来讲，便是1、，2、，3、，4、，……。可在Hugo模板渲染中使用计数器来实现。
+css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码中使用Hugo模板渲染的那部分又长又拖代码了。
+在CSS计数器中，counter-reset和counter-increment属性是必不可少的。counter-reset在每次新的列表开始时重置计数器，而counter-increment在每个列表项上增加计数器。
+需要注意的是：counter-reset 是需要计数的父标签上的！
+那么，就将 counter-reset设置在ol标签上即可，即便是某一项有子目录，那也还是在ol标签内的！
+.toc-content ol{ list-style-type: none; counter-reset: item } 现在，我们就可以对目录名称设置伪选择器了。
+在编写CSS样式之前，有必要说下counters()函数，在CSS中，它返回一个计数器的列表值，这个列表可以包含一个或者多个嵌套的计数器。
+函数counters()有两个参数：
+第一个参数是你要访问的计数器的名称，在你的例子中，该名称就是 item。 第二个参数是字符串，用来分隔计数器的各个级别。在你的例子中，这个分隔符是英文的句点 . .toc-content ol li a:first-of-type::before{ counter-increment: item; content: counters(item,&amp;#34;.&amp;#34;)&amp;#34;、&amp;#34;; font-weight: 700; margin-right: 1px; } 比如在多级嵌套的列表中，如果在第一级的第二个项中的第三个小项，那么 counters() 的值就会是 2.3、。
+字符串、 紧接着 counters(item, &amp;quot;.&amp;quot;) 的作用是将结果后面添加一个顿号，使其格式化输出更美观。
+所以 counters(item, &amp;quot;.&amp;quot;) &amp;quot;. &amp;quot; 的作用就是生成并显示一个根据当前嵌套列表项的层级和序号构成的数字序列，每一级数字之间用句点分隔，并在最后跟着一个顿号。例如输出1、，2.1、，2.2、，等等。
+最终效果可查看秋码记录文章详情页，右侧侧边栏目录。</description>
+    </item>
+    
+    <item>
+      <title>使用 golang 以及 Gin 框架，将上传的图片在不保存至本地的情况下添加水印，并上传至阿里云 OSS</title>
+      <link>/article/201/</link>
+      <pubDate>Sat, 30 Mar 2024 20:46:43 +0800</pubDate>
+      
+      <guid>/article/201/</guid>
+      <description>正如标题所述，使用golang对上传图片添加水印，以及将图片上传到阿里云OSS，网上一搜索，便有你想要的结果了，可是，他们却先将上传图片添加水印后保存在本地，而后再将添加了水印的图片上传到阿里云OSS。
+这无疑是暂时占用了你电脑的磁盘空间（这里说是暂时，因为你可以通过程序对上传到阿里云OSS成功的图片进行删除），即便是这样，它也是消耗了磁盘读写操作，虽然人类是察觉不到这么细微的变化。
+然而，作为技术人员的我们（不介意我这么称呼自己吧！），使能够Review出这段程序的问题。很显然，本地图片是要通过程序处理，添加水印，而后最终储存到阿里云OSS中，而不是又要在本地多存了一张比原图多了些水印的图片。
+图像处理库 既然我们的目的明确了，那么就卷起柚子加油干吧！
+虽然，使用golang对上传图片添加水印，以及如何将图片上传到阿里云OSS中，是两个独立分开的。但是，这两步看似分而食之的程序，其实是可以合二为一的！（我想，正在浏览本文的你，也是这么想的！）
+这是可行的方案，毕竟先前的秋码记录 就是这么做的（那是使用Java构建的那些年！当然现在的 秋码记录 改用 ```Hugo·``搭建了）。
+既然，java能实现对上传图片添加水印，而不暂时保存在本地，立马即可上传到阿里云OSS中。想必，golang也是可以完成的！
+然而，网上相关的资料有限，才能铸就本文的诞生！
+首先，我是用golang的版本是1.19，虽然不是最新的，但却不妨碍我们继续对本文的讲解。
+虽然，人类总是对新鲜事物充满好奇，从而萌生了猎奇心。但也只有在旧事物的烘衬下，人们才能对新事物寄以最大的希望！这就好比，老婆总是别人的好看（当然，别人的老婆也有没有自己老婆好看的），这才造就了黄脸婆这一全国男人在没有老婆在身旁统一叹息声！
+你得在你电脑任一磁盘下，新建一空文件夹，随后打开黑窗口（Terminal），输入以下命令，说明是modules进行管理的（毕竟我使用的是golang 1.19）：
+go mod init qiucode.cn/uploadImage 对于以上这行命令，就是初始化golang模块（module），在golang的世界是```万物皆可模块``（我说的如果不对，那么说出你的想法）。
+初始化项目后，我们会发现文件夹下多了个go.mod文件（这个就是用来管理第三方依赖库的管理文件，不需要操作！），在该同级目录下新建main.go文件。
+既然本文是探讨如何实现图片添加水印的，那么引入图像库那是必不可少的！
+go get github.com/fogleman/gg 本文不会对这个图像库进行深层次的讲解！毕竟本文的核心内容是介绍如何对图片添加水印，而不是避重就轻、本末倒置讲起了本该一笔带过的东西，却花了浓墨重彩去着重的描绘刻画它，到头来，却失了初心，乱了本文的主旨，实属不该。（实在不清楚的，可以去查看其文档）
+很显然，将图片上传到阿里云OSS上，引入其SDK，那是必不可少的（关于这一点，应该不需要我多费口舌了吧）
+go get github.com/aliyun/aliyun-oss-go-sdk/oss 接下来的这个依赖库，并不是必须的（那就是可选的），毕竟，有它没有它，本文都可以实现！
+go get github.com/gin-gonic/gin 是啊！都说了，不引入它，本文也可以实现，那么我为什么还引入了呢？（关于这一点，欢迎你能在评论中留下你的只言片语，请不要吝啬你的文字！）
+用代码实现标题的需求 前提准备工作就绪，我们该正式进入编码环节了。到了这里，正处于屏幕前的你，想必早就迫不及待了吧！毕竟，你就是与我有同样的需求，才会浏览本文的（当然也有那种，鼠标不小心点到了，但那种几率是很小的，我相信你不是属于那一类的）
+首先，我们使用VS Code（你也可以使用其他你平时常用的IDE，不必非要使用与我一样的VS Code，然而，作为一款开源免费的IDE，你还有什么理由不去使用它呢？哦，差点忘记了，都说了，使用IDE是个人的自由，可我这么一说，倒有了让你使用VS Code之嫌。虽然，或许你比较喜欢使用收费软件，但你都是找的破解方法来破解软件，从而使用它们）
+打开刚刚新建的main.go文件，开始逐步实现标题的需求。
+package main import ( &amp;#34;bytes&amp;#34; &amp;#34;image&amp;#34; &amp;#34;image/png&amp;#34; // &amp;#34;image/jepg&amp;#34; //用于对 jpg 格式的图片进行处理 本文暂时不对 jpg 图片做处理 &amp;#34;github.com/gin-gonic/gin&amp;#34; //web 框架 &amp;#34;github.com/fogleman/gg&amp;#34; // 图像处理哭 &amp;#34;github.com/aliyun/aliyun-oss-go-sdk/oss&amp;#34; //阿里云OSS SDK ) 随后，我们在main函数中实现标题中的需求。</description>
+    </item>
+    
+    <item>
+      <title>绘制特征曲线-ROC（Machine Learning 研习十七）</title>
+      <link>/article/197/</link>
+      <pubDate>Fri, 29 Mar 2024 11:43:43 +0800</pubDate>
+      
+      <guid>/article/197/</guid>
+      <description>接收者操作特征曲线（ROC）是二元分类器的另一个常用工具。它与精确度/召回率曲线非常相似，但 ROC 曲线不是绘制精确度与召回率的关系曲线，而是绘制真阳性率（召回率的另一个名称）与假阳性率（FPR）的关系曲线。FPR（也称 &amp;ldquo;下降率&amp;rdquo;）是阴性实例被错误归类为阳性实例的比率。它等于 1 - 真阴性率 (TNR)，即正确分类为阴性的阴性实例的比率。TNR 也称为特异性。因此，ROC 曲线是灵敏度（召回率）与 1 - 特异性的关系图
+要绘制 ROC 曲线，首先要使用 roc_curve() 函数计算不同阈值的 TPR 和 FPR：
+from sklearn.metrics import roc_curve fpr, tpr, thresholds = roc_curve(y_train_5, y_scores) 然后可以使用 Matplotlib 绘制 FPR 与 TPR 的对比图。下面的代码可以绘制出 见下图 所示的图形。要找到与 90% 精度相对应的点，我们需要查找所需阈值的索引。由于在这种情况下阈值是按递减顺序排列的，因此我们在第一行使用 &amp;lt;= 而不是 &amp;gt;=：
+idx_for_threshold_at_90 = (thresholds &amp;lt;= threshold_for_90_precision).argmax() tpr_90, fpr_90 = tpr[idx_for_threshold_at_90], fpr[idx_for_threshold_at_90] plt.plot(fpr, tpr, linewidth=2, label=&amp;#34;ROC curve&amp;#34;) plt.plot([0, 1], [0, 1], &amp;#39;k:&amp;#39;, label=&amp;#34;Random classifier&amp;#39;s ROC curve&amp;#34;) plt.plot([fpr_90], [tpr_90], &amp;#34;ko&amp;#34;, label=&amp;#34;Threshold for 90% precision&amp;#34;) [.</description>
+    </item>
+    
+    <item>
+      <title>网站引入 Prism，使得代码高亮显示，并一键复制代码块</title>
+      <link>/article/200/</link>
+      <pubDate>Sat, 23 Mar 2024 15:06:43 +0800</pubDate>
+      
+      <guid>/article/200/</guid>
+      <description>曾几何时，苦恼如何将本地写好的博文，更好的展示读者屏幕前？若只是简简单单的文章，其实还是很好的解决它的！可是，像我们这样写技术文章（有点牵强）的，在文章内容嵌入部分代码是在所难免的。
+然而，由于没能将代码与文本区分开来，致使两者混在一起，分不出彼此。由此给读者带来了视觉上得不适，它并没有很好的像代码编辑器那样高亮。
+下载 Prism 虽然市面上能让代码块高亮显示，远不止Prism这一款，而我又为什么选择这一款呢？这的确是个好问题，然而我只能回答您的是，它功能比较强大吧！（或许您还不能信服），这就好比是情人眼里出西施，您的老婆/老公或女朋友/男朋友长得不是那么美/那么帅（或许您在某一瞬间也是这么觉得），但是，您不还是选择了她/他吗？即便是，您和伴侣在逛街时，迎面走来一位身材高挑的美女/帅哥，想必您的伴侣是在您不经意间，偷瞄了一眼。
+进入prism官网下载：
+https://prismjs.com/download.html#themes=prism&amp;amp;languages=markup+css+clike+javascript
+![image-20240323140424245](E:\MyNoteImages\网站引入 Prism，使得代码高亮显示，并一键复制代码块\image-20240323140424245.png)
+随后，我们在项目中引入Prism.css样式文件。
+&amp;lt;link href=&amp;#34;themes/prism.css&amp;#34; rel=&amp;#34;stylesheet&amp;#34; /&amp;gt; 以及Prism.js文件。
+&amp;lt;script src=&amp;#34;prism.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 当然咯，您的代码块是需要使用&amp;lt;pre&amp;gt;和&amp;lt;code class=&amp;quot;language-*&amp;quot;标签。
+&amp;lt;pre&amp;gt;&amp;lt;code class=&amp;#34;language-html&amp;#34;&amp;gt; &amp;lt;link href=&amp;#34;themes/prism.css&amp;#34; rel=&amp;#34;stylesheet&amp;#34; /&amp;gt; &amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt; 添加 clipboard 复制代码按钮 若是有一点按钮就可以复制这段代码，想必应该是没有人会再去用鼠标去滑动选择代码，然后右键，选择复制选项，或者直接按住键盘上的Ctrl + C。
+首先，想要在项目中添加clipboard功能，那么，就显得下载它，这是毋庸置疑的！
+当然，我们还是到Prism官网下载它，
+![image-20240323142549235](E:\MyNoteImages\网站引入 Prism，使得代码高亮显示，并一键复制代码块\image-20240323142549235.png)
+在项目中引入：
+&amp;lt;script src=&amp;#34;plugins/clipboard.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; Hugo-theme-kiwi 中引入 Prism 首先，我们在Hugo-theme-kiwi主题的head.html文件引入blackmac.css样式文件。
+&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;{{ .Site.BaseURL }}css/blackmac.css&amp;#34;&amp;gt; blackmac.css文件内容如下：
+code[class*=&amp;#34;language-&amp;#34;],pre[class*=&amp;#34;language-&amp;#34;]{color:#f8f8f2;background:#313238;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,&amp;#39;Andale Mono&amp;#39;,&amp;#39;Ubuntu Mono&amp;#39;,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:2;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;}pre[class*=&amp;#34;language-&amp;#34;]{padding:.5em;margin:.5em 0;overflow:auto;}:not(pre)&amp;gt;code[class*=&amp;#34;language-&amp;#34;],pre[class*=&amp;#34;language-&amp;#34;]{background:#21252a}:not(pre)&amp;gt;code[class*=&amp;#34;language-&amp;#34;]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.block-comment,.token.prolog,.token.doctype,.token.cdata{color:#999;}.token.punctuation{color:#ccc;}.token.tag,.token.attr-name,.token.namespace,.token.deleted{color:#e2777a;}.token.function-name{color:#6196cc;}.token.boolean,.token.number,.token.function{color:#f08d49;}.token.property,.token.class-name,.token.constant,.token.symbol{color:#f8c555;}.token.selector,.token.important,.token.atrule,.token.keyword,.token.builtin{color:#cc99cd;}.token.string,.token.char,.token.attr-value,.token.regex,.token.variable{color:#7ec699;}.token.operator,.token.entity,.token.url{color:#67cdcc;}.token.important,.token.bold{font-weight:bold;}.token.italic{font-style:italic;}.token.entity{cursor:help;}.token.inserted{color:green;}pre.line-numbers{padding-bottom:.8em;padding-left:3.3em;counter-reset:linenumber}pre.line-numbers&amp;gt;code{white-space:inherit font-size:15px}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:3em;font-size:100%;left:-0.1em;width:3em;letter-spacing:-1px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows&amp;gt;span{pointer-events:none;display:block;counter-increment:linenumber}.line-numbers-rows&amp;gt;span:before{content:counter(linenumber);color:#999;display:block;padding-right:.9em;text-align:right;background:#272c33}div.code-toolbar{font-size:100%;border-radius:4px;position:relative;box-shadow:0 0 20px 5px rgba(0,0,0,.4);padding-top:30px;background-color:#161616;margin:20px 0 20px 0}.code-toolbar:before{content:&amp;#34; &amp;#34;;position:absolute;-webkit-border-radius:50%;border-radius:50%;background:#fc625d;width:11px;height:11px;left:10px;top:10px;-webkit-box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;z-index:2}div.</description>
+    </item>
+    
+    <item>
+      <title>精确率（召回率）的权衡（Machine Learning研习十六）</title>
+      <link>/article/196/</link>
+      <pubDate>Thu, 21 Mar 2024 19:43:43 +0800</pubDate>
+      
+      <guid>/article/196/</guid>
+      <description>精确率（召回率）的权衡 为了理解这种权衡，让我们看看 SGDClassifier 如何做出分类决策。 对于每个实例，它根据决策函数计算分数。 如果该分数大于阈值，则将该实例分配给正类； 否则它会将其分配给负类。 图 3-4 显示了从左侧最低分数到右侧最高分数的几个数字。 假设决策阈值位于中心箭头（两个 5 之间）：您会在该阈值右侧发现 4 个真阳性（实际为 5），以及 1 个假阳性（实际上为 6）。 因此，使用该阈值，精度为 80%（5 分之 4）。 但在 6 个实际的 5 中，分类器仅检测到 4 个，因此召回率为 67%（6 中的 4）。 如果提高阈值（将其移动到右侧的箭头），假阳性（6）会变成真阴性，从而提高精度（在本例中高达 100%），但一个真阳性会变成假阴性 ，将召回率降低至 50%。 相反，降低阈值会增加召回率并降低精确度。
+Scikit-Learn 不允许您直接设置阈值，但它允许您访问它用于进行预测的决策分数。 您可以调用其decision_function()方法，而不是调用分类器的predict()方法，该方法返回每个实例的分数，然后使用您想要根据这些分数进行预测的任何阈值：
+SGDClassifier 使用等于 0 的阈值，因此前面的代码返回与 Predict() 方法相同的结果（即 True）。 让我们提高门槛：
+这证实了提高阈值会降低召回率。 该图像实际上代表的是 5，当阈值为 0 时分类器会检测到它，但当阈值增加到 3,000 时分类器会错过它。
+y_scores = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3, method=&amp;#34;decision_function&amp;#34;) 有了这些分数，使用 precision_recall_curve() 函数计算所有可能阈值的精度和召回率（该函数添加最后精度 0 和最后召回率 1，对应于无限阈值）：
+from sklearn.</description>
     </item>
     
     <item>
