@@ -472,19 +472,20 @@
         </div>
     <div class="social-account">
         
+        
     </div>
         <ul class="kiwi_header__slideout-count">
           <li class="item">
             <i class="joe-font joe-icon-riji"></i>
-            <span>累计撰写 <strong>29</strong> 篇文章</span>
+            <span>累计撰写 <strong>122</strong> 篇文章</span>
           </li>
           <li class="item">
             <i class="joe-font joe-icon-remen"></i>
-            <span>累计创建 <strong>40</strong> 个标签</span>
+            <span>累计创建 <strong>251</strong> 个标签</span>
           </li>
           <li class="item">
             <i class="joe-font joe-icon-message"></i>
-            <span>累计创建 <strong>185</strong> 个分类</span>
+            <span>累计创建 <strong>41</strong> 个分类</span>
           </li>
         </ul>
         <ul class="kiwi_header__slideout-menu panel-box">
@@ -622,7 +623,7 @@
 
 <div class="Qc_main Qc_post">
     <div class="Qc_detail">
-        <h1 class="title Qc_psot_title"> 错误分析 （Machine Learning研习十九）</h1>
+        <h1 class="title Qc_detail_title"> 错误分析 （Machine Learning研习十九）</h1>
         <div class="Qc_bread">
             <ul class="Qc_bread_bread">
                 <li class="item"> <span class="iconfont icon-A131" style="margin-right: 4px;"></span> <a
@@ -664,6 +665,34 @@ y_train_pred = cross_val_predict(sgd_clf, X_train_scaled, y_train, cv=3) Confusi
 <p>3 和 5 的主要区别在于连接顶线和底弧的小线的位置。如果您画的 3 的交界处稍微向左移动，分类器可能会将其归类为 5，反之亦然。换句话说，这种分类器对图像移动和旋转相当敏感。减少 3/5 混淆的一种方法是对图像进行预处理，以确保图像居中且没有过度旋转。然而，这并不容易，因为这需要预测每幅图像的正确旋转。一种简单得多的方法是用训练图像的轻微移动和旋转变体来增加训练集。这将迫使模型学会对这种变化有更大的容忍度。这就是所谓的<code>数据增强</code>。</p>
 
         </article>
+    </div>
+
+    
+    <div class="entry-page">
+        
+        <div class="entry-page-prev j-lazy" style="background-image: url(https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/golang-test/image-20240403152658895.png)">
+            <a href="/article/198/"> 
+                <span>多类别分类器（Machine Learning研习十八）</span> 
+            </a>
+            <div class="entry-page-info"> 
+                <span class="pull-left">« 上一篇</span> 
+                <span class="pull-right">2024-04-03</span>
+            </div>
+        </div>
+        
+
+         
+        <div class="entry-page-next j-lazy" style="background-image: url(https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916489842.png)">
+            <a href="/article/185/">
+                <span>一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦</span> 
+            </a>
+            <div class="entry-page-info"> 
+                <span class="pull-right">下一篇  »</span> 
+                <span class="pull-left">2023-12-24</span>
+            </div>
+        </div> 
+        
+
     </div>
 
     
@@ -943,6 +972,8 @@ y_train_pred = cross_val_predict(sgd_clf, X_train_scaled, y_train, cv=3) Confusi
     
      <div class="Qc_aside_item-contain" style="padding:10px"> 
         <img src="/images/loading.gif"  data-lazy-src="/images/laud.jpg" loading="lazy" alt="您每一次支持，给予我创作激励。"  width="100%" height="50%"/>
+    
+        <img src="//images/loading.gif" data-lazy-src="/images/wechat-gongzhong.png" loading="lazy" alt="你我杂志刊" width="100%" height="50%"/>
     </div> 
 </section>
 
@@ -2612,7 +2643,7 @@ WordCloud(canvas, {
 			<div class="item">
 				<p>
 					<strong>Powered by <span style="color:blue;font:bold;">Hugo</span>&nbsp;&nbsp;|&nbsp;&nbsp;Theme by 
-						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.7</a></strong>
+						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.8</a></strong>
 				</p>
 			</div>
 		</div>
