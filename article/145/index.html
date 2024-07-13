@@ -12,25 +12,65 @@
 
 <head>
 <title>Go 语言中的接口（Let&#39;s Go 二十五）</title>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+ <meta name="format-detection" content="email=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta name="copyright" content="Copyright © 2018 qiucode.cn. All Rights Reserved.">
+<meta name="mediaid" content="秋码分享">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 
-<meta name="description" content="Go 语言中的接口（Let&#39;s Go 二十五）">
 
-<meta itemprop="name" content="Go 语言中的接口（Let&#39;s Go 二十五）">
-<meta itemprop="description" content="Go 语言中的接口（Let&#39;s Go 二十五）">
-<meta itemprop="image" content="/img/author.jpg">
+<meta name="keywords" content="接口,方法集" />
 
 
-<meta name="twitter:description" content="Go 语言中的接口（Let&#39;s Go 二十五）" />
+
+<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<meta name="site" content="https://qiucode.cn">
+
+
+
+<meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1666354728093.png">
+<meta property="og:description" content="要想实现Go中的接口，类型实现接口方法集的方法，其类型实现的方法签名必须要与接口中的方法集中方法签名一样。 类型不需要显式声明它实现了某个接口：接口被隐式地实现。多个类型可以实现同一个接口。">
+<meta property="og:type" content="news">
+<meta property="og:url" content="/article/145/">
+<meta property="og:release_date" content="2022-10-21 12:20:28 &#43;0000 UTC">
+<meta itemprop="dateUpdate" content="2022-10-21 12:20:28 &#43;0000 UTC">
+<meta itemprop="datePublished" content="2022-10-21 12:20:28 &#43;0000 UTC">
+
+
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="Go 语言中的接口（Let&#39;s Go 二十五）">
+
+
+<meta property="twitter:partner" content="ogwp">
+
+
+
+
+
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
 
 
 <meta name="google-adsense-account" content="ca-pub-5798408669698308">
 
 <link rel="alternate" href="/feed.xml" title="秋码分享" type="application/rss+xml"/>
 
-<link rel="shortcut icon" href="/imgs/icons/favicon.ico"/>
-<link rel="apple-touch-icon" href="/imgs/icons/apple-touch-icon.png" />
-<link rel="apple-touch-icon-precomposed" href="/imgs/icons/apple-touch-icon.png" />
+<link rel="shortcut icon" href="https://qiucode.cn/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
 
 
 

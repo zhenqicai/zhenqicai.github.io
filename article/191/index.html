@@ -12,25 +12,84 @@
 
 <head>
 <title>解决 github.com port 443: Timed out 的问题</title>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+ <meta name="format-detection" content="email=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta name="copyright" content="Copyright © 2018 qiucode.cn. All Rights Reserved.">
+<meta name="mediaid" content="秋码分享">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 
-<meta name="description" content="解决 github.com port 443: Timed out 的问题">
 
-<meta itemprop="name" content="解决 github.com port 443: Timed out 的问题">
-<meta itemprop="description" content="解决 github.com port 443: Timed out 的问题">
-<meta itemprop="image" content="/img/author.jpg">
+<meta name="keywords" content="github,Timed out,clone,超时,https,git push,git clone" />
 
 
-<meta name="twitter:description" content="解决 github.com port 443: Timed out 的问题" />
+
+<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<meta name="site" content="https://qiucode.cn">
+
+
+
+<meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578417203.png">
+<meta property="og:description" content="国内访问github.com总是那么不竟如人意，时而无法加载网页，时而等我们抽完了一根烟后，它还处于转圈的状态。
+虽然国内有gitee.com等诸多的代码托管平台，但却鲜有国人愿意去呢？其中的缘由，想必也不用我多说，大伙也都心知肚明了吧！
+即便github.com在国内访问慢，或是加载不出来，我们也宁愿等它慢慢地加载出来，却不愿将代码托管于境内的平台。
+github.com 托管了 qiucode.cn 站点 由于将 秋码记录 托管于 github.com上后，写些文章就得push上去，然而当我push上去时，却十有八九都会出现 github.com port 443: Timed out的错误，代码显然是无法push上去的了！
+难道在国内，现在push或是pull github.com，都是要靠运气吗？偶尔可以，大多数都是报错。
+可是，“运气”总不能实时来关顾我们，要是那样的话，我早去买彩票了，虽然有运气，买了彩票，它也不一定中奖，毕竟古话早就有言：朝里有人好当官。
+然而，有没有一劳永逸的解决之道呢？答案那是肯定有的，要不然，也就不会有这么一篇文章了，您也就不会花费您宝贵的时间来浏览本文，寻求与我遇到同样问题的解决方案了。
+当我们想要clone github.com上的一个项目时，出现以下错误，那都是家常便饭了。
+从报错信息来看，很显然这是https请求超时，这是毋庸置疑的，毕竟我们访问github.com都是是好是坏的！您在terminal端不还是一样的请求超时嘛！
+解决国内 push/pull github.com 项目出现 Timed out 的问题 毕竟，秋码记录 是托管于 github.com上，总不可能写了一篇文章，想要push到 github.com，这次出现Timed out的错误，就不push，而是等到下次再写文章时，再push，这显然不是我要的，毕竟，技术文章（在这里，我也就王婆卖瓜，自卖自夸咯）是有时效性的！说是这么说，但并不妨碍的。
+能出现Timed out的问题，我们第一想到便是网络问题（有些事我们自己心里清楚就好了），其次才是本地git配置问题。
+那么，我们暂且略过网络问题这一客观事实不谈，来说说本地git的配置是哪里出现问题，而导致了出现Timed out的问题呢？
+我们还是回到 terminal，输入以下命令测试ssh是否成功？
+ssh -T git@github.com 如果，您也出现了上图的结果，那显然是配置的问题了。
+我们再次测试下port 443是否也出现超时的问题？
+ssh -T -p 443 git@ssh.github.com 可以看出，端口 443 请求是没问题，那么，为什么clone项目时，却报出了port 443请求超时的错误呢？
+我们大致从上面的ssh测试报错便可以得出结论了，那便是ssh连接超时了。
+而要想解决ssh请求超时的问题，那就要从配置着手了，还是一样的在terminal输入以下命令。
+vim ~/.ssh/config 而后在进入编辑状态，填写以下内容
+# Add section below to itHost github.comHostname ssh.">
+<meta property="og:type" content="news">
+<meta property="og:url" content="/article/191/">
+<meta property="og:release_date" content="2024-01-27 19:39:19 &#43;0800 CST">
+<meta itemprop="dateUpdate" content="2024-01-27 19:39:19 &#43;0800 CST">
+<meta itemprop="datePublished" content="2024-01-27 19:39:19 &#43;0800 CST">
+
+
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="解决 github.com port 443: Timed out 的问题">
+
+
+<meta property="twitter:partner" content="ogwp">
+
+
+
+
+
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
 
 
 <meta name="google-adsense-account" content="ca-pub-5798408669698308">
 
 <link rel="alternate" href="/feed.xml" title="秋码分享" type="application/rss+xml"/>
 
-<link rel="shortcut icon" href="/imgs/icons/favicon.ico"/>
-<link rel="apple-touch-icon" href="/imgs/icons/apple-touch-icon.png" />
-<link rel="apple-touch-icon-precomposed" href="/imgs/icons/apple-touch-icon.png" />
+<link rel="shortcut icon" href="https://qiucode.cn/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
 
 
 

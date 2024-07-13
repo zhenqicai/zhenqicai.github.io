@@ -12,25 +12,75 @@
 
 <head>
 <title>机器学习中的 Transformation Pipelines（Machine Learning 研习之十）</title>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+ <meta name="format-detection" content="email=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta name="copyright" content="Copyright © 2018 qiucode.cn. All Rights Reserved.">
+<meta name="mediaid" content="秋码分享">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 
-<meta name="description" content="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）">
 
-<meta itemprop="name" content="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）">
-<meta itemprop="description" content="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）">
-<meta itemprop="image" content="/img/author.jpg">
+<meta name="keywords" content="Machine Learning,机器学习,Pipelines" />
 
 
-<meta name="twitter:description" content="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）" />
+
+<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<meta name="site" content="https://qiucode.cn">
+
+
+
+<meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703937560847.png">
+<meta property="og:description" content="Transformation Pipelines 有许多数据转换步骤需要以正确的顺序执行。幸运的是，Scikit-Learn提供了Pipeline类来帮助处理这样的转换序列。下面是一个用于数值属性的小管道，它首先对输入特性进行归并，然后对输入特性进行缩放:
+from sklearn.pipeline import Pipeline num_pipeline = Pipeline([ (&#34;impute&#34;, SimpleImputer(strategy=&#34;median&#34;)), (&#34;standardize&#34;, StandardScaler()), ]) Pipeline构造函数采用名称/估算器对(2元组)的列表，定义了一系列步骤。名称可以是您喜欢的任何名称，只要它们是唯一的，并且不包含双下划线(__)。以后我们讨论超参数调优时，它们会很有用。估计器必须都是转换器(即，它们必须有一个fit_transform()方法)，除了最后一个，它可以是任何东西:转换器、预测器或任何其他类型的估计器。
+如果你不想命名transformers你可以使用 make_pipeline() 函数； 它将transformers作为位置参数，并使用transformers类的名称（小写且不带下划线）创建管道（例如，“simpleimputer”）：
+from sklearn.pipeline import make_pipeline num_pipeline = make_pipeline(SimpleImputer(strategy=&#34;median&#34;), StandardScaler()) 如果多个transformers具有相同的名称，则会在其名称后附加索引（例如“foo-1”、“foo-2”等）。
+当您调用管道的 fit() 方法时，它会在所有transformers上顺序调用 fit_transform()，将每个调用的输出作为参数传递给下一个调用，直到到达最终估计器，为此它只调用 fit() 方法。
+该管道公开与最终估计器相同的方法。 在此示例中，最后一个估计器是 StandardScaler，它是一个transformers，因此管道也充当transformers。 如果您调用管道的transform()方法，它将按顺序将所有转换应用于数据。 如果最后一个估计器是预测器而不是变换器，那么管道将具有 Predict() 方法而不是 Transform() 方法。 调用它会按顺序将所有转换应用于数据并将结果传递给预测器的 Predict()方法
+让我们调用管道的 fit_transform() 方法并查看输出的前两行，四舍五入到小数点后两位：
+如前所述，如果要恢复一个漂亮的DataFrame，可以使用管道的get_feature_names_ out()方法:
+df_housing_num_prepared = pd.DataFrame( housing_num_prepared, columns=num_pipeline.get_feature_names_out(), index=housing_num.index) 管道支持索引;例如，管道[1]返回管道中的第二个估计值，管道[:-1]返回一个包含除最后一个估计值以外的所有估计值的管道对象。您还可以通过steps属性(它是名称/估算器对的列表)或named_steps字典属性(它将名称映射到估算器)访问估算器。例如，num_line[“ simpleimputer”]返回名为“simpleimputer”的估计器。
+到目前为止，我们已经分别处理了分类列和数值列。如果有一个能够处理所有列的转换器，将适当的转换应用到每一列，那会更方便。为此，您可以使用olumnTransformer。例如，下面的ColumnTransformer将把num_pipeline(我们刚刚定义的那个)应用于数字属性，把cat_pipeline应用于类别属性:
+from sklearn.compose import ColumnTransformer num_attribs = [&#34;longitude&#34;, &#34;latitude&#34;, &#34;housing_median_age&#34;, &#34;total_rooms&#34;, &#34;total_bedrooms&#34;, &#34;population&#34;, &#34;households&#34;, &#34;median_income&#34;] cat_attribs = [&#34;ocean_proximity&#34;] cat_pipeline = make_pipeline( SimpleImputer(strategy=&#34;most_frequent&#34;), OneHotEncoder(handle_unknown=&#34;ignore&#34;)) preprocessing = ColumnTransformer([ (&#34;num&#34;, num_pipeline, num_attribs), (&#34;cat&#34;, cat_pipeline, cat_attribs), ]) 首先导入ColumnTransformer类，然后定义数字和分类列名的列表，并为分类属性构造一个简单的管道。最后，我们构造了一个列变换器。它的构造函数需要一个三元组(3-tuple)列表，每个三元组包含一个名称(必须是唯一的且不包含双下划线)、一个转换器和一个应该应用转换器的列的名称(或索引)列表。">
+<meta property="og:type" content="news">
+<meta property="og:url" content="/article/189/">
+<meta property="og:release_date" content="2023-12-11 19:50:17 &#43;0800 CST">
+<meta itemprop="dateUpdate" content="2023-12-11 19:50:17 &#43;0800 CST">
+<meta itemprop="datePublished" content="2023-12-11 19:50:17 &#43;0800 CST">
+
+
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）">
+
+
+<meta property="twitter:partner" content="ogwp">
+
+
+
+
+
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
 
 
 <meta name="google-adsense-account" content="ca-pub-5798408669698308">
 
 <link rel="alternate" href="/feed.xml" title="秋码分享" type="application/rss+xml"/>
 
-<link rel="shortcut icon" href="/imgs/icons/favicon.ico"/>
-<link rel="apple-touch-icon" href="/imgs/icons/apple-touch-icon.png" />
-<link rel="apple-touch-icon-precomposed" href="/imgs/icons/apple-touch-icon.png" />
+<link rel="shortcut icon" href="https://qiucode.cn/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
 
 
 

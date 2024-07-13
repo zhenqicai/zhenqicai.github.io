@@ -12,25 +12,65 @@
 
 <head>
 <title>Go 语言中的 Channel（Let&#39;s Go 二十九）</title>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+ <meta name="format-detection" content="email=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta name="copyright" content="Copyright © 2018 qiucode.cn. All Rights Reserved.">
+<meta name="mediaid" content="秋码分享">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 
-<meta name="description" content="Go 语言中的 Channel（Let&#39;s Go 二十九）">
 
-<meta itemprop="name" content="Go 语言中的 Channel（Let&#39;s Go 二十九）">
-<meta itemprop="description" content="Go 语言中的 Channel（Let&#39;s Go 二十九）">
-<meta itemprop="image" content="/img/author.jpg">
+<meta name="keywords" content="channel,信道" />
 
 
-<meta name="twitter:description" content="Go 语言中的 Channel（Let&#39;s Go 二十九）" />
+
+<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<meta name="site" content="https://qiucode.cn">
+
+
+
+<meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1666874481185.png">
+<meta property="og:description" content="Channel 是进程内的通信方式，因此通过 channel 传递对象的过程和调用函数时的参数传递行为比较一致，比如也可以传递指针等。如果需要跨进程通信，我们建议用分布式系统的方法来解决，比如使用 Socket 或者 HTTP 等通信协议。Go 语言对于网络方面也有非常完善的支持。">
+<meta property="og:type" content="news">
+<meta property="og:url" content="/article/149/">
+<meta property="og:release_date" content="2022-10-27 12:43:09 &#43;0000 UTC">
+<meta itemprop="dateUpdate" content="2022-10-27 12:43:09 &#43;0000 UTC">
+<meta itemprop="datePublished" content="2022-10-27 12:43:09 &#43;0000 UTC">
+
+
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="Go 语言中的 Channel（Let&#39;s Go 二十九）">
+
+
+<meta property="twitter:partner" content="ogwp">
+
+
+
+
+
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
 
 
 <meta name="google-adsense-account" content="ca-pub-5798408669698308">
 
 <link rel="alternate" href="/feed.xml" title="秋码分享" type="application/rss+xml"/>
 
-<link rel="shortcut icon" href="/imgs/icons/favicon.ico"/>
-<link rel="apple-touch-icon" href="/imgs/icons/apple-touch-icon.png" />
-<link rel="apple-touch-icon-precomposed" href="/imgs/icons/apple-touch-icon.png" />
+<link rel="shortcut icon" href="https://qiucode.cn/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
 
 
 

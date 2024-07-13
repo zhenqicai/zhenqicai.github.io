@@ -12,25 +12,68 @@
 
 <head>
 <title>绘制特征曲线-ROC（Machine Learning 研习十七）</title>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+ <meta name="format-detection" content="email=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta name="copyright" content="Copyright © 2018 qiucode.cn. All Rights Reserved.">
+<meta name="mediaid" content="秋码分享">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 
-<meta name="description" content="绘制特征曲线-ROC（Machine Learning 研习十七）">
 
-<meta itemprop="name" content="绘制特征曲线-ROC（Machine Learning 研习十七）">
-<meta itemprop="description" content="绘制特征曲线-ROC（Machine Learning 研习十七）">
-<meta itemprop="image" content="/img/author.jpg">
+<meta name="keywords" content="机器学习,人工智能,深度学习,特征曲线,Scikit-Learn" />
 
 
-<meta name="twitter:description" content="绘制特征曲线-ROC（Machine Learning 研习十七）" />
+
+<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<meta name="site" content="https://qiucode.cn">
+
+
+
+<meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/golang-test/image-20240327101302829.png">
+<meta property="og:description" content="接收者操作特征曲线（ROC）是二元分类器的另一个常用工具。它与精确度/召回率曲线非常相似，但 ROC 曲线不是绘制精确度与召回率的关系曲线，而是绘制真阳性率（召回率的另一个名称）与假阳性率（FPR）的关系曲线。FPR（也称 &ldquo;下降率&rdquo;）是阴性实例被错误归类为阳性实例的比率。它等于 1 - 真阴性率 (TNR)，即正确分类为阴性的阴性实例的比率。TNR 也称为特异性。因此，ROC 曲线是灵敏度（召回率）与 1 - 特异性的关系图
+要绘制 ROC 曲线，首先要使用 roc_curve() 函数计算不同阈值的 TPR 和 FPR：
+from sklearn.metrics import roc_curve fpr, tpr, thresholds = roc_curve(y_train_5, y_scores) 然后可以使用 Matplotlib 绘制 FPR 与 TPR 的对比图。下面的代码可以绘制出 见下图 所示的图形。要找到与 90% 精度相对应的点，我们需要查找所需阈值的索引。由于在这种情况下阈值是按递减顺序排列的，因此我们在第一行使用 &lt;= 而不是 &gt;=：
+idx_for_threshold_at_90 = (thresholds &lt;= threshold_for_90_precision).argmax() tpr_90, fpr_90 = tpr[idx_for_threshold_at_90], fpr[idx_for_threshold_at_90] plt.plot(fpr, tpr, linewidth=2, label=&#34;ROC curve&#34;) plt.plot([0, 1], [0, 1], &#39;k:&#39;, label=&#34;Random classifier&#39;s ROC curve&#34;) plt.plot([fpr_90], [tpr_90], &#34;ko&#34;, label=&#34;Threshold for 90% precision&#34;) [.">
+<meta property="og:type" content="news">
+<meta property="og:url" content="/article/197/">
+<meta property="og:release_date" content="2024-03-29 11:43:43 &#43;0800 CST">
+<meta itemprop="dateUpdate" content="2024-03-29 11:43:43 &#43;0800 CST">
+<meta itemprop="datePublished" content="2024-03-29 11:43:43 &#43;0800 CST">
+
+
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="绘制特征曲线-ROC（Machine Learning 研习十七）">
+
+
+<meta property="twitter:partner" content="ogwp">
+
+
+
+
+
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
 
 
 <meta name="google-adsense-account" content="ca-pub-5798408669698308">
 
 <link rel="alternate" href="/feed.xml" title="秋码分享" type="application/rss+xml"/>
 
-<link rel="shortcut icon" href="/imgs/icons/favicon.ico"/>
-<link rel="apple-touch-icon" href="/imgs/icons/apple-touch-icon.png" />
-<link rel="apple-touch-icon-precomposed" href="/imgs/icons/apple-touch-icon.png" />
+<link rel="shortcut icon" href="https://qiucode.cn/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
 
 
 

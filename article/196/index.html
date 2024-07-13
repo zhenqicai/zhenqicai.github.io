@@ -12,25 +12,70 @@
 
 <head>
 <title>精确率（召回率）的权衡（Machine Learning研习十六）</title>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+ <meta name="format-detection" content="email=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta name="copyright" content="Copyright © 2018 qiucode.cn. All Rights Reserved.">
+<meta name="mediaid" content="秋码分享">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 
-<meta name="description" content="精确率（召回率）的权衡（Machine Learning研习十六）">
 
-<meta itemprop="name" content="精确率（召回率）的权衡（Machine Learning研习十六）">
-<meta itemprop="description" content="精确率（召回率）的权衡（Machine Learning研习十六）">
-<meta itemprop="image" content="/img/author.jpg">
+<meta name="keywords" content="机器学习,人工智能,深度学习,召回率,精确率,Scikit-Learn" />
 
 
-<meta name="twitter:description" content="精确率（召回率）的权衡（Machine Learning研习十六）" />
+
+<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<meta name="site" content="https://qiucode.cn">
+
+
+
+<meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/golang-test/image-20240321183105977.png">
+<meta property="og:description" content="精确率（召回率）的权衡 为了理解这种权衡，让我们看看 SGDClassifier 如何做出分类决策。 对于每个实例，它根据决策函数计算分数。 如果该分数大于阈值，则将该实例分配给正类； 否则它会将其分配给负类。 图 3-4 显示了从左侧最低分数到右侧最高分数的几个数字。 假设决策阈值位于中心箭头（两个 5 之间）：您会在该阈值右侧发现 4 个真阳性（实际为 5），以及 1 个假阳性（实际上为 6）。 因此，使用该阈值，精度为 80%（5 分之 4）。 但在 6 个实际的 5 中，分类器仅检测到 4 个，因此召回率为 67%（6 中的 4）。 如果提高阈值（将其移动到右侧的箭头），假阳性（6）会变成真阴性，从而提高精度（在本例中高达 100%），但一个真阳性会变成假阴性 ，将召回率降低至 50%。 相反，降低阈值会增加召回率并降低精确度。
+Scikit-Learn 不允许您直接设置阈值，但它允许您访问它用于进行预测的决策分数。 您可以调用其decision_function()方法，而不是调用分类器的predict()方法，该方法返回每个实例的分数，然后使用您想要根据这些分数进行预测的任何阈值：
+SGDClassifier 使用等于 0 的阈值，因此前面的代码返回与 Predict() 方法相同的结果（即 True）。 让我们提高门槛：
+这证实了提高阈值会降低召回率。 该图像实际上代表的是 5，当阈值为 0 时分类器会检测到它，但当阈值增加到 3,000 时分类器会错过它。
+y_scores = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3, method=&#34;decision_function&#34;) 有了这些分数，使用 precision_recall_curve() 函数计算所有可能阈值的精度和召回率（该函数添加最后精度 0 和最后召回率 1，对应于无限阈值）：
+from sklearn.">
+<meta property="og:type" content="news">
+<meta property="og:url" content="/article/196/">
+<meta property="og:release_date" content="2024-03-21 19:43:43 &#43;0800 CST">
+<meta itemprop="dateUpdate" content="2024-03-21 19:43:43 &#43;0800 CST">
+<meta itemprop="datePublished" content="2024-03-21 19:43:43 &#43;0800 CST">
+
+
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="精确率（召回率）的权衡（Machine Learning研习十六）">
+
+
+<meta property="twitter:partner" content="ogwp">
+
+
+
+
+
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
 
 
 <meta name="google-adsense-account" content="ca-pub-5798408669698308">
 
 <link rel="alternate" href="/feed.xml" title="秋码分享" type="application/rss+xml"/>
 
-<link rel="shortcut icon" href="/imgs/icons/favicon.ico"/>
-<link rel="apple-touch-icon" href="/imgs/icons/apple-touch-icon.png" />
-<link rel="apple-touch-icon-precomposed" href="/imgs/icons/apple-touch-icon.png" />
+<link rel="shortcut icon" href="https://qiucode.cn/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
 
 
 

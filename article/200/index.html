@@ -12,25 +12,81 @@
 
 <head>
 <title>网站引入 Prism，使得代码高亮显示，并一键复制代码块</title>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+ <meta name="format-detection" content="email=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta name="copyright" content="Copyright © 2018 qiucode.cn. All Rights Reserved.">
+<meta name="mediaid" content="秋码分享">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 
-<meta name="description" content="网站引入 Prism，使得代码高亮显示，并一键复制代码块">
 
-<meta itemprop="name" content="网站引入 Prism，使得代码高亮显示，并一键复制代码块">
-<meta itemprop="description" content="网站引入 Prism，使得代码高亮显示，并一键复制代码块">
-<meta itemprop="image" content="/img/author.jpg">
+<meta name="keywords" content="代码块,Prism,代码高亮,一键复制" />
 
 
-<meta name="twitter:description" content="网站引入 Prism，使得代码高亮显示，并一键复制代码块" />
+
+<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<meta name="site" content="https://qiucode.cn">
+
+
+
+<meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916489842.png">
+<meta property="og:description" content="曾几何时，苦恼如何将本地写好的博文，更好的展示读者屏幕前？若只是简简单单的文章，其实还是很好的解决它的！可是，像我们这样写技术文章（有点牵强）的，在文章内容嵌入部分代码是在所难免的。
+然而，由于没能将代码与文本区分开来，致使两者混在一起，分不出彼此。由此给读者带来了视觉上得不适，它并没有很好的像代码编辑器那样高亮。
+下载 Prism 虽然市面上能让代码块高亮显示，远不止Prism这一款，而我又为什么选择这一款呢？这的确是个好问题，然而我只能回答您的是，它功能比较强大吧！（或许您还不能信服），这就好比是情人眼里出西施，您的老婆/老公或女朋友/男朋友长得不是那么美/那么帅（或许您在某一瞬间也是这么觉得），但是，您不还是选择了她/他吗？即便是，您和伴侣在逛街时，迎面走来一位身材高挑的美女/帅哥，想必您的伴侣是在您不经意间，偷瞄了一眼。
+进入prism官网下载：
+https://prismjs.com/download.html#themes=prism&amp;languages=markup&#43;css&#43;clike&#43;javascript
+![image-20240323140424245](E:\MyNoteImages\网站引入 Prism，使得代码高亮显示，并一键复制代码块\image-20240323140424245.png)
+随后，我们在项目中引入Prism.css样式文件。
+&lt;link href=&#34;themes/prism.css&#34; rel=&#34;stylesheet&#34; /&gt; 以及Prism.js文件。
+&lt;script src=&#34;prism.js&#34;&gt;&lt;/script&gt; 当然咯，您的代码块是需要使用&lt;pre&gt;和&lt;code class=&quot;language-*&quot;标签。
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt; &lt;link href=&#34;themes/prism.css&#34; rel=&#34;stylesheet&#34; /&gt; &lt;/code&gt;&lt;/pre&gt; 添加 clipboard 复制代码按钮 若是有一点按钮就可以复制这段代码，想必应该是没有人会再去用鼠标去滑动选择代码，然后右键，选择复制选项，或者直接按住键盘上的Ctrl &#43; C。
+首先，想要在项目中添加clipboard功能，那么，就显得下载它，这是毋庸置疑的！
+当然，我们还是到Prism官网下载它，
+![image-20240323142549235](E:\MyNoteImages\网站引入 Prism，使得代码高亮显示，并一键复制代码块\image-20240323142549235.png)
+在项目中引入：
+&lt;script src=&#34;plugins/clipboard.js&#34;&gt;&lt;/script&gt; Hugo-theme-kiwi 中引入 Prism 首先，我们在Hugo-theme-kiwi主题的head.html文件引入blackmac.css样式文件。
+&lt;link rel=&#34;stylesheet&#34; href=&#34;{{ .Site.BaseURL }}css/blackmac.css&#34;&gt; blackmac.css文件内容如下：
+code[class*=&#34;language-&#34;],pre[class*=&#34;language-&#34;]{color:#f8f8f2;background:#313238;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,&#39;Andale Mono&#39;,&#39;Ubuntu Mono&#39;,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:2;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;}pre[class*=&#34;language-&#34;]{padding:.5em;margin:.5em 0;overflow:auto;}:not(pre)&gt;code[class*=&#34;language-&#34;],pre[class*=&#34;language-&#34;]{background:#21252a}:not(pre)&gt;code[class*=&#34;language-&#34;]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.block-comment,.token.prolog,.token.doctype,.token.cdata{color:#999;}.token.punctuation{color:#ccc;}.token.tag,.token.attr-name,.token.namespace,.token.deleted{color:#e2777a;}.token.function-name{color:#6196cc;}.token.boolean,.token.number,.token.function{color:#f08d49;}.token.property,.token.class-name,.token.constant,.token.symbol{color:#f8c555;}.token.selector,.token.important,.token.atrule,.token.keyword,.token.builtin{color:#cc99cd;}.token.string,.token.char,.token.attr-value,.token.regex,.token.variable{color:#7ec699;}.token.operator,.token.entity,.token.url{color:#67cdcc;}.token.important,.token.bold{font-weight:bold;}.token.italic{font-style:italic;}.token.entity{cursor:help;}.token.inserted{color:green;}pre.line-numbers{padding-bottom:.8em;padding-left:3.3em;counter-reset:linenumber}pre.line-numbers&gt;code{white-space:inherit font-size:15px}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:3em;font-size:100%;left:-0.1em;width:3em;letter-spacing:-1px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows&gt;span{pointer-events:none;display:block;counter-increment:linenumber}.line-numbers-rows&gt;span:before{content:counter(linenumber);color:#999;display:block;padding-right:.9em;text-align:right;background:#272c33}div.code-toolbar{font-size:100%;border-radius:4px;position:relative;box-shadow:0 0 20px 5px rgba(0,0,0,.4);padding-top:30px;background-color:#161616;margin:20px 0 20px 0}.code-toolbar:before{content:&#34; &#34;;position:absolute;-webkit-border-radius:50%;border-radius:50%;background:#fc625d;width:11px;height:11px;left:10px;top:10px;-webkit-box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;z-index:2}div.">
+<meta property="og:type" content="news">
+<meta property="og:url" content="/article/200/">
+<meta property="og:release_date" content="2024-03-23 15:06:43 &#43;0800 CST">
+<meta itemprop="dateUpdate" content="2024-03-23 15:06:43 &#43;0800 CST">
+<meta itemprop="datePublished" content="2024-03-23 15:06:43 &#43;0800 CST">
+
+
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="网站引入 Prism，使得代码高亮显示，并一键复制代码块">
+
+
+<meta property="twitter:partner" content="ogwp">
+
+
+
+
+
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
 
 
 <meta name="google-adsense-account" content="ca-pub-5798408669698308">
 
 <link rel="alternate" href="/feed.xml" title="秋码分享" type="application/rss+xml"/>
 
-<link rel="shortcut icon" href="/imgs/icons/favicon.ico"/>
-<link rel="apple-touch-icon" href="/imgs/icons/apple-touch-icon.png" />
-<link rel="apple-touch-icon-precomposed" href="/imgs/icons/apple-touch-icon.png" />
+<link rel="shortcut icon" href="https://qiucode.cn/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
 
 
 
