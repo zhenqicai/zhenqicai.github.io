@@ -941,11 +941,7 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
     </div>
 
 
-    
-    
-    
-     
-
+   
     
     <div id="share-info-hidden" 
         data-title="cocos2d-x实现跑酷游戏之一（重拾知识篇）" 
@@ -1127,6 +1123,8 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
 
         bodyDom.removeChild(document.querySelector('.mobile-share-bg'))
         bodyDom.removeChild(document.querySelector('.mobile-share-wrap'))
+
+        let nowTime = new Date().getTime()
        
         let shareWrapDiv = `<div class="mobile-share-bg"></div>
                             <div class="mobile-share-wrap">
@@ -1134,7 +1132,7 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
                                 <div class="mobile-share-container">
                                     <div class="mobile-share-inner" >
                                         <div class="mobile-share-head">
-                                            <img src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/somnus\/1539268320355.png">
+                                            <img id="poster-head-img" src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/somnus\/1539268320355.png"  crossOrigin="anonymous">
                                             <h2 class="mobile-share-title">
                                                 <div class="mobile-share-title-bg"></div>
                                                 cocos2d\-x实现跑酷游戏之一（重拾知识篇）
@@ -1153,7 +1151,7 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
                                         </div>
                                         <div class="mobile-share-footer">
                                             <div class="mobile-share-logo">
-                                                <img src="/static/front/images/qiu-logo.png">
+                                                <img src="/static/front/images/poster-logo.jpg">
                                             </div>
                                             <div class="mobile-share-qr">
                                                 <div class="mobile-share-qrbg">
@@ -1182,6 +1180,8 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
         let shareHtml = document.createRange().createContextualFragment(shareWrapDiv);
 
         bodyDom.appendChild(shareHtml)
+
+
     }
 
   

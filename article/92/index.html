@@ -1001,11 +1001,7 @@ redis-check-rdb RDB文件检索工具</p>
     </div>
 
 
-    
-    
-    
-     
-
+   
     
     <div id="share-info-hidden" 
         data-title="Ubuntu 16.04 LTS 安装redis" 
@@ -1187,6 +1183,8 @@ redis-check-rdb RDB文件检索工具</p>
 
         bodyDom.removeChild(document.querySelector('.mobile-share-bg'))
         bodyDom.removeChild(document.querySelector('.mobile-share-wrap'))
+
+        let nowTime = new Date().getTime()
        
         let shareWrapDiv = `<div class="mobile-share-bg"></div>
                             <div class="mobile-share-wrap">
@@ -1194,7 +1192,7 @@ redis-check-rdb RDB文件检索工具</p>
                                 <div class="mobile-share-container">
                                     <div class="mobile-share-inner" >
                                         <div class="mobile-share-head">
-                                            <img src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/qiucode2020\/1616917710397.png">
+                                            <img id="poster-head-img" src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/qiucode2020\/1616917710397.png"  crossOrigin="anonymous">
                                             <h2 class="mobile-share-title">
                                                 <div class="mobile-share-title-bg"></div>
                                                 Ubuntu 16\.04 LTS 安装redis
@@ -1213,7 +1211,7 @@ redis-check-rdb RDB文件检索工具</p>
                                         </div>
                                         <div class="mobile-share-footer">
                                             <div class="mobile-share-logo">
-                                                <img src="/static/front/images/qiu-logo.png">
+                                                <img src="/static/front/images/poster-logo.jpg">
                                             </div>
                                             <div class="mobile-share-qr">
                                                 <div class="mobile-share-qrbg">
@@ -1242,6 +1240,8 @@ redis-check-rdb RDB文件检索工具</p>
         let shareHtml = document.createRange().createContextualFragment(shareWrapDiv);
 
         bodyDom.appendChild(shareHtml)
+
+
     }
 
   

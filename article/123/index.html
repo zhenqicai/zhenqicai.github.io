@@ -983,11 +983,7 @@
     </div>
 
 
-    
-    
-    
-     
-
+   
     
     <div id="share-info-hidden" 
         data-title="Go 语言中的基本类型以及变量声明与初始化（Let&#39;s Go 三）" 
@@ -1169,6 +1165,8 @@
 
         bodyDom.removeChild(document.querySelector('.mobile-share-bg'))
         bodyDom.removeChild(document.querySelector('.mobile-share-wrap'))
+
+        let nowTime = new Date().getTime()
        
         let shareWrapDiv = `<div class="mobile-share-bg"></div>
                             <div class="mobile-share-wrap">
@@ -1176,7 +1174,7 @@
                                 <div class="mobile-share-container">
                                     <div class="mobile-share-inner" >
                                         <div class="mobile-share-head">
-                                            <img src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/qiucode2020\/1663767348387.png">
+                                            <img id="poster-head-img" src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/qiucode2020\/1663767348387.png"  crossOrigin="anonymous">
                                             <h2 class="mobile-share-title">
                                                 <div class="mobile-share-title-bg"></div>
                                                 Go 语言中的基本类型以及变量声明与初始化（Let\u0027s Go 三）
@@ -1195,7 +1193,7 @@
                                         </div>
                                         <div class="mobile-share-footer">
                                             <div class="mobile-share-logo">
-                                                <img src="/static/front/images/qiu-logo.png">
+                                                <img src="/static/front/images/poster-logo.jpg">
                                             </div>
                                             <div class="mobile-share-qr">
                                                 <div class="mobile-share-qrbg">
@@ -1224,6 +1222,8 @@
         let shareHtml = document.createRange().createContextualFragment(shareWrapDiv);
 
         bodyDom.appendChild(shareHtml)
+
+
     }
 
   

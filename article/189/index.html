@@ -1032,11 +1032,7 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
     </div>
 
 
-    
-    
-    
-     
-
+   
     
     <div id="share-info-hidden" 
         data-title="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）" 
@@ -1218,6 +1214,8 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
 
         bodyDom.removeChild(document.querySelector('.mobile-share-bg'))
         bodyDom.removeChild(document.querySelector('.mobile-share-wrap'))
+
+        let nowTime = new Date().getTime()
        
         let shareWrapDiv = `<div class="mobile-share-bg"></div>
                             <div class="mobile-share-wrap">
@@ -1225,7 +1223,7 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
                                 <div class="mobile-share-container">
                                     <div class="mobile-share-inner" >
                                         <div class="mobile-share-head">
-                                            <img src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/qiucode2020\/1703937560847.png">
+                                            <img id="poster-head-img" src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/qiucode2020\/1703937560847.png"  crossOrigin="anonymous">
                                             <h2 class="mobile-share-title">
                                                 <div class="mobile-share-title-bg"></div>
                                                 机器学习中的 Transformation Pipelines（Machine Learning 研习之十）
@@ -1244,7 +1242,7 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
                                         </div>
                                         <div class="mobile-share-footer">
                                             <div class="mobile-share-logo">
-                                                <img src="/static/front/images/qiu-logo.png">
+                                                <img src="/static/front/images/poster-logo.jpg">
                                             </div>
                                             <div class="mobile-share-qr">
                                                 <div class="mobile-share-qrbg">
@@ -1273,6 +1271,8 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
         let shareHtml = document.createRange().createContextualFragment(shareWrapDiv);
 
         bodyDom.appendChild(shareHtml)
+
+
     }
 
   

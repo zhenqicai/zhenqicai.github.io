@@ -973,11 +973,7 @@ from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&#3
     </div>
 
 
-    
-    
-    
-     
-
+   
     
     <div id="share-info-hidden" 
         data-title="微调模型（Machine Learning 研习之十二）" 
@@ -1160,6 +1156,8 @@ from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&#3
 
         bodyDom.removeChild(document.querySelector('.mobile-share-bg'))
         bodyDom.removeChild(document.querySelector('.mobile-share-wrap'))
+
+        let nowTime = new Date().getTime()
        
         let shareWrapDiv = `<div class="mobile-share-bg"></div>
                             <div class="mobile-share-wrap">
@@ -1167,7 +1165,7 @@ from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&#3
                                 <div class="mobile-share-container">
                                     <div class="mobile-share-inner" >
                                         <div class="mobile-share-head">
-                                            <img src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/qiucode2020\/1710578659001.png">
+                                            <img id="poster-head-img" src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/qiucode2020\/1710578659001.png"  crossOrigin="anonymous">
                                             <h2 class="mobile-share-title">
                                                 <div class="mobile-share-title-bg"></div>
                                                 微调模型（Machine Learning 研习之十二）
@@ -1186,7 +1184,7 @@ from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&#3
                                         </div>
                                         <div class="mobile-share-footer">
                                             <div class="mobile-share-logo">
-                                                <img src="/static/front/images/qiu-logo.png">
+                                                <img src="/static/front/images/poster-logo.jpg">
                                             </div>
                                             <div class="mobile-share-qr">
                                                 <div class="mobile-share-qrbg">
@@ -1215,6 +1213,8 @@ from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&#3
         let shareHtml = document.createRange().createContextualFragment(shareWrapDiv);
 
         bodyDom.appendChild(shareHtml)
+
+
     }
 
   

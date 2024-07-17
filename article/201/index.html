@@ -1163,11 +1163,7 @@ package main import ( &#34;bytes&#34; &#34;image&#34; &#34;image/png&#34; // &#3
     </div>
 
 
-    
-    
-    
-     
-
+   
     
     <div id="share-info-hidden" 
         data-title="使用 golang 以及 Gin 框架，将上传的图片在不保存至本地的情况下添加水印，并上传至阿里云 OSS" 
@@ -1350,6 +1346,8 @@ package main import ( &#34;bytes&#34; &#34;image&#34; &#34;image/png&#34; // &#3
 
         bodyDom.removeChild(document.querySelector('.mobile-share-bg'))
         bodyDom.removeChild(document.querySelector('.mobile-share-wrap'))
+
+        let nowTime = new Date().getTime()
        
         let shareWrapDiv = `<div class="mobile-share-bg"></div>
                             <div class="mobile-share-wrap">
@@ -1357,7 +1355,7 @@ package main import ( &#34;bytes&#34; &#34;image&#34; &#34;image/png&#34; // &#3
                                 <div class="mobile-share-container">
                                     <div class="mobile-share-inner" >
                                         <div class="mobile-share-head">
-                                            <img src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/qiucode2020\/1703916489842.png">
+                                            <img id="poster-head-img" src="https:\/\/qiucodeimg.oss-rg-china-mainland.aliyuncs.com\/qiucode2020\/1703916489842.png"  crossOrigin="anonymous">
                                             <h2 class="mobile-share-title">
                                                 <div class="mobile-share-title-bg"></div>
                                                 使用 golang 以及 Gin 框架，将上传的图片在不保存至本地的情况下添加水印，并上传至阿里云 OSS
@@ -1376,7 +1374,7 @@ package main import ( &#34;bytes&#34; &#34;image&#34; &#34;image/png&#34; // &#3
                                         </div>
                                         <div class="mobile-share-footer">
                                             <div class="mobile-share-logo">
-                                                <img src="/static/front/images/qiu-logo.png">
+                                                <img src="/static/front/images/poster-logo.jpg">
                                             </div>
                                             <div class="mobile-share-qr">
                                                 <div class="mobile-share-qrbg">
@@ -1405,6 +1403,8 @@ package main import ( &#34;bytes&#34; &#34;image&#34; &#34;image/png&#34; // &#3
         let shareHtml = document.createRange().createContextualFragment(shareWrapDiv);
 
         bodyDom.appendChild(shareHtml)
+
+
     }
 
   
