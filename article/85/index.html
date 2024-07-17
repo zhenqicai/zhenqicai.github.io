@@ -1264,7 +1264,13 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let text = shareUrl
+        let currentUrl = window.location.href,text
+        if(currentUrl.indexOf('#') > -1 ){
+            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        }else{
+            text = currentUrl
+        }
+       
         new QRCode(wechatQrcode,text )
 
         

@@ -1224,7 +1224,13 @@
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let text = shareUrl
+        let currentUrl = window.location.href,text
+        if(currentUrl.indexOf('#') > -1 ){
+            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        }else{
+            text = currentUrl
+        }
+       
         new QRCode(wechatQrcode,text )
 
         

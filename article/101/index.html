@@ -1229,7 +1229,13 @@ cocos2d-x是用于快速编写游戏的引擎（可能有些游戏资深大佬�
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let text = shareUrl
+        let currentUrl = window.location.href,text
+        if(currentUrl.indexOf('#') > -1 ){
+            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        }else{
+            text = currentUrl
+        }
+       
         new QRCode(wechatQrcode,text )
 
         
