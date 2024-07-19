@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>深度学习 on 秋码分享</title>
+    <link>https://qiucode.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 深度学习 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 10 Apr 2024 11:12:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>错误分析 （Machine Learning研习十九）</title>
+      <link>https://qiucode.cn/article/199/</link>
+      <pubDate>Wed, 10 Apr 2024 11:12:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/199/</guid>
+      <description>错误分析 您将探索数据准备选项，尝试多个模型，筛选出最佳模型，使用 Grid SearchCV微调其超参数，并尽可能实现自动化。在此，我们假设您已经找到了一个有前途的模型，并希望找到改进它的方法。其中一种方法就是分析它所犯的错误类型。
+首先，查看混淆矩阵。为此，首先需要使用 cross_val_predict() 函数进行预测；然后可以像之前一样，将标签和预测值传递给 confusion_matrix()函数。不过，由于现在有 10 个类别而不是 2 个，混淆矩阵将包含大量数字，可能难以读取。
+混淆矩阵的彩色图更容易分析。要绘制这样的图表，请使用ConfusionMatrixDisplay.from_predictions() 函数，如下所示：
+from sklearn.metrics import ConfusionMatrixDisplayy_train_pred = cross_val_predict(sgd_clf, X_train_scaled, y_train, cv=3) ConfusionMatrixDisplay.from_predictions(y_train, y_train_pred) plt.show() 这就产生了 图1 中的左图。这个混淆矩阵看起来相当不错：大多数图像都在主对角线上，这意味着它们被正确分类了。请注意，对角线上第 5 行第 5 列的单元格看起来比其他数字略暗。这可能是因为模型对 5 的错误较多，也可能是因为数据集中 5 的数量比其他数字少。这就是为什么要对混淆矩阵进行归一化处理，将每个值除以相应（真实）类别中的图像总数（即除以行的总和）。只需设置 normalize=&amp;quot;true &amp;quot;即可。我们还可以指定 val ues_format=&amp;quot;.0%&amp;quot;参数来显示不带小数点的百分比。下面的代码将生成 图1 右侧的图表：
+ConfusionMatrixDisplay.from_predictions(y_train, y_train_pred, normalize=&amp;#34;true&amp;#34;, values_format=&amp;#34;.0%&amp;#34;) plt.show() 现在我们不难发现，只有 82% 的 5 图像被正确分类。模型在处理 5 的图像时最常见的错误是将其误判为 8：在所有 5 的图像中，有 10%的图像被误判为 8。但只有 2% 的 8 被误判为 5；混淆矩阵通常不是对称的！如果你仔细观察，就会发现很多数字都被错误地分类为 8，但从这张图上并不能一眼看出。如果想让错误更明显，可以尝试将正确预测的权重设为零。下面的代码就是这样做的，并生成了图2 左侧的图表：
+sample_weight = (y_train_pred !</description>
+    </item>
+    
+    <item>
+      <title>多类别分类器（Machine Learning研习十八）</title>
+      <link>https://qiucode.cn/article/198/</link>
+      <pubDate>Wed, 03 Apr 2024 15:43:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/198/</guid>
+      <description>多类别分类器 二元分类器可以区分两个类别，而多类别分类器（也称为多叉分类器）可以区分两个以上的类别。
+一些 Scikit-Learn 分类器（如 LogisticRegression、RandomForestClassifier 和 GaussianNB）能够原生处理多个类别。其他分类器则是严格的二进制分类器（如 SGDClassifier 和 SVC）。不过，您可以使用多种策略来使用多个二进制分类器执行多类分类。
+要创建一个能将数字图像分为 10 类（从 0 到 9）的系统，一种方法是训练 10 个二进制分类器，每个数字一个（0-检测器、1-检测器、2-检测器，以此类推）。然后，当您想对一幅图像进行分类时，您可以从每个分类器中得到该图像的判定分数，然后选择分类器输出分数最高的类别。这就是所谓的 &amp;ldquo;以一敌百&amp;rdquo;（OvR）策略，有时也称为 &amp;ldquo;以一敌众&amp;rdquo;（OvA）策略。
+另一种策略是为每一对数字训练一个二元分类器：一个用于区分 0 和 1，另一个用于区分 0 和 2，还有一个用于区分 1 和 2，以此类推。这就是所谓的一对一（OvO）策略。如果有 N 个类别，则需要训练 N × (N - 1) / 2 个分类器。对于 MNIST 问题，这意味着要训练 45 个二进制分类器！当你想对一幅图像进行分类时，你必须让图像通过所有 45 个分类器，看看哪个分类器赢得了最多的对决。OvO 的主要优势在于，每个分类器只需在训练集中包含其必须区分的两个类别的部分进行训练。
+有些算法（如支持向量机分类器）随训练集的大小而缩放，效果不佳。对于这些算法，OvO 是首选，因为在小训练集上训练多个分类器比在大训练集上训练少数分类器更快。不过，对于大多数二元分类算法来说，OvR 是首选。
+Scikit-Learn 会检测你是否尝试在多分类任务中使用二元分类算法，并根据算法自动运行 OvR 或 OvO。让我们使用 sklearn.svm.SVC 类支持向量机分类器来尝试一下。我们只对前 2,000 张图像进行训练，否则会耗费很长时间：
+from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:2000], y_train[:2000]) # y_train, not y_train_5 我们使用从 0 到 9 的原始目标类别（y_train），而不是 5 对其余目标类别（y_train_5）来训练 SVC。由于有 10 个类别（即多于 2 个），Scikit-Learn 使用 OvO 策略训练了 45 个二元分类器。现在，让我们对一幅图像进行预测：</description>
+    </item>
+    
+    <item>
+      <title>绘制特征曲线-ROC（Machine Learning 研习十七）</title>
+      <link>https://qiucode.cn/article/197/</link>
+      <pubDate>Fri, 29 Mar 2024 11:43:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/197/</guid>
+      <description>接收者操作特征曲线（ROC）是二元分类器的另一个常用工具。它与精确度/召回率曲线非常相似，但 ROC 曲线不是绘制精确度与召回率的关系曲线，而是绘制真阳性率（召回率的另一个名称）与假阳性率（FPR）的关系曲线。FPR（也称 &amp;ldquo;下降率&amp;rdquo;）是阴性实例被错误归类为阳性实例的比率。它等于 1 - 真阴性率 (TNR)，即正确分类为阴性的阴性实例的比率。TNR 也称为特异性。因此，ROC 曲线是灵敏度（召回率）与 1 - 特异性的关系图
+要绘制 ROC 曲线，首先要使用 roc_curve() 函数计算不同阈值的 TPR 和 FPR：
+from sklearn.metrics import roc_curve fpr, tpr, thresholds = roc_curve(y_train_5, y_scores) 然后可以使用 Matplotlib 绘制 FPR 与 TPR 的对比图。下面的代码可以绘制出 见下图 所示的图形。要找到与 90% 精度相对应的点，我们需要查找所需阈值的索引。由于在这种情况下阈值是按递减顺序排列的，因此我们在第一行使用 &amp;lt;= 而不是 &amp;gt;=：
+idx_for_threshold_at_90 = (thresholds &amp;lt;= threshold_for_90_precision).argmax() tpr_90, fpr_90 = tpr[idx_for_threshold_at_90], fpr[idx_for_threshold_at_90] plt.plot(fpr, tpr, linewidth=2, label=&amp;#34;ROC curve&amp;#34;) plt.plot([0, 1], [0, 1], &amp;#39;k:&amp;#39;, label=&amp;#34;Random classifier&amp;#39;s ROC curve&amp;#34;) plt.plot([fpr_90], [tpr_90], &amp;#34;ko&amp;#34;, label=&amp;#34;Threshold for 90% precision&amp;#34;) [.</description>
+    </item>
+    
+    <item>
+      <title>精确率（召回率）的权衡（Machine Learning研习十六）</title>
+      <link>https://qiucode.cn/article/196/</link>
+      <pubDate>Thu, 21 Mar 2024 19:43:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/196/</guid>
+      <description>精确率（召回率）的权衡 为了理解这种权衡，让我们看看 SGDClassifier 如何做出分类决策。 对于每个实例，它根据决策函数计算分数。 如果该分数大于阈值，则将该实例分配给正类； 否则它会将其分配给负类。 图 3-4 显示了从左侧最低分数到右侧最高分数的几个数字。 假设决策阈值位于中心箭头（两个 5 之间）：您会在该阈值右侧发现 4 个真阳性（实际为 5），以及 1 个假阳性（实际上为 6）。 因此，使用该阈值，精度为 80%（5 分之 4）。 但在 6 个实际的 5 中，分类器仅检测到 4 个，因此召回率为 67%（6 中的 4）。 如果提高阈值（将其移动到右侧的箭头），假阳性（6）会变成真阴性，从而提高精度（在本例中高达 100%），但一个真阳性会变成假阴性 ，将召回率降低至 50%。 相反，降低阈值会增加召回率并降低精确度。
+Scikit-Learn 不允许您直接设置阈值，但它允许您访问它用于进行预测的决策分数。 您可以调用其decision_function()方法，而不是调用分类器的predict()方法，该方法返回每个实例的分数，然后使用您想要根据这些分数进行预测的任何阈值：
+SGDClassifier 使用等于 0 的阈值，因此前面的代码返回与 Predict() 方法相同的结果（即 True）。 让我们提高门槛：
+这证实了提高阈值会降低召回率。 该图像实际上代表的是 5，当阈值为 0 时分类器会检测到它，但当阈值增加到 3,000 时分类器会错过它。
+y_scores = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3, method=&amp;#34;decision_function&amp;#34;) 有了这些分数，使用 precision_recall_curve() 函数计算所有可能阈值的精度和召回率（该函数添加最后精度 0 和最后召回率 1，对应于无限阈值）：
+from sklearn.</description>
+    </item>
+    
+    <item>
+      <title>对模型性能进行评估（Machine Learning 研习十五）</title>
+      <link>https://qiucode.cn/article/195/</link>
+      <pubDate>Fri, 15 Mar 2024 18:26:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/195/</guid>
+      <description>在上一篇我们已然训练了一个用于对数字图像识别的模型，但我们目前还不知道该模型在识别数字图像效率如何？所以，本文将对该模型进行评估。
+使用交叉验证衡量准确性 评估模型的一个好方法是使用交叉验证，让我们使用cross_val_score()函数来评估我们的 SGDClassifier 模型，使用三折的 k 折交叉验证。k-fold 交叉验证意味着将训练集分成 k 个折叠（在本例中是三个），然后训练模型 k 次，每次取出一个不同的折叠进行评估：
+当您看到这组数字，是不是感到很兴奋？毕竟所有交叉验证折叠的准确率（预测准确率）均超过了 95%。然而，在您兴奋于这组数字前，还是让我们来看看一个假分类器，它只是将每张图片归入最常见的类别，在本例中就是负类别（即非 5）：
+from sklearn.dummy import DummyClassifier dummy_clf = DummyClassifier() dummy_clf.fit(X_train, y_train_5) print(any(dummy_clf.predict(X_train))) # prints False: no 5s detected 您能猜出这个模型的准确度吗？让我们一探究竟：
+没错，它的准确率超过 90%！这只是因为只有大约 10% 的图片是 5，所以如果你总是猜测图片不是 5，你就会有大约 90% 的时间是正确的。比诺斯特拉达穆斯还准。
+这说明了为什么准确率通常不是分类器的首选性能指标，尤其是在处理偏斜 数据集时（即某些类别的出现频率远高于其他类别）。评估分类器性能的更好方法是查看混淆矩阵(CM)。
+实施交叉验证 与 Scikit-Learn 现成提供的功能相比，您有时需要对交叉验证过程进行更多控制。在这种情况下，你可以自己实现交叉验证。下面的代码与 Scikit-Learn 的 cross_val_score() 函数做了大致相同的事情，并会打印出相同的结果：
+from sklearn.model_selection import StratifiedKFold from sklearn.base import clone skfolds = StratifiedKFold(n_splits=3) # add shuffle=True if the dataset is # not already shuffled for train_index, test_index in skfolds.</description>
+    </item>
+    
+    <item>
+      <title>微调模型（Machine Learning 研习之十二）</title>
+      <link>https://qiucode.cn/article/192/</link>
+      <pubDate>Sat, 09 Mar 2024 14:59:44 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/192/</guid>
+      <description>现在正处于百模乱战的时期，对于模型微调，想必您是有所了解了，毕竟国外的大语言模型一开源，国内便纷纷基于该模型进行微调，从而开始宣称领先于某某、超越了谁。可到头来，却让人发现他们套壳了国外大语言模型对外开放的API。
+好了，我们不说国内各种大模型宣称超过了谁，毕竟，嘴巴长在别人脸上，我们管不了，也管不着，吹牛终将是会露馅的！
+当我们需要对开源大模型进行微调时，看看有几种方法可以做到这一点的！
+网格搜索 手动调整超参数，直到找到超参数值的完美组合。 这将是一项非常乏味的工作，而且您可能没有时间去探索多种组合。
+相反，您可以使用 Scikit-Learn 的 GridSearchCV 类来搜索您。 您需要做的就是告诉它您希望它试验哪些超参数以及要尝试哪些值，它将使用交叉验证来评估超参数值的所有可能组合。 例如，以下代码搜索 RandomForestRegressor 的最佳超参数值组合：
+from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&amp;#34;preprocessing&amp;#34;, preprocessing), (&amp;#34;random_forest&amp;#34;, RandomForestRegressor(random_state=42)), ]) param_grid = [{&amp;#39;preprocessing__geo__n_clusters&amp;#39;: [5, 8, 10], &amp;#39;random_forest__max_features&amp;#39;: [4, 6, 8]}, {&amp;#39;preprocessing__geo__n_clusters&amp;#39;: [10, 15], &amp;#39;random_forest__max_features&amp;#39;: [6, 8, 10]}, ] grid_search = GridSearchCV(full_pipeline, param_grid, cv=3, scoring=&amp;#39;neg_root_mean_squared_error&amp;#39;) grid_search.fit(housing, housing_labels) 请注意，您可以引用管道中任何估计器的任何超参数，即使该估计器嵌套在多个管道和列转换器的深处。 例如，当 Scikit-Learn 看到“preprocessing__geo__n_clusters”时，它会在双下划线处分割该字符串，然后在管道中查找名为“preprocessing”的估计器并找到预处理 ColumnTransformer。 接下来，它在此 ColumnTransformer 中查找名为“geo”的转换器，并找到我们在纬度和经度属性上使用的 ClusterSimilarity 转换器。 然后它找到该变压器的n_clusters超参数。 同样，random_forest__max_features指的是名为“random_forest”的估计器的max_features超参数，这当然是RandomForest模型。
+这个param_grid中有两个字典，因此GridSearchCV将首先评估第一个字典中指定的n_clusters和max_features超参数值的所有3×3=9个组合，然后它将尝试第一个字典中指定的所有2×3=6个超参数值组合 第二个字典。 因此，网格搜索总共将探索 9 + 6 = 15 种超参数值组合，并且每个组合都会对管道进行 3 次训练，因为我们使用的是 3 折交叉验证。 这意味着总共将有 15 × 3 = 45 轮训练！ 这可能需要一段时间，但是完成后您可以获得如下参数的最佳组合：</description>
+    </item>
+    
+  </channel>
+</rss>

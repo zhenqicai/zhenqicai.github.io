@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>基本类型 on 秋码分享</title>
+    <link>https://qiucode.cn/tags/%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/</link>
+    <description>Recent content in 基本类型 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 12 Dec 2022 22:08:10 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>玩以太坊链上项目的必备技能（基本类型转换以及推断-Solidity之旅六）</title>
+      <link>https://qiucode.cn/article/163/</link>
+      <pubDate>Mon, 12 Dec 2022 22:08:10 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/163/</guid>
+      <description>&lt;p&gt;某些情况下，编译器不支持&lt;code&gt;隐式转换&lt;/code&gt;，而这时，作为开发人员的您就不得不使用&lt;code&gt;强硬手段&lt;/code&gt;了。&lt;code&gt;显式转换&lt;/code&gt;可能会发生些您无法预料的状况，所以您需要繁琐的测试，看最终是否能达到您的要求。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go 语言中的基本类型以及变量声明与初始化（Let&#39;s Go 三）</title>
+      <link>https://qiucode.cn/article/123/</link>
+      <pubDate>Wed, 21 Sep 2022 13:39:14 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/123/</guid>
+      <description>&lt;p&gt;刚才只是声明了变量，并没有给他赋值，虽然可以只是只声明变量，而后赋值也是可以的。但可以在声明变量是并初始化变量，也就是给变量赋初始值。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

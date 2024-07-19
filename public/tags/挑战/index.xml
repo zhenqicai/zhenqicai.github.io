@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>挑战 on 秋码分享</title>
+    <link>https://qiucode.cn/tags/%E6%8C%91%E6%88%98/</link>
+    <description>Recent content in 挑战 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 27 Aug 2023 16:32:17 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E6%8C%91%E6%88%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>机机器学习的测试和验证（Machine Learning 研习之五）</title>
+      <link>https://qiucode.cn/article/182/</link>
+      <pubDate>Sun, 27 Aug 2023 16:32:17 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/182/</guid>
+      <description>&lt;p&gt;在此保留验证过程之后，您可以在完整的训练集（包括验证集）上训练最佳模型，这将为您提供最终模型。在这种情况下，需要记住的最重要的规则是，验证集和测试集都必须尽可能具有生产中预期使用的数据的代表性，因此它们应该完全由有代表性的图片组成:您可以对它们进行洗牌，将一半放在验证集中，另一半放在测试集中(确保在这两个集合中都没有重复或接近重复的数据)。在网络图片上对模型进行培训之后，如果您观察到模型在验证集上的性能令人失望，您将不知道这是因为您的模型超出了培训集，还是仅仅是由于网络图片和移动应用程序图片之间的不匹配。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>机器学习的主要挑战和任务（Machine Learning 研习之四）</title>
+      <link>https://qiucode.cn/article/181/</link>
+      <pubDate>Sun, 13 Aug 2023 15:12:38 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/181/</guid>
+      <description>&lt;p&gt;对于一个蹒跚学步的孩子来说，要知道什么是苹果，您只需要指着一个苹果说“苹果”(可能会重复这个过程几次)。现在孩子能够识别各种颜色和形状的苹果。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

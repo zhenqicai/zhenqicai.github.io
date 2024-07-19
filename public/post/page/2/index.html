@@ -1,0 +1,3341 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<title>Posts</title>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+ <meta name="format-detection" content="email=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta name="copyright" content="Copyright © 2018 qiucode.cn. All Rights Reserved.">
+<meta name="mediaid" content="秋码分享">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+
+
+<meta name="keywords" content="Hugo,Hugo主题,Java爱好者,个人博客,建站,人工智能,AI,ChatGPT,微服务,开源" />
+
+
+
+<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<meta name="site" content="https://qiucode.cn">
+
+
+
+<meta property="og:image" content="https://qiucode.cnimgs/icons/favicon.ico">
+<meta property="og:description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qiucode.cn">
+
+
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="Posts">
+
+
+<meta property="twitter:partner" content="ogwp">
+
+
+
+
+
+
+
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+<meta name="google-adsense-account" content="ca-pub-7289880982711264">
+
+<link rel="alternate" href="https://qiucode.cnfeed.xml" title="秋码分享" type="application/rss+xml"/>
+
+<link rel="shortcut icon" href="https://qiucode.cn/imgs/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="https://qiucode.cn/imgs/icons/apple-touch-icon.png" />
+
+
+
+
+<style>
+
+    @font-face {
+        font-family: "Kiwi Font";
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+        src: url("/fonts/fontawesome-webfont.woff2") format("woff2");
+    }
+ 
+    html {
+        font-family: 'Kiwi Font', 'PingFang SC', 'Noto Serif SC', 'HarmonyOS_Sans_SC_Medium', 'Fira Mono', 'Microsoft YaHei', Arial, sans-serif
+    }
+
+    html .Qc_header_above .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_header_below .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_header_searchout .Qc_container {
+        max-width: 1720px
+    }
+
+    html .Qc_main {
+        max-width: 980px
+    }
+
+    html .Qc_aside {
+        width: 260px
+    }
+
+    body::before {
+        background: #f0f0f0;
+        background: ;
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+<link rel="stylesheet" href="https://qiucode.cncss/global.min.css" />
+<link rel="stylesheet" href="https://qiucode.cncss/style.css" />
+<link rel="stylesheet" href="https://qiucode.cncss/theme.min.css" />
+
+<link rel="stylesheet" href="https://qiucode.cncss/font-awesome.min.css" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://qiucode.cncss/third-party/waline.css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://qiucode.cncss/word-cloud.css"/>
+<script src="https://qiucode.cnjs/third-party/wordcloud/wordcloud2.js"></script>
+
+
+<script type="module">
+    import { init } from 'https:\/\/qiucode.cnjs/third-party/comments/waline.mjs';
+  
+    init({
+      el: '.waline-container',
+      placeholder: "请不要吝啬您的评论 ヾ(≧▽≦*)o",
+      sofa: "瞧，这里没人，还不抢占第一的位置 (≧∀≦)ゞ",
+      pageview: true, 
+      comment: true, 
+      emoji: [
+        '//unpkg.com/@waline/emojis@1.1.0/weibo',
+        '//unpkg.com/@waline/emojis@1.1.0/bilibili',
+      ],
+      login: 'disable',
+      imgUploader: false,
+      wordLimit: 200,
+      requiredMeta: ['nick', 'mail'],
+      reaction: true,
+      reactionText: [ '点赞', '踩一下', '得意', '不屑', '尴尬', '睡觉'],
+      reactionTitle: "您认为这篇文章怎么样？",
+      dark: 'html[data-night="night"]',
+      serverURL: "comment.qiucode.cn",
+    });
+  </script>
+  
+
+
+
+
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7289880982711264" crossorigin="anonymous" data-checked-head="true"></script>
+
+
+
+
+ 
+ 
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+                
+ 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+	<svg aria-hidden="true" style="position: absolute; width: 0px; height: 0px; overflow: hidden;">
+		<symbol id="wi-back" viewBox="0 0 1024 1024">
+			<path
+				d="M425.6 363.264V192.256L126.4 491.52l299.328 299.392v-175.36c213.76 0 363.456 68.352 470.272 218.048-42.688-213.76-171.008-427.52-470.272-470.4">
+			</path>
+		</symbol>
+		<symbol id="wi-article" viewBox="0 0 1024 1024">
+			<path
+				d="M853.333333 938.666667H170.666667a42.666667 42.666667 0 0 1-42.666667-42.666667V128a42.666667 42.666667 0 0 1 42.666667-42.666667h682.666666a42.666667 42.666667 0 0 1 42.666667 42.666667v768a42.666667 42.666667 0 0 1-42.666667 42.666667zM298.666667 256v170.666667h170.666666V256H298.666667z m0 256v85.333333h426.666666v-85.333333H298.666667z m0 170.666667v85.333333h426.666666v-85.333333H298.666667z m256-384v85.333333h170.666666V298.666667h-170.666666z">
+			</path>
+		</symbol>
+		<symbol id="wi-loader" viewBox="0 0 1024 1024">
+			<path
+				d="M512 85.333333a42.666667 42.666667 0 0 1 42.666667 42.666667v128a42.666667 42.666667 0 0 1-85.333334 0V128a42.666667 42.666667 0 0 1 42.666667-42.666667z m0 640a42.666667 42.666667 0 0 1 42.666667 42.666667v128a42.666667 42.666667 0 0 1-85.333334 0v-128a42.666667 42.666667 0 0 1 42.666667-42.666667z m426.666667-213.333333a42.666667 42.666667 0 0 1-42.666667 42.666667h-128a42.666667 42.666667 0 0 1 0-85.333334h128a42.666667 42.666667 0 0 1 42.666667 42.666667zM298.666667 512a42.666667 42.666667 0 0 1-42.666667 42.666667H128a42.666667 42.666667 0 0 1 0-85.333334h128a42.666667 42.666667 0 0 1 42.666667 42.666667z m515.029333 301.696a42.666667 42.666667 0 0 1-60.330667 0l-90.496-90.496a42.666667 42.666667 0 0 1 60.330667-60.330667l90.496 90.453334a42.666667 42.666667 0 0 1 0 60.373333zM361.130667 361.130667a42.666667 42.666667 0 0 1-60.330667 0l-90.453333-90.453334a42.666667 42.666667 0 0 1 60.330666-60.373333l90.453334 90.496a42.666667 42.666667 0 0 1 0 60.330667zM210.346667 813.696a42.666667 42.666667 0 0 1 0-60.330667l90.496-90.496a42.666667 42.666667 0 1 1 60.330666 60.330667l-90.453333 90.496a42.666667 42.666667 0 0 1-60.373333 0zM662.869333 361.130667a42.666667 42.666667 0 0 1 0-60.330667l90.453334-90.496a42.666667 42.666667 0 0 1 60.373333 60.330667L723.2 361.130667a42.666667 42.666667 0 0 1-60.330667 0z">
+			</path>
+		</symbol>
+		<symbol id="wi-close" viewBox="0 0 1024 1024">
+			<path
+				d="M780.352 780.8c16.64-16.64 11.648-38.08-4.992-54.72L562.816 513.152l213.632-214.144c16.64-16.64 20.992-39.168 4.352-55.808s-39.168-12.288-55.808 4.352L511.296 461.632 298.304 248.64c-16.64-16.64-38.464-22.08-55.104-5.44-16.64 16.64-12.224 39.104 4.416 55.744l212.992 212.992-213.12 213.056c-16.64 16.64-20.928 39.168-4.288 55.808s39.168 12.288 55.808-4.352l213.12-213.056 212.928 212.992c16.192 16.192 39.104 20.608 55.296 4.416z">
+			</path>
+		</symbol>
+		<symbol id="wi-weibo" viewBox="0 0 1024 1024">
+			<path
+				d="M747.712 485.44c53.888 16.768 113.92 57.024 113.92 128.192 0 117.888-169.856 266.24-425.152 266.24-194.752 0-393.792-94.464-393.792-249.728 0-81.152 51.328-175.04 139.776-263.552C300.8 248.384 438.656 194.496 490.496 246.464c22.912 22.912 25.088 62.464 10.432 109.696-7.616 23.808 22.4 10.688 22.4 10.688 95.552-40 179.008-42.432 209.408 1.152 16.256 23.168 14.656 55.68-0.32 93.44-6.976 17.344 2.048 20.096 15.36 24zM437.12 824.192c155.328-15.424 273.088-110.592 263.104-212.608-10.112-102.016-144.32-172.288-299.648-156.864-155.328 15.36-273.216 110.464-263.104 212.48 10.112 102.144 144.256 172.288 299.648 156.992zM262.848 616c32.128-65.152 115.712-101.952 189.696-82.752 76.48 19.776 115.456 91.904 84.288 162.112-31.744 71.808-122.944 110.016-200.32 85.056-74.752-24.128-106.368-97.92-73.664-164.416z m61.696 110.4c24.192 10.944 56.512 0.576 71.488-23.488 14.72-24.192 6.976-51.904-17.344-62.208-24.064-10.112-55.104 0.32-70.016 23.552-15.104 23.36-8.064 51.328 15.872 62.144z m94.08-77.12c9.344 3.904 21.376-0.512 26.816-9.856 5.248-9.408 1.92-19.904-7.616-23.424-9.216-3.584-20.736 0.768-26.112 9.92-5.248 9.152-2.304 19.52 6.912 23.36z m429.312-243.968a30.912 30.912 0 1 1-58.816-19.2 58.88 58.88 0 0 0-68.672-76.032 30.912 30.912 0 0 1-12.928-60.416 120.96 120.96 0 0 1 140.416 155.648zM680.832 124.8a248.768 248.768 0 0 1 288.576 320 35.776 35.776 0 0 1-45.248 23.04 36.032 36.032 0 0 1-23.104-45.376 176.768 176.768 0 0 0-205.12-227.264 36.032 36.032 0 0 1-15.104-70.4z">
+			</path>
+		</symbol>
+		<symbol id="wi-wechat" viewBox="0 0 1024 1024">
+			<path
+				d="M792.512 584.96a38.848 38.848 0 0 0 38.272-38.272 38.208 38.208 0 0 0-38.272-38.336 38.208 38.208 0 0 0-38.336 38.336c0 21.312 17.088 38.336 38.336 38.336z m-188.8 0a38.848 38.848 0 0 0 38.272-38.272 38.208 38.208 0 0 0-38.272-38.336 38.144 38.144 0 0 0-38.336 38.336c0 21.312 17.024 38.336 38.336 38.336z m280.192 215.04a14.784 14.784 0 0 0-7.36 15.808c0 2.048 0 4.16 1.088 6.272 4.16 17.792 12.544 46.144 12.544 47.232 0 3.072 1.024 5.184 1.024 7.296a9.408 9.408 0 0 1-9.408 9.408c-2.112 0-3.2-1.024-5.248-2.048l-61.824-35.648a34.112 34.112 0 0 0-14.72-4.224c-3.072 0-6.208 0-8.32 1.024a331.52 331.52 0 0 1-92.16 12.608c-156.16 0-281.92-104.832-281.92-234.88 0-129.984 125.696-234.88 281.856-234.88s281.856 104.896 281.856 234.88c0 70.272-37.696 134.208-97.408 177.28V800z m-172.544-454.4a388.48 388.48 0 0 0-11.904-0.256c-178.112 0-324.544 122.048-324.544 277.568 0 23.616 3.392 46.464 9.728 68.224h-3.84a425.088 425.088 0 0 1-110.208-15.68c-3.2-1.088-6.336-1.088-9.472-1.088a35.52 35.52 0 0 0-17.856 5.248l-74.56 42.88c-2.112 1.088-4.224 2.176-6.336 2.176a11.648 11.648 0 0 1-11.52-11.52c0-3.2 1.024-5.248 2.112-8.448 1.024-1.024 10.496-35.584 15.744-56.448 0-2.176 1.024-5.248 1.024-7.36a23.68 23.68 0 0 0-9.408-18.88C87.808 570.688 42.688 494.336 42.688 409.6 42.688 253.632 195.008 128 381.888 128c160.64 0 295.68 92.544 329.472 217.536z m-219.904 17.792a44.096 44.096 0 0 0 43.776-43.776 43.456 43.456 0 0 0-43.776-43.776 43.456 43.456 0 0 0-43.776 43.776c0 24.448 19.328 43.776 43.776 43.776z m-224.384 0a44.16 44.16 0 0 0 43.776-43.776 43.52 43.52 0 0 0-43.776-43.776 43.52 43.52 0 0 0-43.776 43.776 43.52 43.52 0 0 0 43.776 43.776z">
+			</path>
+		</symbol>
+		<symbol id="wi-qq" viewBox="0 0 1024 1024">
+			<path
+				d="M849.6 619.904a1364.352 1364.352 0 0 0-28.8-80.448L782.08 443.52c0-1.088 0.512-19.968 0.512-29.696 0-163.84-78.208-328.576-270.528-328.576-192.32 0-270.528 164.736-270.528 328.576 0 9.728 0.512 28.608 0.512 29.696L203.2 539.52c-10.624 27.392-21.12 55.936-28.8 80.448-36.736 116.8-24.832 165.12-15.744 166.208 19.392 2.304 75.52-87.936 75.52-87.936 0 52.224 27.2 120.448 86.016 169.664-21.952 6.72-48.896 17.024-66.304 29.632-15.552 11.392-13.568 23.04-10.752 27.776 12.288 20.48 211.392 13.056 268.928 6.656 57.472 6.4 256.576 13.824 268.864-6.72 2.816-4.672 4.8-16.32-10.816-27.712-17.344-12.608-44.288-22.912-66.304-29.696 58.816-49.152 86.016-117.376 86.016-169.6 0 0 56.128 90.24 75.52 87.872 9.088-1.088 20.928-49.344-15.744-166.144">
+			</path>
+		</symbol>
+
+		<symbol id="wi-qzone" viewBox="0 0 1024 1024">
+			<path
+				d="M312.26 677.98666667c22.08-24.6 305.52-182.4 305.52-182.4l-370.14-49.2 495-5.82s17.64 14.46 0 34.8c-17.58 20.22-280.5 198.3-280.5 198.3l298.92 23.64-9.06-52.32 240-230.58-331.68-47.46L512 70.66666667 363.68 366.94666667 32 414.40666667l240 230.58L215.36 970.66666667 512 816.94666667 808.64 970.66666667l-46.5-267.36-449.88 19.62s-22.02-20.28 0-44.94z m439.74-10.8l1.26 6.96 58.74-2.46-60-4.5z">
+			</path>
+		</symbol>
+
+		<symbol id="wi-share" viewBox="0 0 1024 1024">
+			<path
+				d="M768 686.08c-32.426667 0-61.44 12.8-83.626667 32.853333L380.16 541.866667c2.133333-9.813333 3.84-19.626667 3.84-29.866667s-1.706667-20.053333-3.84-29.866667l300.8-175.36c23.04 21.333333 53.333333 34.56 87.04 34.56 70.826667 0 128-57.173333 128-128s-57.173333-128-128-128-128 57.173333-128 128c0 10.24 1.706667 20.053333 3.84 29.866667L343.04 418.56C320 397.226667 289.706667 384 256 384c-70.826667 0-128 57.173333-128 128s57.173333 128 128 128c33.706667 0 64-13.226667 87.04-34.56l303.786667 177.493333c-2.133333 8.96-3.413333 18.346667-3.413334 27.733334 0 68.693333 55.893333 124.586667 124.586667 124.586666s124.586667-55.893333 124.586667-124.586666-55.893333-124.586667-124.586667-124.586667z">
+			</path>
+		</symbol>
+		
+	</svg>
+	 
+	<header class="kiwi_header"><style>
+   
+
+
+     
+
+
+    .kiwi_container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-direction:normal}
+
+    .kiwi_header__above-logo svg,.kiwi_header__above-nav .kiwi_dropdown__menu a::after{
+    display:none}
+    
+    #Joe .kiwi_leaving-list .emoji-item,#Joe .newreply .emoji-item{display:inline-block;margin:0 2px;padding:0;width:24px;height:24px;overflow:hidden}@media (max-width:860px){#Joe .kiwi_leaving-list .emoji-item,#Joe .newreply .emoji-item{-webkit-transform:scale(.8);transform:scale(.8)}}#Joe .kiwi_leaving-list .emoji-item img,#Joe .newreply .emoji-item img{display:block;width:24px;height:24px;border:0}#Joe .kiwi_leaving-list .emoji-animate,#Joe .newreply .emoji-animate{position:relative}#Joe .newreply .emoji-animate .img{cursor:default}#Joe .kiwi_leaving-list .emoji-animate .img{cursor:default;width:24px;height:24px}#Joe .kiwi_leaving-list .emoji-animate .img:hover,#Joe .kiwi_leaving-list .emoji-img:hover,#Joe .newreply .emoji-animate .img:hover,#Joe .newreply .emoji-img:hover{-webkit-transform:translateY(0);transform:translateY(0)}#Joe .newreply .emoji-img{position:relative;cursor:default}#Joe .kiwi_leaving-list .emoji-img{position:relative;cursor:default;width:20px;height:20px}#Joe .newreply .emoji-animate{top:5px}#Joe .newreply .emoji-animate .img{width:24px;height:24px}#Joe .newreply .emoji-img{top:-3px;width:20px;height:20px}.kiwi_container{-webkit-box-orient:horizontal;-ms-flex-direction:row;flex-direction:row;width:100%;margin:0 auto 30px;padding:0 15px}.kiwi_container.revert{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.kiwi_container.revert .kiwi_aside{margin-left:0;margin-right:15px}.kiwi_container img{max-width:100%}.kiwi_container pre code{overflow-x:auto}.kiwi_container code:not([class]){display:inline-block;font-size:13px;color:var(--code);margin:2px 5px;padding:0 8px;white-space:normal;text-indent:0;-webkit-user-select:auto;-moz-user-select:auto;-ms-user-select:auto;user-select:auto;vertical-align:baseline;word-break:break-word;background:var(--code-background);border-radius:var(--radius-inner)}.kiwi_container .code-toolbar{position:relative;margin:20px 0;overflow:hidden;-webkit-box-shadow:1px 1px 5px 0 var(--shadow-code);box-shadow:1px 1px 5px 0 var(--shadow-code);border-radius:8px}.kiwi_container .code-toolbar .toolbar{pointer-events:none;display:none;opacity:1;left:0;right:0;top:0;z-index:unset;height:30px;line-height:30px;text-align:center}.kiwi_container .code-toolbar .toolbar .toolbar-item{opacity:1;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.kiwi_container .code-toolbar .toolbar .toolbar-item span{font-weight:700;font-size:14px;color:#999;background:0 0;border:0;-webkit-box-shadow:none;box-shadow:none}.kiwi_container .code-toolbar .toolbar .toolbar-item span:hover{color:#999}.kiwi_container .code-toolbar .toolbar .toolbar-item:last-child{display:none}.kiwi_container .code-toolbar .toolbar .autofold-tip{padding-left:5px;font-size:12px}.kiwi_container .code-toolbar pre[class*=language-]{position:relative;margin:0;padding:20px 0 0;-webkit-user-select:auto;-moz-user-select:auto;-ms-user-select:auto;user-select:auto;font-size:16px;overflow:hidden;white-space:pre;text-shadow:none;border-radius:8px}.kiwi_container .code-toolbar pre[class*=language-] code[class*=language-]{display:block;margin-bottom:0;overflow-x:auto;-webkit-overflow-scrolling:touch;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding:0 12px 12px 18px;border-radius:0 0 8px 8px;text-shadow:none}.kiwi_container .code-toolbar pre[class*=language-] code[class*=language-] .token.operator,.kiwi_container .code-toolbar pre[class*=language-] code[class*=language-] .token.string{background:0 0}.kiwi_container .code-toolbar pre[class*=language-] .line-numbers-rows{left:0;top:0;bottom:0;padding-top:12px;border:0}.kiwi_container .code-toolbar pre[class*=language-] .code-expander,.kiwi_container .code-toolbar pre[class*=language-] .copy-button{cursor:pointer;position:absolute;right:10px;top:5px;z-index:2;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-size:14px;color:#999;-webkit-transition:all .25s;transition:all .25s}.kiwi_container .code-toolbar pre[class*=language-] .code-expander:hover,.kiwi_container .code-toolbar pre[class*=language-] .copy-button:hover{-webkit-filter:brightness(1.2);filter:brightness(1.2)}.kiwi_container .code-toolbar pre[class*=language-] .copy-button{top:3px;z-index:5;font-weight:700;-webkit-transition:opacity .25s;transition:opacity .25s}.kiwi_container .code-toolbar pre[class*=language-].c_title+.toolbar{display:block}.kiwi_container .code-toolbar pre[class*=language-].c_title code{padding:12px 12px 12px 18px}.kiwi_container .code-toolbar pre[class*=language-].c_hr{padding:30px 0 0}.kiwi_container .code-toolbar pre[class*=language-].c_hr:after{position:absolute;top:30px;z-index:1;content:"";width:100%;height:1px;background:#d8d8d8;mix-blend-mode:overlay}.kiwi_container .code-toolbar pre[class*=language-].c_hr code{padding:12px 12px 14px 18px}.kiwi_container .code-toolbar pre[class*=language-].c_macdot:before{content:"";position:absolute;top:9px;left:12px;z-index:1;width:12px;height:12px;border-radius:50%;background:#fc625d;-webkit-box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;box-shadow:20px 0 #fdbc40,40px 0 #35cd4b}.kiwi_container .code-toolbar pre[class*=language-].c_newline code{white-space:pre-wrap;word-break:break-all}.kiwi_container .code-toolbar pre[class*=language-].c_hover_tools .code-expander,.kiwi_container .code-toolbar pre[class*=language-].c_hover_tools .copy-button{pointer-events:none;opacity:0}.kiwi_container .code-toolbar pre[class*=language-].c_hover_tools:hover .code-expander,.kiwi_container .code-toolbar pre[class*=language-].c_hover_tools:hover .copy-button{pointer-events:auto;opacity:1}.kiwi_container .code-toolbar pre[class*=language-].c_copy,.kiwi_container .code-toolbar pre[class*=language-].c_copy code{-webkit-user-select:auto;-moz-user-select:auto;-ms-user-select:auto;user-select:auto}.kiwi_container .code-toolbar pre[class*=language-].c_copy .code-expander{right:40px}.kiwi_container .code-toolbar pre[class*=language-].line-numbers code{padding:12px 12px 16px 54px}.kiwi_container .code-toolbar pre[class*=language-].close{height:30px}.kiwi_container .code-toolbar pre[class*=language-].close .code-expander{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.kiwi_container .code-toolbar pre[class*=language-].close:after{visibility:hidden}.kiwi_main{min-width:0;-webkit-box-flex:1;-ms-flex:1;flex:1;padding-bottom:15px}.kiwi_dropdown{position:relative}.kiwi_dropdown__link{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.kiwi_dropdown__link-icon{-webkit-transition:-webkit-transform .35s;transition:transform .35s;transition:transform .35s,-webkit-transform .35s;margin-left:-12px}.kiwi_dropdown__menu{position:absolute;left:50%;visibility:hidden;z-index:5;border-top:3px solid var(--theme);-webkit-transform-origin:top;transform-origin:top;background:var(--sib-background);-webkit-box-shadow:0 0 10px rgba(0,0,0,.15);box-shadow:0 0 10px rgba(0,0,0,.15);border-radius:0 0 var(--radius-inner) var(--radius-inner);padding:10px 0;opacity:0;-webkit-transform:translateX(-50%) perspective(600px) rotateX(-45deg);transform:translateX(-50%) perspective(600px) rotateX(-45deg);-webkit-transition:opacity .35s,visibility .35s,-webkit-transform .35s;transition:opacity .35s,visibility .35s,transform .35s;transition:opacity .35s,visibility .35s,transform .35s,-webkit-transform .35s}.kiwi_dropdown__menu::before{content:"";position:absolute;top:-10px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:7px solid var(--theme)}.kiwi_dropdown.active .kiwi_dropdown__link-icon{-webkit-transform:rotate(-180deg);transform:rotate(-180deg)}.kiwi_dropdown.active .kiwi_dropdown__menu{visibility:visible;opacity:1;-webkit-transform:translateX(-50%) perspective(600px) rotateX(0);transform:translateX(-50%) perspective(600px) rotateX(0)}.kiwi_header{position:relative;z-index:100;height:60px}.kiwi_header .kiwi_container{margin:0 auto}.kiwi_header .full{max-width:100%!important}
+    
+    .kiwi_header__above{position:fixed;top:0;z-index:6;width:100%;background:var(--background);-webkit-box-shadow:0 2px 10px 0 rgba(0,0,0,.2);box-shadow:0 2px 10px 0 rgba(0,0,0,.2);-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);will-change:opacity,transform;-webkit-transition:opacity,-webkit-transform .35s;transition:opacity,transform .35s;transition:opacity,transform .35s,-webkit-transform .35s}
+    
+    .kiwi_header__above .kiwi_container{-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;min-height:44px;max-width:auto!important}
+    
+    .kiwi_header__above-logo{position:relative;height:60px;margin-right:10px;padding-right:18px}
+    
+    .kiwi_header__above-logo img{min-width:40px;max-width:150px;height:40px;-o-object-fit:cover;object-fit:cover}
+    
+    .kiwi_header__above-logo::after{content:"";position:absolute;top:50%;right:0;width:1px;height:20px;background:var(--classC);-webkit-transform:translateY(-50%);transform:translateY(-50%)}
+    
+    .kiwi_header__above-logo,.kiwi_header__above-nav,.kiwi_header__above-nav .item{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+    
+    .kiwi_header__above-nav .item{cursor:pointer;position:relative;height:60px;line-height:60px;font-size:15px;padding:0 8px;margin-right:10px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;white-space:nowrap;color:var(--main);-webkit-transition:color .35s;transition:color .35s}
+    
+    .kiwi_header__above-nav .item>i{display:inline-block;margin-right:4px;font-size:18px;-webkit-transition:-webkit-transform .5s;transition:transform .5s;transition:transform .5s,-webkit-transform .5s}
+    
+    .kiwi_header__above-nav .item:last-child{margin-right:0}
+    
+    .kiwi_header__above-nav .item::after{opacity:0;position:absolute;bottom:0;left:6px;right:6px;content:"";height:3px;-webkit-transform:scaleX(.25);transform:scaleX(.25);background:var(--theme);border-radius:6px 6px 0 0;-webkit-transition:opacity .5s,-webkit-transform .5s;transition:opacity .5s,transform .5s;transition:opacity .5s,transform .5s,-webkit-transform .5s}
+    
+    
+    .kiwi_header__above-nav .item.current,.kiwi_header__above-nav .item:hover{color:var(--theme)}
+    
+    .kiwi_header__above-nav .item.current::after,.kiwi_header__above-nav .item.current:hover::after{opacity:1;-webkit-transform:scaleX(1);transform:scaleX(1)}
+    
+    .kiwi_header__above-nav .item:hover::after{opacity:.3;-webkit-transform:scaleX(.7);transform:scaleX(.7)}
+    
+    .kiwi_header__above-nav .item:hover+.joe-icon-arrow-down,.kiwi_header__above-nav .kiwi_dropdown.active .kiwi_dropdown__link a,.kiwi_header__above-nav .kiwi_dropdown.active .kiwi_dropdown__link i{color:var(--theme)!important}
+    
+    .kiwi_header__above-nav.active-shadow .item.current{text-shadow:0 4px 20px var(--theme)}
+    
+    .kiwi_header__above-nav.active-animate .item:hover .m-icon{-webkit-animation:dung .3s .12s ease;animation:dung .3s .12s ease}
+    
+    .kiwi_header__above-nav .kiwi_dropdown{margin-right:15px}
+    
+    .kiwi_header__above-nav .kiwi_dropdown__link a{height:60px;line-height:60px;font-size:15px;padding-left:8px;padding-right:3px;-webkit-transition:color .35s;transition:color .35s;white-space:nowrap;color:var(--main)}
+    
+    .kiwi_header__above-nav .kiwi_dropdown__menu{min-width:90px;max-width:200px;text-align:center}
+    
+    .kiwi_header__above-nav .kiwi_dropdown__menu a{display:block;height:34px;margin-right:0;line-height:34px;color:var(--classF);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 15px;-webkit-transition:color .35s,background .35s;transition:color .35s,background .35s}
+    
+    .kiwi_header__above-nav .kiwi_dropdown__menu a.current,.kiwi_header__above-nav .kiwi_dropdown__menu a:hover{color:var(--theme);background:var(--sib)}
+    
+    .kiwi_header__above-nav .kiwi_dropdown .item:hover:after,.kiwi_header__above-nav .kiwi_dropdown.active .kiwi_dropdown__link a::after,.kiwi_header__above-nav .kiwi_dropdown.active .kiwi_dropdown__link i::after{display:none}.kiwi_header__above-nav .kiwi_nav_sub-li{position:relative;height:34px}.kiwi_header__above-nav .kiwi_nav_sub-li .m-icon{vertical-align:bottom}
+    
+    .kiwi_header__above-nav .kiwi_nav_sub-li:hover .kiwi_nav_sub{visibility:visible;opacity:1;-webkit-transform:translateX(0) perspective(600px) rotateY(0);transform:translateX(0) perspective(600px) rotateY(0)}
+    
+    .kiwi_header__above-nav .kiwi_nav_sub{visibility:hidden;z-index:10;-webkit-transform-origin:top;transform-origin:top;opacity:0;position:relative;left:100%;top:-34px;padding-left:7px;-webkit-box-shadow:7px 3px 8px 0 rgba(0,0,0,.15);box-shadow:7px 3px 8px 0 rgba(0,0,0,.15);border-radius:0 var(--radius-inner) var(--radius-inner) 0;-webkit-transform:translateX(-20%) perspective(600px) rotateY(-45deg);transform:translateX(-20%) perspective(600px) rotateY(-45deg);-webkit-transition:opacity .35s,visibility .35s,-webkit-transform .35s;transition:opacity .35s,visibility .35s,transform .35s;transition:opacity .35s,visibility .35s,transform .35s,-webkit-transform .35s}
+    .kiwi_header__above-nav .kiwi_nav_sub::before{position:absolute;top:10px;left:0;content:"";-webkit-transform:translateX(-50%);transform:translateX(-50%);width:0;height:0;border:7px solid transparent;border-right-color:var(--theme)}
+    .kiwi_header__above-nav .kiwi_nav_sub::after{position:absolute;top:0;left:7px;content:"";width:2px;height:100%;background:var(--theme)}.kiwi_header__above-nav .kiwi_nav_sub li{background:var(--sib-background)}.kiwi_header__above-search,.kiwi_header__above-search-mobile{position:relative;margin-left:auto;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.kiwi_header__above-search .input,.kiwi_header__above-search-mobile .input{background:var(--classC);width:170px;height:34px;border:1px solid transparent;padding:0 14px 0 16px;color:var(--routine);-webkit-transition:width .35s,border-color .35s,padding-right .35s;transition:width .35s,border-color .35s,padding-right .35s;border-radius:17px 0 0 17px}.kiwi_header__above-search .input:focus,.kiwi_header__above-search-mobile .input:focus{background:var(--background);border-color:var(--theme);padding-right:28px;width:170px}.kiwi_header__above-search .input:focus~.icon,.kiwi_header__above-search-mobile .input:focus~.icon{-webkit-transform:translate3d(0,-50%,0) rotateY(180deg);transform:translate3d(0,-50%,0) rotateY(180deg)}.kiwi_header__above-search .submit,.kiwi_header__above-search-mobile .submit{position:relative;z-index:1;width:50px;height:34px;color:#fff;border:0;background:var(--theme);border-radius:0 17px 17px 0}.kiwi_header__above-search .submit i,.kiwi_header__above-search-mobile .submit i{-webkit-transform-origin:right bottom;transform-origin:right bottom;font-size:20px}.kiwi_header__above-search .submit:hover i,.kiwi_header__above-search-mobile .submit:hover i{-webkit-animation:swag .3s ease infinite alternate;animation:swag .3s ease infinite alternate}.kiwi_header__above-search .icon,.kiwi_header__above-search-mobile .icon{position:absolute;top:50%;right:44px;width:28px;height:38px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAmCAYAAADX7PtfAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAHKElEQVRYw93Xe3DNdxrH8ecXiSK7i1qWFWW3rekiE2x3VEemtkkVVbWy4jY6atma2YpS6rJoozvbpRF1qW1EEYIk5xZE5EKE3CQi0SB30VwEIeeWnDi3nPf+kUNTE1R3mNn945n5nZkz8zrP53y/39/3EUCeZsn/HCgi80Rky1MDn/H2vjB6SpBVRMb9V6CI+InIBhE58bOez5b9xm9E0wu//0NTr/4+9SKyX0TGicjiP320kpBd+xCRv/0kUFEUf49OnfJGBwWzWn3UcfCGSa8xO1zxFoi3gLbJyZb8S/QeOIhRb0/hiA1GvjkREfF9bFBEQv0C3ySyrIaEO5DjaCXFYkdttKEyWFEbrKiNNjRmBztLrrIqVsfAYb507tJVryjKi48FisiK8Qs/IL4FVEYbOTY7l3FSjJNCp4PDpnZoOzi+BSKKq+j3wostiqK8/KPBv27+6pja9H03uXYHl3FwyeWgGCcFTscPwXalMdnZU1VPn4GDTCLS90eB2ibHHpXRhtpgRWWwkmqxU4yTEpwcvaUno7kZ7f1dtitds4tVcYcRkZMiskhRlCEPBdUG2/a7oNpoQ2Oyc8zUwrsp+QREp7CxpA6N0YbaaENtvBtrW2lMdsIy8xn00u/4aPly9h04QEBgICKy+oGgymiNUBltaN2xflxwlUmqdArKvyX0RBZf1ejbge5y/zi10cbg4SO4Ul3N8dRUqmprcQETJ01CUZQxHXdotH+jMtpYdLact9RniMzOxX6rDAzlrEzOIKLO+EPMXRqTnbCs88yePQuA18aOpWuPXuyIiKCouBgROfQA0Bq1tqiGsPRsMFbiaigBfQXoy1mZnMnOa6YOMBsHb7ewKbuAWTNnAhAQGEjPPn3JyMmh2W5HUZScDkGd0b5/RuoFqmtLiNj8GSLCxcwEMFTw95RM/l1ruBepxtTW2YKMYiYdPouuycHg4SOpqa8nTqPhclkZDuBcYSEiEtMxaLZHByXmU1qUiYeHByLCsZhIMFayPfMs/yy9TrzZQZzByqeX6pigzSLqbB5z4k+jNTvYcCqbvj4++i/Cwi7kFZxvidq/3+UzYAAi8l6HYLzZfiAoIZfoiHBEBBGhNDcZ9BXkln5LoCaLoMR8punOsCM7j8b6EjBWsDjxDHtuNKE1O9h95RrT14QyJngm01at48u8IkTktPtg6da9e/dffb8PTXbVVG0mqRva4pw8PgBMV6CxHBrLuVhZRMO1Ypw3LrPt8zXYrl8CfTmrUzL5ut2C0jY50TW3om1yEm+B/oNf0rvBYfPff//59pEefUd9BtKPU5oQS+vtMmgsx3W7DJf7GfNV5kyfgoiQpNoNxko+Tsog8u6Cuu8wiLfAb/2Gt7hBRUR6tAdTpmozQV/etjrbYXfBxspzKEpb3MU5x8FYwUxdOirDfXvTvT+1TU569vt17YP+w+RJ0ae4WdUWlcsdJfqKtmd9BWcSDiIijHvdH8xVVFdfYmpiPjqznQP1BmIamu6dRBqTnfCcQkQkukPQPyZdNToqzfZWaLKzuvwiGCpoLcrAnqS917G1/iKfL5iLMUkH3xWiK8hnWX4Vhy0uJi9ayqpYHRqzo+1stbgIePc9u4i83iE4O7128cvRp1mRZ2Hy+qRWQ25aW2d1RW0x3+04/zScTITcNJYmZxFxzcj+2lsM8vUjrrHlXrRR1Q107tLlYodnqaIo2iHDhlp8g+bzaSkcqbO0xiXn80boCdbtOkXuuUJuVRdjqbuI42YxNXmpLFkwh6FvTOCoDdeYP09nVazOpWtuRW20oWtu5Z0PlyMiwR2CIrJbG7WNyPD1DBrxCoEh61snhEYwcc1WXvnLelffgOX6gcE7VN1+3sM2cuwfEU9PRCRtftgWQnbupVf/AQSvXMta3TE0ZgeHbprx7tGz6oGvJxHx8vDyOr35sxWYrp4n8VAEsZGbiNsVTvy+7TzXr0+j+3sHRkx4G1GUnc90885bGhWDh4dHlqIo10Xk9oqDanQWF/M3bUVEPnjo+/CTEkJeXbgOX9+h/GPlIrR7t3I8difHYiLp3evZanf03iIyQkR6iKcXnl6dTymK0lVRFD8RmTpj7XqO2mDIq/6ISM+HgicbnPM+r4TVhS1M26IhYNlGxixcg4hiFpHnOrjd/fL+z8P8XyPmtoVOXl6Zj7xinLrpnLux3EXaDQff1ED4dxD8ZRwisvYxbuHquf8KR0Q2PRJcdcm5JL3BwR2blRablVZg1KhRLkVRej8GOFg6dUJEFj0S3F3NYpPVRrPNSovDweGEBERkx0+YNWYoivL8I8E7Tue8O04nFrsdBzDG3x8R8Xli01NISMiSrdu2kZGTzd7oaERk7xMd12ZFJC0b/8nX9Brsh4ikiUj3Jwpes/Ph3qzLeHb7RbGIeD7xgfRIQsIyH5/+RkVR+j+VCXjkyJHdFEXx/r+b8f8DZyW8Jd6/P38AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDItMjBUMTE6NTI6MjQrMDA6MDA4bfPmAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTAyLTIwVDExOjUyOjI0KzAwOjAwSTBLWgAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAASUVORK5CYII=);background-size:100% 100%;-webkit-transition:-webkit-transform .35s;transition:transform .35s;transition:transform .35s,-webkit-transform .35s;-webkit-transform:translate3d(100%,-50%,0) rotateY(180deg);transform:translate3d(100%,-50%,0) rotateY(180deg)}.kiwi_header__above-search .result,.kiwi_header__above-search-mobile .result{position:absolute;z-index:2;top:60px;left:0;right:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;visibility:hidden;opacity:0;background:var(--sib-background);-webkit-box-shadow:0 0 10px rgba(0,0,0,.15);box-shadow:0 0 10px rgba(0,0,0,.15);border-radius:var(--radius-inner);-webkit-transition:visibility .35s,opacity .35s,-webkit-transform .35s;transition:visibility .35s,opacity .35s,transform .35s;transition:visibility .35s,opacity .35s,transform .35s,-webkit-transform .35s;-webkit-transform:translate3d(0,15px,0);transform:translate3d(0,15px,0)}.kiwi_header__above-search .result.active,.kiwi_header__above-search-mobile .result.active{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);opacity:1;visibility:visible}.kiwi_header__above-search .result .item,.kiwi_header__above-search-mobile .result .item{height:40px;line-height:40px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;overflow:hidden;padding:0 10px;border-bottom:1px solid var(--classD);-webkit-transition:background .35s;transition:background .35s}.kiwi_header__above-search .result .item:last-child,.kiwi_header__above-search-mobile .result .item:last-child{border-bottom:none}.kiwi_header__above-search .result .item:nth-child(1) .sort,.kiwi_header__above-search-mobile .result .item:nth-child(1) .sort{background:#fe2d46}.kiwi_header__above-search .result .item:nth-child(2) .sort,.kiwi_header__above-search-mobile .result .item:nth-child(2) .sort{background:#f60}.kiwi_header__above-search .result .item:nth-child(3) .sort,.kiwi_header__above-search-mobile .result .item:nth-child(3) .sort{background:#faa90e}.kiwi_header__above-search .result .item:hover,.kiwi_header__above-search-mobile .result .item:hover{background:var(--classC)}.kiwi_header__above-search .result .item .sort,.kiwi_header__above-search-mobile .result .item .sort{color:#fff;background:#7f7f8c;width:18px;height:18px;line-height:18px;border-radius:2px;text-align:center;margin-right:8px;font-weight:500}.kiwi_header__above-search .result .item .text,.kiwi_header__above-search-mobile .result .item .text{-webkit-box-flex:1;-ms-flex:1;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--routine);font-size:12px}.kiwi_header__above-search .result .item .views,.kiwi_header__above-search-mobile .result .item .views{color:var(--seat);font-size:12px;margin-left:5px}.kiwi_header__above-search-mobile input{-webkit-box-flex:1;-ms-flex:1;flex:1;width:100%}.kiwi_header__above-searchicon{display:none;cursor:pointer;font-size:23px!important;color:var(--routine)}.kiwi_header__above-slideicon{display:none;cursor:pointer;width:20px;height:20px;color:var(--routine)}.kiwi_header__above.active{-webkit-transform:translate3d(0,-60px,0);transform:translate3d(0,-60px,0)}.kiwi_header__above.glass{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);background:var(--glass-background)}
+    
+    .kiwi_header__above.solid{-webkit-backdrop-filter:unset;backdrop-filter:unset;background:var(--background);-webkit-box-shadow:unset;box-shadow:unset}.kiwi_header__below{position:relative;border-top:1px solid var(--classC);height:45px}.kiwi_header__below-title{max-width:450px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;display:none;line-height:45px;font-size:17px;font-weight:700;color:var(--main);-webkit-animation:showHeaderTitle .35s;animation:showHeaderTitle .35s}
+
+    .kiwi_header{position:relative;z-index:100;height:60px}.kiwi_header .kiwi_container{margin:0 auto}.kiwi_header .full{max-width:100%!important}
+
+    .kiwi_header__searchout {
+      position: absolute;
+      top: 60px;
+      left: 20%;
+      right: 0;
+      z-index: 85;
+      background: var(--background);
+      border-top: 1px solid var(--classC);
+      -webkit-transform: translate3d(0,-100%,0);
+      transform: translate3d(0,-100%,0);
+      -webkit-transition: visibility .35s,-webkit-transform .35s;
+      transition: transform .35s,visibility .35s;
+      transition: transform .35s,visibility .35s,-webkit-transform .35s;
+      visibility: hidden;
+  }
+
+    @media (min-width:576px){.kiwi_container{max-width:540px}}
+    @media (min-width:768px){.kiwi_container{max-width:720px}}
+    @media (min-width:992px){.kiwi_container{max-width:960px}}
+    @media (min-width:1200px){.kiwi_container{max-width:1140px}}
+
+
+    @media (max-width:1100px){
+    html .kiwi_header__above-search .input{width:70px}
+    html .kiwi_header__above-search .input:focus{width:170px}}
+
+    @media (max-width:1000px){html .kiwi_header__above-nav .item .m-icon{display:none}}
+
+    @media (max-width:768px){
+   
+      html .kiwi_header{
+          top:0;height:55px;-webkit-animation-fill-mode:backwards;animation-fill-mode:backwards
+      }
+      
+      html .kiwi_header__above .kiwi_container{
+          height:55px;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between
+      }
+      html .kiwi_header__above-nav{display:none}
+      html .kiwi_header__above-logo{height:55px;margin-right:0}
+      html .kiwi_header__above-logo img{max-height:45px}
+
+      html .kiwi_header__above-search{display:none}
+      html .kiwi_header__above-searchicon{display:block;margin-left:0}
+      html .kiwi_header__above-slideicon{display:block}
+      
+      html .kiwi_header__below{display:none}
+      html .kiwi_header__searchout{top:45px}
+    }
+
+    @media (max-width:500px){
+      html .kiwi_header{height:50px}
+      html .kiwi_header__above .kiwi_container{margin:0 auto;height:50px;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+      html .kiwi_header__above-nav{display:none}
+      html .kiwi_header__above-logo{height:50px}
+      html .kiwi_header__above-logo img{max-height:45px}
+      html .kiwi_header__above-searchicon{margin-left:0}
+      html .kiwi_header__above-slideicon{display:block}
+      html .kiwi_header__below{display:none}
+      html .kiwi_header__searchout{top:40px}
+      html .kiwi_bread{margin:0 auto;padding:15px 15px 0 5px}
+    }
+
+    .kiwi_header__slideout.active {
+    visibility: visible;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+   }
+
+    
+    .kiwi_header__slideout {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 80%;
+        z-index: 1020;
+        background: var(--classD);
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        visibility: hidden;
+        transition: visibility 0.35s, -webkit-transform 0.35s;
+        transition: transform 0.35s, visibility 0.35s;
+        transition: transform 0.35s, visibility 0.35s, -webkit-transform 0.35s;
+        overflow-y: auto;
+        padding: 30px 15px 15px;
+    }
+   
+
+     
+    
+    .kiwi_header__searchout-inner .cloud,.kiwi_header__slideout-wrap{overflow-y:auto;-webkit-overflow-scrolling:touch;-ms-scroll-chaining:none;overscroll-behavior:contain}
+    
+    .kiwi_header__slideout-wrap{position:relative;padding:135px 15px 15px;height:100%}
+    
+    .kiwi_header__slideout-wrap::-webkit-scrollbar,.kiwi_header__toc-wrap::-webkit-scrollbar{display:none}
+    
+    .kiwi_header__slideout-wrap .social-account{padding:0;margin-bottom:10px;border:unset}
+    
+     
+
+    .kiwi_header__slideout-image{position:absolute;top:0;left:0;width:100%;height:120px;-o-object-fit:cover;object-fit:cover;z-index:-1}
+    
+    .kiwi_header__slideout-author,.kiwi_header__slideout-count,.kiwi_header__slideout-menu{background:var(--background);border-radius:var(--radius-wrap);-webkit-box-shadow:var(--box-shadow);box-shadow:var(--box-shadow)}.kiwi_header__slideout-author{display:-webkit-box;display:-ms-flexbox;display:flex;margin-bottom:15px;padding:15px}.kiwi_header__slideout-author .avatar{width:50px;height:50px;margin-right:10px;border-radius:var(--radius-inner)}.kiwi_header__slideout-author .info{overflow:hidden;line-height:25px}.kiwi_header__slideout-author .info .level{height:23px;margin-left:2px}.kiwi_header__slideout-author .info .link,.kiwi_header__slideout-author .info .motto,.kiwi_index__title-notice a{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.kiwi_header__slideout-author .info .link{display:block;font-size:15px;font-weight:500;color:var(--main)}.kiwi_header__slideout-author .info .motto{font-size:12px;color:var(--routine)}.kiwi_header__slideout-count,.kiwi_header__slideout-menu{padding:10px 15px}.kiwi_header__slideout-count{margin-bottom:15px}.kiwi_header__slideout-count .item,.kiwi_header__slideout-menu .link{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:var(--routine);padding:5px 0}.kiwi_header__slideout-count .item .joe-font{color:var(--routine);margin-right:5px}.kiwi_header__slideout-count .item strong{font-weight:500;color:var(--theme)}.kiwi_header__slideout-menu{overflow:hidden}.kiwi_header__slideout-menu .link{-webkit-box-pack:justify;-ms-flex-pack:justify; padding:10px 0;color:var(--main);-webkit-transition:color .15s;transition:color .15s}.kiwi_header__slideout-menu .link a{-webkit-transition:color .15s;transition:color .15s;color:var(--routine)}.kiwi_header__slideout-menu .link .joe-font{color:var(--minor);-webkit-transition:fill .15s,-webkit-transform .15s;transition:transform .15s,fill .15s;transition:transform .15s,fill .15s,-webkit-transform .15s}.kiwi_header__slideout-menu .link.in,.kiwi_header__slideout-menu .link.in a{color:var(--theme)}.kiwi_header__slideout-menu .link.in .joe-font{color:var(--theme);-webkit-transform:rotate(90deg);transform:rotate(90deg)}.kiwi_header__slideout-menu .slides{display:none;border-left:1px solid var(--classC);padding-left:15px}.kiwi_header__slideout-menu .slides .link{color:var(--routine)}.kiwi_header__slideout-menu .current a,.kiwi_header__slideout-menu .slides .current{color:var(--theme);font-weight:500;font-size:15px}
+    
+    .kiwi_header__mask {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.65);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 0.35s, opacity 0.35s;
+      z-index: 880;
+    }
+    .kiwi_header__mask.slideout {
+        z-index: 1010;
+    }
+
+    .kiwi_header__mask.active {
+        visibility: visible;
+        opacity: 1;
+    }
+    .kiwi_header__mask {
+        background-image: initial;
+        background-color: rgba(0, 0, 0, 0.65);
+    }
+</style>
+
+
+
+
+    <div class="kiwi_header__above topInDown fixed glass">
+      <div class="kiwi_container kiwi_header_container">
+          <i class="fa fa-bars kiwi_header__above-slideicon"></i>
+          <a title="秋码记录" class="kiwi_header__above-logo" href="https://qiucode.cn">
+            <img style="border-radius:4px" src="/static/front/images/qiu-logo.png"  alt="秋码记录">
+          </a>
+        <nav class="kiwi_header__above-nav active-animate">
+
+            <a class="item " href="/" title="首页" style="margin-right:8px">
+                <i class="fa fa-home"></i> 首页
+            </a>
+           
+            <a class="item " href="/flinks" title="友情链接">
+                <i class="fa fa-link"></i>友情链接
+            </a> 
+
+            <a class="item " href="/timeline" title="点点滴滴">
+                <i  class="fa fa-calendar-times-o"></i>点点滴滴
+            </a> 
+
+            <a class="item " href="/about" title="关于我">
+                <i class="fa fa-user"></i>关于本站
+            </a>
+                
+        </nav>
+    <form class="kiwi_header__above-search" method="get" action="/search">
+      <input maxlength="16" autocomplete="off" placeholder="请输入关键字..." name="keyword" value="" class="input" type="text">
+      <button type="submit" class="submit" aria-label="搜索按钮"><i class="fa fa-search"></i></button>
+      
+    </form>
+          <i class="fa fa-search kiwi_header__above-searchicon"></i>
+      </div>
+    </div>
+  
+    <div class="kiwi_header__slideout">
+      <div class="kiwi_header__slideout-wrap">
+        <img width="100%" height="150" class="kiwi_header__slideout-image" src="/images/head_img.webp"  alt="侧边栏壁纸">
+        <div class="kiwi_header__slideout-author">
+          <img width="50" height="50" class="avatar ls-is-cached" src="/static/front/images/qiu-logo.png" alt="博主头像">
+          <div class="info">
+            <a class="link" href="https://qiucode.cn" target="_blank" rel="noopener noreferrer nofollow">秋码记录</a>
+              <p class="motto kiwi_motto">一个游离于山间之上的Java爱好者 | A Java lover living in the mountains</p>
+          </div>
+        </div>
+    <div class="social-account">
+        
+        
+    </div>
+        <ul class="kiwi_header__slideout-count">
+          <li class="item">
+            <i class="joe-font joe-icon-riji"></i>
+            <span>累计撰写 <strong>122</strong> 篇文章</span>
+          </li>
+          <li class="item">
+            <i class="joe-font joe-icon-remen"></i>
+            <span>累计创建 <strong>251</strong> 个标签</span>
+          </li>
+          <li class="item">
+            <i class="joe-font joe-icon-message"></i>
+            <span>累计创建 <strong>41</strong> 个分类</span>
+          </li>
+        </ul>
+        <ul class="kiwi_header__slideout-menu panel-box">
+          <li>
+            <a class="link panel in" href="#" rel="nofollow">
+            <span>栏目</span>
+            <i class="joe-font joe-icon-arrow-right"></i>
+            </a>
+            <ul class="slides panel-body panel-box panel-side-menu" style="display: block;">
+                      <li>
+                        
+                        <a class="link " href="/" title="首页" >
+                          <i class="fa fa-home"></i> 首页
+                        </a>
+                      </li>
+
+                   <li>
+                    <a class="link " href="/flinks" title="友情链接">
+                      <i class="fa fa-link"></i>友情链接
+                    </a> 
+                   </li>
+                   
+      
+                   <li>
+                    <a class="link " href="/timeline" title="点点滴滴">
+                      <i  class="fa fa-calendar-times-o"></i>点点滴滴
+                  </a> 
+                   </li>
+                   
+      
+                   <li>
+                    <a class="link " href="/about" title="关于我">
+                      <i class="fa fa-user"></i>关于本站
+                  </a>
+                   </li>
+                   
+
+                    
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+      <div class="kiwi_header__searchout">
+        <div class="kiwi_container">
+          <div class="kiwi_header__searchout-inner">
+            <form class="kiwi_header__above-search-mobile" method="get" action="/search">
+              <input maxlength="16" autocomplete="off" placeholder="请输入关键字..." name="keyword" value="" class="input" type="text">
+              <button type="submit" class="submit">搜索</button>
+            </form>
+                
+          </div>
+        </div>
+      </div>
+  
+  
+    <div class="kiwi_header__mask"></div>
+
+
+
+
+<script>
+  
+
+    let sideBtn = document.querySelector(".kiwi_header__above-searchicon")
+
+    sideBtn.addEventListener("click", () => {
+
+        
+        document.querySelector(".kiwi_header__searchout").style.visibility = 'visible'
+        document.querySelector(".kiwi_header__mask").classList.add("active")
+    })
+
+    let maskBtn = document.querySelector(".kiwi_header__mask")
+    let slideout = document.querySelector(".kiwi_header__slideout")
+
+    maskBtn.addEventListener("click",() => {
+        
+       
+        maskBtn.classList.remove("active")
+
+        document.querySelector("body").style.overflow=""
+        maskBtn.classList.remove("active")
+        maskBtn.classList.remove("slideout")
+        document.querySelector(".kiwi_header__searchout").style.visibility = 'hidden'
+        slideout.classList.remove("active");
+    })
+
+
+    let sildeIcon = document.querySelector(".kiwi_header__above-slideicon")
+
+    
+
+    sildeIcon.addEventListener("click", () => {
+      document.querySelector(".kiwi_header__searchout").style.visibility = 'hidden'
+
+      slideout.classList.contains("active") 
+      ? (document.querySelector("body").style.overflow="", maskBtn.classList.remove("active slideout"),slideout.classList.remove("active")) 
+      : (document.querySelector("body").style.overflow="hidden", maskBtn.classList.add("active"),maskBtn.classList.add("slideout"),slideout.classList.add("active"))
+    })
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+    
+
+</script></header>
+	
+		
+	<div class="Qc_container showInUp">
+    <div class="Qc_main index">
+        <div class="Qc_index">
+            
+            <div class="Qc_index_list">
+                <ul class="Qc_list">
+
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/193/" class="thumbnail" title="微调模型——续（Machine Learning 研习之十三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578959569.png" alt="微调模型——续（Machine Learning 研习之十三）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/193/" class="title" title="微调模型——续（Machine Learning 研习之十三）" rel="noopener noreferrer">
+            微调模型——续（Machine Learning 研习之十三）
+        </a>
+        <a class="abstract" href="/article/193/" title="文章摘要" rel="noopener noreferrer">集成方法 微调系统的另一种方法是尝试组合性能最佳的模型。 群体（或“整体”）通常会比最好的单个模型表现得更好，就像随机森林比它们所依赖的单个决策树表现更好一样，特别是当各个模型犯下不同类型的错误时。 例如，您可以训练和微调 k 最近邻模型，然后创建一个仅预测随机森林预测和该模型预测的平均值的集成模型。
+分析最佳模型及其错误 通过检查最佳模型，您通常会获得对问题的深入见解。 例如，RandomForestRegressor可以指示每个属性对于做出准确预测的相对重要性：
+让我们按降序对这些重要性分数进行排序，并将它们显示在相应的属性名称旁边：
+有了这些信息，您可能想尝试删除一些不太有用的功能（例如，显然只有一个ocean_proximity类别真正有用，因此您可以尝试删除其他功能）。
+您还应该查看系统所犯的具体错误，然后尝试了解为什么会犯这些错误，以及如何解决问题：添加额外的功能或删除无信息的功能，清理异常值等。
+现在也是一个好时机，可以确保您的模型不仅平均运行良好，而且适用于所有类别的地区，无论是农村还是城市、富裕还是贫穷、北部还是南部、少数民族还是非少数民族等。 每个类别的验证集需要一些工作，但这很重要：如果您的模型在整个地区类别上表现不佳，那么在问题解决之前可能不应该部署它，或者至少不应该使用它 对该类别进行预测，因为它可能弊大于利。
+在测试集上评估您的系统 对模型进行一段时间的调整后，您最终会得到一个性能足够好的系统。 您已准备好在测试集上评估最终模型。 这个过程没有什么特别的； 只需从测试集中获取预测变量和标签并运行Final_model来转换数据并进行预测，然后评估这些预测：
+X_test = strat_test_set.drop(&#34;median_house_value&#34;, axis=1) y_test = strat_test_set[&#34;median_house_value&#34;].copy() final_predictions = final_model.predict(X_test) final_rmse = mean_squared_error(y_test, final_predictions, squared=False) print(final_rmse) # prints 41424.40026462184 在某些情况下，这样的泛化误差点估计不足以说服您启动：如果它只比当前生产的模型好 0.1% 怎么办？ 您可能想了解这个估计的精确度。 为此，您可以使用 scipy.stats.t.interval() 计算泛化误差的 95% 置信区间。 您会得到从 39,275 到 43,467 的相当大的区间，而您之前的点估计值 41,424 大致位于中间：
+如果您进行了大量的超参数调整，性能通常会比使用交叉验证测量的性能稍差。 这是因为您的系统最终经过微调以在验证数据上表现良好，但在未知数据集上可能表现不佳。 本示例中的情况并非如此，因为测试 RMSE低于验证 RMSE，但当发生这种情况时，您必须抵制调整超参数以使数字在测试集上看起来不错的诱惑； 这些改进不太可能推广到新数据。
+现在是项目预启动阶段：您需要展示您的解决方案（突出显示您所学到的内容、有效的内容和无效的内容、做出的假设以及系统的局限性），记录所有内容，并使用以下内容创建精美的演示文稿： 清晰的可视化和易于记忆的陈述（例如，“收入中位数是房价的第一预测指标”）。 在这个加州住房示例中，系统的最终性能并不比专家的价格估计好多少，专家的价格估计通常会下降 30%，但启动它可能仍然是一个好主意，特别是如果这样可以释放更多资金 给专家一些时间，以便他们可以从事更有趣、更有成效的任务。
+启动、监控和维护您的系统 您现在需要准备好用于生产的解决方案（例如，完善代码、编写文档和测试等）。 然后您可以将模型部署到生产环境。 最基本的方法就是保存您训练的最佳模型，将文件传输到您的生产环境并加载它。 要保存模型，您可以使用 joblib 库，如下所示：</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2024-03-09</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/193/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/193/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/192/" class="thumbnail" title="微调模型（Machine Learning 研习之十二）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578659001.png" alt="微调模型（Machine Learning 研习之十二）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/192/" class="title" title="微调模型（Machine Learning 研习之十二）" rel="noopener noreferrer">
+            微调模型（Machine Learning 研习之十二）
+        </a>
+        <a class="abstract" href="/article/192/" title="文章摘要" rel="noopener noreferrer">现在正处于百模乱战的时期，对于模型微调，想必您是有所了解了，毕竟国外的大语言模型一开源，国内便纷纷基于该模型进行微调，从而开始宣称领先于某某、超越了谁。可到头来，却让人发现他们套壳了国外大语言模型对外开放的API。
+好了，我们不说国内各种大模型宣称超过了谁，毕竟，嘴巴长在别人脸上，我们管不了，也管不着，吹牛终将是会露馅的！
+当我们需要对开源大模型进行微调时，看看有几种方法可以做到这一点的！
+网格搜索 手动调整超参数，直到找到超参数值的完美组合。 这将是一项非常乏味的工作，而且您可能没有时间去探索多种组合。
+相反，您可以使用 Scikit-Learn 的 GridSearchCV 类来搜索您。 您需要做的就是告诉它您希望它试验哪些超参数以及要尝试哪些值，它将使用交叉验证来评估超参数值的所有可能组合。 例如，以下代码搜索 RandomForestRegressor 的最佳超参数值组合：
+from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&#34;preprocessing&#34;, preprocessing), (&#34;random_forest&#34;, RandomForestRegressor(random_state=42)), ]) param_grid = [{&#39;preprocessing__geo__n_clusters&#39;: [5, 8, 10], &#39;random_forest__max_features&#39;: [4, 6, 8]}, {&#39;preprocessing__geo__n_clusters&#39;: [10, 15], &#39;random_forest__max_features&#39;: [6, 8, 10]}, ] grid_search = GridSearchCV(full_pipeline, param_grid, cv=3, scoring=&#39;neg_root_mean_squared_error&#39;) grid_search.fit(housing, housing_labels) 请注意，您可以引用管道中任何估计器的任何超参数，即使该估计器嵌套在多个管道和列转换器的深处。 例如，当 Scikit-Learn 看到“preprocessing__geo__n_clusters”时，它会在双下划线处分割该字符串，然后在管道中查找名为“preprocessing”的估计器并找到预处理 ColumnTransformer。 接下来，它在此 ColumnTransformer 中查找名为“geo”的转换器，并找到我们在纬度和经度属性上使用的 ClusterSimilarity 转换器。 然后它找到该变压器的n_clusters超参数。 同样，random_forest__max_features指的是名为“random_forest”的估计器的max_features超参数，这当然是RandomForest模型。
+这个param_grid中有两个字典，因此GridSearchCV将首先评估第一个字典中指定的n_clusters和max_features超参数值的所有3×3=9个组合，然后它将尝试第一个字典中指定的所有2×3=6个超参数值组合 第二个字典。 因此，网格搜索总共将探索 9 + 6 = 15 种超参数值组合，并且每个组合都会对管道进行 3 次训练，因为我们使用的是 3 折交叉验证。 这意味着总共将有 15 × 3 = 45 轮训练！ 这可能需要一段时间，但是完成后您可以获得如下参数的最佳组合：</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2024-03-09</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/192/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/192/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/191/" class="thumbnail" title="解决 github.com port 443: Timed out 的问题" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578417203.png" alt="解决 github.com port 443: Timed out 的问题">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/191/" class="title" title="解决 github.com port 443: Timed out 的问题" rel="noopener noreferrer">
+            解决 github.com port 443: Timed out 的问题
+        </a>
+        <a class="abstract" href="/article/191/" title="文章摘要" rel="noopener noreferrer">国内访问github.com总是那么不竟如人意，时而无法加载网页，时而等我们抽完了一根烟后，它还处于转圈的状态。
+虽然国内有gitee.com等诸多的代码托管平台，但却鲜有国人愿意去呢？其中的缘由，想必也不用我多说，大伙也都心知肚明了吧！
+即便github.com在国内访问慢，或是加载不出来，我们也宁愿等它慢慢地加载出来，却不愿将代码托管于境内的平台。
+github.com 托管了 qiucode.cn 站点 由于将 秋码记录 托管于 github.com上后，写些文章就得push上去，然而当我push上去时，却十有八九都会出现 github.com port 443: Timed out的错误，代码显然是无法push上去的了！
+难道在国内，现在push或是pull github.com，都是要靠运气吗？偶尔可以，大多数都是报错。
+可是，“运气”总不能实时来关顾我们，要是那样的话，我早去买彩票了，虽然有运气，买了彩票，它也不一定中奖，毕竟古话早就有言：朝里有人好当官。
+然而，有没有一劳永逸的解决之道呢？答案那是肯定有的，要不然，也就不会有这么一篇文章了，您也就不会花费您宝贵的时间来浏览本文，寻求与我遇到同样问题的解决方案了。
+当我们想要clone github.com上的一个项目时，出现以下错误，那都是家常便饭了。
+从报错信息来看，很显然这是https请求超时，这是毋庸置疑的，毕竟我们访问github.com都是是好是坏的！您在terminal端不还是一样的请求超时嘛！
+解决国内 push/pull github.com 项目出现 Timed out 的问题 毕竟，秋码记录 是托管于 github.com上，总不可能写了一篇文章，想要push到 github.com，这次出现Timed out的错误，就不push，而是等到下次再写文章时，再push，这显然不是我要的，毕竟，技术文章（在这里，我也就王婆卖瓜，自卖自夸咯）是有时效性的！说是这么说，但并不妨碍的。
+能出现Timed out的问题，我们第一想到便是网络问题（有些事我们自己心里清楚就好了），其次才是本地git配置问题。
+那么，我们暂且略过网络问题这一客观事实不谈，来说说本地git的配置是哪里出现问题，而导致了出现Timed out的问题呢？
+我们还是回到 terminal，输入以下命令测试ssh是否成功？
+ssh -T git@github.com 如果，您也出现了上图的结果，那显然是配置的问题了。
+我们再次测试下port 443是否也出现超时的问题？
+ssh -T -p 443 git@ssh.github.com 可以看出，端口 443 请求是没问题，那么，为什么clone项目时，却报出了port 443请求超时的错误呢？
+我们大致从上面的ssh测试报错便可以得出结论了，那便是ssh连接超时了。
+而要想解决ssh请求超时的问题，那就要从配置着手了，还是一样的在terminal输入以下命令。
+vim ~/.ssh/config 而后在进入编辑状态，填写以下内容
+# Add section below to itHost github.comHostname ssh.</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2024-01-27</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/191/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/191/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[github]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/190/" class="thumbnail" title="选择和训练模型（Machine Learning 研习之十一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1705218124546.png" alt="选择和训练模型（Machine Learning 研习之十一）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/190/" class="title" title="选择和训练模型（Machine Learning 研习之十一）" rel="noopener noreferrer">
+            选择和训练模型（Machine Learning 研习之十一）
+        </a>
+        <a class="abstract" href="/article/190/" title="文章摘要" rel="noopener noreferrer">当您看到本文标题时，不禁感叹，总算是到了训练模型这一节了。
+是啊，在之前的文章中，我们对数据进行了探索，以及对一个训练集和一个测试集进行了采样，也编写了一个预处理管道来自动清理，准备您的数据用于机器学习算法，然而现在，我们可以选择并训练模型了。
+训练集的训练与评估 我们从一个最基本的线性回归模型开始：
+from sklearn.linear_model import LinearRegression lin_reg = make_pipeline(preprocessing, LinearRegression()) lin_reg.fit(housing, housing_labels) 很好，至此，我们现在算是有了一个有效的线性回归模型，可以在训练集上试用它，查看前五个预测，并将它们与标签进行比较:：
+第一个预测偏差很大(超过200,000美元!)，而其他预测则更好，两个预测偏差约25%，还有两个预测 偏差不到10%。请记住，您选择使用RMSE作为性能测度，因此您希望使用Scikit-Learn的mean_squared_error()函数在整个训练集上测量该回归模型的RMSE，并将平方参数设置为False。
+这总比没有好，但显然不是一个很好的分数，大多数地区的房屋价值中位数在120,000美元和26.5万美元之间，所以一个典型的68628美元的预测误差真的不是很令人满意。这是一个模型拟合训练数据不足的示例。当这种情况发生时，可能意味着这些特征没有提供足够的信息来做出好的预测，或者模型不够强大。
+正如我们在上一章中看到的，修复欠拟合的主要方法是选择一个更强大的模型，为训练算法提供更好的特征，或者减少对模型的约束。这个模型没有正规化，这就排除了最后一个选项。您可以尝试添加更多功能，但首先您要尝试更复杂的模型，看看它是如何工作的。
+您决定尝试DecisionTreeRegressor，因为这是一个相当强大的模型，能够在数据中找到复杂的非线性关系(后续篇章将更详细地介绍决策树)：
+from sklearn.tree import DecisionTreeRegressor tree_reg = make_pipeline(preprocessing, DecisionTreeRegressor(random_state=42)) tree_reg.fit(housing, housing_labels) 现在模型已训练完毕，您可以在训练集中对其进行评估：
+等等，难道这个模型真的很完美吗？当然咯，更有可能的是模型严重地过度拟合了数据。您怎么能确定正如你前面看到的，在您准备好启动一个您有信心的模型之前，您不想碰测试集，所以您需要使用一部分训练集进行训练，另一部分用于模型验证。
+使用交叉验证进行更好的评估 评估决策树模型的一种方法是使用train_test_split()函数将训练集拆分为较小的训练集和验证集，然后针对较小的训练集训练您的模型，并针对验证集对其进行评估。这是一点努力，但没有太难，它会工作得相当不错。
+一个很好的替代方法是使用Scikit-Learn的k_-fold交叉验证特性。下面的代码随机地将训练集分成10个不重叠的子集，称为fold，然后训练和评估决策树模型10次，每次选择不同的fold进行评估，并使用其他9个fold进行训练。结果是一个包含10个评价分数的数组：
+from sklearn.model_selection import cross_val_score tree_rmses = -cross_val_score(tree_reg, housing, housing_labels, scoring=&#34;neg_root_mean_squared_error&#34;, cv=10) 警告：
+Scikit-Learn的交叉验证功能期望的是效用函数(越大越好)而不是成本函数(越低越好)，所以评分函数实际上是RMSE的反面。它是一个负值，所以您需要切换输出的符号来获得RMSE分 数。
+让我们来看看结果吧：
+现在决策树看起来不像以前那么好了。事实上，它的表现几乎和线性回归模型一样差！请注意，交叉验证不仅允许您获得模型性能的估计值，还允许您测量该估计值的精确度(即其标准差)。决策树的均方根误差约为66，868，标准差约为2,061。如果只使用一个验证集，则不会有此信息。但是交叉验证是以多次训练模型为代价的，所以它并不总是可行的。
+如果您为线性回归模型计算相同的度量，您将发现平均RMSE为69，858，标准差为4,182。因此，决策树模型的性能似乎比线性模型稍微好一点，但由于严重的过拟合，差异很小。我们知道存在过拟合 问题，因为训练误差很低(实际上为零)，而验证误差很高。
+现在让我们尝试最后一个模型:随机森林调节器，随机森林的工作原理是在特征的随机子集上训练许多决策树，然后平均出它们的预测值。这样的模型组成的许多其他模型被称为合奏:他们能够提高性能基础模型(在本例中为决策树)。代码与前面的代码大同小异：
+from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(preprocessing, RandomForestRegressor(random_state=42)) forest_rmses = -cross_val_score(forest_reg, housing, housing_labels, scoring=&#34;neg_root_mean_squared_error&#34;, cv=10) 随机森林真的看起来非常有前途的任务！但是，如果您训练一个RandomForest并测量训练集上的RMSE，您将发现大约17，474:这要低得多，这意味着仍然存在大量的过度拟合。可能的解决方案是 简化模型，约束它(即，规则化它)，或得到更多的训练数据。但是，在深入研究随机森林之前，您应该尝试来自各种类别机器学习算法的许多其他模型(例如，具有不同内核的多个支持向量机，可能还有一个神经网络)，而无需花费太多时间调整超参数。目标是列出几个(两到五个)有前途的模型。</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2024-01-14</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/190/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/190/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/184/" class="thumbnail" title="回望这风雨飘摇的一年过后，我们终将要整束行囊继续前行" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703910621212.jpg" alt="回望这风雨飘摇的一年过后，我们终将要整束行囊继续前行">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/184/" class="title" title="回望这风雨飘摇的一年过后，我们终将要整束行囊继续前行" rel="noopener noreferrer">
+            回望这风雨飘摇的一年过后，我们终将要整束行囊继续前行
+        </a>
+        <a class="abstract" href="/article/184/" title="文章摘要" rel="noopener noreferrer">2023 这一年 时间倏忽而过，纵有再多的不甘，2023 这一年的日历终要翻过去了。这一年，或许还对很多事保持着一种执念，然而，随着 2023 年如东逝水一去不复返，也该放下那份执着，让我们挥手告别那处于风雨飘摇的 2023 年，毕竟，未来还很长，我们还得背上行囊踏上那远方的路，否则，赶不上停靠在路边的二路汽车了都！
+2023 年年初为这一年预先设定的规划，实现了吗？然而，回答我们自己，是那无声的摇头。年初预定的规划，大抵也只有到了年末，我们对这一年复盘时，方觉得年初列出的计划清单，还是有那么多没有完成，更有甚者，清单上一项都没能实现，或许，此刻，我们会对自己发出一声苦笑，长吁责问自己，“一年的时间，竟然空不出一点时间来完成那年初既定的规划！”
+无论是长吁短叹，还是责怪自己，我们总得为未来、新的一年起一份未来规划列表，顺带 2023 年还未完成的计划。
+风雨过后，总能遇见太阳，只是自然界的现象，当然，也有例外，太阳有时让那厚实的云朵遮蔽了，日光便无法照耀大地，那阴郁之气却布满了上空，使这座城市处于压抑的一天，但我们相信，云朵总是会散开的，迟来的阳光，也会照射这片土地，用那光芒的温度去蒸发昨日的阴郁之气。
+或许，用【风雨飘摇】这个成语来形容 2023 这一年，总觉得还不是那么恰当，因为 2023 这一年，并不像【风雨飘摇】这个词轻描淡写、一词带过，这四个字并不足以恰如其分地述说 2023 这一年。
+这一年，承载着太多人的不甘；这一年，也让大部分撤离了那份职业；这一年，也让很大一部分人彻夜逃离了大城市，终将回到了可以安放灵魂的故乡。
+然而，在 2023 这一年所积攒下来的诸多不甘、不忿、怨愤等阴郁之气，我们希望能借未来之光芒来吹散、蒸发那股消极、惨淡、压抑之气，在我们寄托于未来之光的时刻，我们也必须时刻充实自己，也只有这样，未来之光方能光顾到我们自己。
+2023 年的既定计划 说来忏愧，2023 年年初既定要完成的计划，用这一年的时间，本是完成那份计划清单，绰绰有余，然而，一年到头了，回首这一年，却发觉，计划清单上竟然还有那么多未能实现的。或许，我们会长叹一声，“时间都去哪儿了？”
+时间并没有去哪里游玩，而是一直傍我们左右，只是我们生活节奏快了，顺带也把时间扯上了。那一声，“时间都去哪儿了？”的感慨，是没来由的长吁短叹！
+2023 年既定的计划：
+编写一套具有 秋码记录 风格的 Wordpress主题 编写一套具有 秋码记录 风格的Typecho主题 更新基于Vue.js 2.X的开源 UI组件库 qiucode-ui 组件库 编写一套基于 React的开源UI组件库 让 秋码记录 全站使用自己开源的UI组件库 然而，到了 2023 年年末，回望计划清单时，发觉虽但没能全部完成，却在意料之外增添一项计划，实属难料的惊喜：
+开源了一套由 Hugo驱动的 hugo-theme-kiwi主题 一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦 实践多个Web3项目 研习人工智能领域 2023 年所欠下的计划，我们也只能将它们寄托于新的一年，希冀未来能够逐一地实现它们，以不负昨日之约。
+我们将 2023 年所搁浅的计划，整理好，装进背囊，踏上远方之路，让未来之光吹散因在 2023 年所沾满了满身泄气、不甘、愤懑地压抑之气。
+展望未来 昨日之事，已成定局，断然不可挽回，该是放下那份执念，去迎接明日的阳光。</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-12-30</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/184/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/184/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[生活情感]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/189/" class="thumbnail" title="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703937560847.png" alt="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/189/" class="title" title="机器学习中的 Transformation Pipelines（Machine Learning 研习之十）" rel="noopener noreferrer">
+            机器学习中的 Transformation Pipelines（Machine Learning 研习之十）
+        </a>
+        <a class="abstract" href="/article/189/" title="文章摘要" rel="noopener noreferrer">Transformation Pipelines 有许多数据转换步骤需要以正确的顺序执行。幸运的是，Scikit-Learn提供了Pipeline类来帮助处理这样的转换序列。下面是一个用于数值属性的小管道，它首先对输入特性进行归并，然后对输入特性进行缩放:
+from sklearn.pipeline import Pipeline num_pipeline = Pipeline([ (&#34;impute&#34;, SimpleImputer(strategy=&#34;median&#34;)), (&#34;standardize&#34;, StandardScaler()), ]) Pipeline构造函数采用名称/估算器对(2元组)的列表，定义了一系列步骤。名称可以是您喜欢的任何名称，只要它们是唯一的，并且不包含双下划线(__)。以后我们讨论超参数调优时，它们会很有用。估计器必须都是转换器(即，它们必须有一个fit_transform()方法)，除了最后一个，它可以是任何东西:转换器、预测器或任何其他类型的估计器。
+如果你不想命名transformers你可以使用 make_pipeline() 函数； 它将transformers作为位置参数，并使用transformers类的名称（小写且不带下划线）创建管道（例如，“simpleimputer”）：
+from sklearn.pipeline import make_pipeline num_pipeline = make_pipeline(SimpleImputer(strategy=&#34;median&#34;), StandardScaler()) 如果多个transformers具有相同的名称，则会在其名称后附加索引（例如“foo-1”、“foo-2”等）。
+当您调用管道的 fit() 方法时，它会在所有transformers上顺序调用 fit_transform()，将每个调用的输出作为参数传递给下一个调用，直到到达最终估计器，为此它只调用 fit() 方法。
+该管道公开与最终估计器相同的方法。 在此示例中，最后一个估计器是 StandardScaler，它是一个transformers，因此管道也充当transformers。 如果您调用管道的transform()方法，它将按顺序将所有转换应用于数据。 如果最后一个估计器是预测器而不是变换器，那么管道将具有 Predict() 方法而不是 Transform() 方法。 调用它会按顺序将所有转换应用于数据并将结果传递给预测器的 Predict()方法
+让我们调用管道的 fit_transform() 方法并查看输出的前两行，四舍五入到小数点后两位：
+如前所述，如果要恢复一个漂亮的DataFrame，可以使用管道的get_feature_names_ out()方法:
+df_housing_num_prepared = pd.DataFrame( housing_num_prepared, columns=num_pipeline.get_feature_names_out(), index=housing_num.index) 管道支持索引;例如，管道[1]返回管道中的第二个估计值，管道[:-1]返回一个包含除最后一个估计值以外的所有估计值的管道对象。您还可以通过steps属性(它是名称/估算器对的列表)或named_steps字典属性(它将名称映射到估算器)访问估算器。例如，num_line[“ simpleimputer”]返回名为“simpleimputer”的估计器。
+到目前为止，我们已经分别处理了分类列和数值列。如果有一个能够处理所有列的转换器，将适当的转换应用到每一列，那会更方便。为此，您可以使用olumnTransformer。例如，下面的ColumnTransformer将把num_pipeline(我们刚刚定义的那个)应用于数字属性，把cat_pipeline应用于类别属性:
+from sklearn.compose import ColumnTransformer num_attribs = [&#34;longitude&#34;, &#34;latitude&#34;, &#34;housing_median_age&#34;, &#34;total_rooms&#34;, &#34;total_bedrooms&#34;, &#34;population&#34;, &#34;households&#34;, &#34;median_income&#34;] cat_attribs = [&#34;ocean_proximity&#34;] cat_pipeline = make_pipeline( SimpleImputer(strategy=&#34;most_frequent&#34;), OneHotEncoder(handle_unknown=&#34;ignore&#34;)) preprocessing = ColumnTransformer([ (&#34;num&#34;, num_pipeline, num_attribs), (&#34;cat&#34;, cat_pipeline, cat_attribs), ]) 首先导入ColumnTransformer类，然后定义数字和分类列名的列表，并为分类属性构造一个简单的管道。最后，我们构造了一个列变换器。它的构造函数需要一个三元组(3-tuple)列表，每个三元组包含一个名称(必须是唯一的且不包含双下划线)、一个转换器和一个应该应用转换器的列的名称(或索引)列表。</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-12-11</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/189/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/189/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/187/" class="thumbnail" title="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703935662459.png" alt="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/187/" class="title" title="特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）" rel="noopener noreferrer">
+            特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）
+        </a>
+        <a class="abstract" href="/article/187/" title="文章摘要" rel="noopener noreferrer">特征缩放和转换 您需要应用于数据的最重要的转换之一是功能扩展。除了少数例外，机器学习算法在输入数值属性具有非常不同的尺度时表现不佳。住房数据就是这种情况:房间总数约为6至39320间，而收入中位数仅为0至15间。如果没有任何缩放，大多数模型将倾向于忽略收入中位数，而更多地关注房间数。
+有两种常见的方法使所有属性具有相同的尺度:最小-最大尺度和标准化。
+与所有估计器一样，重要的是仅将标量拟合到训练数据:永远不要对训练集以外的任何对象使用fit()或fit_transform()。一旦你有了一个训练好的定标器，你就可以用它来变换()任何其他的集合，包括验证集、测试集和新的数据。请注意，虽然培训集值将始终缩放到指定的范围，但如果新的数据包含异常值，则这些值最终可能会缩放到该范围之外。如果要避免这种情况，只需将剪辑超参数设置为True即可。
+最小-最大缩放(许多人称之为标准化)是最简单的:对于每个属性，值被移位和重新缩放，以便它们最终的范围从0到1。这是通过减去最小值并除以最小值和最大值之间的差来实现的。Scikit-Learn为此提供了一个名为MinMaxScaler的转换器。它有一个feature_range超参数，如果出于某种原因，不希望0-1(例如，神经网络在零均值输入下工作得最好，所以最好在-1到1的范围内工作)。是相当好用的:
+from sklearn.preprocessing import MinMaxScaler min_max_scaler = MinMaxScaler(feature_range=(-1, 1)) housing_num_min_max_scaled = min_max_scaler.fit_transform(housing_num) 标准化是不同的:首先它减去平均值(所以标准化值有一个零均值)，然后它除以标准差(所以标准-化值的标准差等于1)。不像最小最大缩放，标准化化不会将值限制在特定的范围内。然而，标准化受到离群值的影响要小得多。例如，假设一个地区的收入中位数等于100(误打误撞)，而不是通常的0-15。将最小最大值缩放到0-1范围会将这个离群值映射到1并将所有其他值压缩到0-0.15，而标准化不会受到太大影响。Scikit-Learn提供了一个名为StandardScaler的转换器用于标准化:
+from sklearn.preprocessing import StandardScaler std_scaler = StandardScaler() housing_num_std_scaled = std_scaler.fit_transform(housing_num) 如果你想缩放一个稀疏矩阵而不首先将其转换为稠密矩阵，你可以使用一个标准缩放器，它的with_mean超参数设置为False它只会除以标准差，而不会减去均值(因为这会破坏稀疏性
+当特征的分布具有重尾时（即，当远离平均值的值不是指数罕见时），最小-最大缩放和标准化都会将大多数值压缩到一个小范围内。 机器学习模型通常根本不喜欢这种情况，因此，在缩放特征之前，您应该首先对其进行变换以缩小重尾，并且如果可能的话，使分布大致对称。 例如，对于右侧有重尾部的正特征，执行此操作的常见方法是用其平方根替换特征（或将特征提高到 0 到 1 之间的幂）。 如果该特征具有非常长且重的尾部，例如幂律分布，则用其对数替换该特征可能会有所帮助。 例如，人口特征大致遵循幂律：拥有 10,000 名居民的地区的出现频率仅比拥有 1,000 名居民的地区低 10 倍，而不是呈指数级下降。 下图 显示了当你计算它的对数时这个特征看起来有多好：它非常接近高斯分布（即钟形）。
+另一种处理重尾特征的方法是对特征进行反向转换。这意味着将其分布切割成大致相等大小的桶，并将每个特征值替换为它所属的桶的索引，就像我们创建收入猫特征一样(尽管我们只在分层抽样时使用它)。例如，您可以将每个值替换为其百分位数。使用相同大小的bucket处理会产生一个几乎均匀分布的特性，因此不需要进一步的缩放，或者您可以只除以bucket的数目来强制值到0-1的范围。
+当一个特征具有多峰分布(即，有两个或两个以上清晰的峰值，称为模式)时，例housing_median_age特征，对它进行bucket ization也是有帮助的，但这次将bucket ID作为类别处理，而不是作为数值。这意味着必须对桶索引进行编码，例如使用OneHotEncoder(所以你通常不想用太多桶)。这种方法将允许回归模型更容易地为该特征值的不同范围学习不同的规则。例如，也许35年前建造的房子有一种独特的风格，已经过时了，因此它们比它们的年龄更便宜。
+转换多峰分布的另一种方法是为每个模式(至少是主要模式)添加一个特征，表示住房中位年龄和该特定模式之间的相似性。相似性度量通常使用径向基函数(RBF)来计算&ndash;任何只依赖于输入值与不动点之间距离的函数。最常用的RBF是高斯RBF，其输出值随着输入值远离固定点而呈指数衰减。例如，高斯RBF相似度与房龄x和35由方程exp (-y (x-35)2)给出。超参数y(gamma)确定当x远离35时相似性度量衰减的速度。使用Scikit-Learn的rbf_kernel()函数，您可以创建一个新的高斯RBF特征来测量房屋中位年龄和35:
+from sklearn.metrics.pairwise import rbf_kernel age_simil_35 = rbf_kernel(housing[[&#34;housing_median_age&#34;]], [[35]], gamma=0.1) 下图显示了这一新特征作为住房中位数年龄的函数(实线)。它还显示了如果使用较小的gamma值，该功能将是什么样子。如图所示，新的年龄相似性特征在35岁时达到峰值，正好在住房中位年龄分布的峰值附近:如果这个特定的年龄组与较低的价格有很好的相关性，那么这个新特征将有很好的机会发挥作用。
+到目前为止，我们只看了输入特性，但是目标值可能也需要转换。例如，若目标分布具有较重的尾部，您可以选择将目标替换为其对数。但是，如果你这样做，回归模型现在将预测的房屋价值中位数的对数，而不是房屋价值中位数本身。如果您想要预测的房屋中值，则需要计算模型预测的指数值。
+幸运的是，大多数Scikit-Learn的转换器都有一个inverse_transform()方法，这使得计算转换的逆运算变得很容易。例如，下面的代码示例显示了如何使用StandardScaler缩放标签(就像我们对输入所做的那样)，然后在缩放后的标签上训练一个简单的线性回归模型，并使用它对一些新数据进行预测，然后使用经过训练的缩放器的inverse_transform()方法将这些数据转换回原始尺度。请注意，我们将标签从Pandas Series转换为DataFrame，因为标准Scaler期望2D输入。此外，为了简单起见，在本示例中，我们仅使用单个原始输入特征(中值收入)对模型进行训练:
+from sklearn.linear_model import LinearRegression target_scaler = StandardScaler() scaled_labels = target_scaler.</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-11-18</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/187/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/187/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/186/" class="thumbnail" title="为机器学习算法准备数据（Machine Learning 研习之八）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703934522767.png" alt="为机器学习算法准备数据（Machine Learning 研习之八）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/186/" class="title" title="为机器学习算法准备数据（Machine Learning 研习之八）" rel="noopener noreferrer">
+            为机器学习算法准备数据（Machine Learning 研习之八）
+        </a>
+        <a class="abstract" href="/article/186/" title="文章摘要" rel="noopener noreferrer">本文还是同样建立在前两篇的基础之上的！
+属性组合实验 希望前面的部分能让您了解探索数据并获得洞察力的几种方法。您发现了一些数据怪癖，您可能希望在将数据提供给机器学习算法之前对其进行清理，并且发现了属性之间有趣的相关性，特别是与目标属性 之间的相关性。您还注意到一些属性具有向右倾斜的分布，因此您可能需要转换它们(例如，通过计算它们的对数或平方根)。当然，你的里程会因每个项目而有很大的不同，但大致的想法是相似的。
+在为机器学习算法准备数据之前，您可能需要做的最后一件事是尝试各种属性组合。例如，如果你不知道一个地区有多少住户，那么这个地区的房间总数就不是很有用。你真正想要的是每个家庭的房间数量。同样，卧室总数本身也不是很有用:你可能想对比一下房间的数量。每个家庭的人口似乎也是一个有趣的属性组合。创建这些新属性如下:
+housing[&#34;rooms_per_house&#34;] = housing[&#34;total_rooms&#34;] / housing[&#34;households&#34;] housing[&#34;bedrooms_ratio&#34;] = housing[&#34;total_bedrooms&#34;] / housing[&#34;total_rooms&#34;] housing[&#34;people_per_house&#34;] = housing[&#34;population&#34;] / housing[&#34;households&#34;] 然后你再看一遍相关矩阵:
+!新的bedrooms_ratio属性与房屋中值的相关性要比与房间或卧室总数的相关性大得多。显然，卧室/房间比率较低的房子往往更贵。每个家庭的房间数量也比一个地区的房间总数更能说明问题-很明显，房 子越大，就越贵。
+这一轮的探索不需要绝对彻底;关键是从正确的角度出发，并迅速获得见解，这将帮助您获得第一个相当好的原型。但是这是一个迭代的过程:一旦你建立并运行了一个原型，你就可以分析它的输出以获得更多的见解，然后再回到这个探索步骤。
+为机器学习算法准备数据 是时候为您的机器学习算法准备数据了。你应该为此编写函数，而不是手工操作，这有几个很好的理由:
+这将允许您在任何数据集上轻松重现这些转换(例如，下次获得新数据集时)。 您将逐步构建一个转换函数库，以便在未来的项目中重用。 您可以在实时系统中使用这些函数来转换新数据，然后再将其输入到您的算法中。 这将使您能够轻松地尝试各种转换，并查看哪种转换组合效果最好。 但首先，恢复到一个干净的训练集(通过再次复制strat_train_set)。您还应该将预测变量和标签分开，因为您不一定希望对预测变量和目标值应用相同的转换(请注意，drop()创建数据的副本，并且不影响strat_train_set):
+housing = strat_train_set.drop(&#34;median_house_value&#34;, axis=1) housing_labels = strat_train_set[&#34;median_house_value&#34;].copy() 清除数据 大多数机器学习算法无法处理缺失的功能，因此您需要处理这些功能。例如，您之前注意到total_bedrooms属性有一些缺失值。你有三个选项可以解决这个问题:
+去掉相应的区。
+去掉整个属性。
+将缺失值设置为某个值(零、均值、中位数等)。这就是所谓的归罪。
+您可以使用PandasDataFrame的dropna () 、drop () 和fillna ()方法轻松完成这些任务:
+housing.dropna(subset=[&#34;total_bedrooms&#34;], inplace=True) # option 1 housing.drop(&#34;total_bedrooms&#34;, axis=1) # option 2 median = housing[&#34;total_bedrooms&#34;].median() # option 3 housing[&#34;total_bedrooms&#34;].fillna(median, inplace=True) 您决定使用选项3，因为它的破坏性最小，但是您将使用一个方便的Scikit-Learn类:Simplelmputer，而不是前面的代码。这样做的好处是，它将存储每个特征的中值:这将使得它不仅可以估算训练集上的缺失值，还可以估算验证集、测试集和输入到模型的任何新数据上的缺失值。要使用它，首先需要创建一个Simplelmputer实例，指定要将每个属性的缺失值替换为该属性的中位数:
+from sklearn.</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-11-05</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/186/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/186/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/188/" class="thumbnail" title="端到端的机器学习项目之探索数据（Machine Learning 研习之七）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703936058408.png" alt="端到端的机器学习项目之探索数据（Machine Learning 研习之七）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/188/" class="title" title="端到端的机器学习项目之探索数据（Machine Learning 研习之七）" rel="noopener noreferrer">
+            端到端的机器学习项目之探索数据（Machine Learning 研习之七）
+        </a>
+        <a class="abstract" href="/article/188/" title="文章摘要" rel="noopener noreferrer">本篇其实是承接上一篇内容，之所以没在上一篇将它写完，那是有原因的，毕竟，本着学习的态度，篇幅不应过长，方能使你有学习的欲望！
+探索数据 首先，确保你已经把测试放在一边，你只是在探索训练集。此外，如果训练集非常大，您可能希望对探索进行采样设置，使操作在勘探阶段变得容易和快速。在这种情况下，培训集非常小，所以您可以直接处理完整集。由于你要试验完整训练集的各种变换，你应该制作一份原始的所以你可以在之后恢复它:
+housing = strat_train_set.copy() 可视化地理数据 因为数据集包括地理信息(纬度和经度)，所以创建一个所有地区的散点图来可视化数据是一个好主意(见下图):
+housing.plot(kind=&#34;scatter&#34;, x=&#34;longitude&#34;, y=&#34;latitude&#34;, grid=True) plt.show() 这看起来很像加州，但除此之外，很难看到任何特别的模式。将alpha选项设置为0.2可以更容易地显示数据点密度高的位置(见下图):
+housing.plot(kind=&#34;scatter&#34;, x=&#34;longitude&#34;, y=&#34;latitude&#34;, grid=True, alpha=0.2) plt.show() 现在的情况要好得多:你可以清楚地看到高密度地区，即海湾地区、洛杉矶和圣地亚哥周围，再加上中央山谷(特别是萨克拉门托和弗雷斯诺)的一长排高密度地区。
+我们的大脑非常善于发现图片中的模式，但你可能需要玩弄可视化参数，使模式脱颖而出。
+接下来，你再看看房价(见下图)。每个圆圈的半径代表该地区的人口(选项s)，颜色代表价格(选项c)。这里使用了一个名为jet的预定义颜色映射(选项cmap)，其范围从蓝色(低值)到红色(高价):s
+housing.plot(kind=&#34;scatter&#34;, x=&#34;longitude&#34;, y=&#34;latitude&#34;, grid=True, s=housing[&#34;population&#34;] / 100, label=&#34;population&#34;, c=&#34;median_house_value&#34;, cmap=&#34;jet&#34;, colorbar=True, legend=True, sharex=False, figsize=(10, 7)) plt.show() 这张图告诉你，房价与地理位置(例如，靠近大海)和人口密度密切相关，你可能已经知道了。聚类算法对于检测主集群和添加测量与集群中心的邻近性的新特性应该是有用的。海洋邻近属性也可能是有用的，尽管在北加州沿海地区的房价不是太高，所以这不是一个简单的规则。
+寻找相关性 由于数据集不是太大，你可以很容易地使用corr()方法计算每对属性之间的标准相关系数(也称为皮尔逊相关系数):
+corr_matrix = housing.corr() 现在您可以查看每个属性与房屋中值的相关性:
+相关系数从-1到1。当它接近1时，意味着有很强的正相关关系，例如，当收入中位数上升时，房屋价值中位数往往会上升。当系数接近-1时，意味着有很强的负相关性;你可以看到纬度和房屋价值中间值之间有一个很小的负相关性(即往北走，房价有轻微的下降趋势)。最后，系数接近0意味着不存在线性相关关系。
+检查属性之间相关性的另一种方法是使用Pandas scatter_matrix ()函数，该函数将每个数值属性与其他每个数值属性进行绘图。由于现在有11个数字属性，您将得到112=121幅不适合页面的地块，所以您决定将重点放在一些看起来与住房中值最相关的有前途的属性上(见下图):
+如果Pandas将每个变量相对于自身绘制，那么主对角线将充满直线，这将不是很有用。因此，Pandas显示每个属性的直方图(其他选项可用;请参阅Pandas文档以获取更多详细信息)。
+查看相关散点图，似乎最有希望预测房屋价值中位数的属性是收入中位数，所以你放大他们的散点图(见下图):
+housing.plot(kind=&#34;scatter&#34;, x=&#34;median_income&#34;, y=&#34;median_house_value&#34;, alpha=0.1, grid=True) plt.show() 这个情节揭示了一些事情。首先，相关性确实很强;你可以清楚地看到上升的趋势，而且点也不太分散。第二，你之前注意到的价格上限在500，000美元的水平线上明显可见。但这个情节也揭示了其他不那么明显的直线:一条水平线在45万美元左右，另一条大约35万美元左右，也许还有一条大约28万美元，还有几条低于这一点。您可能希望尝试删除相应的区域，以防止您的算法学习重现这些数据怪癖。
+警告：
+相关系数只测量线性相关性(“当x上升时，y通常上升/下降”)。它可能会完全忽略非线性关系(例如，“当x接近0时，y通常会上升”)。图2-16显示了各种数据集及其相关系数。请注意，尽管它们的轴线显然不是独立的，但底部行的所有图都具有等于0的相关系数:这些都是非线性关系的例子。另外，第二行显示了相关系数等于1或-1的示例;注意，这与斜率无关。例如，以英寸为单位的身高与以英尺或纳米为单位的身高的相关系数为1。</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-10-24</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/188/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/188/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/183/" class="thumbnail" title="端到端的机器学习项目（Machine Learning 研习之六）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703936717743.png" alt="端到端的机器学习项目（Machine Learning 研习之六）">
+
+
+
+
+        
+    </a>
+    <div class="information">
+        <a href="/article/183/" class="title" title="端到端的机器学习项目（Machine Learning 研习之六）" rel="noopener noreferrer">
+            端到端的机器学习项目（Machine Learning 研习之六）
+        </a>
+        <a class="abstract" href="/article/183/" title="文章摘要" rel="noopener noreferrer"><p>Scikit-Learn提供了一些函数，以各种方式将数据集拆分为多个子集。最简单的函数train_test_split()，它的功能与我们前面定义的shuffle_and_split_data ()函数非常相似，只是增加了几个特性。首先，有一个random_state参数，它允许您设置随机生成器种子。其次，您可以向它传递具有相同行数的多个数据集，它将按照相同的索引将它们拆分(这是非常有用的，例如，如果你有一个单独的DataFrame标签)</p></a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-10-14</li>
+                
+                
+                
+                
+                
+                
+
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/183/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/183/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
+    
+    
+    
+                    
+    
+                </ul>
+                
+            </div>
+       
+        
+  
+    
+
+    
+
+
+
+<ul class="Qc_pagination">
+    <li>
+        <a  href="https://qiucode.cn/post/">1</a>
+    </li>
+        <li class="active">
+            <a  href="https://qiucode.cn/post/page/2/">2</a>
+        </li>
+        
+        <li >
+            <a  href="https://qiucode.cn/post/page/3/">3</a>
+        </li>
+            &nbsp;...&nbsp;
+
+        <li >
+            <a class="pageLast" href="https://qiucode.cn/post/page/13/">13</a>
+        </li>
+
+</ul>
+
+
+
+
+    
+
+
+
+</div>
+</div><aside class="Qc_aside"><section class="Qc_aside_item author">
+    <img width="100%" height="120" class="image ls-is-cached lazyloaded" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucode.cnimages/head_img.webp" loading="lazy"  alt="博主栏壁纸">
+    <div class="user">
+      <div class="avatar_wrapper circle">
+        <img class="avatar lazyloaded" src="https://qiucode.cnimages/loading.gif"  data-lazy-src="https://qiucode.cnimgs/icons/apple_touch_icon_next.png" loading="lazy"   alt="博主头像">
+        
+      </div>
+      
+        <p class="motto joe_motto">一个游离于山间之上的江湖漫行者。</p>
+        <p class="motto joe_motto">A jungle wanderer who wanders above the mountains.</p>
+    </div>
+    <div class="count">
+          <div class="item" title="累计分类数 22">
+            <span class="num">41</span>
+            <span>分类数</span>
+          </div>
+          <div class="item" title="累计文章数 45">
+            <span class="num">122</span>
+            <span>文章数</span>
+          </div>
+          <div class="item" title="累计评论数 452">
+            <span class="num">251</span>
+            <span>标签数</span>
+          </div>
+    </div>
+    
+  </section>
+
+<section class="Qc_aside_item tags"> 
+    <div class="Qc_aside_item-title"> 
+        <i class="iconfont icon-A67" style="margin-right: 8px;font-size: 17px"></i> 
+        <span class="text">文章分类</span> 
+		
+
+		<a class="card-more-btn" href="/categories/" title="查看更多" data-pjax-state="">
+			<i class="fa fa-angle-right"></i></a>
+    </div> 
+    <div class="Qc_aside_item-contain" style="padding:10px"> 
+        <div class="tag"></div> 
+
+
+		<ul class="card-category-list" id="aside-cat-list">
+			
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+			
+			    
+					<li class="card-category-list-item">
+						<a class="card-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+							<span class="card-category-list-name">人工智能</span>
+							<span class="card-category-list-count">19</span>
+						</a>
+					</li>
+			
+			    
+					<li class="card-category-list-item">
+						<a class="card-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BDai/">
+							<span class="card-category-list-name">人工智能（AI）</span>
+							<span class="card-category-list-count">1</span>
+						</a>
+					</li>
+			
+			    
+					<li class="card-category-list-item">
+						<a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">
+							<span class="card-category-list-name">前端</span>
+							<span class="card-category-list-count">10</span>
+						</a>
+					</li>
+			
+			    
+					<li class="card-category-list-item">
+						<a class="card-category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/">
+							<span class="card-category-list-name">区块链</span>
+							<span class="card-category-list-count">20</span>
+						</a>
+					</li>
+			
+			    
+					<li class="card-category-list-item">
+						<a class="card-category-list-link" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+							<span class="card-category-list-name">微信小程序</span>
+							<span class="card-category-list-count">3</span>
+						</a>
+					</li>
+			
+			    
+					<li class="card-category-list-item">
+						<a class="card-category-list-link" href="/categories/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">
+							<span class="card-category-list-name">智能合约</span>
+							<span class="card-category-list-count">18</span>
+						</a>
+					</li>
+			
+			    
+					<li class="card-category-list-item">
+						<a class="card-category-list-link" href="/categories/%E6%A8%A1%E6%9D%BF/">
+							<span class="card-category-list-name">模板</span>
+							<span class="card-category-list-count">1</span>
+						</a>
+					</li>
+			
+			    
+					<li class="card-category-list-item">
+						<a class="card-category-list-link" href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">
+							<span class="card-category-list-name">版本控制</span>
+							<span class="card-category-list-count">4</span>
+						</a>
+					</li>
+			
+			    
+					<li class="card-category-list-item">
+						<a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E6%83%85%E6%84%9F/">
+							<span class="card-category-list-name">生活情感</span>
+							<span class="card-category-list-count">1</span>
+						</a>
+					</li>
+			
+			    
+					<li class="card-category-list-item">
+						<a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">
+							<span class="card-category-list-name">生活随笔</span>
+							<span class="card-category-list-count">2</span>
+						</a>
+					</li>
+			
+		</ul>
+
+
+
+	</div>
+</section>
+
+
+<style>
+	
+	ul.card-category-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	ul.card-category-list > .card-category-list-item a {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: box;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-moz-box-orient: horizontal;
+		-o-box-orient: horizontal;
+		-webkit-flex-direction: row;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		padding: 3px 10px;
+		color: var(--main);
+		-webkit-transition: all 0.4s;
+		-moz-transition: all 0.4s;
+		-o-transition: all 0.4s;
+		-ms-transition: all 0.4s;
+		transition: all 0.4s;
+	}
+    ul.card-category-list > .card-category-list-item a:hover {
+		padding: 3px 17px;
+		background-color: var(--theme);
+	}
+    ul.card-category-list > .card-category-list-item a span:first-child {
+		-webkit-box-flex: 1;
+		-moz-box-flex: 1;
+		-o-box-flex: 1;
+		box-flex: 1;
+		-webkit-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+	}
+	.card-category-list.child {
+		padding: 0 0 0 16px;
+	}
+	.card-category-list > .parent > a .card-category-list-name {
+		width: 70% !important;
+	}
+	.card-category-list > .parent > a .card-category-list-count {
+		width: calc(100% - 70% - 20px);
+		text-align: right;
+	}
+	.card-category-list > .parent i {
+		float: right;
+		margin-right: -0.5em;
+		padding: 0.5em;
+		-webkit-transition: -webkit-transform 0.3s;
+		-moz-transition: -moz-transform 0.3s;
+		-o-transition: -o-transform 0.3s;
+		-ms-transition: -ms-transform 0.3s;
+		transition: transform 0.3s;
+		-webkit-transform: rotate(0);
+		-moz-transform: rotate(0);
+		-o-transform: rotate(0);
+		-ms-transform: rotate(0);
+		transform: rotate(0);
+	}
+	.card-category-list > .parent i.expand {
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
+		-o-transform: rotate(-90deg);
+		-ms-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+	}
+	.card-more-btn{
+		position: absolute;
+		color: inherit;
+		float: right;
+		right: 55px;
+		top: 0px;
+	}
+	.card-more-btn:hover {
+		-webkit-animation: more-btn-move 1s infinite;
+		-moz-animation: more-btn-move 1s infinite;
+		-o-animation: more-btn-move 1s infinite;
+		-ms-animation: more-btn-move 1s infinite;
+		animation: more-btn-move 1s infinite;
+	}
+
+
+	
+</style>
+
+
+
+
+<section class="Qc_aside_item tags">
+    <div class="Qc_aside_item-title"> 
+        <i class="iconfont icon-A67" style="margin-right: 8px;font-size: 17px"></i> 
+        <span class="text">标签云</span> 
+        <span class="xccx_mac"></span> 
+    </div>
+    <div id="sourrounding_div" style="width:100%;height:100%;min-height: 500px;">
+        <div id="tag-canvas"></div>
+    </div>
+</section>
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+    
+    <span id="tag-temp" style="display:none">[{"abstract":1},{"ag-grid":1},{"ai":1},{"apache":1},{"array":1},{"bootstraptable":1},{"branch":1},{"break":1},{"centos":3},{"centos7":1},{"channel":3},{"chatgpt":1},{"chrome-v3":1},{"chrome扩展":1},{"clone":1},{"constant":1},{"continue":1},{"css计算器":1},{"curl":1},{"dict":1},{"error":1},{"event":1},{"extends":1},{"extjs":1},{"freemarker":1},{"git":1},{"git-clone":1},{"git-push":1},{"gitee":1},{"github":2},{"global-variable":1},{"goland":1},{"golang":3},{"golang-sdk安装":1},{"goto":1},{"https":2},{"https配置":1},{"hugo":2},{"ide":1},{"ie10兼容":1},{"immutable":1},{"interface":1},{"java8":2},{"java8新特性":1},{"jdk8":1},{"lambda":1},{"library":1},{"list":1},{"liteide":1},{"machine-learning":11},{"maven":1},{"mechine-learn":1},{"merge":1},{"modifier":1},{"moduels":1},{"mpvue":1},{"mysql":1},{"navicat12":1},{"nexus":1},{"nginx":4},{"nlp":2},{"nodejs":2},{"npm-adduser":1},{"npm发布项目":1},{"npm注册账号":1},{"oracle":1},{"oracle-library-is-not-loaded":1},{"oss":1},{"package":2},{"php":1},{"php-fpm":1},{"pipelines":1},{"pointer":1},{"prism":1},{"redis":2},{"remix":1},{"requirejs":1},{"scikit-learn":7},{"slice":1},{"springboot上传图片":1},{"ssl":1},{"struct":1},{"switch":1},{"tags":1},{"template":1},{"tensorflow":1},{"theme":1},{"thinkphp":1},{"thinkphp.1":1},{"timed-out":1},{"tomcat":1},{"tooltip":1},{"transformers":1},{"treepanel":1},{"type-alias":1},{"ubuntu-16.04lts":2},{"ui框架":1},{"vs-code":2},{"vxe-table":2},{"web3":2},{"while":1},{"x-editable.js":1},{"ztree":1},{"一键复制":1},{"不甘心":1},{"主题":1},{"事件":1},{"二维数组":1},{"二进制":1},{"云对象存储":1},{"云服务器":3},{"交叉验证":1},{"人工智能":9},{"代码块":1},{"代码高亮":1},{"以太坊":18},{"任务":2},{"信道":1},{"修饰器":1},{"值类型":1},{"全局变量":1},{"关键字":1},{"内存地址":1},{"内容过多省略":1},{"决策树":1},{"函数":2},{"函数变量":1},{"函数式接口":2},{"分支":1},{"分类器":2},{"切片":1},{"列表":1},{"包":2},{"区块链":21},{"匿名函数":1},{"匿名变量":1},{"单元格单击":1},{"单向信道":1},{"博客主题":1},{"双十一":1},{"双向链表":1},{"变量作用域":1},{"召回率":2},{"可变参数":1},{"可变性":1},{"可见性":1},{"合约继承":1},{"回调函数":2},{"困惑":1},{"图片水印":1},{"在线学习":1},{"在线编辑器":1},{"基于vue2.x的ui组件库":1},{"基本类型":2},{"多值返回":1},{"多核":1},{"多线程":1},{"多维数组":1},{"大量数据处理":1},{"天气很好":1},{"奇果":1},{"字典":1},{"字符串":1},{"实战":2},{"实战项目":1},{"常量":1},{"年末总结":1},{"并发编程":1},{"序号":1},{"延迟执行":1},{"建站":1},{"开源大模型":1},{"异常":1},{"异常处理":1},{"异步加载树":1},{"引用类型":1},{"循环结构":1},{"微信小程序":1},{"托管平台":1},{"批量学习":1},{"抽象合约":1},{"拼团":1},{"指针":1},{"挑战":2},{"接受者":1},{"接口":2},{"接口转换":1},{"数据库":1},{"数据标注":1},{"数组":1},{"数组分组":1},{"文件上传":1},{"文件下载":1},{"文章奴鲁":1},{"方法":1},{"方法集":1},{"映射":1},{"智能合约":18},{"本地仓库":1},{"机器学习":18},{"枚举类型":1},{"标签":1},{"标识符":1},{"模型":2},{"模板发送邮件":1},{"横向树状":1},{"池塘":1},{"流程控制":1},{"测试集":1},{"深度学习":6},{"混肴矩阵":1},{"添加水印":1},{"版本控制":2},{"特征曲线":1},{"环境搭建":1},{"电商":2},{"登山":1},{"空接口":2},{"端到端":2},{"类型别名":1},{"类型推导":1},{"类型断言":1},{"类型转换":1},{"精确率":1},{"结构体":1},{"缓冲信道":1},{"腾讯云":1},{"自定义提示":1},{"花鸟市场":1},{"表单":1},{"表格行内编辑":1},{"训练数据":2},{"训练模型":1},{"训练集":1},{"语法题":1},{"负重前行":1},{"超时":1},{"跑酷":1},{"跨越switch":1},{"转义符":1},{"远程仓库":1},{"错误分析":1},{"错误处理":2},{"闭包":1},{"防火墙":1},{"阿里云":2},{"阿里云oss":1},{"随机森林":1},{"隐藏/显示表格行":1},{"预定义标识符":1},{"首页":1},{"abstract":1},{"ag-grid":1},{"ai":1},{"apache":1},{"array":1},{"bootstraptable":1},{"branch":1},{"break":1},{"centos":3},{"centos7":1},{"channel":3},{"chatgpt":1},{"chrome-v3":1},{"chrome扩展":1},{"clone":1},{"constant":1},{"continue":1},{"css计算器":1},{"curl":1},{"dict":1},{"error":1},{"event":1},{"extends":1},{"extjs":1},{"freemarker":1},{"git":1},{"git-clone":1},{"git-push":1},{"gitee":1},{"github":2},{"global-variable":1},{"goland":1},{"golang":3},{"golang-sdk安装":1},{"goto":1},{"https":2},{"https配置":1},{"hugo":2},{"ide":1},{"ie10兼容":1},{"immutable":1},{"interface":1},{"java8":2},{"java8新特性":1},{"jdk8":1},{"lambda":1},{"library":1},{"list":1},{"liteide":1},{"machine-learning":11},{"maven":1},{"mechine-learn":1},{"merge":1},{"modifier":1},{"moduels":1},{"mpvue":1},{"mysql":1},{"navicat12":1},{"nexus":1},{"nginx":4},{"nlp":2},{"nodejs":2},{"npm-adduser":1},{"npm发布项目":1},{"npm注册账号":1},{"oracle":1},{"oracle-library-is-not-loaded":1},{"oss":1},{"package":2},{"php":1},{"php-fpm":1},{"pipelines":1},{"pointer":1},{"prism":1},{"redis":2},{"remix":1},{"requirejs":1},{"scikit-learn":7},{"slice":1},{"springboot上传图片":1},{"ssl":1},{"struct":1},{"switch":1},{"tags":1},{"template":1},{"tensorflow":1},{"theme":1},{"thinkphp":1},{"thinkphp.1":1},{"timed-out":1},{"tomcat":1},{"tooltip":1},{"transformers":1},{"treepanel":1},{"type-alias":1},{"ubuntu-16.04lts":2},{"ui框架":1},{"vs-code":2},{"vxe-table":2},{"web3":2},{"while":1},{"x-editable.js":1},{"ztree":1},{"一键复制":1},{"不甘心":1},{"主题":1},{"事件":1},{"二维数组":1},{"二进制":1},{"云对象存储":1},{"云服务器":3},{"交叉验证":1},{"人工智能":9},{"代码块":1},{"代码高亮":1},{"以太坊":18},{"任务":2},{"信道":1},{"修饰器":1},{"值类型":1},{"全局变量":1},{"关键字":1},{"内存地址":1},{"内容过多省略":1},{"决策树":1},{"函数":2},{"函数变量":1},{"函数式接口":2},{"分支":1},{"分类器":2},{"切片":1},{"列表":1},{"包":2},{"区块链":21},{"匿名函数":1},{"匿名变量":1},{"单元格单击":1},{"单向信道":1},{"博客主题":1},{"双十一":1},{"双向链表":1},{"变量作用域":1},{"召回率":2},{"可变参数":1},{"可变性":1},{"可见性":1},{"合约继承":1},{"回调函数":2},{"困惑":1},{"图片水印":1},{"在线学习":1},{"在线编辑器":1},{"基于vue2.x的ui组件库":1},{"基本类型":2},{"多值返回":1},{"多核":1},{"多线程":1},{"多维数组":1},{"大量数据处理":1},{"天气很好":1},{"奇果":1},{"字典":1},{"字符串":1},{"实战":2},{"实战项目":1},{"常量":1},{"年末总结":1},{"并发编程":1},{"序号":1},{"延迟执行":1},{"建站":1},{"开源大模型":1},{"异常":1},{"异常处理":1},{"异步加载树":1},{"引用类型":1},{"循环结构":1},{"微信小程序":1},{"托管平台":1},{"批量学习":1},{"抽象合约":1},{"拼团":1},{"指针":1},{"挑战":2},{"接受者":1},{"接口":2},{"接口转换":1},{"数据库":1},{"数据标注":1},{"数组":1},{"数组分组":1},{"文件上传":1},{"文件下载":1},{"文章奴鲁":1},{"方法":1},{"方法集":1},{"映射":1},{"智能合约":18},{"本地仓库":1},{"机器学习":18},{"枚举类型":1},{"标签":1},{"标识符":1},{"模型":2},{"模板发送邮件":1},{"横向树状":1},{"池塘":1},{"流程控制":1},{"测试集":1},{"深度学习":6},{"混肴矩阵":1},{"添加水印":1},{"版本控制":2},{"特征曲线":1},{"环境搭建":1},{"电商":2},{"登山":1},{"空接口":2},{"端到端":2},{"类型别名":1},{"类型推导":1},{"类型断言":1},{"类型转换":1},{"精确率":1},{"结构体":1},{"缓冲信道":1},{"腾讯云":1},{"自定义提示":1},{"花鸟市场":1},{"表单":1},{"表格行内编辑":1},{"训练数据":2},{"训练模型":1},{"训练集":1},{"语法题":1},{"负重前行":1},{"超时":1},{"跑酷":1},{"跨越switch":1},{"转义符":1},{"远程仓库":1},{"错误分析":1},{"错误处理":2},{"闭包":1},{"防火墙":1},{"阿里云":2},{"阿里云oss":1},{"随机森林":1},{"隐藏/显示表格行":1},{"预定义标识符":1},{"首页":1}]</span>
+
+<script>
+
+var XISHU = 20;
+
+
+var div = document.querySelector("#sourrounding_div");
+var canvas = document.querySelector("#tag-canvas");
+canvas.style.width = div.offsetWidth+'px';
+canvas.style.height = div.offsetHeight+'px'; 
+var wordFreqData =  document.querySelector("#tag-temp").innerHTML;
+var jsonObj = JSON.parse(wordFreqData);
+var arr = []
+jsonObj.forEach(element => {
+    var key = Object.keys(element);
+    var itemArr = [key[0],element[key]*XISHU];
+    arr.push(itemArr);
+});
+
+var isDark = document.body.className.includes("dark");
+WordCloud(canvas, {
+      "list": arr,
+      "shape": "pentagon", 
+      "gridSize": 6, 
+      "weightFactor": 1, 
+      "fontWeight": 'normal', 
+      "fontFamily": 'Times, serif', 
+      "color": isDark?'random-light':'random-dark', 
+      "backgroundColor": 'transparent', 
+      "classes": "tag-cloud-item word-color", 
+  });
+  canvas.addEventListener('wordcloudstop', function (e) {
+        
+        setTimeout(() => {
+            var els = document.querySelectorAll(".word-color");
+            Array.from(els).forEach((el) => {
+                
+                el.classList.add("word-animate")
+            })
+        }, 2000);
+        
+        document.querySelectorAll('.tag-cloud-item').forEach(function (element) {
+            const text = element.innerHTML;
+            element.innerHTML = `<a href="/tags/${text}" style="color: inherit;">${text}</a>`;
+        });
+    });
+
+</script>
+
+
+
+    
+    
+     
+
+
+	
+
+</aside></div>
+	<footer class="Qc_footer">
+		<div class="Qc_container">
+			<div class="item">
+				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+			</div>
+			<div class="item">
+				<p>
+					<strong>Powered by <span style="color:blue;font:bold;">Hugo</span>&nbsp;&nbsp;|&nbsp;&nbsp;Theme by 
+						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.10</a></strong>
+				</p>
+			</div>
+		</div>
+		</div>
+	</footer>
+
+	<style>
+
+		.joe_action {
+			position: fixed;
+			bottom: 90px;
+			right: 30px;
+			z-index: 333;
+		}
+
+
+		.joe_action_item.scroll.active {
+			visibility: visible;
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+
+		.joe_action_item.scroll {
+			visibility: hidden;
+			-webkit-transform: scale(0);
+			transform: scale(0);
+			transition: visibility 0.35s, -webkit-transform 0.35s;
+			transition: visibility 0.35s, transform 0.35s;
+			transition: visibility 0.35s, transform 0.35s, -webkit-transform 0.35s;
+		}
+
+		.joe_action_item {
+			box-shadow: rgb(0 0 0 / 10%) 0px 0px 10px, rgb(0 0 0 / 20%) 0px 5px 20px;
+			background: var(--darkreader-bg--background);
+		}
+		.joe_action_item {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			background: var(--background);
+			border-radius: 50%;
+			cursor: pointer;
+			margin-top: 15px;
+			box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 5px 20px rgb(0 0 0 / 20%);
+		}
+		.joe_action_item  svg {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			fill: var(--theme);
+		}
+
+
+
+		.joe_action_item.mode svg{-webkit-transform:scale(0);transform:scale(0);opacity:0}
+		.joe_action_item.mode svg.active{-webkit-transform:scale(1);transform:scale(1);opacity:1}
+
+
+		.vp-scroll-progress {
+			visibility: hidden;
+			position: absolute;
+			right: -12px;
+    		bottom: 27px;
+			width: 52px;
+			height: 52px;
+		}
+		.vp-scroll-progress svg {
+			width: 80px;
+			height: 80px;
+		}
+		.vp-scroll-progress.active{
+			visibility: visible;
+		}
+
+		.vp-scroll-progress circle {
+			opacity: .9;
+			transform: rotate(-90deg);
+			transform-origin: 50% 50%;
+		}
+		
+	</style>
+
+
+	<div class="joe_action">
+		<div class="joe_action_item scroll " title="返回顶部">
+			<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M725.902 498.916c18.205-251.45-93.298-410.738-205.369-475.592l-6.257-3.982-6.258 3.414c-111.502 64.853-224.711 224.142-204.8 475.59-55.751 53.476-80.214 116.623-80.214 204.8v15.36l179.2-35.27c11.378 40.39 58.596 69.973 113.21 69.973 54.613 0 101.262-29.582 112.64-68.836l180.337 36.41v-15.36c-.569-89.885-25.031-153.6-82.489-206.507zM571.733 392.533c-33.564 31.29-87.04 28.445-118.329-5.12s-28.444-87.04 5.12-117.76c33.565-31.289 87.04-28.444 118.33 5.12s28.444 86.471-5.12 117.76zm-56.32 368.64c-35.84 0-64.284 29.014-64.284 64.285 0 35.84 54.044 182.613 64.284 182.613s64.285-146.773 64.285-182.613c0-35.271-29.014-64.285-64.285-64.285z"></path>
+			</svg>
+			<div class="vp-scroll-progress">
+				<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+					<circle cx="26" cy="26" r="24" fill="none" stroke="var(--theme)" stroke-width="5" 
+						data-darkreader-inline-stroke="" style="--darkreader-inline-stroke:currentColor;">
+					</circle>
+				</svg>
+			</div>
+			
+		</div>
+
+		
+
+		
+
+		<a class="joe_action_item" href="https://qiucode.cn/index.xml" target="_blank" title="RSS 订阅">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"  stroke="var(--theme)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss" >
+				<path d="M4 11a9 9 0 0 1 9 9"></path>
+				<path d="M4 4a16 16 0 0 1 16 16"></path>
+				<circle cx="5" cy="19" r="1"></circle>
+			</svg>
+		</a>
+		
+		
+		
+
+		<div class="joe_action_item mode">
+			<svg class="icon-1 " viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M587.264 104.96c33.28 57.856 52.224 124.928 52.224 196.608 0 218.112-176.128 394.752-393.728 394.752-29.696 0-58.368-3.584-86.528-9.728C223.744 832.512 369.152 934.4 538.624 934.4c229.376 0 414.72-186.368 414.72-416.256 1.024-212.992-159.744-389.12-366.08-413.184z"></path>
+				<path d="M340.48 567.808l-23.552-70.144-70.144-23.552 70.144-23.552 23.552-70.144 23.552 70.144 70.144 23.552-70.144 23.552-23.552 70.144zM168.96 361.472l-30.208-91.136-91.648-30.208 91.136-30.208 30.72-91.648 30.208 91.136 91.136 30.208-91.136 30.208-30.208 91.648z"></path>
+			</svg>
+			<svg class="icon-2 active" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+				<path d="M234.24 512a277.76 277.76 0 1 0 555.52 0 277.76 277.76 0 1 0-555.52 0zM512 187.733a42.667 42.667 0 0 1-42.667-42.666v-102.4a42.667 42.667 0 0 1 85.334 0v102.826A42.667 42.667 0 0 1 512 187.733zm-258.987 107.52a42.667 42.667 0 0 1-29.866-12.373l-72.96-73.387a42.667 42.667 0 0 1 59.306-59.306l73.387 72.96a42.667 42.667 0 0 1 0 59.733 42.667 42.667 0 0 1-29.867 12.373zm-107.52 259.414H42.667a42.667 42.667 0 0 1 0-85.334h102.826a42.667 42.667 0 0 1 0 85.334zm34.134 331.946a42.667 42.667 0 0 1-29.44-72.106l72.96-73.387a42.667 42.667 0 0 1 59.733 59.733l-73.387 73.387a42.667 42.667 0 0 1-29.866 12.373zM512 1024a42.667 42.667 0 0 1-42.667-42.667V878.507a42.667 42.667 0 0 1 85.334 0v102.826A42.667 42.667 0 0 1 512 1024zm332.373-137.387a42.667 42.667 0 0 1-29.866-12.373l-73.387-73.387a42.667 42.667 0 0 1 0-59.733 42.667 42.667 0 0 1 59.733 0l72.96 73.387a42.667 42.667 0 0 1-29.44 72.106zm136.96-331.946H878.507a42.667 42.667 0 1 1 0-85.334h102.826a42.667 42.667 0 0 1 0 85.334zM770.987 295.253a42.667 42.667 0 0 1-29.867-12.373 42.667 42.667 0 0 1 0-59.733l73.387-72.96a42.667 42.667 0 1 1 59.306 59.306l-72.96 73.387a42.667 42.667 0 0 1-29.866 12.373z"></path>
+			</svg>
+		</div>
+	</div>
+
+	
+
+
+	
+	
+
+   <script>
+	 function registerImageLoadEvent() {
+		const images = document.querySelectorAll('.sidebar img, .Qc_post img, .vendors-list img');
+				
+		const callback = (entries) => {
+			entries.forEach(item => {
+				if (item.intersectionRatio > 0) {
+					let ele = item.target;
+					let imgSrc = ele.getAttribute('src');
+					ele.setAttribute("src","1.png")
+					ele.setAttribute("data-lazy-src",imgSrc)
+					ele.classList.add("lazyload")
+			
+				}
+			})
+		};
+
+		Array.from(images).forEach(img => {
+			const bg = '/images/loading.gif' 
+
+			img.setAttribute("data-lazy-src",img.src)
+			img.src = bg
+			
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+
+		
+		
+		
+	}
+
+	registerImageLoadEvent()
+
+   </script>
+
+
+
+
+ 
+
+ <script src="https://qiucode.cnjs/lazyload.life.min.js"></script>
+
+ <script>
+	const lazyloadImg = () => {
+      window.lazyLoadInstance = new LazyLoad({
+        elements_selector: 'img',
+        threshold: 0,
+        data_src: 'lazy-src'
+      })
+    }
+
+	lazyloadImg()
+ </script>
+
+
+	</div>
+</body>
+
+
+
+
+<script>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+
+	
+	
+				
+	
+
+	
+	
+	
+	
+
+	
+
+	
+
+	
+	
+	
+	
+	
+
+	
+	
+		
+	
+	   </script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	
+    
+	var mybutton = document.querySelector(".joe_action .joe_action_item.scroll")
+    window.onscroll = function () {
+
+		const currentTop = window.scrollY || document.documentElement.scrollTop
+		
+		const ele = document.querySelector(".Qc_container")
+
+		const docHeight = ele.clientHeight
+		const winHeight = document.documentElement.clientHeight
+		const headerHeight = ele.offsetTop
+		const contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : (document.documentElement.scrollHeight - winHeight)
+		const scrollPercent = (currentTop - headerHeight) / (contentMath)
+		const scrollPercentRounded = Math.round(scrollPercent * 100)
+		const percentage = (scrollPercentRounded > 100) ? 100 : (scrollPercentRounded <= 0) ? 0 : scrollPercentRounded
+
+
+        let svgCircle = document.querySelector(".vp-scroll-progress svg circle")
+		
+
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            
+            
+			mybutton.classList.add("active")
+			document.querySelector(".vp-scroll-progress").classList.add("active")
+			svgCircle.setAttribute("stroke-dasharray",`${Math.PI*percentage*.48} ${Math.PI*(100-percentage)*.48}`)
+		    svgCircle.setAttribute("stroke","var(--theme)")
+        } else {
+            
+            
+			mybutton.classList.remove("active")
+			document.querySelector(".vp-scroll-progress").classList.remove("active")
+        }
+    };
+
+	mybutton.addEventListener("click",() => {
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	})
+	
+
+
+</script>
+
+
+
+<script>
+	var themeBtn = document.querySelector(".joe_action .joe_action_item.mode")
+	let icon_1 = document.querySelector(".joe_action .joe_action_item.mode .icon-1")
+	let icon_2 = document.querySelector(".joe_action .joe_action_item.mode .icon-2")
+    themeBtn.addEventListener("click", () => {
+		
+        if (icon_1.classList.contains("active")) {
+            icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if(localStorage.getItem('pref-theme') === 'dark') {
+			icon_2.classList.remove('active');
+			icon_1.classList.add('active');
+			document.querySelector("html").setAttribute("data-night","night")
+		} else {
+			icon_1.classList.remove('active');
+			icon_2.classList.add('active');
+			document.querySelector("html").removeAttribute("data-night")
+		}
+
+		if(localStorage.getItem('reading') === 'on'){
+			document.querySelector('body').classList.add('reading')
+			let backReadingHtml = `<div class="reading-back" id="j-reading-back" onclick="readingBack()">
+                                        <i class="wpcom-icon wi">
+                                            <svg aria-hidden="true">
+                                                <use xlink:href="#wi-back"></use>
+                                            </svg>
+                                        </i>
+                                    </div>`
+            let backReadingNode = document.createRange().createContextualFragment( backReadingHtml);
+
+            document.querySelector('body').appendChild(backReadingNode)
+		}else{
+			document.querySelector('body').classList.remove('reading')
+		}
+	})
+
+</script>
+
+
+
+<script>
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+

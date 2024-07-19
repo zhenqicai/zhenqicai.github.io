@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>实战项目 on 秋码分享</title>
+    <link>https://qiucode.cn/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/</link>
+    <description>Recent content in 实战项目 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 14 Oct 2023 17:02:17 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>端到端的机器学习项目（Machine Learning 研习之六）</title>
+      <link>https://qiucode.cn/article/183/</link>
+      <pubDate>Sat, 14 Oct 2023 17:02:17 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/183/</guid>
+      <description>&lt;p&gt;Scikit-Learn提供了一些函数，以各种方式将数据集拆分为多个子集。最简单的函数train_test_split()，它的功能与我们前面定义的shuffle_and_split_data ()函数非常相似，只是增加了几个特性。首先，有一个random_state参数，它允许您设置随机生成器种子。其次，您可以向它传递具有相同行数的多个数据集，它将按照相同的索引将它们拆分(这是非常有用的，例如，如果你有一个单独的DataFrame标签)&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

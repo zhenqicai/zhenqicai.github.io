@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>首页 on 秋码分享</title>
+    <link>https://qiucode.cn/tags/%E9%A6%96%E9%A1%B5/</link>
+    <description>Recent content in 首页 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 20 Mar 2021 11:47:53 +0000</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E9%A6%96%E9%A1%B5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微信小程序电商实战—首页篇（上）</title>
+      <link>https://qiucode.cn/article/91/</link>
+      <pubDate>Sat, 20 Mar 2021 11:47:53 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/91/</guid>
+      <description>&lt;p&gt;本文将接上一篇，实现首页上半部分，导航滚动与首页轮播图，首页部分分为两篇来讲解&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

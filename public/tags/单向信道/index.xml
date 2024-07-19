@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>单向信道 on 秋码分享</title>
+    <link>https://qiucode.cn/tags/%E5%8D%95%E5%90%91%E4%BF%A1%E9%81%93/</link>
+    <description>Recent content in 单向信道 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 29 Oct 2022 10:53:15 +0000</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E5%8D%95%E5%90%91%E4%BF%A1%E9%81%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 语言中的单向 Channel（Let&#39;s Go 三十）</title>
+      <link>https://qiucode.cn/article/150/</link>
+      <pubDate>Sat, 29 Oct 2022 10:53:15 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/150/</guid>
+      <description>&lt;p&gt;通过上篇文章，我们知道该怎么声明信道 Channel，以及发送和读取数据。然而本文要讲的是&lt;code&gt;单向Channel&lt;/code&gt;，可单向信道Channel到底是怎样的呢？&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

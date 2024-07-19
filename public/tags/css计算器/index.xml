@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>css计算器 on 秋码分享</title>
+    <link>https://qiucode.cn/tags/css%E8%AE%A1%E7%AE%97%E5%99%A8/</link>
+    <description>Recent content in css计算器 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 01 Apr 2024 15:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/css%E8%AE%A1%E7%AE%97%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用CSS计数器，在目录名称前加上了序号，让目录看起来更加井然有序</title>
+      <link>https://qiucode.cn/article/202/</link>
+      <pubDate>Mon, 01 Apr 2024 15:46:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/202/</guid>
+      <description>目录（Text of Contents缩写为TOC），其实就是一篇文章的概要或简述。这好比，去书店买书，先是被这本书的标题所吸引，而后我们才会，翻开这本书目录，看看这本书主要是在讲些什么？我们在看目录的同时，脑中也在不停的思衬，”这本书到底值不值得买呢？但是没有什么实战内容耶！“
+文章目录 其实，一篇文章也不非要目录的，只要段落分的好，就算是长篇大论也是无关紧要的！
+只是文章有了目录，让人一眼就能瞧出这篇文章到底讲了什么？虽然标题上有说，但还是得为哪几个段落起个副标题。
+再说了，文章目录可以让用户在页面上，点击到达指定目录名称下进行浏览。虽然这在很大层度上是可以通过鼠标滑动，滚动到想要浏览的位置。
+Hugo-theme-kiwi开源博客主题已然有了文章目录这一功能，也就是 秋码记录 站点正在使用的博客主题（由于 秋码记录 托管于 Github.com Pages，故而国内的友人在访问时，比较缓慢，甚至有时可能出现无法打开该网站）。
+对目录名称前添加序号，我们首先想到的当然是使用Hugo模板渲染去实现。
+序号，顾名思义，就是有顺序的号码，通俗来讲，便是1、，2、，3、，4、，……。可在Hugo模板渲染中使用计数器来实现。
+css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码中使用Hugo模板渲染的那部分又长又拖代码了。
+在CSS计数器中，counter-reset和counter-increment属性是必不可少的。counter-reset在每次新的列表开始时重置计数器，而counter-increment在每个列表项上增加计数器。
+需要注意的是：counter-reset 是需要计数的父标签上的！
+那么，就将 counter-reset设置在ol标签上即可，即便是某一项有子目录，那也还是在ol标签内的！
+.toc-content ol{ list-style-type: none; counter-reset: item } 现在，我们就可以对目录名称设置伪选择器了。
+在编写CSS样式之前，有必要说下counters()函数，在CSS中，它返回一个计数器的列表值，这个列表可以包含一个或者多个嵌套的计数器。
+函数counters()有两个参数：
+第一个参数是你要访问的计数器的名称，在你的例子中，该名称就是 item。 第二个参数是字符串，用来分隔计数器的各个级别。在你的例子中，这个分隔符是英文的句点 . .toc-content ol li a:first-of-type::before{ counter-increment: item; content: counters(item,&amp;#34;.&amp;#34;)&amp;#34;、&amp;#34;; font-weight: 700; margin-right: 1px; } 比如在多级嵌套的列表中，如果在第一级的第二个项中的第三个小项，那么 counters() 的值就会是 2.3、。
+字符串、 紧接着 counters(item, &amp;quot;.&amp;quot;) 的作用是将结果后面添加一个顿号，使其格式化输出更美观。
+所以 counters(item, &amp;quot;.&amp;quot;) &amp;quot;. &amp;quot; 的作用就是生成并显示一个根据当前嵌套列表项的层级和序号构成的数字序列，每一级数字之间用句点分隔，并在最后跟着一个顿号。例如输出1、，2.1、，2.2、，等等。
+最终效果可查看秋码记录文章详情页，右侧侧边栏目录。</description>
+    </item>
+    
+  </channel>
+</rss>

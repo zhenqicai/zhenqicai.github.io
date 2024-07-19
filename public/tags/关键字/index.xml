@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>关键字 on 秋码分享</title>
+    <link>https://qiucode.cn/tags/%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+    <description>Recent content in 关键字 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 24 Sep 2022 12:34:00 +0000</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E5%85%B3%E9%94%AE%E5%AD%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 语言中的关键字与标识符（Let&#39;s Go 八）</title>
+      <link>https://qiucode.cn/article/128/</link>
+      <pubDate>Sat, 24 Sep 2022 12:34:00 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/128/</guid>
+      <description>&lt;p&gt;标识符是指&lt;code&gt;Go语言&lt;/code&gt;对各种变量、方法、函数等命名时使用的&lt;code&gt;字符序列&lt;/code&gt;，&lt;code&gt;标识符&lt;/code&gt;由若干个&lt;code&gt;字母&lt;/code&gt;、&lt;code&gt;下划线 _ &lt;/code&gt; 、和&lt;code&gt;数字&lt;/code&gt;组成，&lt;code&gt;且第一个字符必须是字母&lt;/code&gt;。通俗的讲就是凡可以自己定义的名称都可以叫做&lt;code&gt;标识符&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

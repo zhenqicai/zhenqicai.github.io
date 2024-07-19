@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tensorflow on 秋码分享</title>
+    <link>https://qiucode.cn/tags/tensorflow/</link>
+    <description>Recent content in tensorflow on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 09 Mar 2024 17:45:01 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/tensorflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微调模型——续（Machine Learning 研习之十三）</title>
+      <link>https://qiucode.cn/article/193/</link>
+      <pubDate>Sat, 09 Mar 2024 17:45:01 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/193/</guid>
+      <description>集成方法 微调系统的另一种方法是尝试组合性能最佳的模型。 群体（或“整体”）通常会比最好的单个模型表现得更好，就像随机森林比它们所依赖的单个决策树表现更好一样，特别是当各个模型犯下不同类型的错误时。 例如，您可以训练和微调 k 最近邻模型，然后创建一个仅预测随机森林预测和该模型预测的平均值的集成模型。
+分析最佳模型及其错误 通过检查最佳模型，您通常会获得对问题的深入见解。 例如，RandomForestRegressor可以指示每个属性对于做出准确预测的相对重要性：
+让我们按降序对这些重要性分数进行排序，并将它们显示在相应的属性名称旁边：
+有了这些信息，您可能想尝试删除一些不太有用的功能（例如，显然只有一个ocean_proximity类别真正有用，因此您可以尝试删除其他功能）。
+您还应该查看系统所犯的具体错误，然后尝试了解为什么会犯这些错误，以及如何解决问题：添加额外的功能或删除无信息的功能，清理异常值等。
+现在也是一个好时机，可以确保您的模型不仅平均运行良好，而且适用于所有类别的地区，无论是农村还是城市、富裕还是贫穷、北部还是南部、少数民族还是非少数民族等。 每个类别的验证集需要一些工作，但这很重要：如果您的模型在整个地区类别上表现不佳，那么在问题解决之前可能不应该部署它，或者至少不应该使用它 对该类别进行预测，因为它可能弊大于利。
+在测试集上评估您的系统 对模型进行一段时间的调整后，您最终会得到一个性能足够好的系统。 您已准备好在测试集上评估最终模型。 这个过程没有什么特别的； 只需从测试集中获取预测变量和标签并运行Final_model来转换数据并进行预测，然后评估这些预测：
+X_test = strat_test_set.drop(&amp;#34;median_house_value&amp;#34;, axis=1) y_test = strat_test_set[&amp;#34;median_house_value&amp;#34;].copy() final_predictions = final_model.predict(X_test) final_rmse = mean_squared_error(y_test, final_predictions, squared=False) print(final_rmse) # prints 41424.40026462184 在某些情况下，这样的泛化误差点估计不足以说服您启动：如果它只比当前生产的模型好 0.1% 怎么办？ 您可能想了解这个估计的精确度。 为此，您可以使用 scipy.stats.t.interval() 计算泛化误差的 95% 置信区间。 您会得到从 39,275 到 43,467 的相当大的区间，而您之前的点估计值 41,424 大致位于中间：
+如果您进行了大量的超参数调整，性能通常会比使用交叉验证测量的性能稍差。 这是因为您的系统最终经过微调以在验证数据上表现良好，但在未知数据集上可能表现不佳。 本示例中的情况并非如此，因为测试 RMSE低于验证 RMSE，但当发生这种情况时，您必须抵制调整超参数以使数字在测试集上看起来不错的诱惑； 这些改进不太可能推广到新数据。
+现在是项目预启动阶段：您需要展示您的解决方案（突出显示您所学到的内容、有效的内容和无效的内容、做出的假设以及系统的局限性），记录所有内容，并使用以下内容创建精美的演示文稿： 清晰的可视化和易于记忆的陈述（例如，“收入中位数是房价的第一预测指标”）。 在这个加州住房示例中，系统的最终性能并不比专家的价格估计好多少，专家的价格估计通常会下降 30%，但启动它可能仍然是一个好主意，特别是如果这样可以释放更多资金 给专家一些时间，以便他们可以从事更有趣、更有成效的任务。
+启动、监控和维护您的系统 您现在需要准备好用于生产的解决方案（例如，完善代码、编写文档和测试等）。 然后您可以将模型部署到生产环境。 最基本的方法就是保存您训练的最佳模型，将文件传输到您的生产环境并加载它。 要保存模型，您可以使用 joblib 库，如下所示：</description>
+    </item>
+    
+  </channel>
+</rss>

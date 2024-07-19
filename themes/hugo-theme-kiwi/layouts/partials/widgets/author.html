@@ -1,0 +1,27 @@
+<section class="Qc_aside_item author">
+    <img width="100%" height="120" class="image ls-is-cached lazyloaded" src="{{ .Site.BaseURL }}images/loading.gif"  data-lazy-src="{{ .Site.BaseURL }}images/head_img.webp" loading="lazy"  alt="博主栏壁纸">
+    <div class="user">
+      <div class="avatar_wrapper circle">
+        <img class="avatar lazyloaded" src="{{ .Site.BaseURL }}images/loading.gif"  data-lazy-src="{{ .Site.BaseURL }}imgs/icons/apple_touch_icon_next.png" loading="lazy"   alt="博主头像">
+        <!-- <img class="avatar_frame honor-light" src="https://cdn.bbchin.com/themes/joe2.0/source/frame/honor-light.png" alt="挂架"> -->
+      </div>
+      
+        <p class="motto joe_motto">一个游离于山间之上的江湖漫行者。</p>
+        <p class="motto joe_motto">A jungle wanderer who wanders above the mountains.</p>
+    </div>
+    <div class="count">
+          <div class="item" title="累计分类数 22">
+            <span class="num">{{ .Scratch.Get "catsCount" }}</span>
+            <span>分类数</span>
+          </div>
+          <div class="item" title="累计文章数 45">
+            <span class="num">{{ .Scratch.Get "postsCount" }}</span>
+            <span>文章数</span>
+          </div>
+          <div class="item" title="累计评论数 452">
+            <span class="num">{{ .Scratch.Get "tagsCount" }}</span>
+            <span>标签数</span>
+          </div>
+    </div>
+    
+  </section>

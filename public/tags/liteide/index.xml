@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>liteide on 秋码分享</title>
+    <link>https://qiucode.cn/tags/liteide/</link>
+    <description>Recent content in liteide on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 20 Sep 2022 12:59:15 +0000</lastBuildDate><atom:link href="https://qiucode.cn/tags/liteide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用集成开发环境来开发Go项目</title>
+      <link>https://qiucode.cn/article/122/</link>
+      <pubDate>Tue, 20 Sep 2022 12:59:15 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/122/</guid>
+      <description>&lt;p&gt;工欲善其事，必先利其器。好的集成开发环境（IDE）能让你事倍功半，好了，废话少扯，下来介绍几种能开发Go项目的IDE。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

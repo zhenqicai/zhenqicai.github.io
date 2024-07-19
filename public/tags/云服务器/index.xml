@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>云服务器 on 秋码分享</title>
+    <link>https://qiucode.cn/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <description>Recent content in 云服务器 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 07 Oct 2018 21:18:11 +0000</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CentOS 7 安装mysql5.6 （云服务器篇）</title>
+      <link>https://qiucode.cn/article/100/</link>
+      <pubDate>Sun, 07 Oct 2018 21:18:11 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/100/</guid>
+      <description>&lt;p&gt;无论是互联网行业，还是其他任何行业，数据对于一个公司来讲是至关重要的，也是企业维系用户的得以持续发展的重要资源！\n对于前两篇文章已经讲解了在CentOS 7如何安装JDK8 和Tomcat7，那么作为JavaWeb开发，显然数据库是必不可少的，至少目前来说是这样的。那好，那就跟笔者循序渐进地开始下去吧！&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CentOS 7 安装 Tomcat 7（云服务器篇）</title>
+      <link>https://qiucode.cn/article/98/</link>
+      <pubDate>Sun, 07 Oct 2018 16:26:14 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/98/</guid>
+      <description>&lt;p&gt;在前一篇介绍在CentOS 7如何安装 JDK，而这一篇可以说是开发Javaweb所需的web容器可选之一，如果你在浏览上一篇时已是得心应手了，相信你在CentOS 7安装Tomcat 已经不是什么事了！虽然有点傲慢，但还是可以窃喜的！&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CentOS 7 安装JDK 8（云服务器篇）</title>
+      <link>https://qiucode.cn/article/99/</link>
+      <pubDate>Sun, 07 Oct 2018 11:28:43 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/99/</guid>
+      <description>&lt;p&gt;云服务器Centos 7 如何安装JDK？这一篇文章你不容错过！它将介绍你在云服务器CentOS 7 如何安装JDK 8，图文并茂，通俗易懂，新手也能搭配！更何况你呢？如果你正在为如何在云服务器 CentOS 7 中如何安装JDK？那这篇文章再合适不过了！相信我，当你阅读完这篇文章后，云服务器CentOS 7 安装 JDK已不是什么触不可及了，让人望而却步了！&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

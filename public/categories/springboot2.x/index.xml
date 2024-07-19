@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Springboot2.x on 秋码分享</title>
+    <link>https://qiucode.cn/categories/springboot2.x/</link>
+    <description>Recent content in Springboot2.x on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 17 Apr 2021 13:38:07 +0000</lastBuildDate><atom:link href="https://qiucode.cn/categories/springboot2.x/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot使用FreeMarker模板发送邮件</title>
+      <link>https://qiucode.cn/article/96/</link>
+      <pubDate>Sat, 17 Apr 2021 13:38:07 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/96/</guid>
+      <description>&lt;p&gt;Springboot2.x结合FreeMarker使用模板定制属于自己的邮件，瞬间是不是觉得很炫酷啊，那还不赶快去试试看啊&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Springboot对上传图片添加水印后存储到阿里云OSS对象存储中</title>
+      <link>https://qiucode.cn/article/79/</link>
+      <pubDate>Sat, 05 Sep 2020 09:14:24 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/79/</guid>
+      <description>&lt;p&gt;好些时候没发表文章了，由于最近有点忙，又更兼&lt;code&gt;qiucode&lt;/code&gt;站点页面大改，新版页面也较旧版整洁多了！那具体该是如何实现呢？（言外之意无非就是程序怎么实现的），其实无非就是将&lt;code&gt;MultipartFile&lt;/code&gt;对象进行二次处理（这里所说的处理就是在上传的原图的基础上添加水印），二次处理好了的图片远程存储到阿里云oss存储对象中。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ztree整合SpringMVC实现异步加载树</title>
+      <link>https://qiucode.cn/article/116/</link>
+      <pubDate>Fri, 05 Apr 2019 19:17:36 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/116/</guid>
+      <description>&lt;p&gt;正值清明时节，天气也将开始升温了，夏天即将到来，你做好准备了吗？好了，废话少扯，切入正题，本文笔者将要讲解的是JQuery的树插件Ztree。现在web项目基本上也都是使用Ztree作为树组件进行实现的。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

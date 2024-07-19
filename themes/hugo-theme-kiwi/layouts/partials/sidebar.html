@@ -1,0 +1,45 @@
+<aside class="Qc_aside">
+ 
+
+{{- $root := . }}
+{{- with (default .Site.Params.sidebar.widgets .Params.widgets) -}}
+	{{- range $widget := . }}
+		{{- $widgetPath := printf "widgets/%s.html" $widget }}
+		{{- $widgetCached := false }}
+		{{- if isset $.Site.Params "widgets" }}
+			{{- $widgetCached = (index $.Site.Params.widgets $widget).cached }}
+		{{- end }}
+		{{- if eq $widgetCached true }}
+			{{- partialCached $widgetPath $root }}
+		{{- else }}
+			{{- partial $widgetPath $root }}
+		{{- end }}
+	{{- end }}
+
+{{- end }}
+
+{{ $tocEnable := .Params.toc | default .Site.Params.toc.enable }}
+
+    {{ if and $tocEnable .Site.Params.toc.number }}
+    {{ if strings.Contains .Permalink  "/article/" }}
+    <section class="sticky_layout">
+        {{- partial "toc.html" . }}
+    </section>
+    {{ end }}
+    {{ end }} 
+
+
+	<!-- <section class="Qc_aside_item tags">
+        <-- 自适应-纵向 &ndash;&gt;--
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5798408669698308"
+             data-ad-slot="3588383880"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </section> -->
+
+</aside>

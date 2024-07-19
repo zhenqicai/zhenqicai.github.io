@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>特征曲线 on 秋码分享</title>
+    <link>https://qiucode.cn/tags/%E7%89%B9%E5%BE%81%E6%9B%B2%E7%BA%BF/</link>
+    <description>Recent content in 特征曲线 on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 29 Mar 2024 11:43:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E7%89%B9%E5%BE%81%E6%9B%B2%E7%BA%BF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>绘制特征曲线-ROC（Machine Learning 研习十七）</title>
+      <link>https://qiucode.cn/article/197/</link>
+      <pubDate>Fri, 29 Mar 2024 11:43:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/197/</guid>
+      <description>接收者操作特征曲线（ROC）是二元分类器的另一个常用工具。它与精确度/召回率曲线非常相似，但 ROC 曲线不是绘制精确度与召回率的关系曲线，而是绘制真阳性率（召回率的另一个名称）与假阳性率（FPR）的关系曲线。FPR（也称 &amp;ldquo;下降率&amp;rdquo;）是阴性实例被错误归类为阳性实例的比率。它等于 1 - 真阴性率 (TNR)，即正确分类为阴性的阴性实例的比率。TNR 也称为特异性。因此，ROC 曲线是灵敏度（召回率）与 1 - 特异性的关系图
+要绘制 ROC 曲线，首先要使用 roc_curve() 函数计算不同阈值的 TPR 和 FPR：
+from sklearn.metrics import roc_curve fpr, tpr, thresholds = roc_curve(y_train_5, y_scores) 然后可以使用 Matplotlib 绘制 FPR 与 TPR 的对比图。下面的代码可以绘制出 见下图 所示的图形。要找到与 90% 精度相对应的点，我们需要查找所需阈值的索引。由于在这种情况下阈值是按递减顺序排列的，因此我们在第一行使用 &amp;lt;= 而不是 &amp;gt;=：
+idx_for_threshold_at_90 = (thresholds &amp;lt;= threshold_for_90_precision).argmax() tpr_90, fpr_90 = tpr[idx_for_threshold_at_90], fpr[idx_for_threshold_at_90] plt.plot(fpr, tpr, linewidth=2, label=&amp;#34;ROC curve&amp;#34;) plt.plot([0, 1], [0, 1], &amp;#39;k:&amp;#39;, label=&amp;#34;Random classifier&amp;#39;s ROC curve&amp;#34;) plt.plot([fpr_90], [tpr_90], &amp;#34;ko&amp;#34;, label=&amp;#34;Threshold for 90% precision&amp;#34;) [.</description>
+    </item>
+    
+  </channel>
+</rss>

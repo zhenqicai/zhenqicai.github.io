@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>channel on 秋码分享</title>
+    <link>https://qiucode.cn/tags/channel/</link>
+    <description>Recent content in channel on 秋码分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 31 Oct 2022 11:27:56 +0000</lastBuildDate><atom:link href="https://qiucode.cn/tags/channel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 语言中的带有缓冲 Channel（Let&#39;s Go 三十一）</title>
+      <link>https://qiucode.cn/article/151/</link>
+      <pubDate>Mon, 31 Oct 2022 11:27:56 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/151/</guid>
+      <description>&lt;p&gt;无缓冲信道 Channel 是无法保存任何值的，该类型信道要求 发送 goroutine 和 接受 goroutine 两者同时准备好，这样才能完成发送与接受的操作。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go 语言中的单向 Channel（Let&#39;s Go 三十）</title>
+      <link>https://qiucode.cn/article/150/</link>
+      <pubDate>Sat, 29 Oct 2022 10:53:15 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/150/</guid>
+      <description>&lt;p&gt;通过上篇文章，我们知道该怎么声明信道 Channel，以及发送和读取数据。然而本文要讲的是&lt;code&gt;单向Channel&lt;/code&gt;，可单向信道Channel到底是怎样的呢？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go 语言中的 Channel（Let&#39;s Go 二十九）</title>
+      <link>https://qiucode.cn/article/149/</link>
+      <pubDate>Thu, 27 Oct 2022 12:43:09 +0000</pubDate>
+      
+      <guid>https://qiucode.cn/article/149/</guid>
+      <description>&lt;p&gt;Channel 是进程内的通信方式，因此通过 channel 传递对象的过程和调用函数时的参数传递行为比较一致，比如也可以传递指针等。如果需要跨进程通信，我们建议用分布式系统的方法来解决，比如使用 Socket 或者 HTTP 等通信协议。Go 语言对于网络方面也有非常完善的支持。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
