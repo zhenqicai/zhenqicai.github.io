@@ -1,6 +1,0 @@
-{{ $resource := dict }}
-{{ with resources.Get (print "/css/" .) }}
-  {{ $resource = . }}
-{{ end }}
-
-{{ return $resource }}
