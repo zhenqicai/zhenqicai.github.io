@@ -29,7 +29,17 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="Transformation Pipelines 有许多数据转换步骤需要以正确的顺序执行。幸运的是，Scikit-Learn提供了Pipeline类来帮助处理这样的转换序列。下面是一个用于数值属性的小管道，它首先对输入特性进行归并，然后对输入特性进行缩放:
+from sklearn.pipeline import Pipeline num_pipeline = Pipeline([ (&#34;impute&#34;, SimpleImputer(strategy=&#34;median&#34;)), (&#34;standardize&#34;, StandardScaler()), ]) Pipeline构造函数采用名称/估算器对(2元组)的列表，定义了一系列步骤。名称可以是您喜欢的任何名称，只要它们是唯一的，并且不包含双下划线(__)。以后我们讨论超参数调优时，它们会很有用。估计器必须都是转换器(即，它们必须有一个fit_transform()方法)，除了最后一个，它可以是任何东西:转换器、预测器或任何其他类型的估计器。
+如果你不想命名transformers你可以使用 make_pipeline() 函数； 它将transformers作为位置参数，并使用transformers类的名称（小写且不带下划线）创建管道（例如，“simpleimputer”）：
+from sklearn.pipeline import make_pipeline num_pipeline = make_pipeline(SimpleImputer(strategy=&#34;median&#34;), StandardScaler()) 如果多个transformers具有相同的名称，则会在其名称后附加索引（例如“foo-1”、“foo-2”等）。
+当您调用管道的 fit() 方法时，它会在所有transformers上顺序调用 fit_transform()，将每个调用的输出作为参数传递给下一个调用，直到到达最终估计器，为此它只调用 fit() 方法。
+该管道公开与最终估计器相同的方法。 在此示例中，最后一个估计器是 StandardScaler，它是一个transformers，因此管道也充当transformers。 如果您调用管道的transform()方法，它将按顺序将所有转换应用于数据。 如果最后一个估计器是预测器而不是变换器，那么管道将具有 Predict() 方法而不是 Transform() 方法。 调用它会按顺序将所有转换应用于数据并将结果传递给预测器的 Predict()方法
+让我们调用管道的 fit_transform() 方法并查看输出的前两行，四舍五入到小数点后两位：
+如前所述，如果要恢复一个漂亮的DataFrame，可以使用管道的get_feature_names_ out()方法:
+df_housing_num_prepared = pd.DataFrame( housing_num_prepared, columns=num_pipeline.get_feature_names_out(), index=housing_num.index) 管道支持索引;例如，管道[1]返回管道中的第二个估计值，管道[:-1]返回一个包含除最后一个估计值以外的所有估计值的管道对象。您还可以通过steps属性(它是名称/估算器对的列表)或named_steps字典属性(它将名称映射到估算器)访问估算器。例如，num_line[“ simpleimputer”]返回名为“simpleimputer”的估计器。
+到目前为止，我们已经分别处理了分类列和数值列。如果有一个能够处理所有列的转换器，将适当的转换应用到每一列，那会更方便。为此，您可以使用olumnTransformer。例如，下面的ColumnTransformer将把num_pipeline(我们刚刚定义的那个)应用于数字属性，把cat_pipeline应用于类别属性:
+from sklearn.compose import ColumnTransformer num_attribs = [&#34;longitude&#34;, &#34;latitude&#34;, &#34;housing_median_age&#34;, &#34;total_rooms&#34;, &#34;total_bedrooms&#34;, &#34;population&#34;, &#34;households&#34;, &#34;median_income&#34;] cat_attribs = [&#34;ocean_proximity&#34;] cat_pipeline = make_pipeline( SimpleImputer(strategy=&#34;most_frequent&#34;), OneHotEncoder(handle_unknown=&#34;ignore&#34;)) preprocessing = ColumnTransformer([ (&#34;num&#34;, num_pipeline, num_attribs), (&#34;cat&#34;, cat_pipeline, cat_attribs), ]) 首先导入ColumnTransformer类，然后定义数字和分类列名的列表，并为分类属性构造一个简单的管道。最后，我们构造了一个列变换器。它的构造函数需要一个三元组(3-tuple)列表，每个三元组包含一个名称(必须是唯一的且不包含双下划线)、一个转换器和一个应该应用转换器的列的名称(或索引)列表。">
 
 
 
@@ -39,6 +49,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703937560847.png">
+
 <meta property="og:description" content="Transformation Pipelines 有许多数据转换步骤需要以正确的顺序执行。幸运的是，Scikit-Learn提供了Pipeline类来帮助处理这样的转换序列。下面是一个用于数值属性的小管道，它首先对输入特性进行归并，然后对输入特性进行缩放:
 from sklearn.pipeline import Pipeline num_pipeline = Pipeline([ (&#34;impute&#34;, SimpleImputer(strategy=&#34;median&#34;)), (&#34;standardize&#34;, StandardScaler()), ]) Pipeline构造函数采用名称/估算器对(2元组)的列表，定义了一系列步骤。名称可以是您喜欢的任何名称，只要它们是唯一的，并且不包含双下划线(__)。以后我们讨论超参数调优时，它们会很有用。估计器必须都是转换器(即，它们必须有一个fit_transform()方法)，除了最后一个，它可以是任何东西:转换器、预测器或任何其他类型的估计器。
 如果你不想命名transformers你可以使用 make_pipeline() 函数； 它将transformers作为位置参数，并使用transformers类的名称（小写且不带下划线）创建管道（例如，“simpleimputer”）：
@@ -1068,12 +1079,14 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
         data-url="https://qiucode.cn/article/189/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703937560847.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/189/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1081,7 +1094,7 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1096,7 +1109,8 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f189%2f&title=%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e4%b8%ad%e7%9a%84%20Transformation%20Pipelines%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e4%b9%8b%e5%8d%81%ef%bc%89&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1703937560847.png&desc=Transformation%20Pipelines%20%e6%9c%89%e8%ae%b8%e5%a4%9a%e6%95%b0%e6%8d%ae%e8%bd%ac%e6%8d%a2%e6%ad%a5%e9%aa%a4%e9%9c%80%e8%a6%81%e4%bb%a5%e6%ad%a3%e7%a1%ae%e7%9a%84%e9%a1%ba%e5%ba%8f%e6%89%a7%e8%a1%8c%e3%80%82%e5%b9%b8%e8%bf%90%e7%9a%84%e6%98%af%ef%bc%8cScikit-Learn%e6%8f%90%e4%be%9b%e4%ba%86Pipeline%e7%b1%bb%e6%9d%a5%e5%b8%ae%e5%8a%a9%e5%a4%84%e7%90%86%e8%bf%99%e6%a0%b7%e7%9a%84%e8%bd%ac%e6%8d%a2%e5%ba%8f%e5%88%97%e3%80%82%e4%b8%8b%e9%9d%a2%e6%98%af%e4%b8%80%e4%b8%aa%e7%94%a8%e4%ba%8e%e6%95%b0%e5%80%bc%e5%b1%9e%e6%80%a7%e7%9a%84%e5%b0%8f%e7%ae%a1%e9%81%93%ef%bc%8c%e5%ae%83%e9%a6%96%e5%85%88%e5%af%b9%e8%be%93%e5%85%a5%e7%89%b9%e6%80%a7%e8%bf%9b%e8%a1%8c%e5%bd%92%e5%b9%b6%ef%bc%8c%e7%84%b6%e5%90%8e%e5%af%b9%e8%be%93……&summary=Transformation%20Pipelines%20%e6%9c%89%e8%ae%b8%e5%a4%9a%e6%95%b0%e6%8d%ae%e8%bd%ac%e6%8d%a2%e6%ad%a5%e9%aa%a4%e9%9c%80%e8%a6%81%e4%bb%a5%e6%ad%a3%e7%a1%ae%e7%9a%84%e9%a1%ba%e5%ba%8f%e6%89%a7%e8%a1%8c%e3%80%82%e5%b9%b8%e8%bf%90%e7%9a%84%e6%98%af%ef%bc%8cScikit-Learn%e6%8f%90%e4%be%9b%e4%ba%86Pipeline%e7%b1%bb%e6%9d%a5%e5%b8%ae%e5%8a%a9%e5%a4%84%e7%90%86%e8%bf%99%e6%a0%b7%e7%9a%84%e8%bd%ac%e6%8d%a2%e5%ba%8f%e5%88%97%e3%80%82%e4%b8%8b%e9%9d%a2%e6%98%af%e4%b8%80%e4%b8%aa%e7%94%a8%e4%ba%8e%e6%95%b0%e5%80%bc%e5%b1%9e%e6%80%a7%e7%9a%84%e5%b0%8f%e7%ae%a1%e9%81%93%ef%bc%8c%e5%ae%83%e9%a6%96%e5%85%88%e5%af%b9%e8%be%93%e5%85%a5%e7%89%b9%e6%80%a7%e8%bf%9b%e8%a1%8c%e5%bd%92%e5%b9%b6%ef%bc%8c%e7%84%b6%e5%90%8e%e5%af%b9%e8%be%93…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f189%2f&title= %e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e4%b8%ad%e7%9a%84%20Transformation%20Pipelines%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e4%b9%8b%e5%8d%81%ef%bc%89&summary=Transformation%20Pipelines%20%e6%9c%89%e8%ae%b8%e5%a4%9a%e6%95%b0%e6%8d%ae%e8%bd%ac%e6%8d%a2%e6%ad%a5%e9%aa%a4%e9%9c%80%e8%a6%81%e4%bb%a5%e6%ad%a3%e7%a1%ae%e7%9a%84&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1703937560847.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1225,6 +1239,7 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1264,6 +1279,8 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1329,75 +1346,52 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1414,15 +1408,21 @@ simpleimputer”]返回名为“simpleimputer”的估计器。</p>
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3459,7 +3459,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3669,8 +3669,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

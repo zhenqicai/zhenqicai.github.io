@@ -29,7 +29,10 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="接收者操作特征曲线（ROC）是二元分类器的另一个常用工具。它与精确度/召回率曲线非常相似，但 ROC 曲线不是绘制精确度与召回率的关系曲线，而是绘制真阳性率（召回率的另一个名称）与假阳性率（FPR）的关系曲线。FPR（也称 &ldquo;下降率&rdquo;）是阴性实例被错误归类为阳性实例的比率。它等于 1 - 真阴性率 (TNR)，即正确分类为阴性的阴性实例的比率。TNR 也称为特异性。因此，ROC 曲线是灵敏度（召回率）与 1 - 特异性的关系图
+要绘制 ROC 曲线，首先要使用 roc_curve() 函数计算不同阈值的 TPR 和 FPR：
+from sklearn.metrics import roc_curve fpr, tpr, thresholds = roc_curve(y_train_5, y_scores) 然后可以使用 Matplotlib 绘制 FPR 与 TPR 的对比图。下面的代码可以绘制出 见下图 所示的图形。要找到与 90% 精度相对应的点，我们需要查找所需阈值的索引。由于在这种情况下阈值是按递减顺序排列的，因此我们在第一行使用 &lt;= 而不是 &gt;=：
+idx_for_threshold_at_90 = (thresholds &lt;= threshold_for_90_precision).argmax() tpr_90, fpr_90 = tpr[idx_for_threshold_at_90], fpr[idx_for_threshold_at_90] plt.plot(fpr, tpr, linewidth=2, label=&#34;ROC curve&#34;) plt.plot([0, 1], [0, 1], &#39;k:&#39;, label=&#34;Random classifier&#39;s ROC curve&#34;) plt.plot([fpr_90], [tpr_90], &#34;ko&#34;, label=&#34;Threshold for 90% precision&#34;) [.">
 
 
 
@@ -39,6 +42,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/golang-test/image-20240327101302829.png">
+
 <meta property="og:description" content="接收者操作特征曲线（ROC）是二元分类器的另一个常用工具。它与精确度/召回率曲线非常相似，但 ROC 曲线不是绘制精确度与召回率的关系曲线，而是绘制真阳性率（召回率的另一个名称）与假阳性率（FPR）的关系曲线。FPR（也称 &ldquo;下降率&rdquo;）是阴性实例被错误归类为阳性实例的比率。它等于 1 - 真阴性率 (TNR)，即正确分类为阴性的阴性实例的比率。TNR 也称为特异性。因此，ROC 曲线是灵敏度（召回率）与 1 - 特异性的关系图
 要绘制 ROC 曲线，首先要使用 roc_curve() 函数计算不同阈值的 TPR 和 FPR：
 from sklearn.metrics import roc_curve fpr, tpr, thresholds = roc_curve(y_train_5, y_scores) 然后可以使用 Matplotlib 绘制 FPR 与 TPR 的对比图。下面的代码可以绘制出 见下图 所示的图形。要找到与 90% 精度相对应的点，我们需要查找所需阈值的索引。由于在这种情况下阈值是按递减顺序排列的，因此我们在第一行使用 &lt;= 而不是 &gt;=：
@@ -1008,12 +1012,14 @@ idx_for_threshold_at_90 = (thresholds &lt;= threshold_for_90_precision).argmax()
         data-url="https://qiucode.cn/article/197/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/golang-test/image-20240327101302829.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/197/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1021,7 +1027,7 @@ idx_for_threshold_at_90 = (thresholds &lt;= threshold_for_90_precision).argmax()
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1036,7 +1042,8 @@ idx_for_threshold_at_90 = (thresholds &lt;= threshold_for_90_precision).argmax()
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f197%2f&title=%e7%bb%98%e5%88%b6%e7%89%b9%e5%be%81%e6%9b%b2%e7%ba%bf-ROC%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e5%8d%81%e4%b8%83%ef%bc%89&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fgolang-test%2fimage-20240327101302829.png&desc=%e6%8e%a5%e6%94%b6%e8%80%85%e6%93%8d%e4%bd%9c%e7%89%b9%e5%be%81%e6%9b%b2%e7%ba%bf%ef%bc%88ROC%ef%bc%89%e6%98%af%e4%ba%8c%e5%85%83%e5%88%86%e7%b1%bb%e5%99%a8%e7%9a%84%e5%8f%a6%e4%b8%80%e4%b8%aa%e5%b8%b8%e7%94%a8%e5%b7%a5%e5%85%b7%e3%80%82%e5%ae%83%e4%b8%8e%e7%b2%be%e7%a1%ae%e5%ba%a6%2f%e5%8f%ac%e5%9b%9e%e7%8e%87%e6%9b%b2%e7%ba%bf%e9%9d%9e%e5%b8%b8%e7%9b%b8%e4%bc%bc%ef%bc%8c%e4%bd%86%20ROC%20%e6%9b%b2%e7%ba%bf%e4%b8%8d%e6%98%af%e7%bb%98%e5%88%b6%e7%b2%be%e7%a1%ae%e5%ba%a6%e4%b8%8e%e5%8f%ac%e5%9b%9e%e7%8e%87%e7%9a%84%e5%85%b3%e7%b3%bb%e6%9b%b2%e7%ba%bf%ef%bc%8c%e8%80%8c%e6%98%af%e7%bb%98%e5%88%b6%e7%9c%9f%e9%98%b3%e6%80%a7%e7%8e%87%ef%bc%88%e5%8f%ac%e5%9b%9e%e7%8e%87%e7%9a%84%e5%8f%a6%e4%b8%80%e4%b8%aa%e5%90%8d%e7%a7%b0%ef%bc%89%e4%b8%8e%e5%81%87%e9%98%b3%e6%80%a7%e7%8e%87%ef%bc%88FPR%ef%bc%89%e7%9a%84%e5%85%b3%e7%b3%bb%e6%9b%b2%e7%ba%bf%e3%80%82FPR%ef%bc%88%e4%b9%9f%e7%a7%b0%20%26ldquo%3b%e4%b8%8b……&summary=%e6%8e%a5%e6%94%b6%e8%80%85%e6%93%8d%e4%bd%9c%e7%89%b9%e5%be%81%e6%9b%b2%e7%ba%bf%ef%bc%88ROC%ef%bc%89%e6%98%af%e4%ba%8c%e5%85%83%e5%88%86%e7%b1%bb%e5%99%a8%e7%9a%84%e5%8f%a6%e4%b8%80%e4%b8%aa%e5%b8%b8%e7%94%a8%e5%b7%a5%e5%85%b7%e3%80%82%e5%ae%83%e4%b8%8e%e7%b2%be%e7%a1%ae%e5%ba%a6%2f%e5%8f%ac%e5%9b%9e%e7%8e%87%e6%9b%b2%e7%ba%bf%e9%9d%9e%e5%b8%b8%e7%9b%b8%e4%bc%bc%ef%bc%8c%e4%bd%86%20ROC%20%e6%9b%b2%e7%ba%bf%e4%b8%8d%e6%98%af%e7%bb%98%e5%88%b6%e7%b2%be%e7%a1%ae%e5%ba%a6%e4%b8%8e%e5%8f%ac%e5%9b%9e%e7%8e%87%e7%9a%84%e5%85%b3%e7%b3%bb%e6%9b%b2%e7%ba%bf%ef%bc%8c%e8%80%8c%e6%98%af%e7%bb%98%e5%88%b6%e7%9c%9f%e9%98%b3%e6%80%a7%e7%8e%87%ef%bc%88%e5%8f%ac%e5%9b%9e%e7%8e%87%e7%9a%84%e5%8f%a6%e4%b8%80%e4%b8%aa%e5%90%8d%e7%a7%b0%ef%bc%89%e4%b8%8e%e5%81%87%e9%98%b3%e6%80%a7%e7%8e%87%ef%bc%88FPR%ef%bc%89%e7%9a%84%e5%85%b3%e7%b3%bb%e6%9b%b2%e7%ba%bf%e3%80%82FPR%ef%bc%88%e4%b9%9f%e7%a7%b0%20%26ldquo%3b%e4%b8%8b…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f197%2f&title= %e7%bb%98%e5%88%b6%e7%89%b9%e5%be%81%e6%9b%b2%e7%ba%bf-ROC%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e5%8d%81%e4%b8%83%ef%bc%89&summary=%e6%8e%a5%e6%94%b6%e8%80%85%e6%93%8d%e4%bd%9c%e7%89%b9%e5%be%81%e6%9b%b2%e7%ba%bf%ef%bc%88ROC%ef%bc%89%e6%98%af%e4%ba%8c%e5%85%83%e5%88%86%e7%b1%bb%e5%99%a8%e7%9a%84%e5%8f%a6%e4%b8%80%e4%b8%aa%e5%b8%b8%e7%94%a8%e5%b7%a5%e5%85%b7%e3%80%82%e5%ae%83%e4%b8%8e%e7%b2%be%e7%a1%ae%e5%ba%a6%2f%e5%8f%ac%e5%9b%9e%e7%8e%87%e6%9b%b2%e7%ba%bf&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fgolang-test%2fimage-20240327101302829.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1165,6 +1172,7 @@ idx_for_threshold_at_90 = (thresholds &lt;= threshold_for_90_precision).argmax()
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1204,6 +1212,8 @@ idx_for_threshold_at_90 = (thresholds &lt;= threshold_for_90_precision).argmax()
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1269,75 +1279,52 @@ idx_for_threshold_at_90 = (thresholds &lt;= threshold_for_90_precision).argmax()
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1354,15 +1341,21 @@ idx_for_threshold_at_90 = (thresholds &lt;= threshold_for_90_precision).argmax()
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3381,7 +3374,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3591,8 +3584,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

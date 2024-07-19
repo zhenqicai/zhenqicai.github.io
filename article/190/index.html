@@ -29,7 +29,25 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="当您看到本文标题时，不禁感叹，总算是到了训练模型这一节了。
+是啊，在之前的文章中，我们对数据进行了探索，以及对一个训练集和一个测试集进行了采样，也编写了一个预处理管道来自动清理，准备您的数据用于机器学习算法，然而现在，我们可以选择并训练模型了。
+训练集的训练与评估 我们从一个最基本的线性回归模型开始：
+from sklearn.linear_model import LinearRegression lin_reg = make_pipeline(preprocessing, LinearRegression()) lin_reg.fit(housing, housing_labels) 很好，至此，我们现在算是有了一个有效的线性回归模型，可以在训练集上试用它，查看前五个预测，并将它们与标签进行比较:：
+第一个预测偏差很大(超过200,000美元!)，而其他预测则更好，两个预测偏差约25%，还有两个预测 偏差不到10%。请记住，您选择使用RMSE作为性能测度，因此您希望使用Scikit-Learn的mean_squared_error()函数在整个训练集上测量该回归模型的RMSE，并将平方参数设置为False。
+这总比没有好，但显然不是一个很好的分数，大多数地区的房屋价值中位数在120,000美元和26.5万美元之间，所以一个典型的68628美元的预测误差真的不是很令人满意。这是一个模型拟合训练数据不足的示例。当这种情况发生时，可能意味着这些特征没有提供足够的信息来做出好的预测，或者模型不够强大。
+正如我们在上一章中看到的，修复欠拟合的主要方法是选择一个更强大的模型，为训练算法提供更好的特征，或者减少对模型的约束。这个模型没有正规化，这就排除了最后一个选项。您可以尝试添加更多功能，但首先您要尝试更复杂的模型，看看它是如何工作的。
+您决定尝试DecisionTreeRegressor，因为这是一个相当强大的模型，能够在数据中找到复杂的非线性关系(后续篇章将更详细地介绍决策树)：
+from sklearn.tree import DecisionTreeRegressor tree_reg = make_pipeline(preprocessing, DecisionTreeRegressor(random_state=42)) tree_reg.fit(housing, housing_labels) 现在模型已训练完毕，您可以在训练集中对其进行评估：
+等等，难道这个模型真的很完美吗？当然咯，更有可能的是模型严重地过度拟合了数据。您怎么能确定正如你前面看到的，在您准备好启动一个您有信心的模型之前，您不想碰测试集，所以您需要使用一部分训练集进行训练，另一部分用于模型验证。
+使用交叉验证进行更好的评估 评估决策树模型的一种方法是使用train_test_split()函数将训练集拆分为较小的训练集和验证集，然后针对较小的训练集训练您的模型，并针对验证集对其进行评估。这是一点努力，但没有太难，它会工作得相当不错。
+一个很好的替代方法是使用Scikit-Learn的k_-fold交叉验证特性。下面的代码随机地将训练集分成10个不重叠的子集，称为fold，然后训练和评估决策树模型10次，每次选择不同的fold进行评估，并使用其他9个fold进行训练。结果是一个包含10个评价分数的数组：
+from sklearn.model_selection import cross_val_score tree_rmses = -cross_val_score(tree_reg, housing, housing_labels, scoring=&#34;neg_root_mean_squared_error&#34;, cv=10) 警告：
+Scikit-Learn的交叉验证功能期望的是效用函数(越大越好)而不是成本函数(越低越好)，所以评分函数实际上是RMSE的反面。它是一个负值，所以您需要切换输出的符号来获得RMSE分 数。
+让我们来看看结果吧：
+现在决策树看起来不像以前那么好了。事实上，它的表现几乎和线性回归模型一样差！请注意，交叉验证不仅允许您获得模型性能的估计值，还允许您测量该估计值的精确度(即其标准差)。决策树的均方根误差约为66，868，标准差约为2,061。如果只使用一个验证集，则不会有此信息。但是交叉验证是以多次训练模型为代价的，所以它并不总是可行的。
+如果您为线性回归模型计算相同的度量，您将发现平均RMSE为69，858，标准差为4,182。因此，决策树模型的性能似乎比线性模型稍微好一点，但由于严重的过拟合，差异很小。我们知道存在过拟合 问题，因为训练误差很低(实际上为零)，而验证误差很高。
+现在让我们尝试最后一个模型:随机森林调节器，随机森林的工作原理是在特征的随机子集上训练许多决策树，然后平均出它们的预测值。这样的模型组成的许多其他模型被称为合奏:他们能够提高性能基础模型(在本例中为决策树)。代码与前面的代码大同小异：
+from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(preprocessing, RandomForestRegressor(random_state=42)) forest_rmses = -cross_val_score(forest_reg, housing, housing_labels, scoring=&#34;neg_root_mean_squared_error&#34;, cv=10) 随机森林真的看起来非常有前途的任务！但是，如果您训练一个RandomForest并测量训练集上的RMSE，您将发现大约17，474:这要低得多，这意味着仍然存在大量的过度拟合。可能的解决方案是 简化模型，约束它(即，规则化它)，或得到更多的训练数据。但是，在深入研究随机森林之前，您应该尝试来自各种类别机器学习算法的许多其他模型(例如，具有不同内核的多个支持向量机，可能还有一个神经网络)，而无需花费太多时间调整超参数。目标是列出几个(两到五个)有前途的模型。">
 
 
 
@@ -39,6 +57,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1705218124546.png">
+
 <meta property="og:description" content="当您看到本文标题时，不禁感叹，总算是到了训练模型这一节了。
 是啊，在之前的文章中，我们对数据进行了探索，以及对一个训练集和一个测试集进行了采样，也编写了一个预处理管道来自动清理，准备您的数据用于机器学习算法，然而现在，我们可以选择并训练模型了。
 训练集的训练与评估 我们从一个最基本的线性回归模型开始：
@@ -1031,12 +1050,14 @@ from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(pr
         data-url="https://qiucode.cn/article/190/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1705218124546.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/190/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1044,7 +1065,7 @@ from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(pr
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1059,7 +1080,8 @@ from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(pr
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f190%2f&title=%e9%80%89%e6%8b%a9%e5%92%8c%e8%ae%ad%e7%bb%83%e6%a8%a1%e5%9e%8b%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e4%b9%8b%e5%8d%81%e4%b8%80%ef%bc%89&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1705218124546.png&desc=%e5%bd%93%e6%82%a8%e7%9c%8b%e5%88%b0%e6%9c%ac%e6%96%87%e6%a0%87%e9%a2%98%e6%97%b6%ef%bc%8c%e4%b8%8d%e7%a6%81%e6%84%9f%e5%8f%b9%ef%bc%8c%e6%80%bb%e7%ae%97%e6%98%af%e5%88%b0%e4%ba%86%e8%ae%ad%e7%bb%83%e6%a8%a1%e5%9e%8b%e8%bf%99%e4%b8%80%e8%8a%82%e4%ba%86%e3%80%82%0a%e6%98%af%e5%95%8a%ef%bc%8c%e5%9c%a8%e4%b9%8b%e5%89%8d%e7%9a%84%e6%96%87%e7%ab%a0%e4%b8%ad%ef%bc%8c%e6%88%91%e4%bb%ac%e5%af%b9%e6%95%b0%e6%8d%ae%e8%bf%9b%e8%a1%8c%e4%ba%86%e6%8e%a2%e7%b4%a2%ef%bc%8c%e4%bb%a5%e5%8f%8a%e5%af%b9%e4%b8%80%e4%b8%aa%e8%ae%ad%e7%bb%83%e9%9b%86%e5%92%8c%e4%b8%80%e4%b8%aa%e6%b5%8b%e8%af%95%e9%9b%86%e8%bf%9b%e8%a1%8c%e4%ba%86%e9%87%87%e6%a0%b7%ef%bc%8c%e4%b9%9f%e7%bc%96%e5%86%99%e4%ba%86%e4%b8%80%e4%b8%aa%e9%a2%84%e5%a4%84%e7%90%86%e7%ae%a1%e9%81%93%e6%9d%a5%e8%87%aa%e5%8a%a8%e6%b8%85%e7%90%86%ef%bc%8c%e5%87%86%e5%a4%87%e6%82%a8%e7%9a%84%e6%95%b0%e6%8d%ae%e7%94%a8%e4%ba%8e%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95%ef%bc%8c%e7%84%b6%e8%80%8c%e7%8e%b0%e5%9c%a8%ef%bc%8c%e6%88%91%e4%bb%ac%e5%8f%af%e4%bb%a5%e9%80%89%e6%8b%a9%e5%b9%b6%e8%ae%ad%e7%bb%83%e6%a8%a1%e5%9e%8b……&summary=%e5%bd%93%e6%82%a8%e7%9c%8b%e5%88%b0%e6%9c%ac%e6%96%87%e6%a0%87%e9%a2%98%e6%97%b6%ef%bc%8c%e4%b8%8d%e7%a6%81%e6%84%9f%e5%8f%b9%ef%bc%8c%e6%80%bb%e7%ae%97%e6%98%af%e5%88%b0%e4%ba%86%e8%ae%ad%e7%bb%83%e6%a8%a1%e5%9e%8b%e8%bf%99%e4%b8%80%e8%8a%82%e4%ba%86%e3%80%82%0a%e6%98%af%e5%95%8a%ef%bc%8c%e5%9c%a8%e4%b9%8b%e5%89%8d%e7%9a%84%e6%96%87%e7%ab%a0%e4%b8%ad%ef%bc%8c%e6%88%91%e4%bb%ac%e5%af%b9%e6%95%b0%e6%8d%ae%e8%bf%9b%e8%a1%8c%e4%ba%86%e6%8e%a2%e7%b4%a2%ef%bc%8c%e4%bb%a5%e5%8f%8a%e5%af%b9%e4%b8%80%e4%b8%aa%e8%ae%ad%e7%bb%83%e9%9b%86%e5%92%8c%e4%b8%80%e4%b8%aa%e6%b5%8b%e8%af%95%e9%9b%86%e8%bf%9b%e8%a1%8c%e4%ba%86%e9%87%87%e6%a0%b7%ef%bc%8c%e4%b9%9f%e7%bc%96%e5%86%99%e4%ba%86%e4%b8%80%e4%b8%aa%e9%a2%84%e5%a4%84%e7%90%86%e7%ae%a1%e9%81%93%e6%9d%a5%e8%87%aa%e5%8a%a8%e6%b8%85%e7%90%86%ef%bc%8c%e5%87%86%e5%a4%87%e6%82%a8%e7%9a%84%e6%95%b0%e6%8d%ae%e7%94%a8%e4%ba%8e%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95%ef%bc%8c%e7%84%b6%e8%80%8c%e7%8e%b0%e5%9c%a8%ef%bc%8c%e6%88%91%e4%bb%ac%e5%8f%af%e4%bb%a5%e9%80%89%e6%8b%a9%e5%b9%b6%e8%ae%ad%e7%bb%83%e6%a8%a1%e5%9e%8b…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f190%2f&title= %e9%80%89%e6%8b%a9%e5%92%8c%e8%ae%ad%e7%bb%83%e6%a8%a1%e5%9e%8b%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e4%b9%8b%e5%8d%81%e4%b8%80%ef%bc%89&summary=%e5%bd%93%e6%82%a8%e7%9c%8b%e5%88%b0%e6%9c%ac%e6%96%87%e6%a0%87%e9%a2%98%e6%97%b6%ef%bc%8c%e4%b8%8d%e7%a6%81%e6%84%9f%e5%8f%b9%ef%bc%8c%e6%80%bb%e7%ae%97%e6%98%af%e5%88%b0%e4%ba%86%e8%ae%ad%e7%bb%83%e6%a8%a1%e5%9e%8b%e8%bf%99%e4%b8%80%e8%8a%82%e4%ba%86%e3%80%82%0a%e6%98%af%e5%95%8a%ef%bc%8c%e5%9c%a8%e4%b9%8b%e5%89%8d%e7%9a%84%e6%96%87%e7%ab%a0%e4%b8%ad&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1705218124546.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1188,6 +1210,7 @@ from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(pr
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1227,6 +1250,8 @@ from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(pr
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1292,75 +1317,52 @@ from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(pr
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1377,15 +1379,21 @@ from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(pr
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3428,7 +3436,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3638,8 +3646,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

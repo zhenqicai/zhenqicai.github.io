@@ -29,7 +29,7 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="Java8与2014年9月份发布的，经过多年市场体验，俨然已有很多开源框架和企业在使用Java8了。介于于此，也该回顾下Java8的新特性了，这样也便于后面看开源框架源码也不至于不知其新语法。">
 
 
 
@@ -39,6 +39,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1561169469138.png">
+
 <meta property="og:description" content="Java8与2014年9月份发布的，经过多年市场体验，俨然已有很多开源框架和企业在使用Java8了。介于于此，也该回顾下Java8的新特性了，这样也便于后面看开源框架源码也不至于不知其新语法。">
 <meta property="og:type" content="news">
 <meta property="og:url" content="https://qiucode.cn/article/78/">
@@ -989,12 +990,14 @@ Lambda 表达式由三个部分组成：第一部分为一个括号内用逗号�
         data-url="https://qiucode.cn/article/78/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1561169469138.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/78/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1002,7 +1005,7 @@ Lambda 表达式由三个部分组成：第一部分为一个括号内用逗号�
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1017,7 +1020,8 @@ Lambda 表达式由三个部分组成：第一部分为一个括号内用逗号�
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f78%2f&title=Java%208%20%e5%87%bd%e6%95%b0%e5%bc%8f%e6%8e%a5%e5%8f%a3%e7%bc%96%e7%a8%8b&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fsomnus%2f1561169469138.png&desc=%3cp%3eJava8%e4%b8%8e2014%e5%b9%b49%e6%9c%88%e4%bb%bd%e5%8f%91%e5%b8%83%e7%9a%84%ef%bc%8c%e7%bb%8f%e8%bf%87%e5%a4%9a%e5%b9%b4%e5%b8%82%e5%9c%ba%e4%bd%93%e9%aa%8c%ef%bc%8c%e4%bf%a8%e7%84%b6%e5%b7%b2%e6%9c%89%e5%be%88%e5%a4%9a%e5%bc%80%e6%ba%90%e6%a1%86%e6%9e%b6%e5%92%8c%e4%bc%81%e4%b8%9a%e5%9c%a8%e4%bd%bf%e7%94%a8Java8%e4%ba%86%e3%80%82%e4%bb%8b%e4%ba%8e%e4%ba%8e%e6%ad%a4%ef%bc%8c%e4%b9%9f%e8%af%a5%e5%9b%9e%e9%a1%be%e4%b8%8bJava8%e7%9a%84%e6%96%b0%e7%89%b9%e6%80%a7%e4%ba%86%ef%bc%8c%e8%bf%99%e6%a0%b7%e4%b9%9f%e4%be%bf%e4%ba%8e%e5%90%8e%e9%9d%a2%e7%9c%8b%e5%bc%80%e6%ba%90%e6%a1%86%e6%9e%b6%e6%ba%90%e7%a0%81%e4%b9%9f%e4%b8%8d%e8%87%b3%e4%ba%8e%e4%b8%8d%e7%9f%a5%e5%85%b6%e6%96%b0%e8%af%ad%e6%b3%95%e3%80%82%3c%2fp%3e……&summary=%3cp%3eJava8%e4%b8%8e2014%e5%b9%b49%e6%9c%88%e4%bb%bd%e5%8f%91%e5%b8%83%e7%9a%84%ef%bc%8c%e7%bb%8f%e8%bf%87%e5%a4%9a%e5%b9%b4%e5%b8%82%e5%9c%ba%e4%bd%93%e9%aa%8c%ef%bc%8c%e4%bf%a8%e7%84%b6%e5%b7%b2%e6%9c%89%e5%be%88%e5%a4%9a%e5%bc%80%e6%ba%90%e6%a1%86%e6%9e%b6%e5%92%8c%e4%bc%81%e4%b8%9a%e5%9c%a8%e4%bd%bf%e7%94%a8Java8%e4%ba%86%e3%80%82%e4%bb%8b%e4%ba%8e%e4%ba%8e%e6%ad%a4%ef%bc%8c%e4%b9%9f%e8%af%a5%e5%9b%9e%e9%a1%be%e4%b8%8bJava8%e7%9a%84%e6%96%b0%e7%89%b9%e6%80%a7%e4%ba%86%ef%bc%8c%e8%bf%99%e6%a0%b7%e4%b9%9f%e4%be%bf%e4%ba%8e%e5%90%8e%e9%9d%a2%e7%9c%8b%e5%bc%80%e6%ba%90%e6%a1%86%e6%9e%b6%e6%ba%90%e7%a0%81%e4%b9%9f%e4%b8%8d%e8%87%b3%e4%ba%8e%e4%b8%8d%e7%9f%a5%e5%85%b6%e6%96%b0%e8%af%ad%e6%b3%95%e3%80%82%3c%2fp%3e…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f78%2f&title= Java%208%20%e5%87%bd%e6%95%b0%e5%bc%8f%e6%8e%a5%e5%8f%a3%e7%bc%96%e7%a8%8b&summary=%3cp%3eJava8%e4%b8%8e2014%e5%b9%b49%e6%9c%88%e4%bb%bd%e5%8f%91%e5%b8%83%e7%9a%84%ef%bc%8c%e7%bb%8f%e8%bf%87%e5%a4%9a%e5%b9%b4%e5%b8%82%e5%9c%ba%e4%bd%93%e9%aa%8c%ef%bc%8c%e4%bf%a8%e7%84%b6%e5%b7%b2%e6%9c%89%e5%be%88%e5%a4%9a%e5%bc%80%e6%ba%90%e6%a1%86%e6%9e%b6&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fsomnus%2f1561169469138.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1146,6 +1150,7 @@ Lambda 表达式由三个部分组成：第一部分为一个括号内用逗号�
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1185,6 +1190,8 @@ Lambda 表达式由三个部分组成：第一部分为一个括号内用逗号�
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1250,75 +1257,52 @@ Lambda 表达式由三个部分组成：第一部分为一个括号内用逗号�
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1335,15 +1319,21 @@ Lambda 表达式由三个部分组成：第一部分为一个括号内用逗号�
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3407,7 +3397,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3617,8 +3607,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

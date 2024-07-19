@@ -29,7 +29,14 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="在上一篇我们已然训练了一个用于对数字图像识别的模型，但我们目前还不知道该模型在识别数字图像效率如何？所以，本文将对该模型进行评估。
+使用交叉验证衡量准确性 评估模型的一个好方法是使用交叉验证，让我们使用cross_val_score()函数来评估我们的 SGDClassifier 模型，使用三折的 k 折交叉验证。k-fold 交叉验证意味着将训练集分成 k 个折叠（在本例中是三个），然后训练模型 k 次，每次取出一个不同的折叠进行评估：
+当您看到这组数字，是不是感到很兴奋？毕竟所有交叉验证折叠的准确率（预测准确率）均超过了 95%。然而，在您兴奋于这组数字前，还是让我们来看看一个假分类器，它只是将每张图片归入最常见的类别，在本例中就是负类别（即非 5）：
+from sklearn.dummy import DummyClassifier dummy_clf = DummyClassifier() dummy_clf.fit(X_train, y_train_5) print(any(dummy_clf.predict(X_train))) # prints False: no 5s detected 您能猜出这个模型的准确度吗？让我们一探究竟：
+没错，它的准确率超过 90%！这只是因为只有大约 10% 的图片是 5，所以如果你总是猜测图片不是 5，你就会有大约 90% 的时间是正确的。比诺斯特拉达穆斯还准。
+这说明了为什么准确率通常不是分类器的首选性能指标，尤其是在处理偏斜 数据集时（即某些类别的出现频率远高于其他类别）。评估分类器性能的更好方法是查看混淆矩阵(CM)。
+实施交叉验证 与 Scikit-Learn 现成提供的功能相比，您有时需要对交叉验证过程进行更多控制。在这种情况下，你可以自己实现交叉验证。下面的代码与 Scikit-Learn 的 cross_val_score() 函数做了大致相同的事情，并会打印出相同的结果：
+from sklearn.model_selection import StratifiedKFold from sklearn.base import clone skfolds = StratifiedKFold(n_splits=3) # add shuffle=True if the dataset is # not already shuffled for train_index, test_index in skfolds.">
 
 
 
@@ -39,6 +46,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710579587897.png">
+
 <meta property="og:description" content="在上一篇我们已然训练了一个用于对数字图像识别的模型，但我们目前还不知道该模型在识别数字图像效率如何？所以，本文将对该模型进行评估。
 使用交叉验证衡量准确性 评估模型的一个好方法是使用交叉验证，让我们使用cross_val_score()函数来评估我们的 SGDClassifier 模型，使用三折的 k 折交叉验证。k-fold 交叉验证意味着将训练集分成 k 个折叠（在本例中是三个），然后训练模型 k 次，每次取出一个不同的折叠进行评估：
 当您看到这组数字，是不是感到很兴奋？毕竟所有交叉验证折叠的准确率（预测准确率）均超过了 95%。然而，在您兴奋于这组数字前，还是让我们来看看一个假分类器，它只是将每张图片归入最常见的类别，在本例中就是负类别（即非 5）：
@@ -1033,12 +1041,14 @@ from sklearn.model_selection import StratifiedKFold from sklearn.base import clo
         data-url="https://qiucode.cn/article/195/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710579587897.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/195/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1046,7 +1056,7 @@ from sklearn.model_selection import StratifiedKFold from sklearn.base import clo
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1061,7 +1071,8 @@ from sklearn.model_selection import StratifiedKFold from sklearn.base import clo
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f195%2f&title=%e5%af%b9%e6%a8%a1%e5%9e%8b%e6%80%a7%e8%83%bd%e8%bf%9b%e8%a1%8c%e8%af%84%e4%bc%b0%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e5%8d%81%e4%ba%94%ef%bc%89&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1710579587897.png&desc=%e5%9c%a8%e4%b8%8a%e4%b8%80%e7%af%87%e6%88%91%e4%bb%ac%e5%b7%b2%e7%84%b6%e8%ae%ad%e7%bb%83%e4%ba%86%e4%b8%80%e4%b8%aa%e7%94%a8%e4%ba%8e%e5%af%b9%e6%95%b0%e5%ad%97%e5%9b%be%e5%83%8f%e8%af%86%e5%88%ab%e7%9a%84%e6%a8%a1%e5%9e%8b%ef%bc%8c%e4%bd%86%e6%88%91%e4%bb%ac%e7%9b%ae%e5%89%8d%e8%bf%98%e4%b8%8d%e7%9f%a5%e9%81%93%e8%af%a5%e6%a8%a1%e5%9e%8b%e5%9c%a8%e8%af%86%e5%88%ab%e6%95%b0%e5%ad%97%e5%9b%be%e5%83%8f%e6%95%88%e7%8e%87%e5%a6%82%e4%bd%95%ef%bc%9f%e6%89%80%e4%bb%a5%ef%bc%8c%e6%9c%ac%e6%96%87%e5%b0%86%e5%af%b9%e8%af%a5%e6%a8%a1%e5%9e%8b%e8%bf%9b%e8%a1%8c%e8%af%84%e4%bc%b0%e3%80%82%0a%e4%bd%bf%e7%94%a8%e4%ba%a4%e5%8f%89%e9%aa%8c%e8%af%81%e8%a1%a1%e9%87%8f%e5%87%86%e7%a1%ae%e6%80%a7%20%e8%af%84%e4%bc%b0%e6%a8%a1%e5%9e%8b%e7%9a%84%e4%b8%80%e4%b8%aa%e5%a5%bd%e6%96%b9%e6%b3%95%e6%98%af%e4%bd%bf%e7%94%a8%e4%ba%a4%e5%8f%89%e9%aa%8c%e8%af%81%ef%bc%8c%e8%ae%a9%e6%88%91%e4%bb%ac%e4%bd%bf%e7%94%a8cross_val_score%28%29%e5%87%bd%e6%95%b0……&summary=%e5%9c%a8%e4%b8%8a%e4%b8%80%e7%af%87%e6%88%91%e4%bb%ac%e5%b7%b2%e7%84%b6%e8%ae%ad%e7%bb%83%e4%ba%86%e4%b8%80%e4%b8%aa%e7%94%a8%e4%ba%8e%e5%af%b9%e6%95%b0%e5%ad%97%e5%9b%be%e5%83%8f%e8%af%86%e5%88%ab%e7%9a%84%e6%a8%a1%e5%9e%8b%ef%bc%8c%e4%bd%86%e6%88%91%e4%bb%ac%e7%9b%ae%e5%89%8d%e8%bf%98%e4%b8%8d%e7%9f%a5%e9%81%93%e8%af%a5%e6%a8%a1%e5%9e%8b%e5%9c%a8%e8%af%86%e5%88%ab%e6%95%b0%e5%ad%97%e5%9b%be%e5%83%8f%e6%95%88%e7%8e%87%e5%a6%82%e4%bd%95%ef%bc%9f%e6%89%80%e4%bb%a5%ef%bc%8c%e6%9c%ac%e6%96%87%e5%b0%86%e5%af%b9%e8%af%a5%e6%a8%a1%e5%9e%8b%e8%bf%9b%e8%a1%8c%e8%af%84%e4%bc%b0%e3%80%82%0a%e4%bd%bf%e7%94%a8%e4%ba%a4%e5%8f%89%e9%aa%8c%e8%af%81%e8%a1%a1%e9%87%8f%e5%87%86%e7%a1%ae%e6%80%a7%20%e8%af%84%e4%bc%b0%e6%a8%a1%e5%9e%8b%e7%9a%84%e4%b8%80%e4%b8%aa%e5%a5%bd%e6%96%b9%e6%b3%95%e6%98%af%e4%bd%bf%e7%94%a8%e4%ba%a4%e5%8f%89%e9%aa%8c%e8%af%81%ef%bc%8c%e8%ae%a9%e6%88%91%e4%bb%ac%e4%bd%bf%e7%94%a8cross_val_score%28%29%e5%87%bd%e6%95%b0…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f195%2f&title= %e5%af%b9%e6%a8%a1%e5%9e%8b%e6%80%a7%e8%83%bd%e8%bf%9b%e8%a1%8c%e8%af%84%e4%bc%b0%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e5%8d%81%e4%ba%94%ef%bc%89&summary=%e5%9c%a8%e4%b8%8a%e4%b8%80%e7%af%87%e6%88%91%e4%bb%ac%e5%b7%b2%e7%84%b6%e8%ae%ad%e7%bb%83%e4%ba%86%e4%b8%80%e4%b8%aa%e7%94%a8%e4%ba%8e%e5%af%b9%e6%95%b0%e5%ad%97%e5%9b%be%e5%83%8f%e8%af%86%e5%88%ab%e7%9a%84%e6%a8%a1%e5%9e%8b%ef%bc%8c%e4%bd%86%e6%88%91%e4%bb%ac%e7%9b%ae%e5%89%8d%e8%bf%98%e4%b8%8d%e7%9f%a5%e9%81%93%e8%af%a5%e6%a8%a1%e5%9e%8b%e5%9c%a8%e8%af%86&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1710579587897.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1190,6 +1201,7 @@ from sklearn.model_selection import StratifiedKFold from sklearn.base import clo
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1229,6 +1241,8 @@ from sklearn.model_selection import StratifiedKFold from sklearn.base import clo
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1294,75 +1308,52 @@ from sklearn.model_selection import StratifiedKFold from sklearn.base import clo
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1379,15 +1370,21 @@ from sklearn.model_selection import StratifiedKFold from sklearn.base import clo
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3443,7 +3440,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3653,8 +3650,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

@@ -29,7 +29,26 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="国内访问github.com总是那么不竟如人意，时而无法加载网页，时而等我们抽完了一根烟后，它还处于转圈的状态。
+虽然国内有gitee.com等诸多的代码托管平台，但却鲜有国人愿意去呢？其中的缘由，想必也不用我多说，大伙也都心知肚明了吧！
+即便github.com在国内访问慢，或是加载不出来，我们也宁愿等它慢慢地加载出来，却不愿将代码托管于境内的平台。
+github.com 托管了 qiucode.cn 站点 由于将 秋码记录 托管于 github.com上后，写些文章就得push上去，然而当我push上去时，却十有八九都会出现 github.com port 443: Timed out的错误，代码显然是无法push上去的了！
+难道在国内，现在push或是pull github.com，都是要靠运气吗？偶尔可以，大多数都是报错。
+可是，“运气”总不能实时来关顾我们，要是那样的话，我早去买彩票了，虽然有运气，买了彩票，它也不一定中奖，毕竟古话早就有言：朝里有人好当官。
+然而，有没有一劳永逸的解决之道呢？答案那是肯定有的，要不然，也就不会有这么一篇文章了，您也就不会花费您宝贵的时间来浏览本文，寻求与我遇到同样问题的解决方案了。
+当我们想要clone github.com上的一个项目时，出现以下错误，那都是家常便饭了。
+从报错信息来看，很显然这是https请求超时，这是毋庸置疑的，毕竟我们访问github.com都是是好是坏的！您在terminal端不还是一样的请求超时嘛！
+解决国内 push/pull github.com 项目出现 Timed out 的问题 毕竟，秋码记录 是托管于 github.com上，总不可能写了一篇文章，想要push到 github.com，这次出现Timed out的错误，就不push，而是等到下次再写文章时，再push，这显然不是我要的，毕竟，技术文章（在这里，我也就王婆卖瓜，自卖自夸咯）是有时效性的！说是这么说，但并不妨碍的。
+能出现Timed out的问题，我们第一想到便是网络问题（有些事我们自己心里清楚就好了），其次才是本地git配置问题。
+那么，我们暂且略过网络问题这一客观事实不谈，来说说本地git的配置是哪里出现问题，而导致了出现Timed out的问题呢？
+我们还是回到 terminal，输入以下命令测试ssh是否成功？
+ssh -T git@github.com 如果，您也出现了上图的结果，那显然是配置的问题了。
+我们再次测试下port 443是否也出现超时的问题？
+ssh -T -p 443 git@ssh.github.com 可以看出，端口 443 请求是没问题，那么，为什么clone项目时，却报出了port 443请求超时的错误呢？
+我们大致从上面的ssh测试报错便可以得出结论了，那便是ssh连接超时了。
+而要想解决ssh请求超时的问题，那就要从配置着手了，还是一样的在terminal输入以下命令。
+vim ~/.ssh/config 而后在进入编辑状态，填写以下内容
+# Add section below to itHost github.comHostname ssh.">
 
 
 
@@ -39,6 +58,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578417203.png">
+
 <meta property="og:description" content="国内访问github.com总是那么不竟如人意，时而无法加载网页，时而等我们抽完了一根烟后，它还处于转圈的状态。
 虽然国内有gitee.com等诸多的代码托管平台，但却鲜有国人愿意去呢？其中的缘由，想必也不用我多说，大伙也都心知肚明了吧！
 即便github.com在国内访问慢，或是加载不出来，我们也宁愿等它慢慢地加载出来，却不愿将代码托管于境内的平台。
@@ -1022,12 +1042,14 @@ Host github.com
         data-url="https://qiucode.cn/article/191/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578417203.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/191/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1035,7 +1057,7 @@ Host github.com
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1050,7 +1072,8 @@ Host github.com
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f191%2f&title=%e8%a7%a3%e5%86%b3%20github.com%20port%20443%3a%20Timed%20out%20%e7%9a%84%e9%97%ae%e9%a2%98&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1710578417203.png&desc=%e5%9b%bd%e5%86%85%e8%ae%bf%e9%97%aegithub.com%e6%80%bb%e6%98%af%e9%82%a3%e4%b9%88%e4%b8%8d%e7%ab%9f%e5%a6%82%e4%ba%ba%e6%84%8f%ef%bc%8c%e6%97%b6%e8%80%8c%e6%97%a0%e6%b3%95%e5%8a%a0%e8%bd%bd%e7%bd%91%e9%a1%b5%ef%bc%8c%e6%97%b6%e8%80%8c%e7%ad%89%e6%88%91%e4%bb%ac%e6%8a%bd%e5%ae%8c%e4%ba%86%e4%b8%80%e6%a0%b9%e7%83%9f%e5%90%8e%ef%bc%8c%e5%ae%83%e8%bf%98%e5%a4%84%e4%ba%8e%e8%bd%ac%e5%9c%88%e7%9a%84%e7%8a%b6%e6%80%81%e3%80%82%0a%e8%99%bd%e7%84%b6%e5%9b%bd%e5%86%85%e6%9c%89gitee.com%e7%ad%89%e8%af%b8%e5%a4%9a%e7%9a%84%e4%bb%a3%e7%a0%81%e6%89%98%e7%ae%a1%e5%b9%b3%e5%8f%b0%ef%bc%8c%e4%bd%86%e5%8d%b4%e9%b2%9c%e6%9c%89%e5%9b%bd%e4%ba%ba%e6%84%bf%e6%84%8f%e5%8e%bb%e5%91%a2%ef%bc%9f%e5%85%b6%e4%b8%ad%e7%9a%84%e7%bc%98%e7%94%b1%ef%bc%8c%e6%83%b3%e5%bf%85%e4%b9%9f%e4%b8%8d%e7%94%a8%e6%88%91%e5%a4%9a%e8%af%b4%ef%bc%8c%e5%a4%a7%e4%bc%99%e4%b9%9f%e9%83%bd%e5%bf%83%e7%9f%a5%e8%82%9a%e6%98%8e%e4%ba%86%e5%90%a7%ef%bc%81%0a……&summary=%e5%9b%bd%e5%86%85%e8%ae%bf%e9%97%aegithub.com%e6%80%bb%e6%98%af%e9%82%a3%e4%b9%88%e4%b8%8d%e7%ab%9f%e5%a6%82%e4%ba%ba%e6%84%8f%ef%bc%8c%e6%97%b6%e8%80%8c%e6%97%a0%e6%b3%95%e5%8a%a0%e8%bd%bd%e7%bd%91%e9%a1%b5%ef%bc%8c%e6%97%b6%e8%80%8c%e7%ad%89%e6%88%91%e4%bb%ac%e6%8a%bd%e5%ae%8c%e4%ba%86%e4%b8%80%e6%a0%b9%e7%83%9f%e5%90%8e%ef%bc%8c%e5%ae%83%e8%bf%98%e5%a4%84%e4%ba%8e%e8%bd%ac%e5%9c%88%e7%9a%84%e7%8a%b6%e6%80%81%e3%80%82%0a%e8%99%bd%e7%84%b6%e5%9b%bd%e5%86%85%e6%9c%89gitee.com%e7%ad%89%e8%af%b8%e5%a4%9a%e7%9a%84%e4%bb%a3%e7%a0%81%e6%89%98%e7%ae%a1%e5%b9%b3%e5%8f%b0%ef%bc%8c%e4%bd%86%e5%8d%b4%e9%b2%9c%e6%9c%89%e5%9b%bd%e4%ba%ba%e6%84%bf%e6%84%8f%e5%8e%bb%e5%91%a2%ef%bc%9f%e5%85%b6%e4%b8%ad%e7%9a%84%e7%bc%98%e7%94%b1%ef%bc%8c%e6%83%b3%e5%bf%85%e4%b9%9f%e4%b8%8d%e7%94%a8%e6%88%91%e5%a4%9a%e8%af%b4%ef%bc%8c%e5%a4%a7%e4%bc%99%e4%b9%9f%e9%83%bd%e5%bf%83%e7%9f%a5%e8%82%9a%e6%98%8e%e4%ba%86%e5%90%a7%ef%bc%81%0a…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f191%2f&title= %e8%a7%a3%e5%86%b3%20github.com%20port%20443%3a%20Timed%20out%20%e7%9a%84%e9%97%ae%e9%a2%98&summary=%e5%9b%bd%e5%86%85%e8%ae%bf%e9%97%aegithub.com%e6%80%bb%e6%98%af%e9%82%a3%e4%b9%88%e4%b8%8d%e7%ab%9f%e5%a6%82%e4%ba%ba%e6%84%8f%ef%bc%8c%e6%97%b6%e8%80%8c%e6%97%a0%e6%b3%95%e5%8a%a0%e8%bd%bd%e7%bd%91%e9%a1%b5%ef%bc%8c%e6%97%b6%e8%80%8c%e7%ad%89%e6%88%91%e4%bb%ac%e6%8a%bd%e5%ae%8c&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1710578417203.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1179,6 +1202,7 @@ Host github.com
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1218,6 +1242,8 @@ Host github.com
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1283,75 +1309,52 @@ Host github.com
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1368,15 +1371,21 @@ Host github.com
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3419,7 +3428,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3629,8 +3638,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

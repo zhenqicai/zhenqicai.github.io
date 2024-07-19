@@ -29,7 +29,24 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="目录（Text of Contents缩写为TOC），其实就是一篇文章的概要或简述。这好比，去书店买书，先是被这本书的标题所吸引，而后我们才会，翻开这本书目录，看看这本书主要是在讲些什么？我们在看目录的同时，脑中也在不停的思衬，”这本书到底值不值得买呢？但是没有什么实战内容耶！“
+文章目录 其实，一篇文章也不非要目录的，只要段落分的好，就算是长篇大论也是无关紧要的！
+只是文章有了目录，让人一眼就能瞧出这篇文章到底讲了什么？虽然标题上有说，但还是得为哪几个段落起个副标题。
+再说了，文章目录可以让用户在页面上，点击到达指定目录名称下进行浏览。虽然这在很大层度上是可以通过鼠标滑动，滚动到想要浏览的位置。
+Hugo-theme-kiwi开源博客主题已然有了文章目录这一功能，也就是 秋码记录 站点正在使用的博客主题（由于 秋码记录 托管于 Github.com Pages，故而国内的友人在访问时，比较缓慢，甚至有时可能出现无法打开该网站）。
+对目录名称前添加序号，我们首先想到的当然是使用Hugo模板渲染去实现。
+序号，顾名思义，就是有顺序的号码，通俗来讲，便是1、，2、，3、，4、，……。可在Hugo模板渲染中使用计数器来实现。
+css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码中使用Hugo模板渲染的那部分又长又拖代码了。
+在CSS计数器中，counter-reset和counter-increment属性是必不可少的。counter-reset在每次新的列表开始时重置计数器，而counter-increment在每个列表项上增加计数器。
+需要注意的是：counter-reset 是需要计数的父标签上的！
+那么，就将 counter-reset设置在ol标签上即可，即便是某一项有子目录，那也还是在ol标签内的！
+.toc-content ol{ list-style-type: none; counter-reset: item } 现在，我们就可以对目录名称设置伪选择器了。
+在编写CSS样式之前，有必要说下counters()函数，在CSS中，它返回一个计数器的列表值，这个列表可以包含一个或者多个嵌套的计数器。
+函数counters()有两个参数：
+第一个参数是你要访问的计数器的名称，在你的例子中，该名称就是 item。 第二个参数是字符串，用来分隔计数器的各个级别。在你的例子中，这个分隔符是英文的句点 . .toc-content ol li a:first-of-type::before{ counter-increment: item; content: counters(item,&#34;.&#34;)&#34;、&#34;; font-weight: 700; margin-right: 1px; } 比如在多级嵌套的列表中，如果在第一级的第二个项中的第三个小项，那么 counters() 的值就会是 2.3、。
+字符串、 紧接着 counters(item, &quot;.&quot;) 的作用是将结果后面添加一个顿号，使其格式化输出更美观。
+所以 counters(item, &quot;.&quot;) &quot;. &quot; 的作用就是生成并显示一个根据当前嵌套列表项的层级和序号构成的数字序列，每一级数字之间用句点分隔，并在最后跟着一个顿号。例如输出1、，2.1、，2.2、，等等。
+最终效果可查看秋码记录文章详情页，右侧侧边栏目录。">
 
 
 
@@ -39,6 +56,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916635289.png">
+
 <meta property="og:description" content="目录（Text of Contents缩写为TOC），其实就是一篇文章的概要或简述。这好比，去书店买书，先是被这本书的标题所吸引，而后我们才会，翻开这本书目录，看看这本书主要是在讲些什么？我们在看目录的同时，脑中也在不停的思衬，”这本书到底值不值得买呢？但是没有什么实战内容耶！“
 文章目录 其实，一篇文章也不非要目录的，只要段落分的好，就算是长篇大论也是无关紧要的！
 只是文章有了目录，让人一眼就能瞧出这篇文章到底讲了什么？虽然标题上有说，但还是得为哪几个段落起个副标题。
@@ -1016,12 +1034,14 @@ css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码
         data-url="https://qiucode.cn/article/202/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703916635289.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/202/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1029,7 +1049,7 @@ css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1044,7 +1064,8 @@ css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f202%2f&title=%e4%bd%bf%e7%94%a8CSS%e8%ae%a1%e6%95%b0%e5%99%a8%ef%bc%8c%e5%9c%a8%e7%9b%ae%e5%bd%95%e5%90%8d%e7%a7%b0%e5%89%8d%e5%8a%a0%e4%b8%8a%e4%ba%86%e5%ba%8f%e5%8f%b7%ef%bc%8c%e8%ae%a9%e7%9b%ae%e5%bd%95%e7%9c%8b%e8%b5%b7%e6%9d%a5%e6%9b%b4%e5%8a%a0%e4%ba%95%e7%84%b6%e6%9c%89%e5%ba%8f&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1703916635289.png&desc=%e7%9b%ae%e5%bd%95%ef%bc%88Text%20of%20Contents%e7%bc%a9%e5%86%99%e4%b8%baTOC%ef%bc%89%ef%bc%8c%e5%85%b6%e5%ae%9e%e5%b0%b1%e6%98%af%e4%b8%80%e7%af%87%e6%96%87%e7%ab%a0%e7%9a%84%e6%a6%82%e8%a6%81%e6%88%96%e7%ae%80%e8%bf%b0%e3%80%82%e8%bf%99%e5%a5%bd%e6%af%94%ef%bc%8c%e5%8e%bb%e4%b9%a6%e5%ba%97%e4%b9%b0%e4%b9%a6%ef%bc%8c%e5%85%88%e6%98%af%e8%a2%ab%e8%bf%99%e6%9c%ac%e4%b9%a6%e7%9a%84%e6%a0%87%e9%a2%98%e6%89%80%e5%90%b8%e5%bc%95%ef%bc%8c%e8%80%8c%e5%90%8e%e6%88%91%e4%bb%ac%e6%89%8d%e4%bc%9a%ef%bc%8c%e7%bf%bb%e5%bc%80%e8%bf%99%e6%9c%ac%e4%b9%a6%e7%9b%ae%e5%bd%95%ef%bc%8c%e7%9c%8b%e7%9c%8b%e8%bf%99%e6%9c%ac%e4%b9%a6%e4%b8%bb%e8%a6%81%e6%98%af%e5%9c%a8%e8%ae%b2%e4%ba%9b%e4%bb%80%e4%b9%88%ef%bc%9f%e6%88%91%e4%bb%ac%e5%9c%a8%e7%9c%8b%e7%9b%ae%e5%bd%95%e7%9a%84%e5%90%8c%e6%97%b6%ef%bc%8c%e8%84%91%e4%b8%ad%e4%b9%9f%e5%9c%a8%e4%b8%8d%e5%81%9c%e7%9a%84%e6%80%9d%e8%a1%ac%ef%bc%8c%e2%80%9d%e8%bf%99%e6%9c%ac%e4%b9%a6%e5%88%b0%e5%ba%95……&summary=%e7%9b%ae%e5%bd%95%ef%bc%88Text%20of%20Contents%e7%bc%a9%e5%86%99%e4%b8%baTOC%ef%bc%89%ef%bc%8c%e5%85%b6%e5%ae%9e%e5%b0%b1%e6%98%af%e4%b8%80%e7%af%87%e6%96%87%e7%ab%a0%e7%9a%84%e6%a6%82%e8%a6%81%e6%88%96%e7%ae%80%e8%bf%b0%e3%80%82%e8%bf%99%e5%a5%bd%e6%af%94%ef%bc%8c%e5%8e%bb%e4%b9%a6%e5%ba%97%e4%b9%b0%e4%b9%a6%ef%bc%8c%e5%85%88%e6%98%af%e8%a2%ab%e8%bf%99%e6%9c%ac%e4%b9%a6%e7%9a%84%e6%a0%87%e9%a2%98%e6%89%80%e5%90%b8%e5%bc%95%ef%bc%8c%e8%80%8c%e5%90%8e%e6%88%91%e4%bb%ac%e6%89%8d%e4%bc%9a%ef%bc%8c%e7%bf%bb%e5%bc%80%e8%bf%99%e6%9c%ac%e4%b9%a6%e7%9b%ae%e5%bd%95%ef%bc%8c%e7%9c%8b%e7%9c%8b%e8%bf%99%e6%9c%ac%e4%b9%a6%e4%b8%bb%e8%a6%81%e6%98%af%e5%9c%a8%e8%ae%b2%e4%ba%9b%e4%bb%80%e4%b9%88%ef%bc%9f%e6%88%91%e4%bb%ac%e5%9c%a8%e7%9c%8b%e7%9b%ae%e5%bd%95%e7%9a%84%e5%90%8c%e6%97%b6%ef%bc%8c%e8%84%91%e4%b8%ad%e4%b9%9f%e5%9c%a8%e4%b8%8d%e5%81%9c%e7%9a%84%e6%80%9d%e8%a1%ac%ef%bc%8c%e2%80%9d%e8%bf%99%e6%9c%ac%e4%b9%a6%e5%88%b0%e5%ba%95…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f202%2f&title= %e4%bd%bf%e7%94%a8CSS%e8%ae%a1%e6%95%b0%e5%99%a8%ef%bc%8c%e5%9c%a8%e7%9b%ae%e5%bd%95%e5%90%8d%e7%a7%b0%e5%89%8d%e5%8a%a0%e4%b8%8a%e4%ba%86%e5%ba%8f%e5%8f%b7%ef%bc%8c%e8%ae%a9%e7%9b%ae%e5%bd%95%e7%9c%8b%e8%b5%b7%e6%9d%a5%e6%9b%b4%e5%8a%a0%e4%ba%95%e7%84%b6%e6%9c%89%e5%ba%8f&summary=%e7%9b%ae%e5%bd%95%ef%bc%88Text%20of%20Contents%e7%bc%a9%e5%86%99%e4%b8%baTOC%ef%bc%89%ef%bc%8c%e5%85%b6%e5%ae%9e%e5%b0%b1%e6%98%af%e4%b8%80%e7%af%87%e6%96%87%e7%ab%a0%e7%9a%84%e6%a6%82%e8%a6%81%e6%88%96%e7%ae%80&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1703916635289.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1173,6 +1194,7 @@ css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1212,6 +1234,8 @@ css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1277,75 +1301,52 @@ css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1362,15 +1363,21 @@ css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3413,7 +3420,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3623,8 +3630,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

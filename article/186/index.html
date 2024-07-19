@@ -29,7 +29,21 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="本文还是同样建立在前两篇的基础之上的！
+属性组合实验 希望前面的部分能让您了解探索数据并获得洞察力的几种方法。您发现了一些数据怪癖，您可能希望在将数据提供给机器学习算法之前对其进行清理，并且发现了属性之间有趣的相关性，特别是与目标属性 之间的相关性。您还注意到一些属性具有向右倾斜的分布，因此您可能需要转换它们(例如，通过计算它们的对数或平方根)。当然，你的里程会因每个项目而有很大的不同，但大致的想法是相似的。
+在为机器学习算法准备数据之前，您可能需要做的最后一件事是尝试各种属性组合。例如，如果你不知道一个地区有多少住户，那么这个地区的房间总数就不是很有用。你真正想要的是每个家庭的房间数量。同样，卧室总数本身也不是很有用:你可能想对比一下房间的数量。每个家庭的人口似乎也是一个有趣的属性组合。创建这些新属性如下:
+housing[&#34;rooms_per_house&#34;] = housing[&#34;total_rooms&#34;] / housing[&#34;households&#34;] housing[&#34;bedrooms_ratio&#34;] = housing[&#34;total_bedrooms&#34;] / housing[&#34;total_rooms&#34;] housing[&#34;people_per_house&#34;] = housing[&#34;population&#34;] / housing[&#34;households&#34;] 然后你再看一遍相关矩阵:
+!新的bedrooms_ratio属性与房屋中值的相关性要比与房间或卧室总数的相关性大得多。显然，卧室/房间比率较低的房子往往更贵。每个家庭的房间数量也比一个地区的房间总数更能说明问题-很明显，房 子越大，就越贵。
+这一轮的探索不需要绝对彻底;关键是从正确的角度出发，并迅速获得见解，这将帮助您获得第一个相当好的原型。但是这是一个迭代的过程:一旦你建立并运行了一个原型，你就可以分析它的输出以获得更多的见解，然后再回到这个探索步骤。
+为机器学习算法准备数据 是时候为您的机器学习算法准备数据了。你应该为此编写函数，而不是手工操作，这有几个很好的理由:
+这将允许您在任何数据集上轻松重现这些转换(例如，下次获得新数据集时)。 您将逐步构建一个转换函数库，以便在未来的项目中重用。 您可以在实时系统中使用这些函数来转换新数据，然后再将其输入到您的算法中。 这将使您能够轻松地尝试各种转换，并查看哪种转换组合效果最好。 但首先，恢复到一个干净的训练集(通过再次复制strat_train_set)。您还应该将预测变量和标签分开，因为您不一定希望对预测变量和目标值应用相同的转换(请注意，drop()创建数据的副本，并且不影响strat_train_set):
+housing = strat_train_set.drop(&#34;median_house_value&#34;, axis=1) housing_labels = strat_train_set[&#34;median_house_value&#34;].copy() 清除数据 大多数机器学习算法无法处理缺失的功能，因此您需要处理这些功能。例如，您之前注意到total_bedrooms属性有一些缺失值。你有三个选项可以解决这个问题:
+去掉相应的区。
+去掉整个属性。
+将缺失值设置为某个值(零、均值、中位数等)。这就是所谓的归罪。
+您可以使用PandasDataFrame的dropna () 、drop () 和fillna ()方法轻松完成这些任务:
+housing.dropna(subset=[&#34;total_bedrooms&#34;], inplace=True) # option 1 housing.drop(&#34;total_bedrooms&#34;, axis=1) # option 2 median = housing[&#34;total_bedrooms&#34;].median() # option 3 housing[&#34;total_bedrooms&#34;].fillna(median, inplace=True) 您决定使用选项3，因为它的破坏性最小，但是您将使用一个方便的Scikit-Learn类:Simplelmputer，而不是前面的代码。这样做的好处是，它将存储每个特征的中值:这将使得它不仅可以估算训练集上的缺失值，还可以估算验证集、测试集和输入到模型的任何新数据上的缺失值。要使用它，首先需要创建一个Simplelmputer实例，指定要将每个属性的缺失值替换为该属性的中位数:
+from sklearn.">
 
 
 
@@ -39,6 +53,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703934522767.png">
+
 <meta property="og:description" content="本文还是同样建立在前两篇的基础之上的！
 属性组合实验 希望前面的部分能让您了解探索数据并获得洞察力的几种方法。您发现了一些数据怪癖，您可能希望在将数据提供给机器学习算法之前对其进行清理，并且发现了属性之间有趣的相关性，特别是与目标属性 之间的相关性。您还注意到一些属性具有向右倾斜的分布，因此您可能需要转换它们(例如，通过计算它们的对数或平方根)。当然，你的里程会因每个项目而有很大的不同，但大致的想法是相似的。
 在为机器学习算法准备数据之前，您可能需要做的最后一件事是尝试各种属性组合。例如，如果你不知道一个地区有多少住户，那么这个地区的房间总数就不是很有用。你真正想要的是每个家庭的房间数量。同样，卧室总数本身也不是很有用:你可能想对比一下房间的数量。每个家庭的人口似乎也是一个有趣的属性组合。创建这些新属性如下:
@@ -1081,12 +1096,14 @@ from sklearn.">
         data-url="https://qiucode.cn/article/186/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703934522767.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/186/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1094,7 +1111,7 @@ from sklearn.">
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1109,7 +1126,8 @@ from sklearn.">
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f186%2f&title=%e4%b8%ba%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95%e5%87%86%e5%a4%87%e6%95%b0%e6%8d%ae%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e4%b9%8b%e5%85%ab%ef%bc%89&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1703934522767.png&desc=%e6%9c%ac%e6%96%87%e8%bf%98%e6%98%af%e5%90%8c%e6%a0%b7%e5%bb%ba%e7%ab%8b%e5%9c%a8%e5%89%8d%e4%b8%a4%e7%af%87%e7%9a%84%e5%9f%ba%e7%a1%80%e4%b9%8b%e4%b8%8a%e7%9a%84%ef%bc%81%0a%e5%b1%9e%e6%80%a7%e7%bb%84%e5%90%88%e5%ae%9e%e9%aa%8c%20%e5%b8%8c%e6%9c%9b%e5%89%8d%e9%9d%a2%e7%9a%84%e9%83%a8%e5%88%86%e8%83%bd%e8%ae%a9%e6%82%a8%e4%ba%86%e8%a7%a3%e6%8e%a2%e7%b4%a2%e6%95%b0%e6%8d%ae%e5%b9%b6%e8%8e%b7%e5%be%97%e6%b4%9e%e5%af%9f%e5%8a%9b%e7%9a%84%e5%87%a0%e7%a7%8d%e6%96%b9%e6%b3%95%e3%80%82%e6%82%a8%e5%8f%91%e7%8e%b0%e4%ba%86%e4%b8%80%e4%ba%9b%e6%95%b0%e6%8d%ae%e6%80%aa%e7%99%96%ef%bc%8c%e6%82%a8%e5%8f%af%e8%83%bd%e5%b8%8c%e6%9c%9b%e5%9c%a8%e5%b0%86%e6%95%b0%e6%8d%ae%e6%8f%90%e4%be%9b%e7%bb%99%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95%e4%b9%8b%e5%89%8d%e5%af%b9%e5%85%b6%e8%bf%9b%e8%a1%8c%e6%b8%85%e7%90%86%ef%bc%8c%e5%b9%b6%e4%b8%94%e5%8f%91%e7%8e%b0%e4%ba%86%e5%b1%9e%e6%80%a7%e4%b9%8b%e9%97%b4%e6%9c%89%e8%b6%a3%e7%9a%84%e7%9b%b8%e5%85%b3%e6%80%a7%ef%bc%8c%e7%89%b9%e5%88%ab%e6%98%af%e4%b8%8e%e7%9b%ae%e6%a0%87%e5%b1%9e%e6%80%a7%20%e4%b9%8b%e9%97%b4……&summary=%e6%9c%ac%e6%96%87%e8%bf%98%e6%98%af%e5%90%8c%e6%a0%b7%e5%bb%ba%e7%ab%8b%e5%9c%a8%e5%89%8d%e4%b8%a4%e7%af%87%e7%9a%84%e5%9f%ba%e7%a1%80%e4%b9%8b%e4%b8%8a%e7%9a%84%ef%bc%81%0a%e5%b1%9e%e6%80%a7%e7%bb%84%e5%90%88%e5%ae%9e%e9%aa%8c%20%e5%b8%8c%e6%9c%9b%e5%89%8d%e9%9d%a2%e7%9a%84%e9%83%a8%e5%88%86%e8%83%bd%e8%ae%a9%e6%82%a8%e4%ba%86%e8%a7%a3%e6%8e%a2%e7%b4%a2%e6%95%b0%e6%8d%ae%e5%b9%b6%e8%8e%b7%e5%be%97%e6%b4%9e%e5%af%9f%e5%8a%9b%e7%9a%84%e5%87%a0%e7%a7%8d%e6%96%b9%e6%b3%95%e3%80%82%e6%82%a8%e5%8f%91%e7%8e%b0%e4%ba%86%e4%b8%80%e4%ba%9b%e6%95%b0%e6%8d%ae%e6%80%aa%e7%99%96%ef%bc%8c%e6%82%a8%e5%8f%af%e8%83%bd%e5%b8%8c%e6%9c%9b%e5%9c%a8%e5%b0%86%e6%95%b0%e6%8d%ae%e6%8f%90%e4%be%9b%e7%bb%99%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95%e4%b9%8b%e5%89%8d%e5%af%b9%e5%85%b6%e8%bf%9b%e8%a1%8c%e6%b8%85%e7%90%86%ef%bc%8c%e5%b9%b6%e4%b8%94%e5%8f%91%e7%8e%b0%e4%ba%86%e5%b1%9e%e6%80%a7%e4%b9%8b%e9%97%b4%e6%9c%89%e8%b6%a3%e7%9a%84%e7%9b%b8%e5%85%b3%e6%80%a7%ef%bc%8c%e7%89%b9%e5%88%ab%e6%98%af%e4%b8%8e%e7%9b%ae%e6%a0%87%e5%b1%9e%e6%80%a7%20%e4%b9%8b%e9%97%b4…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f186%2f&title= %e4%b8%ba%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%ae%97%e6%b3%95%e5%87%86%e5%a4%87%e6%95%b0%e6%8d%ae%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e4%b9%8b%e5%85%ab%ef%bc%89&summary=%e6%9c%ac%e6%96%87%e8%bf%98%e6%98%af%e5%90%8c%e6%a0%b7%e5%bb%ba%e7%ab%8b%e5%9c%a8%e5%89%8d%e4%b8%a4%e7%af%87%e7%9a%84%e5%9f%ba%e7%a1%80%e4%b9%8b%e4%b8%8a%e7%9a%84%ef%bc%81%0a%e5%b1%9e%e6%80%a7%e7%bb%84%e5%90%88%e5%ae%9e%e9%aa%8c%20%e5%b8%8c%e6%9c%9b%e5%89%8d%e9%9d%a2%e7%9a%84%e9%83%a8%e5%88%86%e8%83%bd%e8%ae%a9%e6%82%a8%e4%ba%86%e8%a7%a3%e6%8e%a2&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1703934522767.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1238,6 +1256,7 @@ from sklearn.">
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1277,6 +1296,8 @@ from sklearn.">
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1342,75 +1363,52 @@ from sklearn.">
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1427,15 +1425,21 @@ from sklearn.">
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3490,7 +3494,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3700,8 +3704,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

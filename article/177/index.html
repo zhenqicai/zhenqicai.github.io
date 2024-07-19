@@ -29,7 +29,7 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="不置可否，Hugo的template同样是使用golang的标准库html/template。为了能实现一个属于自己独特的Hugo theme，或是修改他人的主题，都得对其模板语法有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的Hugo theme。">
 
 
 
@@ -39,6 +39,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1688803831548.png">
+
 <meta property="og:description" content="不置可否，Hugo的template同样是使用golang的标准库html/template。为了能实现一个属于自己独特的Hugo theme，或是修改他人的主题，都得对其模板语法有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的Hugo theme。">
 <meta property="og:type" content="news">
 <meta property="og:url" content="https://qiucode.cn/article/177/">
@@ -1230,12 +1231,14 @@
         data-url="https://qiucode.cn/article/177/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1688803831548.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/177/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1243,7 +1246,7 @@
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1258,7 +1261,8 @@
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f177%2f&title=%e6%8a%8a%e6%8f%a1%e4%bd%8fgolang%e4%b8%ad%e7%9a%84template%ef%bc%8c%e6%96%b9%e8%83%bd%e9%a9%be%e9%a9%ad%e5%be%97%e4%ba%86Hugo%e4%b8%bb%e9%a2%98%e7%9a%84template&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1688803831548.png&desc=%3cp%3e%e4%b8%8d%e7%bd%ae%e5%8f%af%e5%90%a6%ef%bc%8c%3ccode%3eHugo%3c%2fcode%3e%e7%9a%84%3ccode%3etemplate%3c%2fcode%3e%e5%90%8c%e6%a0%b7%e6%98%af%e4%bd%bf%e7%94%a8%3ccode%3egolang%3c%2fcode%3e%e7%9a%84%e6%a0%87%e5%87%86%e5%ba%93%3ccode%3ehtml%2ftemplate%3c%2fcode%3e%e3%80%82%e4%b8%ba%e4%ba%86%e8%83%bd%e5%ae%9e%e7%8e%b0%e4%b8%80%e4%b8%aa%e5%b1%9e%e4%ba%8e%e8%87%aa%e5%b7%b1%e7%8b%ac%e7%89%b9%e7%9a%84%3ccod……&summary=%3cp%3e%e4%b8%8d%e7%bd%ae%e5%8f%af%e5%90%a6%ef%bc%8c%3ccode%3eHugo%3c%2fcode%3e%e7%9a%84%3ccode%3etemplate%3c%2fcode%3e%e5%90%8c%e6%a0%b7%e6%98%af%e4%bd%bf%e7%94%a8%3ccode%3egolang%3c%2fcode%3e%e7%9a%84%e6%a0%87%e5%87%86%e5%ba%93%3ccode%3ehtml%2ftemplate%3c%2fcode%3e%e3%80%82%e4%b8%ba%e4%ba%86%e8%83%bd%e5%ae%9e%e7%8e%b0%e4%b8%80%e4%b8%aa%e5%b1%9e%e4%ba%8e%e8%87%aa%e5%b7%b1%e7%8b%ac%e7%89%b9%e7%9a%84%3ccod…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f177%2f&title= %e6%8a%8a%e6%8f%a1%e4%bd%8fgolang%e4%b8%ad%e7%9a%84template%ef%bc%8c%e6%96%b9%e8%83%bd%e9%a9%be%e9%a9%ad%e5%be%97%e4%ba%86Hugo%e4%b8%bb%e9%a2%98%e7%9a%84template&summary=%3cp%3e%e4%b8%8d%e7%bd%ae%e5%8f%af%e5%90%a6%ef%bc%8c%3ccode%3eHugo%3c%2fcode%3e%e7%9a%84%3ccode%3etemplate&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1688803831548.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1387,6 +1391,7 @@
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1426,6 +1431,8 @@
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1491,75 +1498,52 @@
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1576,15 +1560,21 @@
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3639,7 +3629,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3849,8 +3839,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

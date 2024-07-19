@@ -29,7 +29,13 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="多类别分类器 二元分类器可以区分两个类别，而多类别分类器（也称为多叉分类器）可以区分两个以上的类别。
+一些 Scikit-Learn 分类器（如 LogisticRegression、RandomForestClassifier 和 GaussianNB）能够原生处理多个类别。其他分类器则是严格的二进制分类器（如 SGDClassifier 和 SVC）。不过，您可以使用多种策略来使用多个二进制分类器执行多类分类。
+要创建一个能将数字图像分为 10 类（从 0 到 9）的系统，一种方法是训练 10 个二进制分类器，每个数字一个（0-检测器、1-检测器、2-检测器，以此类推）。然后，当您想对一幅图像进行分类时，您可以从每个分类器中得到该图像的判定分数，然后选择分类器输出分数最高的类别。这就是所谓的 &ldquo;以一敌百&rdquo;（OvR）策略，有时也称为 &ldquo;以一敌众&rdquo;（OvA）策略。
+另一种策略是为每一对数字训练一个二元分类器：一个用于区分 0 和 1，另一个用于区分 0 和 2，还有一个用于区分 1 和 2，以此类推。这就是所谓的一对一（OvO）策略。如果有 N 个类别，则需要训练 N × (N - 1) / 2 个分类器。对于 MNIST 问题，这意味着要训练 45 个二进制分类器！当你想对一幅图像进行分类时，你必须让图像通过所有 45 个分类器，看看哪个分类器赢得了最多的对决。OvO 的主要优势在于，每个分类器只需在训练集中包含其必须区分的两个类别的部分进行训练。
+有些算法（如支持向量机分类器）随训练集的大小而缩放，效果不佳。对于这些算法，OvO 是首选，因为在小训练集上训练多个分类器比在大训练集上训练少数分类器更快。不过，对于大多数二元分类算法来说，OvR 是首选。
+Scikit-Learn 会检测你是否尝试在多分类任务中使用二元分类算法，并根据算法自动运行 OvR 或 OvO。让我们使用 sklearn.svm.SVC 类支持向量机分类器来尝试一下。我们只对前 2,000 张图像进行训练，否则会耗费很长时间：
+from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:2000], y_train[:2000]) # y_train, not y_train_5 我们使用从 0 到 9 的原始目标类别（y_train），而不是 5 对其余目标类别（y_train_5）来训练 SVC。由于有 10 个类别（即多于 2 个），Scikit-Learn 使用 OvO 策略训练了 45 个二元分类器。现在，让我们对一幅图像进行预测：">
 
 
 
@@ -39,6 +45,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/golang-test/image-20240403152658895.png">
+
 <meta property="og:description" content="多类别分类器 二元分类器可以区分两个类别，而多类别分类器（也称为多叉分类器）可以区分两个以上的类别。
 一些 Scikit-Learn 分类器（如 LogisticRegression、RandomForestClassifier 和 GaussianNB）能够原生处理多个类别。其他分类器则是严格的二进制分类器（如 SGDClassifier 和 SVC）。不过，您可以使用多种策略来使用多个二进制分类器执行多类分类。
 要创建一个能将数字图像分为 10 类（从 0 到 9）的系统，一种方法是训练 10 个二进制分类器，每个数字一个（0-检测器、1-检测器、2-检测器，以此类推）。然后，当您想对一幅图像进行分类时，您可以从每个分类器中得到该图像的判定分数，然后选择分类器输出分数最高的类别。这就是所谓的 &ldquo;以一敌百&rdquo;（OvR）策略，有时也称为 &ldquo;以一敌众&rdquo;（OvA）策略。
@@ -1003,12 +1010,14 @@ from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:
         data-url="https://qiucode.cn/article/198/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/golang-test/image-20240403152658895.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/198/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1016,7 +1025,7 @@ from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1031,7 +1040,8 @@ from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f198%2f&title=%e5%a4%9a%e7%b1%bb%e5%88%ab%e5%88%86%e7%b1%bb%e5%99%a8%ef%bc%88Machine%20Learning%e7%a0%94%e4%b9%a0%e5%8d%81%e5%85%ab%ef%bc%89&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fgolang-test%2fimage-20240403152658895.png&desc=%e5%a4%9a%e7%b1%bb%e5%88%ab%e5%88%86%e7%b1%bb%e5%99%a8%20%e4%ba%8c%e5%85%83%e5%88%86%e7%b1%bb%e5%99%a8%e5%8f%af%e4%bb%a5%e5%8c%ba%e5%88%86%e4%b8%a4%e4%b8%aa%e7%b1%bb%e5%88%ab%ef%bc%8c%e8%80%8c%e5%a4%9a%e7%b1%bb%e5%88%ab%e5%88%86%e7%b1%bb%e5%99%a8%ef%bc%88%e4%b9%9f%e7%a7%b0%e4%b8%ba%e5%a4%9a%e5%8f%89%e5%88%86%e7%b1%bb%e5%99%a8%ef%bc%89%e5%8f%af%e4%bb%a5%e5%8c%ba%e5%88%86%e4%b8%a4%e4%b8%aa%e4%bb%a5%e4%b8%8a%e7%9a%84%e7%b1%bb%e5%88%ab%e3%80%82%0a%e4%b8%80%e4%ba%9b%20Scikit-Learn%20%e5%88%86%e7%b1%bb%e5%99%a8%ef%bc%88%e5%a6%82%20LogisticRegression%e3%80%81RandomForestClassifier%20%e5%92%8c%20Gau……&summary=%e5%a4%9a%e7%b1%bb%e5%88%ab%e5%88%86%e7%b1%bb%e5%99%a8%20%e4%ba%8c%e5%85%83%e5%88%86%e7%b1%bb%e5%99%a8%e5%8f%af%e4%bb%a5%e5%8c%ba%e5%88%86%e4%b8%a4%e4%b8%aa%e7%b1%bb%e5%88%ab%ef%bc%8c%e8%80%8c%e5%a4%9a%e7%b1%bb%e5%88%ab%e5%88%86%e7%b1%bb%e5%99%a8%ef%bc%88%e4%b9%9f%e7%a7%b0%e4%b8%ba%e5%a4%9a%e5%8f%89%e5%88%86%e7%b1%bb%e5%99%a8%ef%bc%89%e5%8f%af%e4%bb%a5%e5%8c%ba%e5%88%86%e4%b8%a4%e4%b8%aa%e4%bb%a5%e4%b8%8a%e7%9a%84%e7%b1%bb%e5%88%ab%e3%80%82%0a%e4%b8%80%e4%ba%9b%20Scikit-Learn%20%e5%88%86%e7%b1%bb%e5%99%a8%ef%bc%88%e5%a6%82%20LogisticRegression%e3%80%81RandomForestClassifier%20%e5%92%8c%20Gau…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f198%2f&title= %e5%a4%9a%e7%b1%bb%e5%88%ab%e5%88%86%e7%b1%bb%e5%99%a8%ef%bc%88Machine%20Learning%e7%a0%94%e4%b9%a0%e5%8d%81%e5%85%ab%ef%bc%89&summary=%e5%a4%9a%e7%b1%bb%e5%88%ab%e5%88%86%e7%b1%bb%e5%99%a8%20%e4%ba%8c%e5%85%83%e5%88%86%e7%b1%bb%e5%99%a8%e5%8f%af%e4%bb%a5%e5%8c%ba%e5%88%86%e4%b8%a4%e4%b8%aa%e7%b1%bb%e5%88%ab%ef%bc%8c%e8%80%8c%e5%a4%9a%e7%b1%bb%e5%88%ab%e5%88%86%e7%b1%bb%e5%99%a8%ef%bc%88%e4%b9%9f%e7%a7%b0%e4%b8%ba%e5%a4%9a%e5%8f%89%e5%88%86%e7%b1%bb%e5%99%a8%ef%bc%89%e5%8f%af%e4%bb%a5&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fgolang-test%2fimage-20240403152658895.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1160,6 +1170,7 @@ from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1199,6 +1210,8 @@ from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1264,75 +1277,52 @@ from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1349,15 +1339,21 @@ from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3394,7 +3390,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3604,8 +3600,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

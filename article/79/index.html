@@ -29,7 +29,7 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="好些时候没发表文章了，由于最近有点忙，又更兼qiucode站点页面大改，新版页面也较旧版整洁多了！那具体该是如何实现呢？（言外之意无非就是程序怎么实现的），其实无非就是将MultipartFile对象进行二次处理（这里所说的处理就是在上传的原图的基础上添加水印），二次处理好了的图片远程存储到阿里云oss存储对象中。">
 
 
 
@@ -39,6 +39,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1599295018070.png">
+
 <meta property="og:description" content="好些时候没发表文章了，由于最近有点忙，又更兼qiucode站点页面大改，新版页面也较旧版整洁多了！那具体该是如何实现呢？（言外之意无非就是程序怎么实现的），其实无非就是将MultipartFile对象进行二次处理（这里所说的处理就是在上传的原图的基础上添加水印），二次处理好了的图片远程存储到阿里云oss存储对象中。">
 <meta property="og:type" content="news">
 <meta property="og:url" content="https://qiucode.cn/article/79/">
@@ -1136,12 +1137,14 @@
         data-url="https://qiucode.cn/article/79/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1599295018070.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/79/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1149,7 +1152,7 @@
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1164,7 +1167,8 @@
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f79%2f&title=Springboot%e5%af%b9%e4%b8%8a%e4%bc%a0%e5%9b%be%e7%89%87%e6%b7%bb%e5%8a%a0%e6%b0%b4%e5%8d%b0%e5%90%8e%e5%ad%98%e5%82%a8%e5%88%b0%e9%98%bf%e9%87%8c%e4%ba%91OSS%e5%af%b9%e8%b1%a1%e5%ad%98%e5%82%a8%e4%b8%ad&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1599295018070.png&desc=%3cp%3e%e5%a5%bd%e4%ba%9b%e6%97%b6%e5%80%99%e6%b2%a1%e5%8f%91%e8%a1%a8%e6%96%87%e7%ab%a0%e4%ba%86%ef%bc%8c%e7%94%b1%e4%ba%8e%e6%9c%80%e8%bf%91%e6%9c%89%e7%82%b9%e5%bf%99%ef%bc%8c%e5%8f%88%e6%9b%b4%e5%85%bc%3ccode%3eqiucode%3c%2fcode%3e%e7%ab%99%e7%82%b9%e9%a1%b5%e9%9d%a2%e5%a4%a7%e6%94%b9%ef%bc%8c%e6%96%b0%e7%89%88%e9%a1%b5%e9%9d%a2%e4%b9%9f%e8%be%83%e6%97%a7%e7%89%88%e6%95%b4%e6%b4%81%e5%a4%9a%e4%ba%86%ef%bc%81%e9%82%a3%e5%85%b7%e4%bd%93%e8%af%a5%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e5%91%a2%ef%bc%9f%ef%bc%88%e8%a8%80%e5%a4%96%e4%b9%8b%e6%84%8f%e6%97%a0%e9%9d%9e%e5%b0%b1%e6%98%af%e7%a8%8b%e5%ba%8f%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%89%ef%bc%8c%e5%85%b6%e5%ae%9e%e6%97%a0%e9%9d%9e%e5%b0%b1%e6%98%af%e5%b0%86%3ccode%3eMultipartFile……&summary=%3cp%3e%e5%a5%bd%e4%ba%9b%e6%97%b6%e5%80%99%e6%b2%a1%e5%8f%91%e8%a1%a8%e6%96%87%e7%ab%a0%e4%ba%86%ef%bc%8c%e7%94%b1%e4%ba%8e%e6%9c%80%e8%bf%91%e6%9c%89%e7%82%b9%e5%bf%99%ef%bc%8c%e5%8f%88%e6%9b%b4%e5%85%bc%3ccode%3eqiucode%3c%2fcode%3e%e7%ab%99%e7%82%b9%e9%a1%b5%e9%9d%a2%e5%a4%a7%e6%94%b9%ef%bc%8c%e6%96%b0%e7%89%88%e9%a1%b5%e9%9d%a2%e4%b9%9f%e8%be%83%e6%97%a7%e7%89%88%e6%95%b4%e6%b4%81%e5%a4%9a%e4%ba%86%ef%bc%81%e9%82%a3%e5%85%b7%e4%bd%93%e8%af%a5%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e5%91%a2%ef%bc%9f%ef%bc%88%e8%a8%80%e5%a4%96%e4%b9%8b%e6%84%8f%e6%97%a0%e9%9d%9e%e5%b0%b1%e6%98%af%e7%a8%8b%e5%ba%8f%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%89%ef%bc%8c%e5%85%b6%e5%ae%9e%e6%97%a0%e9%9d%9e%e5%b0%b1%e6%98%af%e5%b0%86%3ccode%3eMultipartFile…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f79%2f&title= Springboot%e5%af%b9%e4%b8%8a%e4%bc%a0%e5%9b%be%e7%89%87%e6%b7%bb%e5%8a%a0%e6%b0%b4%e5%8d%b0%e5%90%8e%e5%ad%98%e5%82%a8%e5%88%b0%e9%98%bf%e9%87%8c%e4%ba%91OSS%e5%af%b9%e8%b1%a1%e5%ad%98%e5%82%a8%e4%b8%ad&summary=%3cp%3e%e5%a5%bd%e4%ba%9b%e6%97%b6%e5%80%99%e6%b2%a1%e5%8f%91%e8%a1%a8%e6%96%87%e7%ab%a0%e4%ba%86%ef%bc%8c%e7%94%b1%e4%ba%8e%e6%9c%80%e8%bf%91%e6%9c%89%e7%82%b9%e5%bf%99%ef%bc%8c%e5%8f%88%e6%9b%b4%e5%85%bc%3ccode%3eqiucode%3c%2f&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1599295018070.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1293,6 +1297,7 @@
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1332,6 +1337,8 @@
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1397,75 +1404,52 @@
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1482,15 +1466,21 @@
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3545,7 +3535,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3755,8 +3745,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

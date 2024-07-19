@@ -29,7 +29,17 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="集成方法 微调系统的另一种方法是尝试组合性能最佳的模型。 群体（或“整体”）通常会比最好的单个模型表现得更好，就像随机森林比它们所依赖的单个决策树表现更好一样，特别是当各个模型犯下不同类型的错误时。 例如，您可以训练和微调 k 最近邻模型，然后创建一个仅预测随机森林预测和该模型预测的平均值的集成模型。
+分析最佳模型及其错误 通过检查最佳模型，您通常会获得对问题的深入见解。 例如，RandomForestRegressor可以指示每个属性对于做出准确预测的相对重要性：
+让我们按降序对这些重要性分数进行排序，并将它们显示在相应的属性名称旁边：
+有了这些信息，您可能想尝试删除一些不太有用的功能（例如，显然只有一个ocean_proximity类别真正有用，因此您可以尝试删除其他功能）。
+您还应该查看系统所犯的具体错误，然后尝试了解为什么会犯这些错误，以及如何解决问题：添加额外的功能或删除无信息的功能，清理异常值等。
+现在也是一个好时机，可以确保您的模型不仅平均运行良好，而且适用于所有类别的地区，无论是农村还是城市、富裕还是贫穷、北部还是南部、少数民族还是非少数民族等。 每个类别的验证集需要一些工作，但这很重要：如果您的模型在整个地区类别上表现不佳，那么在问题解决之前可能不应该部署它，或者至少不应该使用它 对该类别进行预测，因为它可能弊大于利。
+在测试集上评估您的系统 对模型进行一段时间的调整后，您最终会得到一个性能足够好的系统。 您已准备好在测试集上评估最终模型。 这个过程没有什么特别的； 只需从测试集中获取预测变量和标签并运行Final_model来转换数据并进行预测，然后评估这些预测：
+X_test = strat_test_set.drop(&#34;median_house_value&#34;, axis=1) y_test = strat_test_set[&#34;median_house_value&#34;].copy() final_predictions = final_model.predict(X_test) final_rmse = mean_squared_error(y_test, final_predictions, squared=False) print(final_rmse) # prints 41424.40026462184 在某些情况下，这样的泛化误差点估计不足以说服您启动：如果它只比当前生产的模型好 0.1% 怎么办？ 您可能想了解这个估计的精确度。 为此，您可以使用 scipy.stats.t.interval() 计算泛化误差的 95% 置信区间。 您会得到从 39,275 到 43,467 的相当大的区间，而您之前的点估计值 41,424 大致位于中间：
+如果您进行了大量的超参数调整，性能通常会比使用交叉验证测量的性能稍差。 这是因为您的系统最终经过微调以在验证数据上表现良好，但在未知数据集上可能表现不佳。 本示例中的情况并非如此，因为测试 RMSE低于验证 RMSE，但当发生这种情况时，您必须抵制调整超参数以使数字在测试集上看起来不错的诱惑； 这些改进不太可能推广到新数据。
+现在是项目预启动阶段：您需要展示您的解决方案（突出显示您所学到的内容、有效的内容和无效的内容、做出的假设以及系统的局限性），记录所有内容，并使用以下内容创建精美的演示文稿： 清晰的可视化和易于记忆的陈述（例如，“收入中位数是房价的第一预测指标”）。 在这个加州住房示例中，系统的最终性能并不比专家的价格估计好多少，专家的价格估计通常会下降 30%，但启动它可能仍然是一个好主意，特别是如果这样可以释放更多资金 给专家一些时间，以便他们可以从事更有趣、更有成效的任务。
+启动、监控和维护您的系统 您现在需要准备好用于生产的解决方案（例如，完善代码、编写文档和测试等）。 然后您可以将模型部署到生产环境。 最基本的方法就是保存您训练的最佳模型，将文件传输到您的生产环境并加载它。 要保存模型，您可以使用 joblib 库，如下所示：">
 
 
 
@@ -39,6 +49,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578959569.png">
+
 <meta property="og:description" content="集成方法 微调系统的另一种方法是尝试组合性能最佳的模型。 群体（或“整体”）通常会比最好的单个模型表现得更好，就像随机森林比它们所依赖的单个决策树表现更好一样，特别是当各个模型犯下不同类型的错误时。 例如，您可以训练和微调 k 最近邻模型，然后创建一个仅预测随机森林预测和该模型预测的平均值的集成模型。
 分析最佳模型及其错误 通过检查最佳模型，您通常会获得对问题的深入见解。 例如，RandomForestRegressor可以指示每个属性对于做出准确预测的相对重要性：
 让我们按降序对这些重要性分数进行排序，并将它们显示在相应的属性名称旁边：
@@ -1025,12 +1036,14 @@ X_test = strat_test_set.drop(&#34;median_house_value&#34;, axis=1) y_test = stra
         data-url="https://qiucode.cn/article/193/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1710578959569.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/193/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1038,7 +1051,7 @@ X_test = strat_test_set.drop(&#34;median_house_value&#34;, axis=1) y_test = stra
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1053,7 +1066,8 @@ X_test = strat_test_set.drop(&#34;median_house_value&#34;, axis=1) y_test = stra
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f193%2f&title=%e5%be%ae%e8%b0%83%e6%a8%a1%e5%9e%8b%e2%80%94%e2%80%94%e7%bb%ad%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e4%b9%8b%e5%8d%81%e4%b8%89%ef%bc%89&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1710578959569.png&desc=%e9%9b%86%e6%88%90%e6%96%b9%e6%b3%95%20%e5%be%ae%e8%b0%83%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%8f%a6%e4%b8%80%e7%a7%8d%e6%96%b9%e6%b3%95%e6%98%af%e5%b0%9d%e8%af%95%e7%bb%84%e5%90%88%e6%80%a7%e8%83%bd%e6%9c%80%e4%bd%b3%e7%9a%84%e6%a8%a1%e5%9e%8b%e3%80%82%20%e7%be%a4%e4%bd%93%ef%bc%88%e6%88%96%e2%80%9c%e6%95%b4%e4%bd%93%e2%80%9d%ef%bc%89%e9%80%9a%e5%b8%b8%e4%bc%9a%e6%af%94%e6%9c%80%e5%a5%bd%e7%9a%84%e5%8d%95%e4%b8%aa%e6%a8%a1%e5%9e%8b%e8%a1%a8%e7%8e%b0%e5%be%97%e6%9b%b4%e5%a5%bd%ef%bc%8c%e5%b0%b1%e5%83%8f%e9%9a%8f%e6%9c%ba%e6%a3%ae%e6%9e%97%e6%af%94%e5%ae%83%e4%bb%ac%e6%89%80%e4%be%9d%e8%b5%96%e7%9a%84%e5%8d%95%e4%b8%aa%e5%86%b3%e7%ad%96%e6%a0%91%e8%a1%a8%e7%8e%b0%e6%9b%b4%e5%a5%bd%e4%b8%80%e6%a0%b7%ef%bc%8c%e7%89%b9%e5%88%ab%e6%98%af%e5%bd%93%e5%90%84%e4%b8%aa%e6%a8%a1%e5%9e%8b%e7%8a%af%e4%b8%8b%e4%b8%8d%e5%90%8c%e7%b1%bb%e5%9e%8b%e7%9a%84%e9%94%99%e8%af%af%e6%97%b6%e3%80%82%20%e4%be%8b%e5%a6%82%ef%bc%8c%e6%82%a8%e5%8f%af%e4%bb%a5%e8%ae%ad%e7%bb%83%e5%92%8c%e5%be%ae%e8%b0%83%20k%20%e6%9c%80%e8%bf%91%e9%82%bb%e6%a8%a1%e5%9e%8b%ef%bc%8c……&summary=%e9%9b%86%e6%88%90%e6%96%b9%e6%b3%95%20%e5%be%ae%e8%b0%83%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%8f%a6%e4%b8%80%e7%a7%8d%e6%96%b9%e6%b3%95%e6%98%af%e5%b0%9d%e8%af%95%e7%bb%84%e5%90%88%e6%80%a7%e8%83%bd%e6%9c%80%e4%bd%b3%e7%9a%84%e6%a8%a1%e5%9e%8b%e3%80%82%20%e7%be%a4%e4%bd%93%ef%bc%88%e6%88%96%e2%80%9c%e6%95%b4%e4%bd%93%e2%80%9d%ef%bc%89%e9%80%9a%e5%b8%b8%e4%bc%9a%e6%af%94%e6%9c%80%e5%a5%bd%e7%9a%84%e5%8d%95%e4%b8%aa%e6%a8%a1%e5%9e%8b%e8%a1%a8%e7%8e%b0%e5%be%97%e6%9b%b4%e5%a5%bd%ef%bc%8c%e5%b0%b1%e5%83%8f%e9%9a%8f%e6%9c%ba%e6%a3%ae%e6%9e%97%e6%af%94%e5%ae%83%e4%bb%ac%e6%89%80%e4%be%9d%e8%b5%96%e7%9a%84%e5%8d%95%e4%b8%aa%e5%86%b3%e7%ad%96%e6%a0%91%e8%a1%a8%e7%8e%b0%e6%9b%b4%e5%a5%bd%e4%b8%80%e6%a0%b7%ef%bc%8c%e7%89%b9%e5%88%ab%e6%98%af%e5%bd%93%e5%90%84%e4%b8%aa%e6%a8%a1%e5%9e%8b%e7%8a%af%e4%b8%8b%e4%b8%8d%e5%90%8c%e7%b1%bb%e5%9e%8b%e7%9a%84%e9%94%99%e8%af%af%e6%97%b6%e3%80%82%20%e4%be%8b%e5%a6%82%ef%bc%8c%e6%82%a8%e5%8f%af%e4%bb%a5%e8%ae%ad%e7%bb%83%e5%92%8c%e5%be%ae%e8%b0%83%20k%20%e6%9c%80%e8%bf%91%e9%82%bb%e6%a8%a1%e5%9e%8b%ef%bc%8c…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f193%2f&title= %e5%be%ae%e8%b0%83%e6%a8%a1%e5%9e%8b%e2%80%94%e2%80%94%e7%bb%ad%ef%bc%88Machine%20Learning%20%e7%a0%94%e4%b9%a0%e4%b9%8b%e5%8d%81%e4%b8%89%ef%bc%89&summary=%e9%9b%86%e6%88%90%e6%96%b9%e6%b3%95%20%e5%be%ae%e8%b0%83%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%8f%a6%e4%b8%80%e7%a7%8d%e6%96%b9%e6%b3%95%e6%98%af%e5%b0%9d%e8%af%95%e7%bb%84%e5%90%88%e6%80%a7%e8%83%bd%e6%9c%80%e4%bd%b3%e7%9a%84%e6%a8%a1%e5%9e%8b%e3%80%82%20%e7%be%a4%e4%bd%93%ef%bc%88%e6%88%96%e2%80%9c%e6%95%b4%e4%bd%93%e2%80%9d%ef%bc%89%e9%80%9a%e5%b8%b8&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fqiucode2020%2f1710578959569.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1182,6 +1196,7 @@ X_test = strat_test_set.drop(&#34;median_house_value&#34;, axis=1) y_test = stra
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1221,6 +1236,8 @@ X_test = strat_test_set.drop(&#34;median_house_value&#34;, axis=1) y_test = stra
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1286,75 +1303,52 @@ X_test = strat_test_set.drop(&#34;median_house_value&#34;, axis=1) y_test = stra
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1371,15 +1365,21 @@ X_test = strat_test_set.drop(&#34;median_house_value&#34;, axis=1) y_test = stra
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3435,7 +3435,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3645,8 +3645,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>

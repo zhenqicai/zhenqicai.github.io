@@ -29,7 +29,7 @@
 
 
 
-<meta name="description" content="一个曾游离于山巅之上的Java爱好者,矗立在山峰处,已然将目光转向了人工智能（AI）,Web3,NFT,区块链等前沿技术领域,且分享知识于由Hugo驱动的自己开源Hugo-theme-kiwi主题的个人博客上面。">
+<meta name="description" content="距上一篇在CentOS 7 安装mysql也已经过去好几天了，正值云服务器试用结束之际，要把原在试用机的配置重新再新服务器安装一遍，在此借这个机会（也正值周日）记录一下Nginx反向代理服务器的配置。">
 
 
 
@@ -39,6 +39,7 @@
 
 
 <meta property="og:image" content="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1540104705255.png">
+
 <meta property="og:description" content="距上一篇在CentOS 7 安装mysql也已经过去好几天了，正值云服务器试用结束之际，要把原在试用机的配置重新再新服务器安装一遍，在此借这个机会（也正值周日）记录一下Nginx反向代理服务器的配置。">
 <meta property="og:type" content="news">
 <meta property="og:url" content="https://qiucode.cn/article/102/">
@@ -996,12 +997,14 @@ CentOS 7 使用yum 安装 Nginx，命令如下：</p>
         data-url="https://qiucode.cn/article/102/" 
         data-image="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1540104705255.png" style="visibility: hidden;"></div>
 
+
+
     <div class="entry-bar fixed" style="">
         <div class="entry-bar-inner clearfix" style="width: 860px;">
             <div class="info text-center">
                 <div class="info-item meta">  </div>
                 <div class="info-item share">
-                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="192649" data-qrcode="">
+                    <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="https://qiucode.cn/article/102/" data-poster="">
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-share"></use>
@@ -1009,7 +1012,7 @@ CentOS 7 使用yum 安装 Nginx，命令如下：</p>
                         </i> 生成海报
                     </a>
 
-                    <a class="meta-item wechat" data-share="wechat" target="" rel="nofollow" href="javascript:">
+                    <a class="meta-item wechat" data-share="wechat" data-qrcode="" rel="nofollow" href="javascript:" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-wechat"></use>
@@ -1024,7 +1027,8 @@ CentOS 7 使用yum 安装 Nginx，命令如下：</p>
                     </a>
 
                    
-                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f102%2f&title=CentOS%207%e5%ae%89%e8%a3%85Nginx%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86%e6%9c%8d%e5%8a%a1%e5%99%a8%ef%bc%88%e4%ba%91%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%af%87%ef%bc%89&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fsomnus%2f1540104705255.png&desc=%3cp%3e%e8%b7%9d%e4%b8%8a%e4%b8%80%e7%af%87%e5%9c%a8CentOS%207%20%e5%ae%89%e8%a3%85mysql%e4%b9%9f%e5%b7%b2%e7%bb%8f%e8%bf%87%e5%8e%bb%e5%a5%bd%e5%87%a0%e5%a4%a9%e4%ba%86%ef%bc%8c%e6%ad%a3%e5%80%bc%e4%ba%91%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%af%95%e7%94%a8%e7%bb%93%e6%9d%9f%e4%b9%8b%e9%99%85%ef%bc%8c%e8%a6%81%e6%8a%8a%e5%8e%9f%e5%9c%a8%e8%af%95%e7%94%a8%e6%9c%ba%e7%9a%84%e9%85%8d%e7%bd%ae%e9%87%8d%e6%96%b0%e5%86%8d%e6%96%b0%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%ae%89%e8%a3%85%e4%b8%80%e9%81%8d%ef%bc%8c%e5%9c%a8%e6%ad%a4%e5%80%9f%e8%bf%99%e4%b8%aa%e6%9c%ba%e4%bc%9a%ef%bc%88%e4%b9%9f%e6%ad%a3%e5%80%bc%e5%91%a8%e6%97%a5%ef%bc%89%e8%ae%b0%e5%bd%95%e4%b8%80%e4%b8%8bNginx%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%9a%84%e9%85%8d%e7%bd%ae%e3%80%82%3c%2fp%3e……&summary=%3cp%3e%e8%b7%9d%e4%b8%8a%e4%b8%80%e7%af%87%e5%9c%a8CentOS%207%20%e5%ae%89%e8%a3%85mysql%e4%b9%9f%e5%b7%b2%e7%bb%8f%e8%bf%87%e5%8e%bb%e5%a5%bd%e5%87%a0%e5%a4%a9%e4%ba%86%ef%bc%8c%e6%ad%a3%e5%80%bc%e4%ba%91%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%af%95%e7%94%a8%e7%bb%93%e6%9d%9f%e4%b9%8b%e9%99%85%ef%bc%8c%e8%a6%81%e6%8a%8a%e5%8e%9f%e5%9c%a8%e8%af%95%e7%94%a8%e6%9c%ba%e7%9a%84%e9%85%8d%e7%bd%ae%e9%87%8d%e6%96%b0%e5%86%8d%e6%96%b0%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%ae%89%e8%a3%85%e4%b8%80%e9%81%8d%ef%bc%8c%e5%9c%a8%e6%ad%a4%e5%80%9f%e8%bf%99%e4%b8%aa%e6%9c%ba%e4%bc%9a%ef%bc%88%e4%b9%9f%e6%ad%a3%e5%80%bc%e5%91%a8%e6%97%a5%ef%bc%89%e8%ae%b0%e5%bd%95%e4%b8%80%e4%b8%8bNginx%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%9a%84%e9%85%8d%e7%bd%ae%e3%80%82%3c%2fp%3e…… " >
+                        
+                   <a class="meta-item qq" data-share="qq"  rel="nofollow"  target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=https%3a%2f%2fqiucode.cn%2farticle%2f102%2f&title= CentOS%207%e5%ae%89%e8%a3%85Nginx%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86%e6%9c%8d%e5%8a%a1%e5%99%a8%ef%bc%88%e4%ba%91%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%af%87%ef%bc%89&summary=%3cp%3e%e8%b7%9d%e4%b8%8a%e4%b8%80%e7%af%87%e5%9c%a8CentOS%207%20%e5%ae%89%e8%a3%85mysql%e4%b9%9f%e5%b7%b2%e7%bb%8f%e8%bf%87%e5%8e%bb%e5%a5%bd%e5%87%a0%e5%a4%a9%e4%ba%86%ef%bc%8c%e6%ad%a3%e5%80%bc%e4%ba%91%e6%9c%8d%e5%8a%a1%e5%99%a8&pics=https%3a%2f%2fqiucodeimg.oss-rg-china-mainland.aliyuncs.com%2fsomnus%2f1540104705255.png&site=秋码记录" >
                         <i class="wpcom-icon wi">
                             <svg aria-hidden="true">
                                 <use xlink:href="#wi-qq"></use>
@@ -1153,6 +1157,7 @@ CentOS 7 使用yum 安装 Nginx，命令如下：</p>
 
             localStorage.setItem("reading", 'on');
         })
+
         
     })();
 
@@ -1192,6 +1197,8 @@ CentOS 7 使用yum 安装 Nginx，命令如下：</p>
 
         document.querySelector('body').appendChild(loadNode)
     }
+
+
 
     let bodyDom = document.querySelector('body')
 
@@ -1257,75 +1264,52 @@ CentOS 7 使用yum 安装 Nginx，命令如下：</p>
 
         bodyDom.appendChild(shareHtml)
 
-        // let imgUrl = document.querySelector('#poster-head-img').getAttribute('src')
-        // getBase64(imgUrl)
-
-        ///getBase64(`https://z649319834.github.io/Learn_Example/video_track/webvtt.jpg`)
     }
 
-
-    function getBase64(imgUrl) {
-      window.URL = window.URL || window.webkitURL;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", imgUrl, true);
-      // 至关重要
-      xhr.responseType = "blob";
-      xhr.onload = function () {
-        if (this.status == 200) {
-          //得到一个blob对象
-          var blob = this.response;
-          console.log("blob", blob)
-          // 至关重要
-          let oFileReader = new FileReader();
-          oFileReader.onloadend = function (e) {
-            let base64 = e.target.result;
-            console.log("方式一》》》》》》》》》", base64)
-          };
-          oFileReader.readAsDataURL(blob);
-          //====为了在页面显示图片，可以删除====
-        //   var img = document.createElement("img");
-        //   img.onload = function (e) {
-        //     window.URL.revokeObjectURL(img.src); // 清除释放
-        //   };
-        //   let src = window.URL.createObjectURL(blob);
-        //   img.src = src
-        //   document.getElementById("container1").appendChild(img);
-          //====为了在页面显示图片，可以删除====
-
-        }
-      }
-      xhr.send();
-    }
-
-  
 
     let genPoster = document.querySelector(".j-mobile-share")
-    genPoster.addEventListener("click",() => {
+    let posterID = genPoster.dataset.id
 
+    genPoster.addEventListener("click",() => {
+        
         posterLoading()
 
         generatorPosterHtml()
 
         let genPostQrcode = document.querySelector(".mobile-share-qrcode")
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        let posterImg = genPoster.dataset.poster
+        //1、判断是否是同一篇文章  检查 .j-share-qrcode img 标签是否生成过
+        if(shareUrl === posterID  && posterImg){
+         
+            genPostQrcode.innerHTML =  '<img src="' + wechatQrcodeImg + '">'
+            document.querySelector('.mobile-share-inner').style.visibility ='hidden'
 
-        new QRCode(genPostQrcode , window.location.href)
+            document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + posterImg + '">'
 
 
-        setTimeout(function(){
-            html2canvas(document.querySelector(".mobile-share-inner"), {
-                scale:2,
-                useCORS:true,
-                scrollY: 0, 
-                backgroundColor: null 
-            }).then(canvas => {
+        }else {
+         
+            new QRCode(genPostQrcode , shareUrl)
+            document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", genPostQrcode.querySelector('img').getAttribute("src"))
+    
+            setTimeout(function(){
+                html2canvas(document.querySelector(".mobile-share-inner"), {
+                    scale:2,
+                    useCORS:true,
+                    scrollY: 0, 
+                    backgroundColor: null 
+                }).then(canvas => {
 
-                document.querySelector('.mobile-share-inner').style.visibility ='hidden'
-                var i = canvas.toDataURL("image/png"); 
-                document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
-            });
-        }, 150);
+                    document.querySelector('.mobile-share-inner').style.visibility ='hidden'
+                    var i = canvas.toDataURL("image/png"); 
+                    document.querySelector(".mobile-share-canvas").innerHTML = '<img src="' + i + '">'
 
-       
+                    genPoster.setAttribute("data-poster",i)
+                });
+            }, 150);
+        }
+
 
         
     })
@@ -1342,15 +1326,21 @@ CentOS 7 使用yum 安装 Nginx，命令如下：</p>
     let wechatQrcode = document.querySelector('.share-wx-wrap .j-share-qrcode')
 
     wechatIcon.addEventListener("mouseenter",() => {
-        let currentUrl = window.location.href,text
-        if(currentUrl.indexOf('#') > -1 ){
-            text = currentUrl.substring(0,currentUrl.indexOf('#'))
+        
+         //1、判断是否是同一篇文章  2、检查 .j-share-qrcode img 标签是否生成过
+        let wechatQrcodeImg = document.querySelector('.meta-item.wechat').dataset.qrcode
+        if(shareUrl === posterID && wechatQrcodeImg){
+            wechatQrcode.innerHTML = '<img src="' + wechatQrcodeImg + '">'
+           
         }else{
-            text = currentUrl
-        }
+         
+            new QRCode(wechatQrcode,shareUrl)
+            setTimeout(() => {
+                document.querySelector('.meta-item.wechat').setAttribute("data-qrcode", wechatQrcode.querySelector('img').src)
        
-        new QRCode(wechatQrcode,text )
-
+            }, 50);
+           
+        }
         
     })
 
@@ -3369,7 +3359,7 @@ WordCloud(canvas, {
 	<footer class="Qc_footer">
 		<div class="Qc_container">
 			<div class="item">
-				<p>Copyright © 2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
+				<p>Copyright&copy;2018 - 2024 by <a href="https://qiucode.cn">秋码记录</a></p>
 			</div>
 			<div class="item">
 				<p>
@@ -3579,8 +3569,8 @@ WordCloud(canvas, {
 
 <script src="https://qiucode.cn/js/clipboard.min.js"></script>
 <script src="https://qiucode.cn/js/prism.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
-<script src="https://qiucode.cn/js/third-party/html2canvas.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/qrcode.min.js" ></script>
+<script async src="https://qiucode.cn/js/third-party/html2canvas.min.js" ></script>
 
 
 <script>
