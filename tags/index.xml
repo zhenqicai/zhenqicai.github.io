@@ -5,7 +5,52 @@
     <link>https://qiucode.cn/tags/</link>
     <description>Recent content in Tags on 秋码分享</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 10 Apr 2024 11:12:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Jul 2024 19:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>COS</title>
+      <link>https://qiucode.cn/tags/cos/</link>
+      <pubDate>Fri, 19 Jul 2024 19:46:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/tags/cos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OSS</title>
+      <link>https://qiucode.cn/tags/oss/</link>
+      <pubDate>Fri, 19 Jul 2024 19:46:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/tags/oss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>云对象存储</title>
+      <link>https://qiucode.cn/tags/%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Fri, 19 Jul 2024 19:46:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/tags/%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>部署静态网站</title>
+      <link>https://qiucode.cn/tags/%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Fri, 19 Jul 2024 19:46:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/tags/%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>配置</title>
+      <link>https://qiucode.cn/tags/%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 19 Jul 2024 19:46:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/tags/%E9%85%8D%E7%BD%AE/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Scikit-Learn</title>
       <link>https://qiucode.cn/tags/scikit-learn/</link>
@@ -84,24 +129,6 @@
       <pubDate>Mon, 01 Apr 2024 15:46:43 +0800</pubDate>
       
       <guid>https://qiucode.cn/tags/%E6%96%87%E7%AB%A0%E5%A5%B4%E9%B2%81/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OSS</title>
-      <link>https://qiucode.cn/tags/oss/</link>
-      <pubDate>Sat, 30 Mar 2024 20:46:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/tags/oss/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>云对象存储</title>
-      <link>https://qiucode.cn/tags/%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/</link>
-      <pubDate>Sat, 30 Mar 2024 20:46:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/tags/%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/</guid>
       <description></description>
     </item>
     
