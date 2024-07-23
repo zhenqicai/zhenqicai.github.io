@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Machine Learning on 秋码分享</title>
+    <title>Machine-Learning on 秋码分享</title>
     <link>https://qiucode.cn/categories/machine-learning/</link>
-    <description>Recent content in Machine Learning on 秋码分享</description>
+    <description>Recent content in Machine-Learning on 秋码分享</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 10 Apr 2024 11:12:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>错误分析 （Machine Learning研习十九）</title>
+      <title>错误分析 （Machine-Learning研习十九）</title>
       <link>https://qiucode.cn/article/199/</link>
       <pubDate>Wed, 10 Apr 2024 11:12:43 +0800</pubDate>
       
@@ -21,7 +21,7 @@ sample_weight = (y_train_pred !</description>
     </item>
     
     <item>
-      <title>多类别分类器（Machine Learning研习十八）</title>
+      <title>多类别分类器（Machine-Learning研习十八）</title>
       <link>https://qiucode.cn/article/198/</link>
       <pubDate>Wed, 03 Apr 2024 15:43:43 +0800</pubDate>
       
@@ -36,7 +36,7 @@ from sklearn.svm import SVC svm_clf = SVC(random_state=42) svm_clf.fit(X_train[:
     </item>
     
     <item>
-      <title>绘制特征曲线-ROC（Machine Learning 研习十七）</title>
+      <title>绘制特征曲线-ROC（Machine-Learning 研习十七）</title>
       <link>https://qiucode.cn/article/197/</link>
       <pubDate>Fri, 29 Mar 2024 11:43:43 +0800</pubDate>
       
@@ -48,7 +48,7 @@ idx_for_threshold_at_90 = (thresholds &amp;lt;= threshold_for_90_precision).argm
     </item>
     
     <item>
-      <title>精确率（召回率）的权衡（Machine Learning研习十六）</title>
+      <title>精确率（召回率）的权衡（Machine-Learning研习十六）</title>
       <link>https://qiucode.cn/article/196/</link>
       <pubDate>Thu, 21 Mar 2024 19:43:43 +0800</pubDate>
       
@@ -62,7 +62,7 @@ from sklearn.</description>
     </item>
     
     <item>
-      <title>对模型性能进行评估（Machine Learning 研习十五）</title>
+      <title>对模型性能进行评估（Machine-Learning 研习十五）</title>
       <link>https://qiucode.cn/article/195/</link>
       <pubDate>Fri, 15 Mar 2024 18:26:43 +0800</pubDate>
       
@@ -78,7 +78,7 @@ from sklearn.model_selection import StratifiedKFold from sklearn.base import clo
     </item>
     
     <item>
-      <title>图像识别之入门案例之数字识别（Machine Learning 研习十四）</title>
+      <title>图像识别之入门案例之数字识别（Machine-Learning 研习十四）</title>
       <link>https://qiucode.cn/article/194/</link>
       <pubDate>Fri, 15 Mar 2024 17:48:03 +0800</pubDate>
       
@@ -98,7 +98,7 @@ fetch_openml() 函数有点不寻常，因为默认情况下，它以 Pandas Dat
     </item>
     
     <item>
-      <title>微调模型——续（Machine Learning 研习之十三）</title>
+      <title>微调模型——续（Machine-Learning 研习之十三）</title>
       <link>https://qiucode.cn/article/193/</link>
       <pubDate>Sat, 09 Mar 2024 17:45:01 +0800</pubDate>
       
@@ -117,7 +117,7 @@ X_test = strat_test_set.drop(&amp;#34;median_house_value&amp;#34;, axis=1) y_tes
     </item>
     
     <item>
-      <title>微调模型（Machine Learning 研习之十二）</title>
+      <title>微调模型（Machine-Learning 研习之十二）</title>
       <link>https://qiucode.cn/article/192/</link>
       <pubDate>Sat, 09 Mar 2024 14:59:44 +0800</pubDate>
       
@@ -132,7 +132,7 @@ from sklearn.model_selection import GridSearchCV full_pipeline = Pipeline([ (&am
     </item>
     
     <item>
-      <title>选择和训练模型（Machine Learning 研习之十一）</title>
+      <title>选择和训练模型（Machine-Learning 研习之十一）</title>
       <link>https://qiucode.cn/article/190/</link>
       <pubDate>Sun, 14 Jan 2024 15:50:17 +0800</pubDate>
       
@@ -159,7 +159,7 @@ from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(pr
     </item>
     
     <item>
-      <title>机器学习中的 Transformation Pipelines（Machine Learning 研习之十）</title>
+      <title>机器学习中的 Transformation Pipelines（Machine-Learning 研习之十）</title>
       <link>https://qiucode.cn/article/189/</link>
       <pubDate>Mon, 11 Dec 2023 19:50:17 +0800</pubDate>
       
@@ -178,7 +178,7 @@ from sklearn.compose import ColumnTransformer num_attribs = [&amp;#34;longitude&
     </item>
     
     <item>
-      <title>特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）</title>
+      <title>特征缩放和转换以及自定义Transformers（Machine-Learning 研习之九）</title>
       <link>https://qiucode.cn/article/187/</link>
       <pubDate>Sat, 18 Nov 2023 20:53:29 +0800</pubDate>
       
@@ -200,7 +200,7 @@ from sklearn.linear_model import LinearRegression target_scaler = StandardScaler
     </item>
     
     <item>
-      <title>为机器学习算法准备数据（Machine Learning 研习之八）</title>
+      <title>为机器学习算法准备数据（Machine-Learning 研习之八）</title>
       <link>https://qiucode.cn/article/186/</link>
       <pubDate>Sun, 05 Nov 2023 11:30:06 +0800</pubDate>
       
@@ -223,7 +223,7 @@ from sklearn.</description>
     </item>
     
     <item>
-      <title>端到端的机器学习项目之探索数据（Machine Learning 研习之七）</title>
+      <title>端到端的机器学习项目之探索数据（Machine-Learning 研习之七）</title>
       <link>https://qiucode.cn/article/188/</link>
       <pubDate>Tue, 24 Oct 2023 19:30:00 +0800</pubDate>
       
@@ -248,7 +248,7 @@ housing.plot(kind=&amp;#34;scatter&amp;#34;, x=&amp;#34;median_income&amp;#34;, 
     </item>
     
     <item>
-      <title>端到端的机器学习项目（Machine Learning 研习之六）</title>
+      <title>端到端的机器学习项目（Machine-Learning 研习之六）</title>
       <link>https://qiucode.cn/article/183/</link>
       <pubDate>Sat, 14 Oct 2023 17:02:17 +0800</pubDate>
       
@@ -257,7 +257,7 @@ housing.plot(kind=&amp;#34;scatter&amp;#34;, x=&amp;#34;median_income&amp;#34;, 
     </item>
     
     <item>
-      <title>机机器学习的测试和验证（Machine Learning 研习之五）</title>
+      <title>机机器学习的测试和验证（Machine-Learning 研习之五）</title>
       <link>https://qiucode.cn/article/182/</link>
       <pubDate>Sun, 27 Aug 2023 16:32:17 +0800</pubDate>
       
@@ -266,7 +266,7 @@ housing.plot(kind=&amp;#34;scatter&amp;#34;, x=&amp;#34;median_income&amp;#34;, 
     </item>
     
     <item>
-      <title>机器学习的主要挑战和任务（Machine Learning 研习之四）</title>
+      <title>机器学习的主要挑战和任务（Machine-Learning 研习之四）</title>
       <link>https://qiucode.cn/article/181/</link>
       <pubDate>Sun, 13 Aug 2023 15:12:38 +0800</pubDate>
       
@@ -275,7 +275,7 @@ housing.plot(kind=&amp;#34;scatter&amp;#34;, x=&amp;#34;median_income&amp;#34;, 
     </item>
     
     <item>
-      <title>对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）</title>
+      <title>对于大量数据集的解决方案便是在线学习或是增量学习（Machine-Learning 研习之三）</title>
       <link>https://qiucode.cn/article/180/</link>
       <pubDate>Fri, 28 Jul 2023 21:12:38 +0800</pubDate>
       
@@ -284,7 +284,7 @@ housing.plot(kind=&amp;#34;scatter&amp;#34;, x=&amp;#34;median_income&amp;#34;, 
     </item>
     
     <item>
-      <title>现实生活中机器学习的具体示例（Machine Learning 研习之二）</title>
+      <title>现实生活中机器学习的具体示例（Machine-Learning 研习之二）</title>
       <link>https://qiucode.cn/article/179/</link>
       <pubDate>Mon, 17 Jul 2023 21:22:38 +0800</pubDate>
       
@@ -293,12 +293,12 @@ housing.plot(kind=&amp;#34;scatter&amp;#34;, x=&amp;#34;median_income&amp;#34;, 
     </item>
     
     <item>
-      <title>让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）</title>
+      <title>让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine-Learning 研习之一）</title>
       <link>https://qiucode.cn/article/178/</link>
       <pubDate>Sat, 15 Jul 2023 10:18:38 +0800</pubDate>
       
       <guid>https://qiucode.cn/article/178/</guid>
-      <description>&lt;p&gt;让机器学习不再是过门不入，跟着【秋码】一起研习机器学习（Machine Learning），探究什么是机器学习？以及为何我们要去使用机器学习呢？毕竟未来是属于人工智能（Ai）的，引领潮流的往往是新事物，这一次，您可不要再错过了！抓住它，就等于握住了穿梭未来的时光机。&lt;/p&gt;</description>
+      <description>&lt;p&gt;让机器学习不再是过门不入，跟着【秋码】一起研习机器学习（Machine-Learning），探究什么是机器学习？以及为何我们要去使用机器学习呢？毕竟未来是属于人工智能（Ai）的，引领潮流的往往是新事物，这一次，您可不要再错过了！抓住它，就等于握住了穿梭未来的时光机。&lt;/p&gt;</description>
     </item>
     
   </channel>
