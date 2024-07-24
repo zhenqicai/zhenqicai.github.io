@@ -601,7 +601,7 @@
           </li>
           <li class="item">
             <i class="joe-font joe-icon-message"></i>
-            <span>累计创建 <strong>42</strong> 个分类</span>
+            <span>累计创建 <strong>41</strong> 个分类</span>
           </li>
         </ul>
         <ul class="kiwi_header__slideout-menu panel-box">
@@ -883,7 +883,7 @@
 .entry-bar-inner .user-group:after{position:absolute;z-index:0;left:-1px;top:-1px;right:-1px;bottom:-1px;content:"";background:var(--background);opacity:.148}
 
 
-.entry-bar{margin:30px -20px -20px;-webkit-box-shadow:0 -1px 0 0 rgba(0,0,0,.05);box-shadow:0 -1px 0 0 rgba(0,0,0,.05)}
+.entry-bar{ -webkit-box-shadow:0 -1px 0 0 rgba(0,0,0,.05);box-shadow:0 -1px 0 0 rgba(0,0,0,.05); background: var(--background);}
 
 @media (max-width:767px){.entry-bar{margin:30px 0 0;-webkit-box-shadow:none;box-shadow:none}}
  .entry-bar-inner{padding:11px 20px}
@@ -975,7 +975,8 @@
 }
 
 .entry-related-posts{margin-bottom:30px}
-.entry-related-posts{background:var(--theme-el-bg-color);padding:20px;margin-bottom:20px}
+.entry-related-posts{background:var(--background);padding:20px;margin-bottom:20px}
+
 
 @media (max-width:1239px){
     .entry-related-posts{padding:20px;}
@@ -1109,6 +1110,7 @@
 .Xc_home_articie-si .meta .items li {
     display: flex;
     align-items: center;
+    margin-right: 15px;
 }
 
 .Xc_home_articie-si .meta .last {
@@ -1153,7 +1155,7 @@
                         <use xlink:href="#wi-date"></use>
                     </svg>
                 </i>
-                <time datetime="2023-03-20">于&nbsp;2019-06-23&nbsp;发表</time>&nbsp;&nbsp;&nbsp;&nbsp;
+                <time datetime="2019-06-23">于&nbsp;2019-06-23&nbsp;发表</time>&nbsp;&nbsp;&nbsp;&nbsp;
                 <i class="wpcom-icon wi">
                     <svg aria-hidden="true">
                         <use xlink:href="#wi-comments"></use>
@@ -1338,10 +1340,77 @@
 
     </div>
 
+    <div class="entry-related-posts">
+        <h3 class="entry-related-title">相关推荐</h3>
+        <div>
+            
+            
+
+            
+
+           
+            <li class="Xc_home_articie-si default">
+                <a href="/article/78/" class="thumbnail" title="Java 8 函数式接口编程" rel="noopener noreferrer">
+                    <img width="100%" height="100%" class=" ls-is-cached lazyloaded-6" src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/somnus/1561169469138.png"  alt="Java 8 函数式接口编程">
+                  
+                    2019-06-22 03:18:26 &#43;0000 &#43;0000 
+ 
+                </a>
+                <div class="information">
+                    <a href="/article/78/" class="title" title="Java 8 函数式接口编程" rel="noopener noreferrer">
+                        Java 8 函数式接口编程
+                    </a>
+                    <a class="abstract" href="/article/78/" title="文章摘要" rel="noopener noreferrer"><p>Java8与2014年9月份发布的，经过多年市场体验，俨然已有很多开源框架和企业在使用Java8了。介于于此，也该回顾下Java8的新特性了，这样也便于后面看开源框架源码也不至于不知其新语法。</p></a>
+                    <div class="meta">
+                        <ul class="items">
+                            <li>
+                                <i class="wpcom-icon wi">
+                                    <svg aria-hidden="true">
+                                        <use xlink:href="#wi-date"></use>
+                                    </svg>
+                                </i>
+                                <time datetime="2019-06-22">&nbsp;2019-06-22</time>
+                            
+                            </li>
+                           
+                        </ul>
+                        <div class="last" style="display:flex">
+                            <i class="wpcom-icon wi">
+                                <svg aria-hidden="true">
+                                    <use xlink:href="#wi-folder-open"></use>
+                                </svg>
+                            </i>&nbsp;&nbsp;
+                    
+                            
+                            
+        
+        
+                            
+
+                            <a class="link" rel="noopener noreferrer" href="/categories/Java">Java</a>&nbsp;&nbsp;
+                             
+        
+                        
+                        
+                        
+                        
+                            
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+
+            
+
+
+
+        </div>
+                    
+    </div>
+
+
     
-
-   
-
 
 
     
@@ -1384,7 +1453,7 @@
 
 
         let mainWidth = document.querySelector(".Qc_main").clientWidth
-        document.querySelector('.entry-bar-inner').style.width = mainWidth + 30 + 'px'
+        document.querySelector('.entry-bar-inner').style.width = mainWidth  + 'px'
 
         let readingDom = document.getElementById('j-reading')
         readingDom.addEventListener('click',() => {
@@ -1817,7 +1886,7 @@
     </div>
     <div class="count">
           <div class="item" title="累计分类数 22">
-            <span class="num">42</span>
+            <span class="num">41</span>
             <span>分类数</span>
           </div>
           <div class="item" title="累计文章数 45">
@@ -1922,15 +1991,7 @@
 					<li class="card-category-list-item">
 						<a class="card-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
 							<span class="card-category-list-name">人工智能</span>
-							<span class="card-category-list-count">19</span>
-						</a>
-					</li>
-			
-			    
-					<li class="card-category-list-item">
-						<a class="card-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BDai/">
-							<span class="card-category-list-name">人工智能（AI）</span>
-							<span class="card-category-list-count">1</span>
+							<span class="card-category-list-count">20</span>
 						</a>
 					</li>
 			
@@ -3671,7 +3732,7 @@ WordCloud(canvas, {
 			<div class="item">
 				<p>
 					<strong>Powered by <span style="color:blue;font:bold;">Hugo</span>&nbsp;&nbsp;|&nbsp;&nbsp;Theme by 
-						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.10</a></strong>
+						<a href="https://github.com/zhenqicai/hugo-theme-kiwi" target="_blank" >hugo-theme-kiwi V0.0.11</a></strong>
 				</p>
 			</div>
 		</div>
