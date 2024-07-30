@@ -270,7 +270,7 @@
 .Qc_cloud__describe-title{color:var(--theme);font-size:14px;margin-bottom:3px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .Qc_cloud__describe-type{font-size:12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .Qc_cloud__btn{flex-shrink:0;margin-left:auto;background:var(--theme);color:#fff;width:33px;height:33px;line-height:33px;font-size:16px;border-radius:50%;text-align:center}
-.Qc_detail{background:var(--background);border-radius:var(--radius-wrap);padding:15px;box-shadow:var(--box-shadow);margin-bottom:20px}
+.Qc_detail{background:var(--background);border-radius:var(--radius-wrap);padding:15px;box-shadow:var(--box-shadow);margin-bottom:20px;color: var(--main);}
 .Qc_detail_category{display:flex;align-items:center}
 .Qc_detail_category .edit{color:var(--minor);margin-left:auto;margin-bottom:15px}
 .Qc_detail_category .edit:hover{color:var(--theme)}
