@@ -542,11 +542,11 @@
       <ul class="kiwi_header__slideout-count">
         <li class="item">
           <i class="joe-font joe-icon-riji"></i>
-          <span>累计撰写 <strong>124</strong> 篇文章</span>
+          <span>累计撰写 <strong>125</strong> 篇文章</span>
         </li>
         <li class="item">
           <i class="joe-font joe-icon-remen"></i>
-          <span>累计创建 <strong>261</strong> 个标签</span>
+          <span>累计创建 <strong>268</strong> 个标签</span>
         </li>
         <li class="item">
           <i class="joe-font joe-icon-message"></i>
@@ -612,6 +612,67 @@
            
             <div class="Qc_index_list">
                 <ul class="Qc_list">
+                        <style>
+    @keyframes rotating{
+        from{transform: rotate(0)}
+        to{transform: rotate(360deg)}
+    }
+
+    .faq-rotating{
+        animation: rotating 3s linear infinite
+    }
+
+</style>
+
+<li class="Qc_list_item wow index2">
+    <div class="line"></div>
+    <a href="/article/196/" class="thumbnail" title="精确率（召回率）的权衡（Machine Learning 研习十六）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/golang-test/image-20240321183105977.png" alt="精确率（召回率）的权衡（Machine Learning 研习十六）">
+
+    </a>
+    <div class="information">
+        <a href="/article/196/" class="title" title="精确率（召回率）的权衡（Machine Learning 研习十六）" rel="noopener noreferrer">
+            精确率（召回率）的权衡（Machine Learning 研习十六）
+        </a>
+        <a class="abstract" href="/article/196/" title="文章摘要" rel="noopener noreferrer">精确率（召回率）的权衡 为了理解这种权衡，让我们看看 SGDClassifier 如何做出分类决策。 对于每个实例，它根据决策函数计算分数。 如果该分数大于阈值，则将该实例分配给正类； 否则它会将其分配给负类。 图 3-4 显示了从左侧最低分数到右侧最高分数的几个数字。 假设决策阈值位于中心箭头（两个 5 之间）：您会在该阈值右侧发现 4 个真阳性（实际为 5），以及 1 个假阳性（实际上为 6）。 因此，使用该阈值，精度为 80%（5 分之 4）。 但在 6 个实际的 5 中，分类器仅检测到 4 个，因此召回率为 67%（6 中的 4）。 如果提高阈值（将其移动到右侧的箭头），假阳性（6）会变成真阴性，从而提高精度（在本例中高达 100%），但一个真阳性会变成假阴性 ，将召回率降低至 50%。 相反，降低阈值会增加召回率并降低精确度。
+Scikit-Learn 不允许您直接设置阈值，但它允许您访问它用于进行预测的决策分数。 您可以调用其decision_function()方法，而不是调用分类器的predict()方法，该方法返回每个实例的分数，然后使用您想要根据这些分数进行预测的任何阈值：
+SGDClassifier 使用等于 0 的阈值，因此前面的代码返回与 Predict() 方法相同的结果（即 True）。 让我们提高门槛：
+这证实了提高阈值会降低召回率。 该图像实际上代表的是 5，当阈值为 0 时分类器会检测到它，但当阈值增加到 3,000 时分类器会错过它。
+y_scores = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3, method=&#34;decision_function&#34;) 有了这些分数，使用 precision_recall_curve() 函数计算所有可能阈值的精度和召回率（该函数添加最后精度 0 和最后召回率 1，对应于无限阈值）：
+from sklearn.</a>
+        <div class="meta">
+            <ul class="items">
+                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2024-03-21</li>
+              
+                <li>
+                    <i class="fa fa-eye"></i>&nbsp;
+                    <span class="waline-pageview-count" data-path="/article/196/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+                <li>
+                    <i class="fa fa-comments-o"></i>&nbsp;
+                    <span  class="waline-comment-count" data-path="/article/196/"><i class="fa fa-refresh faq-rotating"></i></span>
+                </li>
+            </ul>
+            <div class="last" style="display:flex">
+                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+
+                
+                    
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
+                    <span itemprop="name">[Machine Learning 人工智能]</span>
+                  </a>
+                </span>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                    
+                    
                         <style>
     @keyframes rotating{
         from{transform: rotate(0)}
@@ -1223,76 +1284,6 @@ from sklearn.linear_model import LinearRegression target_scaler = StandardScaler
 
                     
                     
-                        <style>
-    @keyframes rotating{
-        from{transform: rotate(0)}
-        to{transform: rotate(360deg)}
-    }
-
-    .faq-rotating{
-        animation: rotating 3s linear infinite
-    }
-
-</style>
-
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
-    <a href="/article/186/" class="thumbnail" title="为机器学习算法准备数据（Machine Learning 研习之八）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1703934522767.png" alt="为机器学习算法准备数据（Machine Learning 研习之八）">
-
-    </a>
-    <div class="information">
-        <a href="/article/186/" class="title" title="为机器学习算法准备数据（Machine Learning 研习之八）" rel="noopener noreferrer">
-            为机器学习算法准备数据（Machine Learning 研习之八）
-        </a>
-        <a class="abstract" href="/article/186/" title="文章摘要" rel="noopener noreferrer">本文还是同样建立在前两篇的基础之上的！
-属性组合实验 希望前面的部分能让您了解探索数据并获得洞察力的几种方法。您发现了一些数据怪癖，您可能希望在将数据提供给机器学习算法之前对其进行清理，并且发现了属性之间有趣的相关性，特别是与目标属性 之间的相关性。您还注意到一些属性具有向右倾斜的分布，因此您可能需要转换它们(例如，通过计算它们的对数或平方根)。当然，你的里程会因每个项目而有很大的不同，但大致的想法是相似的。
-在为机器学习算法准备数据之前，您可能需要做的最后一件事是尝试各种属性组合。例如，如果你不知道一个地区有多少住户，那么这个地区的房间总数就不是很有用。你真正想要的是每个家庭的房间数量。同样，卧室总数本身也不是很有用:你可能想对比一下房间的数量。每个家庭的人口似乎也是一个有趣的属性组合。创建这些新属性如下:
-housing[&#34;rooms_per_house&#34;] = housing[&#34;total_rooms&#34;] / housing[&#34;households&#34;] housing[&#34;bedrooms_ratio&#34;] = housing[&#34;total_bedrooms&#34;] / housing[&#34;total_rooms&#34;] housing[&#34;people_per_house&#34;] = housing[&#34;population&#34;] / housing[&#34;households&#34;] 然后你再看一遍相关矩阵:
-!新的bedrooms_ratio属性与房屋中值的相关性要比与房间或卧室总数的相关性大得多。显然，卧室/房间比率较低的房子往往更贵。每个家庭的房间数量也比一个地区的房间总数更能说明问题-很明显，房 子越大，就越贵。
-这一轮的探索不需要绝对彻底;关键是从正确的角度出发，并迅速获得见解，这将帮助您获得第一个相当好的原型。但是这是一个迭代的过程:一旦你建立并运行了一个原型，你就可以分析它的输出以获得更多的见解，然后再回到这个探索步骤。
-为机器学习算法准备数据 是时候为您的机器学习算法准备数据了。你应该为此编写函数，而不是手工操作，这有几个很好的理由:
-这将允许您在任何数据集上轻松重现这些转换(例如，下次获得新数据集时)。 您将逐步构建一个转换函数库，以便在未来的项目中重用。 您可以在实时系统中使用这些函数来转换新数据，然后再将其输入到您的算法中。 这将使您能够轻松地尝试各种转换，并查看哪种转换组合效果最好。 但首先，恢复到一个干净的训练集(通过再次复制strat_train_set)。您还应该将预测变量和标签分开，因为您不一定希望对预测变量和目标值应用相同的转换(请注意，drop()创建数据的副本，并且不影响strat_train_set):
-housing = strat_train_set.drop(&#34;median_house_value&#34;, axis=1) housing_labels = strat_train_set[&#34;median_house_value&#34;].copy() 清除数据 大多数机器学习算法无法处理缺失的功能，因此您需要处理这些功能。例如，您之前注意到total_bedrooms属性有一些缺失值。你有三个选项可以解决这个问题:
-去掉相应的区。
-去掉整个属性。
-将缺失值设置为某个值(零、均值、中位数等)。这就是所谓的归罪。
-您可以使用PandasDataFrame的dropna () 、drop () 和fillna ()方法轻松完成这些任务:
-housing.dropna(subset=[&#34;total_bedrooms&#34;], inplace=True) # option 1 housing.drop(&#34;total_bedrooms&#34;, axis=1) # option 2 median = housing[&#34;total_bedrooms&#34;].median() # option 3 housing[&#34;total_bedrooms&#34;].fillna(median, inplace=True) 您决定使用选项3，因为它的破坏性最小，但是您将使用一个方便的Scikit-Learn类:Simplelmputer，而不是前面的代码。这样做的好处是，它将存储每个特征的中值:这将使得它不仅可以估算训练集上的缺失值，还可以估算验证集、测试集和输入到模型的任何新数据上的缺失值。要使用它，首先需要创建一个Simplelmputer实例，指定要将每个属性的缺失值替换为该属性的中位数:
-from sklearn.</a>
-        <div class="meta">
-            <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2023-11-05</li>
-              
-                <li>
-                    <i class="fa fa-eye"></i>&nbsp;
-                    <span class="waline-pageview-count" data-path="/article/186/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-                <li>
-                    <i class="fa fa-comments-o"></i>&nbsp;
-                    <span  class="waline-comment-count" data-path="/article/186/"><i class="fa fa-refresh faq-rotating"></i></span>
-                </li>
-            </ul>
-            <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
-                
-
-                
-                    
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a class="link" href="/categories/" itemprop="url" rel="noopener noreferrer index">
-                    <span itemprop="name">[Machine Learning 人工智能]</span>
-                  </a>
-                </span>
-                
-                
-
-            </div>
-        </div>
-    </div>
-</li>
-
-                    
-                    
     
                 </ul>
             </div>
@@ -1342,11 +1333,11 @@ from sklearn.</a>
             <span>分类数</span>
           </div>
           <div class="item" title="累计文章数 45">
-            <span class="num">124</span>
+            <span class="num">125</span>
             <span>文章数</span>
           </div>
           <div class="item" title="累计评论数 452">
-            <span class="num">261</span>
+            <span class="num">268</span>
             <span>标签数</span>
           </div>
     </div>
@@ -1455,7 +1446,7 @@ from sklearn.</a>
 					<li class="card-category-list-item">
 						<a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">
 							<span class="card-category-list-name">前端</span>
-							<span class="card-category-list-count">10</span>
+							<span class="card-category-list-count">11</span>
 						</a>
 					</li>
 			
@@ -1471,7 +1462,7 @@ from sklearn.</a>
 					<li class="card-category-list-item">
 						<a class="card-category-list-link" href="/categories/%E5%BB%BA%E7%AB%99/">
 							<span class="card-category-list-name">建站</span>
-							<span class="card-category-list-count">1</span>
+							<span class="card-category-list-count">2</span>
 						</a>
 					</li>
 			
@@ -2680,8 +2671,36 @@ from sklearn.</a>
         
             
         
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
+
+        
+            
+        
     
-    <span id="tag-temp" style="display:none">[{"abstract":1},{"ag-grid":1},{"ai":1},{"apache":1},{"array":1},{"bootstraptable":1},{"branch":1},{"break":1},{"centos":3},{"centos7":1},{"channel":3},{"chatgpt":1},{"chrome-v3":1},{"chrome扩展":1},{"clone":1},{"constant":1},{"continue":1},{"cos":1},{"css计算器":1},{"curl":1},{"dict":1},{"error":1},{"event":1},{"extends":1},{"extjs":1},{"freemarker":1},{"git":1},{"git-clone":1},{"git-push":1},{"gitee":1},{"github":2},{"global-variable":1},{"goland":1},{"golang":3},{"golang-sdk安装":1},{"goto":1},{"https":2},{"https配置":1},{"hugo":2},{"ide":1},{"ie10兼容":1},{"immutable":1},{"interface":1},{"java8":2},{"java8新特性":1},{"jdk8":1},{"lambda":1},{"library":1},{"list":1},{"liteide":1},{"machine-learning":11},{"maven":1},{"mechine-learn":1},{"merge":1},{"modifier":1},{"moduels":1},{"mpvue":1},{"mysql":1},{"navicat12":1},{"nexus":1},{"nginx":4},{"nlp":2},{"nodejs":2},{"npm-adduser":1},{"npm发布项目":1},{"npm注册账号":1},{"oracle":1},{"oracle-library-is-not-loaded":1},{"oss":2},{"package":2},{"php":1},{"php-fpm":1},{"pipelines":1},{"pointer":1},{"prism":1},{"redis":2},{"remix":1},{"requirejs":1},{"scikit-learn":7},{"serverless":1},{"slice":1},{"springboot上传图片":1},{"ssl":1},{"struct":1},{"switch":1},{"tags":1},{"template":1},{"tensorflow":1},{"theme":2},{"thinkphp":1},{"thinkphp.1":1},{"timed-out":1},{"tomcat":1},{"tooltip":1},{"transformers":1},{"treepanel":1},{"type-alias":1},{"ubuntu-16.04lts":2},{"ui框架":1},{"vps":1},{"vs-code":2},{"vxe-table":2},{"web3":2},{"while":1},{"wordpress":1},{"x-editable.js":1},{"ztree":1},{"一键复制":1},{"不甘心":1},{"个人博客":1},{"主题":1},{"事件":1},{"二维数组":1},{"二进制":1},{"云对象存储":2},{"云服务器":4},{"交叉验证":1},{"人工智能":9},{"代码块":1},{"代码高亮":1},{"以太坊":18},{"任务":2},{"信道":1},{"修饰器":1},{"值类型":1},{"全局变量":1},{"关键字":1},{"内存地址":1},{"内容过多省略":1},{"决策树":1},{"函数":2},{"函数变量":1},{"函数式接口":2},{"分支":1},{"分类器":2},{"切片":1},{"列表":1},{"包":2},{"区块链":21},{"匿名函数":1},{"匿名变量":1},{"单元格单击":1},{"单向信道":1},{"博客主题":1},{"双十一":1},{"双向链表":1},{"变量作用域":1},{"召回率":2},{"可变参数":1},{"可变性":1},{"可见性":1},{"合约继承":1},{"回调函数":2},{"困惑":1},{"图片水印":1},{"在线学习":1},{"在线编辑器":1},{"基于vue2.x的ui组件库":1},{"基本类型":2},{"多值返回":1},{"多核":1},{"多线程":1},{"多维数组":1},{"大量数据处理":1},{"天气很好":1},{"奇果":1},{"字典":1},{"字符串":1},{"实战":2},{"实战项目":1},{"常量":1},{"年末总结":1},{"并发编程":1},{"序号":1},{"延迟执行":1},{"建站":1},{"开源大模型":1},{"异常":1},{"异常处理":1},{"异步加载树":1},{"引用类型":1},{"循环结构":1},{"微信小程序":1},{"托管平台":1},{"托管网站":1},{"批量学习":1},{"抽象合约":1},{"拼团":1},{"指针":1},{"挑战":2},{"接受者":1},{"接口":2},{"接口转换":1},{"数据库":1},{"数据标注":1},{"数组":1},{"数组分组":1},{"文件上传":1},{"文件下载":1},{"文章奴鲁":1},{"方法":1},{"方法集":1},{"映射":1},{"智能合约":18},{"本地仓库":1},{"机器学习":18},{"枚举类型":1},{"标签":1},{"标识符":1},{"模型":2},{"模板发送邮件":1},{"横向树状":1},{"池塘":1},{"流程控制":1},{"测试集":1},{"深度学习":6},{"混肴矩阵":1},{"添加水印":1},{"版本控制":2},{"特征曲线":1},{"环境搭建":1},{"电商":2},{"登山":1},{"空接口":2},{"端到端":2},{"类型别名":1},{"类型推导":1},{"类型断言":1},{"类型转换":1},{"精确率":1},{"结构体":1},{"缓冲信道":1},{"腾讯云":1},{"自定义提示":1},{"花鸟市场":1},{"虚拟主机":1},{"表单":1},{"表格行内编辑":1},{"训练数据":2},{"训练模型":1},{"训练集":1},{"语法题":1},{"负重前行":1},{"超时":1},{"跑酷":1},{"跨越switch":1},{"转义符":1},{"远程仓库":1},{"部署静态网站":1},{"配置":1},{"错误分析":1},{"错误处理":2},{"闭包":1},{"防火墙":1},{"阿里云":3},{"阿里云oss":1},{"随机森林":1},{"隐藏/显示表格行":1},{"静态资源":1},{"预定义标识符":1},{"首页":1},{"abstract":1},{"ag-grid":1},{"ai":1},{"apache":1},{"array":1},{"bootstraptable":1},{"branch":1},{"break":1},{"centos":3},{"centos7":1},{"channel":3},{"chatgpt":1},{"chrome-v3":1},{"chrome扩展":1},{"clone":1},{"constant":1},{"continue":1},{"cos":1},{"css计算器":1},{"curl":1},{"dict":1},{"error":1},{"event":1},{"extends":1},{"extjs":1},{"freemarker":1},{"git":1},{"git-clone":1},{"git-push":1},{"gitee":1},{"github":2},{"global-variable":1},{"goland":1},{"golang":3},{"golang-sdk安装":1},{"goto":1},{"https":2},{"https配置":1},{"hugo":2},{"ide":1},{"ie10兼容":1},{"immutable":1},{"interface":1},{"java8":2},{"java8新特性":1},{"jdk8":1},{"lambda":1},{"library":1},{"list":1},{"liteide":1},{"machine-learning":11},{"maven":1},{"mechine-learn":1},{"merge":1},{"modifier":1},{"moduels":1},{"mpvue":1},{"mysql":1},{"navicat12":1},{"nexus":1},{"nginx":4},{"nlp":2},{"nodejs":2},{"npm-adduser":1},{"npm发布项目":1},{"npm注册账号":1},{"oracle":1},{"oracle-library-is-not-loaded":1},{"oss":2},{"package":2},{"php":1},{"php-fpm":1},{"pipelines":1},{"pointer":1},{"prism":1},{"redis":2},{"remix":1},{"requirejs":1},{"scikit-learn":7},{"serverless":1},{"slice":1},{"springboot上传图片":1},{"ssl":1},{"struct":1},{"switch":1},{"tags":1},{"template":1},{"tensorflow":1},{"theme":2},{"thinkphp":1},{"thinkphp.1":1},{"timed-out":1},{"tomcat":1},{"tooltip":1},{"transformers":1},{"treepanel":1},{"type-alias":1},{"ubuntu-16.04lts":2},{"ui框架":1},{"vps":1},{"vs-code":2},{"vxe-table":2},{"web3":2},{"while":1},{"wordpress":1},{"x-editable.js":1},{"ztree":1},{"一键复制":1},{"不甘心":1},{"个人博客":1},{"主题":1},{"事件":1},{"二维数组":1},{"二进制":1},{"云对象存储":2},{"云服务器":4},{"交叉验证":1},{"人工智能":9},{"代码块":1},{"代码高亮":1},{"以太坊":18},{"任务":2},{"信道":1},{"修饰器":1},{"值类型":1},{"全局变量":1},{"关键字":1},{"内存地址":1},{"内容过多省略":1},{"决策树":1},{"函数":2},{"函数变量":1},{"函数式接口":2},{"分支":1},{"分类器":2},{"切片":1},{"列表":1},{"包":2},{"区块链":21},{"匿名函数":1},{"匿名变量":1},{"单元格单击":1},{"单向信道":1},{"博客主题":1},{"双十一":1},{"双向链表":1},{"变量作用域":1},{"召回率":2},{"可变参数":1},{"可变性":1},{"可见性":1},{"合约继承":1},{"回调函数":2},{"困惑":1},{"图片水印":1},{"在线学习":1},{"在线编辑器":1},{"基于vue2.x的ui组件库":1},{"基本类型":2},{"多值返回":1},{"多核":1},{"多线程":1},{"多维数组":1},{"大量数据处理":1},{"天气很好":1},{"奇果":1},{"字典":1},{"字符串":1},{"实战":2},{"实战项目":1},{"常量":1},{"年末总结":1},{"并发编程":1},{"序号":1},{"延迟执行":1},{"建站":1},{"开源大模型":1},{"异常":1},{"异常处理":1},{"异步加载树":1},{"引用类型":1},{"循环结构":1},{"微信小程序":1},{"托管平台":1},{"托管网站":1},{"批量学习":1},{"抽象合约":1},{"拼团":1},{"指针":1},{"挑战":2},{"接受者":1},{"接口":2},{"接口转换":1},{"数据库":1},{"数据标注":1},{"数组":1},{"数组分组":1},{"文件上传":1},{"文件下载":1},{"文章奴鲁":1},{"方法":1},{"方法集":1},{"映射":1},{"智能合约":18},{"本地仓库":1},{"机器学习":18},{"枚举类型":1},{"标签":1},{"标识符":1},{"模型":2},{"模板发送邮件":1},{"横向树状":1},{"池塘":1},{"流程控制":1},{"测试集":1},{"深度学习":6},{"混肴矩阵":1},{"添加水印":1},{"版本控制":2},{"特征曲线":1},{"环境搭建":1},{"电商":2},{"登山":1},{"空接口":2},{"端到端":2},{"类型别名":1},{"类型推导":1},{"类型断言":1},{"类型转换":1},{"精确率":1},{"结构体":1},{"缓冲信道":1},{"腾讯云":1},{"自定义提示":1},{"花鸟市场":1},{"虚拟主机":1},{"表单":1},{"表格行内编辑":1},{"训练数据":2},{"训练模型":1},{"训练集":1},{"语法题":1},{"负重前行":1},{"超时":1},{"跑酷":1},{"跨越switch":1},{"转义符":1},{"远程仓库":1},{"部署静态网站":1},{"配置":1},{"错误分析":1},{"错误处理":2},{"闭包":1},{"防火墙":1},{"阿里云":3},{"阿里云oss":1},{"随机森林":1},{"隐藏/显示表格行":1},{"静态资源":1},{"预定义标识符":1},{"首页":1}]</span>
+    <span id="tag-temp" style="display:none">[{"abstract":1},{"ag-grid":1},{"ai":1},{"apache":1},{"array":1},{"bootstraptable":1},{"branch":1},{"break":1},{"canvas":1},{"centos":3},{"centos7":1},{"channel":3},{"chatgpt":1},{"chrome-v3":1},{"chrome扩展":1},{"clone":1},{"constant":1},{"continue":1},{"cos":1},{"css计算器":1},{"curl":1},{"dict":1},{"dom-to-image":1},{"error":1},{"event":1},{"extends":1},{"extjs":1},{"freemarker":1},{"git":1},{"git-clone":1},{"git-push":1},{"gitee":1},{"github":2},{"global-variable":1},{"goland":1},{"golang":3},{"golang-sdk安装":1},{"goto":1},{"html2canvas":1},{"html转image":1},{"html转图片":1},{"https":2},{"https配置":1},{"hugo":2},{"ide":1},{"ie10兼容":1},{"immutable":1},{"interface":1},{"java8":2},{"java8新特性":1},{"jdk8":1},{"lambda":1},{"library":1},{"list":1},{"liteide":1},{"machine-learning":11},{"maven":1},{"mechine-learn":1},{"merge":1},{"modifier":1},{"moduels":1},{"mpvue":1},{"mysql":1},{"navicat12":1},{"nexus":1},{"nginx":4},{"nlp":2},{"nodejs":2},{"npm-adduser":1},{"npm发布项目":1},{"npm注册账号":1},{"oracle":1},{"oracle-library-is-not-loaded":1},{"oss":2},{"package":2},{"php":1},{"php-fpm":1},{"pipelines":1},{"pointer":1},{"prism":1},{"redis":2},{"remix":1},{"requirejs":1},{"scikit-learn":7},{"serverless":1},{"slice":1},{"springboot上传图片":1},{"ssl":1},{"struct":1},{"switch":1},{"tags":1},{"template":1},{"tensorflow":1},{"theme":2},{"thinkphp":1},{"thinkphp.1":1},{"timed-out":1},{"tomcat":1},{"tooltip":1},{"transformers":1},{"treepanel":1},{"type-alias":1},{"ubuntu-16.04lts":2},{"ui框架":1},{"vps":1},{"vs-code":2},{"vxe-table":2},{"web3":2},{"while":1},{"wordpress":1},{"x-editable.js":1},{"ztree":1},{"一键复制":1},{"不甘心":1},{"个人博客":1},{"主题":1},{"事件":1},{"二维数组":1},{"二进制":1},{"云对象存储":2},{"云服务器":4},{"交叉验证":1},{"人工智能":9},{"代码块":1},{"代码高亮":1},{"以太坊":18},{"任务":2},{"信道":1},{"修饰器":1},{"值类型":1},{"全局变量":1},{"关键字":1},{"内存地址":1},{"内容过多省略":1},{"决策树":1},{"函数":2},{"函数变量":1},{"函数式接口":2},{"分支":1},{"分类器":2},{"切片":1},{"列表":1},{"包":2},{"区块链":21},{"匿名函数":1},{"匿名变量":1},{"单元格单击":1},{"单向信道":1},{"博客主题":1},{"双十一":1},{"双向链表":1},{"变量作用域":1},{"召回率":2},{"可变参数":1},{"可变性":1},{"可见性":1},{"合约继承":1},{"回调函数":2},{"困惑":1},{"图片水印":1},{"在线学习":1},{"在线编辑器":1},{"基于vue2.x的ui组件库":1},{"基本类型":2},{"多值返回":1},{"多核":1},{"多线程":1},{"多维数组":1},{"大量数据处理":1},{"天气很好":1},{"奇果":1},{"字典":1},{"字符串":1},{"实战":2},{"实战项目":1},{"常量":1},{"年末总结":1},{"并发编程":1},{"序号":1},{"延迟执行":1},{"建站":1},{"开源大模型":1},{"异常":1},{"异常处理":1},{"异步加载树":1},{"引用类型":1},{"循环结构":1},{"微信小程序":1},{"托管平台":1},{"托管网站":1},{"批量学习":1},{"抽象合约":1},{"拼团":1},{"指针":1},{"挑战":2},{"接受者":1},{"接口":2},{"接口转换":1},{"数据库":1},{"数据标注":1},{"数组":1},{"数组分组":1},{"文件上传":1},{"文件下载":1},{"文章分享":1},{"文章奴鲁":1},{"方法":1},{"方法集":1},{"映射":1},{"智能合约":18},{"本地仓库":1},{"机器学习":18},{"枚举类型":1},{"标签":1},{"标识符":1},{"模型":2},{"模板发送邮件":1},{"横向树状":1},{"池塘":1},{"流程控制":1},{"测试集":1},{"海报":1},{"深度学习":6},{"混肴矩阵":1},{"添加水印":1},{"版本控制":2},{"特征曲线":1},{"环境搭建":1},{"电商":2},{"登山":1},{"空接口":2},{"端到端":2},{"类型别名":1},{"类型推导":1},{"类型断言":1},{"类型转换":1},{"精确率":1},{"结构体":1},{"缓冲信道":1},{"腾讯云":1},{"自定义提示":1},{"花鸟市场":1},{"虚拟主机":1},{"表单":1},{"表格行内编辑":1},{"训练数据":2},{"训练模型":1},{"训练集":1},{"语法题":1},{"负重前行":1},{"超时":1},{"跑酷":1},{"跨越switch":1},{"转义符":1},{"远程仓库":1},{"部署静态网站":1},{"配置":1},{"错误分析":1},{"错误处理":2},{"闭包":1},{"防火墙":1},{"阿里云":3},{"阿里云oss":1},{"随机森林":1},{"隐藏/显示表格行":1},{"静态资源":1},{"预定义标识符":1},{"首页":1},{"abstract":1},{"ag-grid":1},{"ai":1},{"apache":1},{"array":1},{"bootstraptable":1},{"branch":1},{"break":1},{"canvas":1},{"centos":3},{"centos7":1},{"channel":3},{"chatgpt":1},{"chrome-v3":1},{"chrome扩展":1},{"clone":1},{"constant":1},{"continue":1},{"cos":1},{"css计算器":1},{"curl":1},{"dict":1},{"dom-to-image":1},{"error":1},{"event":1},{"extends":1},{"extjs":1},{"freemarker":1},{"git":1},{"git-clone":1},{"git-push":1},{"gitee":1},{"github":2},{"global-variable":1},{"goland":1},{"golang":3},{"golang-sdk安装":1},{"goto":1},{"html2canvas":1},{"html转image":1},{"html转图片":1},{"https":2},{"https配置":1},{"hugo":2},{"ide":1},{"ie10兼容":1},{"immutable":1},{"interface":1},{"java8":2},{"java8新特性":1},{"jdk8":1},{"lambda":1},{"library":1},{"list":1},{"liteide":1},{"machine-learning":11},{"maven":1},{"mechine-learn":1},{"merge":1},{"modifier":1},{"moduels":1},{"mpvue":1},{"mysql":1},{"navicat12":1},{"nexus":1},{"nginx":4},{"nlp":2},{"nodejs":2},{"npm-adduser":1},{"npm发布项目":1},{"npm注册账号":1},{"oracle":1},{"oracle-library-is-not-loaded":1},{"oss":2},{"package":2},{"php":1},{"php-fpm":1},{"pipelines":1},{"pointer":1},{"prism":1},{"redis":2},{"remix":1},{"requirejs":1},{"scikit-learn":7},{"serverless":1},{"slice":1},{"springboot上传图片":1},{"ssl":1},{"struct":1},{"switch":1},{"tags":1},{"template":1},{"tensorflow":1},{"theme":2},{"thinkphp":1},{"thinkphp.1":1},{"timed-out":1},{"tomcat":1},{"tooltip":1},{"transformers":1},{"treepanel":1},{"type-alias":1},{"ubuntu-16.04lts":2},{"ui框架":1},{"vps":1},{"vs-code":2},{"vxe-table":2},{"web3":2},{"while":1},{"wordpress":1},{"x-editable.js":1},{"ztree":1},{"一键复制":1},{"不甘心":1},{"个人博客":1},{"主题":1},{"事件":1},{"二维数组":1},{"二进制":1},{"云对象存储":2},{"云服务器":4},{"交叉验证":1},{"人工智能":9},{"代码块":1},{"代码高亮":1},{"以太坊":18},{"任务":2},{"信道":1},{"修饰器":1},{"值类型":1},{"全局变量":1},{"关键字":1},{"内存地址":1},{"内容过多省略":1},{"决策树":1},{"函数":2},{"函数变量":1},{"函数式接口":2},{"分支":1},{"分类器":2},{"切片":1},{"列表":1},{"包":2},{"区块链":21},{"匿名函数":1},{"匿名变量":1},{"单元格单击":1},{"单向信道":1},{"博客主题":1},{"双十一":1},{"双向链表":1},{"变量作用域":1},{"召回率":2},{"可变参数":1},{"可变性":1},{"可见性":1},{"合约继承":1},{"回调函数":2},{"困惑":1},{"图片水印":1},{"在线学习":1},{"在线编辑器":1},{"基于vue2.x的ui组件库":1},{"基本类型":2},{"多值返回":1},{"多核":1},{"多线程":1},{"多维数组":1},{"大量数据处理":1},{"天气很好":1},{"奇果":1},{"字典":1},{"字符串":1},{"实战":2},{"实战项目":1},{"常量":1},{"年末总结":1},{"并发编程":1},{"序号":1},{"延迟执行":1},{"建站":1},{"开源大模型":1},{"异常":1},{"异常处理":1},{"异步加载树":1},{"引用类型":1},{"循环结构":1},{"微信小程序":1},{"托管平台":1},{"托管网站":1},{"批量学习":1},{"抽象合约":1},{"拼团":1},{"指针":1},{"挑战":2},{"接受者":1},{"接口":2},{"接口转换":1},{"数据库":1},{"数据标注":1},{"数组":1},{"数组分组":1},{"文件上传":1},{"文件下载":1},{"文章分享":1},{"文章奴鲁":1},{"方法":1},{"方法集":1},{"映射":1},{"智能合约":18},{"本地仓库":1},{"机器学习":18},{"枚举类型":1},{"标签":1},{"标识符":1},{"模型":2},{"模板发送邮件":1},{"横向树状":1},{"池塘":1},{"流程控制":1},{"测试集":1},{"海报":1},{"深度学习":6},{"混肴矩阵":1},{"添加水印":1},{"版本控制":2},{"特征曲线":1},{"环境搭建":1},{"电商":2},{"登山":1},{"空接口":2},{"端到端":2},{"类型别名":1},{"类型推导":1},{"类型断言":1},{"类型转换":1},{"精确率":1},{"结构体":1},{"缓冲信道":1},{"腾讯云":1},{"自定义提示":1},{"花鸟市场":1},{"虚拟主机":1},{"表单":1},{"表格行内编辑":1},{"训练数据":2},{"训练模型":1},{"训练集":1},{"语法题":1},{"负重前行":1},{"超时":1},{"跑酷":1},{"跨越switch":1},{"转义符":1},{"远程仓库":1},{"部署静态网站":1},{"配置":1},{"错误分析":1},{"错误处理":2},{"闭包":1},{"防火墙":1},{"阿里云":3},{"阿里云oss":1},{"随机森林":1},{"隐藏/显示表格行":1},{"静态资源":1},{"预定义标识符":1},{"首页":1}]</span>
 
 <script>
 
@@ -3001,7 +3020,7 @@ WordCloud(canvas, {
 				import { pageviewCount } from  '/js/third-party/pageview.mjs';
 				import { commentCount } from '/js/third-party/comment.mjs'; 
 
-				setTimeout(() => {
+				setTimeout( async () => {
 					pageviewCount({
 						serverURL:  "comment.qiucode.cn"
 						
