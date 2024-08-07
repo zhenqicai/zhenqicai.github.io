@@ -1876,8 +1876,8 @@ package main import ( &#34;bytes&#34; &#34;image&#34; &#34;image/png&#34; // &#3
                     alert('调用了此方法 1')
                     $canvas.width = WIDTH;
                     $canvas.height = HEIGHT;
-                    image.src = config.banner;
-                    image.onload = function() {
+                    
+                    image.onload = () => {
                         alert('调用了此方法 2')
                         const ctx = $canvas.getContext('2d')
                         ctx.fillStyle = 'rgba(255, 255, 255, 1)';
@@ -1951,12 +1951,14 @@ package main import ( &#34;bytes&#34; &#34;image&#34; &#34;image/png&#34; // &#3
 
                         $container.appendChild(img);
                         $container.removeChild($wrapper)
-                        if (config.callback) {
-                            config.callback($container)
-                        }
+                        
+                        
+                        
                     }
                 
-                
+            
+                    image.src = config.banner;
+
                     image.onerror = (e) => {
                         alert(e)
                     }

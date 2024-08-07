@@ -1733,8 +1733,8 @@ redis-check-rdb RDB文件检索工具</p>
                     alert('调用了此方法 1')
                     $canvas.width = WIDTH;
                     $canvas.height = HEIGHT;
-                    image.src = config.banner;
-                    image.onload = function() {
+                    
+                    image.onload = () => {
                         alert('调用了此方法 2')
                         const ctx = $canvas.getContext('2d')
                         ctx.fillStyle = 'rgba(255, 255, 255, 1)';
@@ -1808,12 +1808,14 @@ redis-check-rdb RDB文件检索工具</p>
 
                         $container.appendChild(img);
                         $container.removeChild($wrapper)
-                        if (config.callback) {
-                            config.callback($container)
-                        }
+                        
+                        
+                        
                     }
                 
-                
+            
+                    image.src = config.banner;
+
                     image.onerror = (e) => {
                         alert(e)
                     }

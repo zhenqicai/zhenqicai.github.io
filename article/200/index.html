@@ -1719,8 +1719,8 @@ code[class*=&#34;language-&#34;],pre[class*=&#34;language-&#34;]{color:#f8f8f2;b
                     alert('调用了此方法 1')
                     $canvas.width = WIDTH;
                     $canvas.height = HEIGHT;
-                    image.src = config.banner;
-                    image.onload = function() {
+                    
+                    image.onload = () => {
                         alert('调用了此方法 2')
                         const ctx = $canvas.getContext('2d')
                         ctx.fillStyle = 'rgba(255, 255, 255, 1)';
@@ -1794,12 +1794,14 @@ code[class*=&#34;language-&#34;],pre[class*=&#34;language-&#34;]{color:#f8f8f2;b
 
                         $container.appendChild(img);
                         $container.removeChild($wrapper)
-                        if (config.callback) {
-                            config.callback($container)
-                        }
+                        
+                        
+                        
                     }
                 
-                
+            
+                    image.src = config.banner;
+
                     image.onerror = (e) => {
                         alert(e)
                     }

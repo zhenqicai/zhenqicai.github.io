@@ -1926,8 +1926,8 @@ canvas 是以左上角为原点，也就是说，X轴 水平向右是`正数`，
                     alert('调用了此方法 1')
                     $canvas.width = WIDTH;
                     $canvas.height = HEIGHT;
-                    image.src = config.banner;
-                    image.onload = function() {
+                    
+                    image.onload = () => {
                         alert('调用了此方法 2')
                         const ctx = $canvas.getContext('2d')
                         ctx.fillStyle = 'rgba(255, 255, 255, 1)';
@@ -2001,12 +2001,14 @@ canvas 是以左上角为原点，也就是说，X轴 水平向右是`正数`，
 
                         $container.appendChild(img);
                         $container.removeChild($wrapper)
-                        if (config.callback) {
-                            config.callback($container)
-                        }
+                        
+                        
+                        
                     }
                 
-                
+            
+                    image.src = config.banner;
+
                     image.onerror = (e) => {
                         alert(e)
                     }
