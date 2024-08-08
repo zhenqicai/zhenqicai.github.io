@@ -64,16 +64,10 @@
 
 <style>
 
-    @font-face {
-        font-family: "Kiwi Font";
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-        src: url("/fonts/fontawesome-webfont.woff2") format("woff2");
-    }
+     
  
     html {
-        font-family: 'Kiwi Font', 'PingFang SC', 'Noto Serif SC', 'HarmonyOS_Sans_SC_Medium', 'Fira Mono', 'Microsoft YaHei', Arial, sans-serif
+        font-family:  'PingFang SC', 'Noto Serif SC', 'HarmonyOS_Sans_SC_Medium', 'Fira Mono', 'Microsoft YaHei', Arial, sans-serif
     }
 
     html .Qc_header_above .Qc_container {
@@ -110,7 +104,7 @@
 <link rel="stylesheet" href="https://qiucode.cn/css/style.css" />
 <link rel="stylesheet" href="https://qiucode.cn/css/theme.min.css" />
 
-<link rel="stylesheet" href="https://qiucode.cn/css/font-awesome.min.css" />
+
 
 
 
@@ -726,10 +720,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/165/" class="thumbnail" title="玩以太坊链上项目的必备技能（流程控制-Solidity之旅八）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1671027126760.png" alt="玩以太坊链上项目的必备技能（流程控制-Solidity之旅八）">
 
     </a>
@@ -740,12 +920,24 @@
         <a class="abstract" href="/article/165/" title="文章摘要" rel="noopener noreferrer"><p>今天我们不讲三国，来讲讲 流程控制 关于什么是<code>流程控制</code>，想来您是知道的吧！可若您确实不晓得，那您看了这篇文或许对<code>流程控制</code>有了初步的了解。 Solidity 和其他语言一样，支持大部分<code>流程控制</code>语句，除了<code>switch</code>和被<code>程序员界</code>谈虎色变而其他语言又保留的<code>goto</code>。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-12-14</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-12-14</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -775,10 +967,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/164/" class="thumbnail" title="玩以太坊链上项目的必备技能（单位以及全局变量-Solidity之旅七）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670933501231.png" alt="玩以太坊链上项目的必备技能（单位以及全局变量-Solidity之旅七）">
 
     </a>
@@ -789,12 +1167,24 @@
         <a class="abstract" href="/article/164/" title="文章摘要" rel="noopener noreferrer"><p>时间戳和区块哈希在一定程度上都可能受到挖矿矿工影响。例如，挖矿社区中的恶意矿工可以用某个给定的哈希来运行赌场合约的 payout 函数，而如果他们没收到钱，还可以用一个不同的哈希重新尝试。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-12-14</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-12-14</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -824,10 +1214,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/163/" class="thumbnail" title="玩以太坊链上项目的必备技能（基本类型转换以及推断-Solidity之旅六）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670853755174.png" alt="玩以太坊链上项目的必备技能（基本类型转换以及推断-Solidity之旅六）">
 
     </a>
@@ -838,12 +1414,24 @@
         <a class="abstract" href="/article/163/" title="文章摘要" rel="noopener noreferrer"><p>某些情况下，编译器不支持<code>隐式转换</code>，而这时，作为开发人员的您就不得不使用<code>强硬手段</code>了。<code>显式转换</code>可能会发生些您无法预料的状况，所以您需要繁琐的测试，看最终是否能达到您的要求。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-12-12</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-12-12</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -873,10 +1461,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/162/" class="thumbnail" title="玩以太坊链上项目的必备技能（变量作用域-Solidity之旅五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670763602426.png" alt="玩以太坊链上项目的必备技能（变量作用域-Solidity之旅五）">
 
     </a>
@@ -887,12 +1661,24 @@
         <a class="abstract" href="/article/162/" title="文章摘要" rel="noopener noreferrer"><p>局部变量（Local Variable）的范围仅限于它们被定义的函数，但 状态变量（State Variable） 可以有三种范围。 public - public 修饰的 状态变量（State Variable） 可以在内部以及通过消息进行访问，对于一个公共状态变量，会自动生成一个getter函数。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-12-11</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-12-11</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -922,10 +1708,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/161/" class="thumbnail" title="玩以太坊链上项目的必备技能（类型-映射类型-Solidity之旅四）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670676226533.png" alt="玩以太坊链上项目的必备技能（类型-映射类型-Solidity之旅四）">
 
     </a>
@@ -936,12 +1908,24 @@
         <a class="abstract" href="/article/161/" title="文章摘要" rel="noopener noreferrer"><p>说到<code>映射（Mapping）</code>，有过其它编程语言经验的您，对这是再熟悉不过了。Solidity 中的<code>映射（Mapping）</code> 与<code>Java</code>的<code>Map</code>、<code>Go</code>里的<code>Map</code>以及<code>javascript</code>的<code>JSON</code>等众多编程语言中的<code>Map</code>一样，是用来存储一组<code>键（Key）</code> <code>值（Value）</code>，可通过<code>键（Key）</code>来获取对应</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-12-10</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-12-10</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -971,10 +1955,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/160/" class="thumbnail" title="玩以太坊链上项目的必备技能（类型-引用类型-Solidity之旅三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670590244994.png" alt="玩以太坊链上项目的必备技能（类型-引用类型-Solidity之旅三）">
 
     </a>
@@ -985,12 +2155,24 @@
         <a class="abstract" href="/article/160/" title="文章摘要" rel="noopener noreferrer"><p>数组元素可以是任何类型，包括映射或结构体。对类型的限制是映射只能存储在 存储storage 中，并且公开访问函数的参数需要是 ABI 类型。 状态变量标记 <code>public</code> 的数组，Solidity创建一个 getter函数 。 小标数字索引就是 getter函数 的参数。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-12-09</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-12-09</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -1020,10 +2202,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/159/" class="thumbnail" title="花了不到1块5，玩了下全网最火的ChatGPT" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670508857397.png" alt="花了不到1块5，玩了下全网最火的ChatGPT">
 
     </a>
@@ -1049,12 +2417,24 @@
 我们将`虚拟号码`平台上购买的号码拷贝填入`OpenAI`，用于接收短信验证码，而这里需要注意将国家区号去掉，因为我们在`OpenAI`平台选择国家时，带有国家区号，然而，我们在`虚拟平台`上购买的虚拟号码包括国家区号。回到虚拟号码平台，若是没看到验证码，可以刷新下页面就出来了。</a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-12-08</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-12-08</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -1084,10 +2464,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/158/" class="thumbnail" title="玩以太坊链上项目的必备技能（类型-值类型-Solidity之旅二）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670590244994.png" alt="玩以太坊链上项目的必备技能（类型-值类型-Solidity之旅二）">
 
     </a>
@@ -1098,12 +2664,24 @@
         <a class="abstract" href="/article/158/" title="文章摘要" rel="noopener noreferrer"><p>以下这些类型在 Solidity 中都属于 值类型： * 布尔类型（bool）：字面常量值 <code>true</code>和 <code>false</code> * 整型（int/uint）：分为有符号整型<code>int</code>和无符号整形<code>uint</code>，这一点倒是和 c++、golang很相像。不管是无符号还有符号整数，它们都是以 8 位递增到 256 位，而<code>int</code></p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-12-06</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-12-06</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -1133,10 +2711,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/157/" class="thumbnail" title="玩以太坊链上项目的必备技能（初识智能合约语言-Solidity之旅一）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1670250331145.png" alt="玩以太坊链上项目的必备技能（初识智能合约语言-Solidity之旅一）">
 
     </a>
@@ -1147,12 +2911,24 @@
         <a class="abstract" href="/article/157/" title="文章摘要" rel="noopener noreferrer"><p>Solidity是静态类型的，支持继承、库和复杂的用户定义类型以及其他功能。 使用Solidity，您可以为投票、众筹、盲目拍卖和多签名钱包等用途创建合约。 在部署合约时，你应该使用最新发布的 Solidity 版本。除了特殊情况外，只有最新版本才会收到安全修复。此外，突破性的变化以及新的</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-12-05</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-12-05</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -1182,10 +2958,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/156/" class="thumbnail" title="在构建 Web3 前，需先知道什么是区块链，毕竟 Web3 是基于区块链" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1669897542628.jpeg" alt="在构建 Web3 前，需先知道什么是区块链，毕竟 Web3 是基于区块链">
 
     </a>
@@ -1196,12 +3158,24 @@
         <a class="abstract" href="/article/156/" title="文章摘要" rel="noopener noreferrer"><p>通俗来说，<code>区块链</code>本质上是一个去中心化的数据仓储，也就是每个人都保留着这个账本，可以认为它是一套加密的分布式超级账本。 比特币是基于区块链技术的第一个应用，也是目前最成功的一个应用。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-12-01</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-12-01</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -1285,7 +3259,7 @@
     
   </section><link rel="stylesheet" crossorigin href="/calendar/index-B9W94nXs.css">
 
-<section class="Qc_aside_item ">
+<section class="Qc_aside_item calendar_area">
     <div class="qiucode-calendar"></div>
 </section>
 

@@ -102,6 +102,7 @@
 .Qc_aside_item.author .list .item .link:hover{color:var(--theme)}
 .Qc_aside_item.author .list .item .link:hover::after{width:100%}
 .Qc_aside_item.author .list .item .icon{fill:var(--routine)}
+.Qc_aside_item.calendar_area {background: var(--background);}
 .Qc_aside_item.timelife{background:var(--background)}
 .Qc_aside_item.timelife .item{margin-bottom:15px}
 .Qc_aside_item.timelife .item:last-child{margin-bottom:0}

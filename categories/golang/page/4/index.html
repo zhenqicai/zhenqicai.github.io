@@ -64,16 +64,10 @@
 
 <style>
 
-    @font-face {
-        font-family: "Kiwi Font";
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-        src: url("/fonts/fontawesome-webfont.woff2") format("woff2");
-    }
+     
  
     html {
-        font-family: 'Kiwi Font', 'PingFang SC', 'Noto Serif SC', 'HarmonyOS_Sans_SC_Medium', 'Fira Mono', 'Microsoft YaHei', Arial, sans-serif
+        font-family:  'PingFang SC', 'Noto Serif SC', 'HarmonyOS_Sans_SC_Medium', 'Fira Mono', 'Microsoft YaHei', Arial, sans-serif
     }
 
     html .Qc_header_above .Qc_container {
@@ -110,7 +104,7 @@
 <link rel="stylesheet" href="https://qiucode.cn/css/style.css" />
 <link rel="stylesheet" href="https://qiucode.cn/css/theme.min.css" />
 
-<link rel="stylesheet" href="https://qiucode.cn/css/font-awesome.min.css" />
+
 
 
 
@@ -753,10 +747,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/126/" class="thumbnail" title="Go 语言中的类型转换以及类型推导（Let&#39;s Go 六）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1664005560129.png" alt="Go 语言中的类型转换以及类型推导（Let&#39;s Go 六）">
 
     </a>
@@ -767,12 +947,24 @@
         <a class="abstract" href="/article/126/" title="文章摘要" rel="noopener noreferrer"><p>在声明一个变量而不指定其类型时（即使用不带类型的 <code>:=</code> 语法或 <code>var =</code> 表达式语法），变量的类型由右值推导得出。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-09-24</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-09-24</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -801,10 +993,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/125/" class="thumbnail" title="Go 语言中的字符串（Let&#39;s Go 五）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663999916505.png" alt="Go 语言中的字符串（Let&#39;s Go 五）">
 
     </a>
@@ -815,12 +1193,24 @@
         <a class="abstract" href="/article/125/" title="文章摘要" rel="noopener noreferrer"><p>字符串想必是所有编程语言最为基础的类型，当然，Go中也不另外，字符串可根据需要会占用<code>1</code>到<code>4</code>个字节内存，由于<code>Go</code>采用的是<code>UTF-8</code>字符集编码格式，所以<code>Go</code>不需要像其他编程语言那样对使用UTF-8字符集的文本进行编码与解码。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-09-24</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-09-24</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -849,10 +1239,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/124/" class="thumbnail" title="Go 语言中的多变量同时赋值、匿名变量以及变量作用域（Let&#39;s Go 四）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663854499153.png" alt="Go 语言中的多变量同时赋值、匿名变量以及变量作用域（Let&#39;s Go 四）">
 
     </a>
@@ -863,12 +1439,24 @@
         <a class="abstract" href="/article/124/" title="文章摘要" rel="noopener noreferrer"><p>在函数体外声明的变量称之为全局变量，全局变量只需要在一个源文件中定义，就可以在所有源文件中使用，当然，不包含这个全局变量的源文件需要使用“import”关键字引入全局变量所在的源文件之后才能使用这个全局变量。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-09-22</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-09-22</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -897,10 +1485,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/123/" class="thumbnail" title="Go 语言中的基本类型以及变量声明与初始化（Let&#39;s Go 三）" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663767348387.png" alt="Go 语言中的基本类型以及变量声明与初始化（Let&#39;s Go 三）">
 
     </a>
@@ -911,12 +1685,24 @@
         <a class="abstract" href="/article/123/" title="文章摘要" rel="noopener noreferrer"><p>刚才只是声明了变量，并没有给他赋值，虽然可以只是只声明变量，而后赋值也是可以的。但可以在声明变量是并初始化变量，也就是给变量赋初始值。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-09-21</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-09-21</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -945,10 +1731,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/122/" class="thumbnail" title="使用集成开发环境来开发Go项目" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663677237629.png" alt="使用集成开发环境来开发Go项目">
 
     </a>
@@ -959,12 +1931,24 @@
         <a class="abstract" href="/article/122/" title="文章摘要" rel="noopener noreferrer"><p>工欲善其事，必先利其器。好的集成开发环境（IDE）能让你事倍功半，好了，废话少扯，下来介绍几种能开发Go项目的IDE。</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-09-20</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-09-20</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -993,10 +1977,196 @@
         animation: rotating 3s linear infinite
     }
 
+
+    .Qc_home_articie-si.default {
+        display: flex;
+        position: relative;
+    }
+
+    .Qc_home_articie-si {
+        box-shadow: var(--darkreader-bg--box-shadow);
+        background: var(--darkreader-bg--background);
+    }
+    .Qc_home_articie-si {
+        position: relative;
+        width: 100%;
+        background: var(--background);
+        border-radius: var(--radius-wrap);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+    }
+
+    .Qc_home_articie-si.default .thumbnail {
+        flex-shrink: 0;
+        position: relative;
+        width: 210px;
+        height: 140px;
+        margin-right: 15px;
+        overflow: hidden;
+        border-radius: var(--radius-inner);
+    }
+
+    @media (max-width: 1199px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 185px;
+            height: 125px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        html .Qc_home_articie-si.default .thumbnail {
+            width: 140px;
+            height: 120px;
+            margin-right: 10px;
+
+        }
+
+        html .Qc_home_articie-si.default .meta .items {
+            width: 100%;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(1) {
+            display: flex;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li:nth-child(2) {
+            display: flex;
+            margin-left: auto;
+        }
+
+        html .Qc_home_articie-si.default .meta .items li {
+            display: none;
+        }
+
+        html .Qc_home_articie-si .meta .last {
+            display: none !important;
+        }
+
+    }
+
+
+
+    .Qc_home_articie-si.default .thumbnail img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        transition: .35s;
+    }
+
+    .Qc_home_articie-si.default .information {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .Qc_home_articie-si .information .title {
+        color: var(--darkreader-text--main);
+    }
+    .Qc_home_articie-si .information .title {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        color: var(--main);
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 48px;
+        transition: color 0.35s;
+    }
+
+    .Qc_home_articie-si .information .title .badge {
+        background-image: initial;
+        background-color: rgba(165, 29, 42, 0.81);
+        color: rgb(232, 230, 227);
+    }
+    .Qc_home_articie-si .information .title .badge {
+        height: 20px;
+        line-height: 20px;
+        background: #dc3545cf;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 2px;
+        padding: 0 8px;
+        white-space: nowrap;
+        vertical-align: 2px;
+    }
+
+    .Qc_home_articie-si .abstract {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .abstract {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--minor);
+        word-break: break-word;
+        line-height: 22px;
+        max-height: 44px;
+        opacity: 0.85;
+    }
+
+    .Qc_home_articie-si .meta {
+        color: var(--darkreader-text--minor);
+    }
+    .Qc_home_articie-si .meta {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: var(--minor);
+        font-size: 13px;
+    }
+
+    .Qc_home_articie-si .meta .items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+
+    .Qc_home_articie-si .meta .items li {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .Qc_home_articie-si .meta .last {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon2 {
+        fill: currentcolor;
+    }
+    .icon2 {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 2px;
+        fill: currentColor;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .Qc_home_articie-si .meta .last .link {
+        color: var(--darkreader-text--minor);
+    }
+
+
 </style>
 
-<li class="Qc_list_item wow index2">
-    <div class="line"></div>
+
+<li class="Qc_home_articie-si default">
+    
     <a href="/article/121/" class="thumbnail" title="window下安装 Go 语言开发包" rel="noopener noreferrer"><img style="zoom:50%;" loading="lazy" src="https://qiucode.cn/images/loading.gif"  data-lazy-src="https://qiucodeimg.oss-rg-china-mainland.aliyuncs.com/qiucode2020/1663598639199.png" alt="window下安装 Go 语言开发包">
 
     </a>
@@ -1007,12 +2177,24 @@
         <a class="abstract" href="/article/121/" title="文章摘要" rel="noopener noreferrer"><p>在window下安装最新Go语言开发包</p></a>
         <div class="meta">
             <ul class="items">
-                <li><i class="fa fa-calendar-times-o"></i>&nbsp;&nbsp;2022-09-19</li>
+                <li>
+                    <i class="wpcom-icon wi">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#wi-time"></use>
+                        </svg>
+                    </i>
+                    &nbsp;&nbsp;2022-09-19</li>
               
                 
             </ul>
             <div class="last" style="display:flex">
-                <i class="fa fa-folder-open" style="margin-right:2px;font-size:15px"></i>&nbsp;&nbsp;
+                
+                <i class="wpcom-icon wi" style="margin-right:2px;font-size:15px">
+                    <svg aria-hidden="true">
+                        <use xlink:href="#wi-folder-open"></use>
+                    </svg>
+                </i>
+                &nbsp;&nbsp;
                 
 
                 
@@ -1087,7 +2269,7 @@
     
   </section><link rel="stylesheet" crossorigin href="/calendar/index-B9W94nXs.css">
 
-<section class="Qc_aside_item ">
+<section class="Qc_aside_item calendar_area">
     <div class="qiucode-calendar"></div>
 </section>
 
