@@ -5,7 +5,38 @@
     <link>https://qiucode.cn/tags/github/</link>
     <description>Recent content in github on 秋码分享</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 27 Jan 2024 19:39:19 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Aug 2024 18:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> 国内 gitee.com Pages 下线了，致使众多站长纷纷改用其他托管平台</title>
+      <link>https://qiucode.cn/article/206/</link>
+      <pubDate>Sat, 10 Aug 2024 18:46:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/206/</guid>
+      <description>作为一位IT或coder（码农、程序员），在日常工作中，多多少少都会有技术知识的积累（生产环境中所遇到的问题【亦可称为是坑】）。俗话说得好，好记性抵不过烂笔头。不管是前沿技术的研习后的心得，还是工作中所遇到的问题，亟需将这些笔记留存下来，为的是以备后续查看（未来有可能遇到类似的坑，也好该如何下手，以不至于手忙脚乱的），当然咯，在方便自己的同时，也分享给他人。
+那既然只是为了留存笔记而已，又何必去搭建一个个人博客网站呢？国内在线攥写博客的平台多如牛毛，既“省时”又“省力”，又何必非要去为难自己来搭建一个专属于自己的个人博客网站呢？诸如CSDN、知乎、博客园、掘金、简书……，攥写文章都是免费的（如果这都不免费，那恐怕这些平台都要下线了），又何必花钱购买云服务器/VPS、域名，网站你可以自己编写（省去了这部分成本），或是可以使用github pages、gitee.com pages来免费托管静态网站，但至少比在大平台攥写文章时，多了一步，那是将写好的文章push（推送）到你的远程仓库，那不成大平台免费的，它不香么？
+回答上述“三个何必” 既然只是工作中的知识笔记，或是前沿技术的研习心得，国内有大把的博客、社区以供攥写，而缘何非得去搭建一个个人博客呢？的确，第三方平台有诸多的优点，但它的弊端也是显而易见的，就拿我2022-12-08在CSDN攥写的一篇关于如何注册 ChatGPT的文章，过了几个月后，居然被CSDN批注为未通过审核。
+当我看到CSDN发来的站内通知，顿时懵圈了，不禁发问，“这是怎么回事？CSDN居然还有这波操作，着实令人费解啊！”
+这就是你在第三方平台上攥写文章的困境，当然咯，你写的文章符合该平台的规则，那么一切将是风平浪静，反之，平台随时可以以审核未通过之借口，使得你热心分享知识给他人，却无形之中让人泼了一脚盆洗脚水，从头凉到脚。故而，搭建一个个人博客势在必行，而大三方平台照样会更新文章，而它只是作为更好地分享知识给他人，诸如 花了不到1块5，玩了下全网最火的ChatGPT 。
+有人说，“你平常就写写知识笔记、以及你工作所遇到的问题解决方案，你就非得去花钱折腾出一个个人网站出来吗？难不成现成的大平台它不香吗？”
+“大平台它香，但也让瞬间挠着头发，在房间里踱来踱去。而现如今搭建一个人网站也可以是低成本，甚至免费。”可以参考： 其实，低成本甚至免费的，也是可以搭建个人网站的哦！ 。
+github、gitlab、gitee（已经下线了）、coding.net（要结合腾讯云）等国内外知名代码托管平台，都有提供Pages服务，也就是可以托管你的静态资源，以此来搭建一个静态网站，然而，每次在本地编译生成好的静态资源 推送（push）到这些托管平台总是比较麻烦的，毕竟，这相较于在第三方平台上攥写文章，费力了很多。
+对于每次更新文章，都要在本地编译生成静态资源，总让觉得很是枯燥。去这些托管平台看看有没有属于这套程序的CI/CD（持续集成）相关文档。
+gitee.io（gitee pages）终究还是下线了 据将站点托管在gitee pages的站长称，2024-05-01假期回岗，却发现自己的站点出现了Timeout，一时间，他很是不解，不应该啊！只是托管个静态资源，既然也出现了Timeout。
+随即，他去gitee.com咨询官方客服，到底是出现了什么问题？回复他的是，gitee pages光荣下线了。（这是我预料之中的，我也并不是看不好国内这些互联网平台）
+当然咯，有些站长还是不死心，竟然跑到gitee官方账号下提issue，很显然，这个issue官方是不会回复的，犹如一封信，内容写好了，却在最后忘记把寄往何处的地址写上，最终信是无法到达彼处的，可谓是遥遥无期。
+当初，那些站长之所以会选择gitee pages来建站，也是有原因的，毕竟github pages在国内访问速度，，真是一言难尽啊，如果光是访问速度慢些，到还是勉强接受，不幸的是，github pages时常在国内出现了无法访问该网站的情形，这还让你的站点怎么分享知识给他人呢？
+介于github pages在国内访问速度慢，还时常无法打开的缘故，很多站长终究还是勉为其难地选择了国内的托管平台（诸如：gitee.com pages、coding.net pages）。
+gitlab.com pages托管站点 不同于github pages，gitlab pages是通过CI/CD来实现pages，也就是他没有像github那样的纯静态托管机制。当然咯，github也是可以通过CI/CD来实现站点的托管的。
+要想在gitlab.com pages上托管站点，那么，毫无疑问的是，你得登陆 gitlab.com或注册一个新的gitlab.com账号（可以直接使用你的github账号），这里就不赘述gitlab.com账号的注册了。
+在登陆gitlab.聪明·后，我们着手创建一个仓库（Repository`）,名称随你意，只要你欢喜。
+通常，我们都是使用SSH来远程操作的，那么，就需要配置gitlab的SSH Key，关于key的配置，之前，我也是有相应的文章来介绍配置github和gitee的SSH Key，如果不是很清楚的话，在这里，我将再次讲解如何配置gitlab SSH Key。
+我们本地使用以下命令来生成SSH公私钥.
+ssh-keygen -t rsa -f ~/.ssh/gitlab.com/id_rsa -c &amp;#34;邮箱地址&amp;#34; # -f SSH私钥文件地址 随后，我们将生成好的公钥复制到gitlab.com上，可以使用以下命令。
+cat 以 .pub 后缀的文件 当你git clone时，却出错了。
+然而，你以为这样就好了嘛，可gitlab却还不行，还需再生成SSH 公私钥的文件位置下，编辑config文件，加入以下内容。
+# GitLab.com Host gitlab.</description>
+    </item>
+    
     <item>
       <title>解决 github.com port 443: Timed out 的问题</title>
       <link>https://qiucode.cn/article/191/</link>
