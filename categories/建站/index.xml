@@ -5,7 +5,38 @@
     <link>https://qiucode.cn/categories/%E5%BB%BA%E7%AB%99/</link>
     <description>Recent content in 建站 on 秋码分享</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 10 Aug 2024 18:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/categories/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Aug 2024 16:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/categories/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>不要你掏腰包，就能搭建个人网站之 gitlab.com Pages 托管服务</title>
+      <link>https://qiucode.cn/article/207/</link>
+      <pubDate>Sun, 11 Aug 2024 16:46:43 +0800</pubDate>
+      
+      <guid>https://qiucode.cn/article/207/</guid>
+      <description>当你看到文章标题时，不会还以为我实在忽悠人吧！也难怪，这是我们身处的环境所造就的，这一点我倒是可以理解，毕竟，我们身边总是充斥着以免费、不要你一分钱……为噱头的各种声音，贪小便宜是人的天性，殊不知，他们因贪这小小地便宜，反倒是损失了更多。
+人们在上当受骗了首次，也就对身边的“免费”东西不再感冒了。只有那么少部分人知晓这世上是不会有免费的午餐、天上也不会无缘无故的掉馅饼，倘若真掉馅饼了，并且还砸中了你，那是行骗之人瞄准了你的口袋而不去理会这些所谓的“免费”。
+要是在互联网早期，你说，“不用你掏腰包，就可以搭建一个专属的个人网站。”那么，在别人眼中，此时的你就是个骗子。
+而到了云计算兴起后，你再说同样的话，这时便有少部分人相信了。
+可以参考：其实，低成本甚至免费的，也是可以搭建个人网站的哦！
+为何选择 gitlab.com pages 服务呢？ 但凡是代码托管平台，它都提供pages服务，如果没有，那它就是阉割版的代码托管平台。
+享誉海内外知名的github.com、提供开源版和在线的gitlab.com、……等众多海外声名显赫的代码托管平台，都提供了pages 服务。
+当然咯，国内也是有很多代码托管平台，诸如：gitee.com pages 已经光荣下线了，请不要试图在上面托管任何静态网站了！！！、coding.net pages 服务会在页面停留 5s（5秒），像是在检测你的静态站点、以及一些不知名小众的托管平台，也都提供了pages 服务，但是，这些国内托管平台对于个人想要开启pages是有要求（条件）的。
+若不是github.com在国内的访问速度限制，以及时常出现该网站无法访问的种种原因，想必国内的coder（码农或程序员）是不会将站点托管在国内的coding.net等其他不知名小众托管平台上的，gitee.com就别提了，现在可以把gitee.com称为阉割版的托管平台了，因为它不再提供pages了。
+你以为将站点托管在coding.net,你就会觉得在国内访问速度提升了嘛？你是否觉得它会比github.com托管站点访问来的快？若你是这么觉得，那你认为错了，正所谓：你以为的以为不是你的以为。coding.net pages 服务会在你托管在其上的站点提留5秒钟，这反倒没有github.com快了。
+国内的gitee.com骤然下线了pages服务，使得众多托管在gitee.com上的众多站长纷纷迁往它处（github.com、gitlab.com等海外托管平台），而托管在国内的coding.net上，迟早也是会忍受不了那莫名其妙的5秒钟页面空白提留检测，改用其他托管平台的。
+或许有人跳起脚来，指着我的鼻子，骂道，“你为何老是贬低国内互联网产品呢？而一味地夸耀海外的互联网产品呢？照这样下去，国内的互联网行业还这么能兴起呢？”
+“在你说这些话之前，烦请你在电子设备中使用浏览器访问国内的gitee.com,看看它的pages服务是不是下线了，以及coding.net是不是有在页面提留5秒中，还有些国内小众托管平台，如CSDN也有托管平台，它也提供了pages，对于个人来讲，是有条件限制的。”
+对于国内的这些托管平台，gitee.com可谓是坐上了国内托管平台的“第一把交椅”，然而，它却没有任何形式的通知托管在其上的众多站长，以至于很多站长都蒙在鼓里，也只有在更新文章，推送到gitee.com上，方才知晓，自己托管在gitee.com上的站点出现了Timeout；coding.net给每个托管在它上面的站点停留 5 秒钟的时间，以此来检查你的站点；国内数一数二的托管平台都有这样或那样的限制，或者干脆下线了，那么，国内那些小众的、初出茅庐的托管平台岂不是对个人想要在该平台开启pages有了更多严苛`的条件了。
+gittlab.com 创建 Repository（仓库） 在创建Repository之前，你得为你的gitlab.com配置好SSH Key，以便Repository的pull（拉取）和push（推送），至于该如何配置，可参考：国内 gitee.com Pages 下线了，致使众多站长纷纷改用其他托管平台 或在 CSDN上的 国内 gitee.com Pages 下线了，致使众多站长纷纷改用 github、gitlab Pages 托管平台 。
+登陆gitlab.com官网，在左上角，点击账户头像旁边+按钮，进行创建一个新的project或repository。
+随后，我们便在右侧看到，可以创建project或repository的各种“款式”。
+我这里选择Create blank project（创建一个空白/白板项目）。
+这里的项目名称取为username.gitlab.io是方便公网访问的。
+假设project name为blog，那么你的project URL为：https://gitlab.com/username/blog/ 。一旦这个project启用了GitLab pages，并构建了站点，站点访问url为：https://uesrname.gitlab.io/blog/ 。如果你要创建一个user page，假设此时project name为qiucode.gitlab.io(qiucode为你的Gitlab username)，则你的project URL为：https://gitlab.com/qiucode/qiucode.gitlab.io 。一旦这个project启用了GitLab pages，并构建了站点，站点访问url为：https://qiucode.gitlab.io。
+本文章著作权归作者所有，任何形式的转载都请注明出处。
+使用以下命令将创建好的project克隆到本地。
+git clone git@gitlab.</description>
+    </item>
+    
     <item>
       <title> 国内 gitee.com Pages 下线了，致使众多站长纷纷改用其他托管平台</title>
       <link>https://qiucode.cn/article/206/</link>
