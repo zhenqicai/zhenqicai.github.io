@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>github on 秋码分享</title><link>https://qiucode.cn/tags/github/</link><description>Recent content in github on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 11 Aug 2024 16:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>不要你掏腰包，就能搭建个人网站之 gitlab.com Pages 托管服务</title><link>https://qiucode.cn/article/207/</link><pubDate>Sun, 11 Aug 2024 16:46:43 +0800</pubDate><guid>https://qiucode.cn/article/207/</guid><description>当你看到文章标题时，不会还以为我实在忽悠人吧！也难怪，这是我们身处的环境所造就的，这一点我倒是可以理解，毕竟，我们身边总是充斥着以免费、不要你一分钱……为噱头的各种声音，贪小便宜是人的天性，殊不知，他们因贪这小小地便宜，反倒是损失了更多。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>github on 秋码分享</title><link>https://qiucode.cn/tags/github/</link><description>Recent content in github on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 12 Aug 2024 20:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>个人站点迁移之gitlab.com pages 绑定自定义域名</title><link>https://qiucode.cn/article/208/</link><pubDate>Mon, 12 Aug 2024 20:46:43 +0800</pubDate><guid>https://qiucode.cn/article/208/</guid><description>前言概要 能浏览本文的你，想必是在gitlab.com上创建了Repository（仓库），并将本地代码push（推送）到该Repository（仓库）中了，开启了Pages服务，然而，gitlab.com并不会像github.com那样，给你生成以username.gitlab.io这样的子域名（二级域名/subdomain），而是生成了以你的的Repository（仓库）名称（比如我创建的Repository名称是qiucode.gitlab.io）加上-你的username，再加上一串由字母、数字组成的字符串，像是UUID一般的字符串，最后则拼接上gitlab.io,最后便如我的这般：https://qiucode-gitlab-io-qiucode-aee06712da2e10b24ab5079f6b5a4a09c943b.gitlab.io/
+这也就是我在上一篇 不要你掏腰包，就能搭建个人网站之 gitlab.com Pages 托管服务 所遗留的问题，之所以会产生那么一长串的domain（子域名），那是由于gitlab.com给你生成URL时，默认是开启了unique domain（唯一域），这也是我查看了官方文档方才知道的，其实，稍微注意一下，在Pages当前页滚动页面，就会看到那个unique domain（唯一域）的开关了。
+既然知道了gitlab.com默认开启了unique domain（唯一域），那么，我们只要把它关闭了，不就可以了嘛！是的，那么在当前Repository（仓库）左侧选项中找到Deploy（部署）中的子选项Pages，会看到下方settings属性，有个checkbox（复选框），它就是是否Use unique domain（使用唯一域）的开关，我们只需点击它，checkbox也就处于未选中（Uncheck）状态，点击底下的save changes（保存更改）就可以了。
+配置自定义域名 如果你不想花钱去购买域名，而使用username.gitlab.iol来作为你的站点的域名，是可以的，没有任何毛病，毕竟很多博主、站长也都是这么干的。既省去了购买域名的费用（当然也有免费的二级域名，但那还不如使用username.gitlab.io呢！），又省去了SSL的困惑。这才是真正意义上的不要你掏腰包，就能搭建一个个人网站的最终完结篇。
+可有些博主、站长（比如： qiucode.cn）还是希望能自定义域名。
+要想自定义域名，还是在当前Repository中找到Deploy，选择它的子选项Pages
+滚动页面找到Domain属性，点击右侧的New domain（新域名/添加新的域名）
+当你添加完了域名后，来到了Pages Domain新页面，它便是要求你在你的域名 DNS 添加下列Record（记录），以此来验证你添加的域名所有权。
+可以看出，我们需要在域名 DNS添加两条记录，然而，第一条记录中ALIAS（别名），却没在我的域名 DNS选项里，你说这，是不是在为难我啊！
+这么着吧，还是看官方文档，看看该如何配置自定义域名。
+官方文档关于如何配置自定义域名：https://docs.gitlab.com/ee/user/project/pages/custom_domains_ssl_tls_certification/index.html 。
+按官方文档来看，分为三种情况：
+root domain（根域名/主域名，如： qiucode.cn）
+DNS添加一条A记录并指向gitlab.com Pages服务器IP地址（gitlab.com上的IP是35.185.44.232）。 再添加一条TXT记录用来验证你的域名所有权。 主机记录 记录类型 记录值 @ A 35.185.44.232 _gitlab-pages-verification-code.qiucode.cn TXT gitlab-pages-verification-code=00112233445566778899aabbccddeeff subdomain（子域名：如：lab.qiucode.cn）
+DNS添加一条ALIAS 或 CNAME 记录，并指向Pages服务器 再添加一条TXT记录用来验证你的域名所有权。 主机记录 记录类型 记录值 lab.qiucode.cn ALIAS/CNAME qiucode.gitlab.io _gitlab-pages-verification-code.lab.qiucode.cn TXT gitlab-pages-verification-code=00112233445566778899aabbccddeeff 可按照官方文档来配置自定义域名，那个Verification status（验证状态）却一直都是Unverified，当然你在域名DNS添加纪录之后，得点击旁边的刷新按钮，其实它是将整个页面进行刷新，而不是页面局部更新数据。以至于修改DNS主机记录：
+主机记录 记录类型 记录值 lab.qiucode.cn ALIAS / CNAME qiucode.</description></item><item><title>不要你掏腰包，就能搭建个人网站之 gitlab.com Pages 托管服务</title><link>https://qiucode.cn/article/207/</link><pubDate>Sun, 11 Aug 2024 16:46:43 +0800</pubDate><guid>https://qiucode.cn/article/207/</guid><description>当你看到文章标题时，不会还以为我实在忽悠人吧！也难怪，这是我们身处的环境所造就的，这一点我倒是可以理解，毕竟，我们身边总是充斥着以免费、不要你一分钱……为噱头的各种声音，贪小便宜是人的天性，殊不知，他们因贪这小小地便宜，反倒是损失了更多。
 人们在上当受骗了首次，也就对身边的“免费”东西不再感冒了。只有那么少部分人知晓这世上是不会有免费的午餐、天上也不会无缘无故的掉馅饼，倘若真掉馅饼了，并且还砸中了你，那是行骗之人瞄准了你的口袋而不去理会这些所谓的“免费”。
 要是在互联网早期，你说，“不用你掏腰包，就可以搭建一个专属的个人网站。”那么，在别人眼中，此时的你就是个骗子。
 而到了云计算兴起后，你再说同样的话，这时便有少部分人相信了。
