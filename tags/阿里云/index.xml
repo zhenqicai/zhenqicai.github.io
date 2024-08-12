@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>阿里云 on 秋码分享</title>
-    <link>https://qiucode.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</link>
-    <description>Recent content in 阿里云 on 秋码分享</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 19 Jul 2024 19:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>腾讯云COS托管静态网站，以及如何解决访问出现了下载网页的情况</title>
-      <link>https://qiucode.cn/article/203/</link>
-      <pubDate>Fri, 19 Jul 2024 19:46:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/203/</guid>
-      <description>腾讯云对象存储（Cloud Object Storage，简称COS），与其他云厂商所提供的云对象存储都是面向非结构化数据，只是每个云厂商的叫法有别于他家，或许是更能彰显厂商的品牌吧！
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>阿里云 on 秋码分享</title><link>https://qiucode.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</link><description>Recent content in 阿里云 on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 19 Jul 2024 19:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91/index.xml" rel="self" type="application/rss+xml"/><item><title>腾讯云COS托管静态网站，以及如何解决访问出现了下载网页的情况</title><link>https://qiucode.cn/article/203/</link><pubDate>Fri, 19 Jul 2024 19:46:43 +0800</pubDate><guid>https://qiucode.cn/article/203/</guid><description>腾讯云对象存储（Cloud Object Storage，简称COS），与其他云厂商所提供的云对象存储都是面向非结构化数据，只是每个云厂商的叫法有别于他家，或许是更能彰显厂商的品牌吧！
 但不管云厂商怎么给云对象存储起名，最终客户关心的还是性价比。
 使用云对象存储，无非是存放些静态资源（javascript 第三方库、项目中内部的javascript文件、样式文件css、字体文件、小图标等），以此来减轻服务器所承载的压力，从而使得整个站点让用户体验效果显著提升了。
 然而，本文要讲的是，怎么样在云对象存储中托管静态网站（这虽然听起来有点可笑，这年头，谁还玩静态网站啊。你也别笑，秋码记录 就是一个很好的静态网站的例子，它也的确是静态网站，可它却具有了与用户交流的文章评论`功能！）
@@ -35,16 +21,7 @@
 在参数选择下拉框中选中Content-Disposition,值是手动输入inline.
 现在，你再次打开浏览器进行访问，这回，展现在你眼前的，便是你所期望的页面展示了。
 可当你回过头，再去查看index.html头部信息时，却发现它自动的加上初始的那个Header信息，这时，你不禁啐了一口，“腾讯云，真TMD恶心，哦！不，国内的这些云厂商都TMD超恶心”。
-当然咯，不管是腾讯云COS，还是其他国内云厂商，想要使用云对象存储来托管静态网站还是比较，怎么说呢！用来开发、测试勉强还凑合吧！</description>
-    </item>
-    
-    <item>
-      <title>使用 golang 以及 Gin 框架，将上传的图片在不保存至本地的情况下添加水印，并上传至阿里云 OSS</title>
-      <link>https://qiucode.cn/article/201/</link>
-      <pubDate>Sat, 30 Mar 2024 20:46:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/201/</guid>
-      <description>正如标题所述，使用golang对上传图片添加水印，以及将图片上传到阿里云OSS，网上一搜索，便有你想要的结果了，可是，他们却先将上传图片添加水印后保存在本地，而后再将添加了水印的图片上传到阿里云OSS。
+当然咯，不管是腾讯云COS，还是其他国内云厂商，想要使用云对象存储来托管静态网站还是比较，怎么说呢！用来开发、测试勉强还凑合吧！</description></item><item><title>使用 golang 以及 Gin 框架，将上传的图片在不保存至本地的情况下添加水印，并上传至阿里云 OSS</title><link>https://qiucode.cn/article/201/</link><pubDate>Sat, 30 Mar 2024 20:46:43 +0800</pubDate><guid>https://qiucode.cn/article/201/</guid><description>正如标题所述，使用golang对上传图片添加水印，以及将图片上传到阿里云OSS，网上一搜索，便有你想要的结果了，可是，他们却先将上传图片添加水印后保存在本地，而后再将添加了水印的图片上传到阿里云OSS。
 这无疑是暂时占用了你电脑的磁盘空间（这里说是暂时，因为你可以通过程序对上传到阿里云OSS成功的图片进行删除），即便是这样，它也是消耗了磁盘读写操作，虽然人类是察觉不到这么细微的变化。
 然而，作为技术人员的我们（不介意我这么称呼自己吧！），使能够Review出这段程序的问题。很显然，本地图片是要通过程序处理，添加水印，而后最终储存到阿里云OSS中，而不是又要在本地多存了一张比原图多了些水印的图片。
 图像处理库 既然我们的目的明确了，那么就卷起柚子加油干吧！
@@ -65,17 +42,4 @@ go get github.com/gin-gonic/gin 是啊！都说了，不引入它，本文也可
 用代码实现标题的需求 前提准备工作就绪，我们该正式进入编码环节了。到了这里，正处于屏幕前的你，想必早就迫不及待了吧！毕竟，你就是与我有同样的需求，才会浏览本文的（当然也有那种，鼠标不小心点到了，但那种几率是很小的，我相信你不是属于那一类的）
 首先，我们使用VS Code（你也可以使用其他你平时常用的IDE，不必非要使用与我一样的VS Code，然而，作为一款开源免费的IDE，你还有什么理由不去使用它呢？哦，差点忘记了，都说了，使用IDE是个人的自由，可我这么一说，倒有了让你使用VS Code之嫌。虽然，或许你比较喜欢使用收费软件，但你都是找的破解方法来破解软件，从而使用它们）
 打开刚刚新建的main.go文件，开始逐步实现标题的需求。
-package main import ( &amp;#34;bytes&amp;#34; &amp;#34;image&amp;#34; &amp;#34;image/png&amp;#34; // &amp;#34;image/jepg&amp;#34; //用于对 jpg 格式的图片进行处理 本文暂时不对 jpg 图片做处理 &amp;#34;github.com/gin-gonic/gin&amp;#34; //web 框架 &amp;#34;github.com/fogleman/gg&amp;#34; // 图像处理哭 &amp;#34;github.com/aliyun/aliyun-oss-go-sdk/oss&amp;#34; //阿里云OSS SDK ) 随后，我们在main函数中实现标题中的需求。</description>
-    </item>
-    
-    <item>
-      <title>双十一抢购云服务器，总有一款适合您</title>
-      <link>https://qiucode.cn/article/82/</link>
-      <pubDate>Mon, 29 Oct 2018 23:26:20 +0000</pubDate>
-      
-      <guid>https://qiucode.cn/article/82/</guid>
-      <description>&lt;p&gt;深夜发表文章，只为阿里云云服务器双十一搞活动，1核2G 云服务器 1年 84元。如果你错过了上次阿里云拼团的机会，那就在双十一这次拼团不要再错过了，这次拼团也是相对来说性价比也是比较优惠的！&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+package main import ( &amp;#34;bytes&amp;#34; &amp;#34;image&amp;#34; &amp;#34;image/png&amp;#34; // &amp;#34;image/jepg&amp;#34; //用于对 jpg 格式的图片进行处理 本文暂时不对 jpg 图片做处理 &amp;#34;github.com/gin-gonic/gin&amp;#34; //web 框架 &amp;#34;github.com/fogleman/gg&amp;#34; // 图像处理哭 &amp;#34;github.com/aliyun/aliyun-oss-go-sdk/oss&amp;#34; //阿里云OSS SDK ) 随后，我们在main函数中实现标题中的需求。</description></item><item><title>双十一抢购云服务器，总有一款适合您</title><link>https://qiucode.cn/article/82/</link><pubDate>Mon, 29 Oct 2018 23:26:20 +0000</pubDate><guid>https://qiucode.cn/article/82/</guid><description>&lt;p>深夜发表文章，只为阿里云云服务器双十一搞活动，1核2G 云服务器 1年 84元。如果你错过了上次阿里云拼团的机会，那就在双十一这次拼团不要再错过了，这次拼团也是相对来说性价比也是比较优惠的！&lt;/p></description></item></channel></rss>

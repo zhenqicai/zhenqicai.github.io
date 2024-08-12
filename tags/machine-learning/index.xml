@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Machine Learning on 秋码分享</title>
-    <link>https://qiucode.cn/tags/machine-learning/</link>
-    <description>Recent content in Machine Learning on 秋码分享</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 14 Jan 2024 15:50:17 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>选择和训练模型（Machine Learning 研习之十一）</title>
-      <link>https://qiucode.cn/article/190/</link>
-      <pubDate>Sun, 14 Jan 2024 15:50:17 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/190/</guid>
-      <description>当您看到本文标题时，不禁感叹，总算是到了训练模型这一节了。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning on 秋码分享</title><link>https://qiucode.cn/tags/machine-learning/</link><description>Recent content in Machine Learning on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 14 Jan 2024 15:50:17 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>选择和训练模型（Machine Learning 研习之十一）</title><link>https://qiucode.cn/article/190/</link><pubDate>Sun, 14 Jan 2024 15:50:17 +0800</pubDate><guid>https://qiucode.cn/article/190/</guid><description>当您看到本文标题时，不禁感叹，总算是到了训练模型这一节了。
 是啊，在之前的文章中，我们对数据进行了探索，以及对一个训练集和一个测试集进行了采样，也编写了一个预处理管道来自动清理，准备您的数据用于机器学习算法，然而现在，我们可以选择并训练模型了。
 训练集的训练与评估 我们从一个最基本的线性回归模型开始：
 from sklearn.linear_model import LinearRegression lin_reg = make_pipeline(preprocessing, LinearRegression()) lin_reg.fit(housing, housing_labels) 很好，至此，我们现在算是有了一个有效的线性回归模型，可以在训练集上试用它，查看前五个预测，并将它们与标签进行比较:：
@@ -30,16 +16,7 @@ Scikit-Learn的交叉验证功能期望的是效用函数(越大越好)而不是
 现在决策树看起来不像以前那么好了。事实上，它的表现几乎和线性回归模型一样差！请注意，交叉验证不仅允许您获得模型性能的估计值，还允许您测量该估计值的精确度(即其标准差)。决策树的均方根误差约为66，868，标准差约为2,061。如果只使用一个验证集，则不会有此信息。但是交叉验证是以多次训练模型为代价的，所以它并不总是可行的。
 如果您为线性回归模型计算相同的度量，您将发现平均RMSE为69，858，标准差为4,182。因此，决策树模型的性能似乎比线性模型稍微好一点，但由于严重的过拟合，差异很小。我们知道存在过拟合 问题，因为训练误差很低(实际上为零)，而验证误差很高。
 现在让我们尝试最后一个模型:随机森林调节器，随机森林的工作原理是在特征的随机子集上训练许多决策树，然后平均出它们的预测值。这样的模型组成的许多其他模型被称为合奏:他们能够提高性能基础模型(在本例中为决策树)。代码与前面的代码大同小异：
-from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(preprocessing, RandomForestRegressor(random_state=42)) forest_rmses = -cross_val_score(forest_reg, housing, housing_labels, scoring=&amp;#34;neg_root_mean_squared_error&amp;#34;, cv=10) 随机森林真的看起来非常有前途的任务！但是，如果您训练一个RandomForest并测量训练集上的RMSE，您将发现大约17，474:这要低得多，这意味着仍然存在大量的过度拟合。可能的解决方案是 简化模型，约束它(即，规则化它)，或得到更多的训练数据。但是，在深入研究随机森林之前，您应该尝试来自各种类别机器学习算法的许多其他模型(例如，具有不同内核的多个支持向量机，可能还有一个神经网络)，而无需花费太多时间调整超参数。目标是列出几个(两到五个)有前途的模型。</description>
-    </item>
-    
-    <item>
-      <title>机器学习中的 Transformation Pipelines（Machine Learning 研习之十）</title>
-      <link>https://qiucode.cn/article/189/</link>
-      <pubDate>Mon, 11 Dec 2023 19:50:17 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/189/</guid>
-      <description>Transformation Pipelines 有许多数据转换步骤需要以正确的顺序执行。幸运的是，Scikit-Learn提供了Pipeline类来帮助处理这样的转换序列。下面是一个用于数值属性的小管道，它首先对输入特性进行归并，然后对输入特性进行缩放:
+from sklearn.ensemble import RandomForestRegressor forest_reg = make_pipeline(preprocessing, RandomForestRegressor(random_state=42)) forest_rmses = -cross_val_score(forest_reg, housing, housing_labels, scoring=&amp;#34;neg_root_mean_squared_error&amp;#34;, cv=10) 随机森林真的看起来非常有前途的任务！但是，如果您训练一个RandomForest并测量训练集上的RMSE，您将发现大约17，474:这要低得多，这意味着仍然存在大量的过度拟合。可能的解决方案是 简化模型，约束它(即，规则化它)，或得到更多的训练数据。但是，在深入研究随机森林之前，您应该尝试来自各种类别机器学习算法的许多其他模型(例如，具有不同内核的多个支持向量机，可能还有一个神经网络)，而无需花费太多时间调整超参数。目标是列出几个(两到五个)有前途的模型。</description></item><item><title>机器学习中的 Transformation Pipelines（Machine Learning 研习之十）</title><link>https://qiucode.cn/article/189/</link><pubDate>Mon, 11 Dec 2023 19:50:17 +0800</pubDate><guid>https://qiucode.cn/article/189/</guid><description>Transformation Pipelines 有许多数据转换步骤需要以正确的顺序执行。幸运的是，Scikit-Learn提供了Pipeline类来帮助处理这样的转换序列。下面是一个用于数值属性的小管道，它首先对输入特性进行归并，然后对输入特性进行缩放:
 from sklearn.pipeline import Pipeline num_pipeline = Pipeline([ (&amp;#34;impute&amp;#34;, SimpleImputer(strategy=&amp;#34;median&amp;#34;)), (&amp;#34;standardize&amp;#34;, StandardScaler()), ]) Pipeline构造函数采用名称/估算器对(2元组)的列表，定义了一系列步骤。名称可以是您喜欢的任何名称，只要它们是唯一的，并且不包含双下划线(__)。以后我们讨论超参数调优时，它们会很有用。估计器必须都是转换器(即，它们必须有一个fit_transform()方法)，除了最后一个，它可以是任何东西:转换器、预测器或任何其他类型的估计器。
 如果你不想命名transformers你可以使用 make_pipeline() 函数； 它将transformers作为位置参数，并使用transformers类的名称（小写且不带下划线）创建管道（例如，“simpleimputer”）：
 from sklearn.pipeline import make_pipeline num_pipeline = make_pipeline(SimpleImputer(strategy=&amp;#34;median&amp;#34;), StandardScaler()) 如果多个transformers具有相同的名称，则会在其名称后附加索引（例如“foo-1”、“foo-2”等）。
@@ -49,16 +26,7 @@ from sklearn.pipeline import make_pipeline num_pipeline = make_pipeline(SimpleIm
 如前所述，如果要恢复一个漂亮的DataFrame，可以使用管道的get_feature_names_ out()方法:
 df_housing_num_prepared = pd.DataFrame( housing_num_prepared, columns=num_pipeline.get_feature_names_out(), index=housing_num.index) 管道支持索引;例如，管道[1]返回管道中的第二个估计值，管道[:-1]返回一个包含除最后一个估计值以外的所有估计值的管道对象。您还可以通过steps属性(它是名称/估算器对的列表)或named_steps字典属性(它将名称映射到估算器)访问估算器。例如，num_line[“ simpleimputer”]返回名为“simpleimputer”的估计器。
 到目前为止，我们已经分别处理了分类列和数值列。如果有一个能够处理所有列的转换器，将适当的转换应用到每一列，那会更方便。为此，您可以使用olumnTransformer。例如，下面的ColumnTransformer将把num_pipeline(我们刚刚定义的那个)应用于数字属性，把cat_pipeline应用于类别属性:
-from sklearn.compose import ColumnTransformer num_attribs = [&amp;#34;longitude&amp;#34;, &amp;#34;latitude&amp;#34;, &amp;#34;housing_median_age&amp;#34;, &amp;#34;total_rooms&amp;#34;, &amp;#34;total_bedrooms&amp;#34;, &amp;#34;population&amp;#34;, &amp;#34;households&amp;#34;, &amp;#34;median_income&amp;#34;] cat_attribs = [&amp;#34;ocean_proximity&amp;#34;] cat_pipeline = make_pipeline( SimpleImputer(strategy=&amp;#34;most_frequent&amp;#34;), OneHotEncoder(handle_unknown=&amp;#34;ignore&amp;#34;)) preprocessing = ColumnTransformer([ (&amp;#34;num&amp;#34;, num_pipeline, num_attribs), (&amp;#34;cat&amp;#34;, cat_pipeline, cat_attribs), ]) 首先导入ColumnTransformer类，然后定义数字和分类列名的列表，并为分类属性构造一个简单的管道。最后，我们构造了一个列变换器。它的构造函数需要一个三元组(3-tuple)列表，每个三元组包含一个名称(必须是唯一的且不包含双下划线)、一个转换器和一个应该应用转换器的列的名称(或索引)列表。</description>
-    </item>
-    
-    <item>
-      <title>特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）</title>
-      <link>https://qiucode.cn/article/187/</link>
-      <pubDate>Sat, 18 Nov 2023 20:53:29 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/187/</guid>
-      <description>特征缩放和转换 您需要应用于数据的最重要的转换之一是功能扩展。除了少数例外，机器学习算法在输入数值属性具有非常不同的尺度时表现不佳。住房数据就是这种情况:房间总数约为6至39320间，而收入中位数仅为0至15间。如果没有任何缩放，大多数模型将倾向于忽略收入中位数，而更多地关注房间数。
+from sklearn.compose import ColumnTransformer num_attribs = [&amp;#34;longitude&amp;#34;, &amp;#34;latitude&amp;#34;, &amp;#34;housing_median_age&amp;#34;, &amp;#34;total_rooms&amp;#34;, &amp;#34;total_bedrooms&amp;#34;, &amp;#34;population&amp;#34;, &amp;#34;households&amp;#34;, &amp;#34;median_income&amp;#34;] cat_attribs = [&amp;#34;ocean_proximity&amp;#34;] cat_pipeline = make_pipeline( SimpleImputer(strategy=&amp;#34;most_frequent&amp;#34;), OneHotEncoder(handle_unknown=&amp;#34;ignore&amp;#34;)) preprocessing = ColumnTransformer([ (&amp;#34;num&amp;#34;, num_pipeline, num_attribs), (&amp;#34;cat&amp;#34;, cat_pipeline, cat_attribs), ]) 首先导入ColumnTransformer类，然后定义数字和分类列名的列表，并为分类属性构造一个简单的管道。最后，我们构造了一个列变换器。它的构造函数需要一个三元组(3-tuple)列表，每个三元组包含一个名称(必须是唯一的且不包含双下划线)、一个转换器和一个应该应用转换器的列的名称(或索引)列表。</description></item><item><title>特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）</title><link>https://qiucode.cn/article/187/</link><pubDate>Sat, 18 Nov 2023 20:53:29 +0800</pubDate><guid>https://qiucode.cn/article/187/</guid><description>特征缩放和转换 您需要应用于数据的最重要的转换之一是功能扩展。除了少数例外，机器学习算法在输入数值属性具有非常不同的尺度时表现不佳。住房数据就是这种情况:房间总数约为6至39320间，而收入中位数仅为0至15间。如果没有任何缩放，大多数模型将倾向于忽略收入中位数，而更多地关注房间数。
 有两种常见的方法使所有属性具有相同的尺度:最小-最大尺度和标准化。
 与所有估计器一样，重要的是仅将标量拟合到训练数据:永远不要对训练集以外的任何对象使用fit()或fit_transform()。一旦你有了一个训练好的定标器，你就可以用它来变换()任何其他的集合，包括验证集、测试集和新的数据。请注意，虽然培训集值将始终缩放到指定的范围，但如果新的数据包含异常值，则这些值最终可能会缩放到该范围之外。如果要避免这种情况，只需将剪辑超参数设置为True即可。
 最小-最大缩放(许多人称之为标准化)是最简单的:对于每个属性，值被移位和重新缩放，以便它们最终的范围从0到1。这是通过减去最小值并除以最小值和最大值之间的差来实现的。Scikit-Learn为此提供了一个名为MinMaxScaler的转换器。它有一个feature_range超参数，如果出于某种原因，不希望0-1(例如，神经网络在零均值输入下工作得最好，所以最好在-1到1的范围内工作)。是相当好用的:
@@ -71,16 +39,7 @@ from sklearn.preprocessing import StandardScaler std_scaler = StandardScaler() h
 from sklearn.metrics.pairwise import rbf_kernel age_simil_35 = rbf_kernel(housing[[&amp;#34;housing_median_age&amp;#34;]], [[35]], gamma=0.1) 下图显示了这一新特征作为住房中位数年龄的函数(实线)。它还显示了如果使用较小的gamma值，该功能将是什么样子。如图所示，新的年龄相似性特征在35岁时达到峰值，正好在住房中位年龄分布的峰值附近:如果这个特定的年龄组与较低的价格有很好的相关性，那么这个新特征将有很好的机会发挥作用。
 到目前为止，我们只看了输入特性，但是目标值可能也需要转换。例如，若目标分布具有较重的尾部，您可以选择将目标替换为其对数。但是，如果你这样做，回归模型现在将预测的房屋价值中位数的对数，而不是房屋价值中位数本身。如果您想要预测的房屋中值，则需要计算模型预测的指数值。
 幸运的是，大多数Scikit-Learn的转换器都有一个inverse_transform()方法，这使得计算转换的逆运算变得很容易。例如，下面的代码示例显示了如何使用StandardScaler缩放标签(就像我们对输入所做的那样)，然后在缩放后的标签上训练一个简单的线性回归模型，并使用它对一些新数据进行预测，然后使用经过训练的缩放器的inverse_transform()方法将这些数据转换回原始尺度。请注意，我们将标签从Pandas Series转换为DataFrame，因为标准Scaler期望2D输入。此外，为了简单起见，在本示例中，我们仅使用单个原始输入特征(中值收入)对模型进行训练:
-from sklearn.linear_model import LinearRegression target_scaler = StandardScaler() scaled_labels = target_scaler.</description>
-    </item>
-    
-    <item>
-      <title>为机器学习算法准备数据（Machine Learning 研习之八）</title>
-      <link>https://qiucode.cn/article/186/</link>
-      <pubDate>Sun, 05 Nov 2023 11:30:06 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/186/</guid>
-      <description>本文还是同样建立在前两篇的基础之上的！
+from sklearn.linear_model import LinearRegression target_scaler = StandardScaler() scaled_labels = target_scaler.</description></item><item><title>为机器学习算法准备数据（Machine Learning 研习之八）</title><link>https://qiucode.cn/article/186/</link><pubDate>Sun, 05 Nov 2023 11:30:06 +0800</pubDate><guid>https://qiucode.cn/article/186/</guid><description>本文还是同样建立在前两篇的基础之上的！
 属性组合实验 希望前面的部分能让您了解探索数据并获得洞察力的几种方法。您发现了一些数据怪癖，您可能希望在将数据提供给机器学习算法之前对其进行清理，并且发现了属性之间有趣的相关性，特别是与目标属性 之间的相关性。您还注意到一些属性具有向右倾斜的分布，因此您可能需要转换它们(例如，通过计算它们的对数或平方根)。当然，你的里程会因每个项目而有很大的不同，但大致的想法是相似的。
 在为机器学习算法准备数据之前，您可能需要做的最后一件事是尝试各种属性组合。例如，如果你不知道一个地区有多少住户，那么这个地区的房间总数就不是很有用。你真正想要的是每个家庭的房间数量。同样，卧室总数本身也不是很有用:你可能想对比一下房间的数量。每个家庭的人口似乎也是一个有趣的属性组合。创建这些新属性如下:
 housing[&amp;#34;rooms_per_house&amp;#34;] = housing[&amp;#34;total_rooms&amp;#34;] / housing[&amp;#34;households&amp;#34;] housing[&amp;#34;bedrooms_ratio&amp;#34;] = housing[&amp;#34;total_bedrooms&amp;#34;] / housing[&amp;#34;total_rooms&amp;#34;] housing[&amp;#34;people_per_house&amp;#34;] = housing[&amp;#34;population&amp;#34;] / housing[&amp;#34;households&amp;#34;] 然后你再看一遍相关矩阵:
@@ -94,16 +53,7 @@ housing = strat_train_set.drop(&amp;#34;median_house_value&amp;#34;, axis=1) hou
 将缺失值设置为某个值(零、均值、中位数等)。这就是所谓的归罪。
 您可以使用PandasDataFrame的dropna () 、drop () 和fillna ()方法轻松完成这些任务:
 housing.dropna(subset=[&amp;#34;total_bedrooms&amp;#34;], inplace=True) # option 1 housing.drop(&amp;#34;total_bedrooms&amp;#34;, axis=1) # option 2 median = housing[&amp;#34;total_bedrooms&amp;#34;].median() # option 3 housing[&amp;#34;total_bedrooms&amp;#34;].fillna(median, inplace=True) 您决定使用选项3，因为它的破坏性最小，但是您将使用一个方便的Scikit-Learn类:Simplelmputer，而不是前面的代码。这样做的好处是，它将存储每个特征的中值:这将使得它不仅可以估算训练集上的缺失值，还可以估算验证集、测试集和输入到模型的任何新数据上的缺失值。要使用它，首先需要创建一个Simplelmputer实例，指定要将每个属性的缺失值替换为该属性的中位数:
-from sklearn.</description>
-    </item>
-    
-    <item>
-      <title>端到端的机器学习项目之探索数据（Machine Learning 研习之七）</title>
-      <link>https://qiucode.cn/article/188/</link>
-      <pubDate>Tue, 24 Oct 2023 19:30:00 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/188/</guid>
-      <description>本篇其实是承接上一篇内容，之所以没在上一篇将它写完，那是有原因的，毕竟，本着学习的态度，篇幅不应过长，方能使你有学习的欲望！
+from sklearn.</description></item><item><title>端到端的机器学习项目之探索数据（Machine Learning 研习之七）</title><link>https://qiucode.cn/article/188/</link><pubDate>Tue, 24 Oct 2023 19:30:00 +0800</pubDate><guid>https://qiucode.cn/article/188/</guid><description>本篇其实是承接上一篇内容，之所以没在上一篇将它写完，那是有原因的，毕竟，本着学习的态度，篇幅不应过长，方能使你有学习的欲望！
 探索数据 首先，确保你已经把测试放在一边，你只是在探索训练集。此外，如果训练集非常大，您可能希望对探索进行采样设置，使操作在勘探阶段变得容易和快速。在这种情况下，培训集非常小，所以您可以直接处理完整集。由于你要试验完整训练集的各种变换，你应该制作一份原始的所以你可以在之后恢复它:
 housing = strat_train_set.copy() 可视化地理数据 因为数据集包括地理信息(纬度和经度)，所以创建一个所有地区的散点图来可视化数据是一个好主意(见下图):
 housing.plot(kind=&amp;#34;scatter&amp;#34;, x=&amp;#34;longitude&amp;#34;, y=&amp;#34;latitude&amp;#34;, grid=True) plt.show() 这看起来很像加州，但除此之外，很难看到任何特别的模式。将alpha选项设置为0.2可以更容易地显示数据点密度高的位置(见下图):
@@ -119,62 +69,4 @@ corr_matrix = housing.corr() 现在您可以查看每个属性与房屋中值的
 查看相关散点图，似乎最有希望预测房屋价值中位数的属性是收入中位数，所以你放大他们的散点图(见下图):
 housing.plot(kind=&amp;#34;scatter&amp;#34;, x=&amp;#34;median_income&amp;#34;, y=&amp;#34;median_house_value&amp;#34;, alpha=0.1, grid=True) plt.show() 这个情节揭示了一些事情。首先，相关性确实很强;你可以清楚地看到上升的趋势，而且点也不太分散。第二，你之前注意到的价格上限在500，000美元的水平线上明显可见。但这个情节也揭示了其他不那么明显的直线:一条水平线在45万美元左右，另一条大约35万美元左右，也许还有一条大约28万美元，还有几条低于这一点。您可能希望尝试删除相应的区域，以防止您的算法学习重现这些数据怪癖。
 警告：
-相关系数只测量线性相关性(“当x上升时，y通常上升/下降”)。它可能会完全忽略非线性关系(例如，“当x接近0时，y通常会上升”)。图2-16显示了各种数据集及其相关系数。请注意，尽管它们的轴线显然不是独立的，但底部行的所有图都具有等于0的相关系数:这些都是非线性关系的例子。另外，第二行显示了相关系数等于1或-1的示例;注意，这与斜率无关。例如，以英寸为单位的身高与以英尺或纳米为单位的身高的相关系数为1。</description>
-    </item>
-    
-    <item>
-      <title>端到端的机器学习项目（Machine Learning 研习之六）</title>
-      <link>https://qiucode.cn/article/183/</link>
-      <pubDate>Sat, 14 Oct 2023 17:02:17 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/183/</guid>
-      <description>&lt;p&gt;Scikit-Learn提供了一些函数，以各种方式将数据集拆分为多个子集。最简单的函数train_test_split()，它的功能与我们前面定义的shuffle_and_split_data ()函数非常相似，只是增加了几个特性。首先，有一个random_state参数，它允许您设置随机生成器种子。其次，您可以向它传递具有相同行数的多个数据集，它将按照相同的索引将它们拆分(这是非常有用的，例如，如果你有一个单独的DataFrame标签)&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>机机器学习的测试和验证（Machine Learning 研习之五）</title>
-      <link>https://qiucode.cn/article/182/</link>
-      <pubDate>Sun, 27 Aug 2023 16:32:17 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/182/</guid>
-      <description>&lt;p&gt;在此保留验证过程之后，您可以在完整的训练集（包括验证集）上训练最佳模型，这将为您提供最终模型。在这种情况下，需要记住的最重要的规则是，验证集和测试集都必须尽可能具有生产中预期使用的数据的代表性，因此它们应该完全由有代表性的图片组成:您可以对它们进行洗牌，将一半放在验证集中，另一半放在测试集中(确保在这两个集合中都没有重复或接近重复的数据)。在网络图片上对模型进行培训之后，如果您观察到模型在验证集上的性能令人失望，您将不知道这是因为您的模型超出了培训集，还是仅仅是由于网络图片和移动应用程序图片之间的不匹配。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>机器学习的主要挑战和任务（Machine Learning 研习之四）</title>
-      <link>https://qiucode.cn/article/181/</link>
-      <pubDate>Sun, 13 Aug 2023 15:12:38 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/181/</guid>
-      <description>&lt;p&gt;对于一个蹒跚学步的孩子来说，要知道什么是苹果，您只需要指着一个苹果说“苹果”(可能会重复这个过程几次)。现在孩子能够识别各种颜色和形状的苹果。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）</title>
-      <link>https://qiucode.cn/article/180/</link>
-      <pubDate>Fri, 28 Jul 2023 21:12:38 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/180/</guid>
-      <description>&lt;p&gt;随着时间的推移，模型也需做出相应的变化。但就采用新数据与旧数据一起训练，势必需要耗费更多的资源，为了解决这一状况，本文带您了解，关于新数据该如何训练？&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>现实生活中机器学习的具体示例（Machine Learning 研习之二）</title>
-      <link>https://qiucode.cn/article/179/</link>
-      <pubDate>Mon, 17 Jul 2023 21:22:38 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/179/</guid>
-      <description>&lt;p&gt;在上一篇，我们初步了解什么是机器学习，以及它能给我们带来，相对于传统编程解决更为优先、易于维护的一套解决方案。那么，本文将继续为您举例，机器学习给我们生活上带来哪些便捷。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）</title>
-      <link>https://qiucode.cn/article/178/</link>
-      <pubDate>Sat, 15 Jul 2023 10:18:38 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/178/</guid>
-      <description>&lt;p&gt;让机器学习不再是过门不入，跟着【秋码】一起研习机器学习（&amp;ldquo;Machine Learning&amp;rdquo;），探究什么是机器学习？以及为何我们要去使用机器学习呢？毕竟未来是属于人工智能（Ai）的，引领潮流的往往是新事物，这一次，您可不要再错过了！抓住它，就等于握住了穿梭未来的时光机。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+相关系数只测量线性相关性(“当x上升时，y通常上升/下降”)。它可能会完全忽略非线性关系(例如，“当x接近0时，y通常会上升”)。图2-16显示了各种数据集及其相关系数。请注意，尽管它们的轴线显然不是独立的，但底部行的所有图都具有等于0的相关系数:这些都是非线性关系的例子。另外，第二行显示了相关系数等于1或-1的示例;注意，这与斜率无关。例如，以英寸为单位的身高与以英尺或纳米为单位的身高的相关系数为1。</description></item><item><title>端到端的机器学习项目（Machine Learning 研习之六）</title><link>https://qiucode.cn/article/183/</link><pubDate>Sat, 14 Oct 2023 17:02:17 +0800</pubDate><guid>https://qiucode.cn/article/183/</guid><description>&lt;p>Scikit-Learn提供了一些函数，以各种方式将数据集拆分为多个子集。最简单的函数train_test_split()，它的功能与我们前面定义的shuffle_and_split_data ()函数非常相似，只是增加了几个特性。首先，有一个random_state参数，它允许您设置随机生成器种子。其次，您可以向它传递具有相同行数的多个数据集，它将按照相同的索引将它们拆分(这是非常有用的，例如，如果你有一个单独的DataFrame标签)&lt;/p></description></item><item><title>机机器学习的测试和验证（Machine Learning 研习之五）</title><link>https://qiucode.cn/article/182/</link><pubDate>Sun, 27 Aug 2023 16:32:17 +0800</pubDate><guid>https://qiucode.cn/article/182/</guid><description>&lt;p>在此保留验证过程之后，您可以在完整的训练集（包括验证集）上训练最佳模型，这将为您提供最终模型。在这种情况下，需要记住的最重要的规则是，验证集和测试集都必须尽可能具有生产中预期使用的数据的代表性，因此它们应该完全由有代表性的图片组成:您可以对它们进行洗牌，将一半放在验证集中，另一半放在测试集中(确保在这两个集合中都没有重复或接近重复的数据)。在网络图片上对模型进行培训之后，如果您观察到模型在验证集上的性能令人失望，您将不知道这是因为您的模型超出了培训集，还是仅仅是由于网络图片和移动应用程序图片之间的不匹配。&lt;/p></description></item><item><title>机器学习的主要挑战和任务（Machine Learning 研习之四）</title><link>https://qiucode.cn/article/181/</link><pubDate>Sun, 13 Aug 2023 15:12:38 +0800</pubDate><guid>https://qiucode.cn/article/181/</guid><description>&lt;p>对于一个蹒跚学步的孩子来说，要知道什么是苹果，您只需要指着一个苹果说“苹果”(可能会重复这个过程几次)。现在孩子能够识别各种颜色和形状的苹果。&lt;/p></description></item><item><title>对于大量数据集的解决方案便是在线学习或是增量学习（Machine Learning 研习之三）</title><link>https://qiucode.cn/article/180/</link><pubDate>Fri, 28 Jul 2023 21:12:38 +0800</pubDate><guid>https://qiucode.cn/article/180/</guid><description>&lt;p>随着时间的推移，模型也需做出相应的变化。但就采用新数据与旧数据一起训练，势必需要耗费更多的资源，为了解决这一状况，本文带您了解，关于新数据该如何训练？&lt;/p></description></item><item><title>现实生活中机器学习的具体示例（Machine Learning 研习之二）</title><link>https://qiucode.cn/article/179/</link><pubDate>Mon, 17 Jul 2023 21:22:38 +0800</pubDate><guid>https://qiucode.cn/article/179/</guid><description>&lt;p>在上一篇，我们初步了解什么是机器学习，以及它能给我们带来，相对于传统编程解决更为优先、易于维护的一套解决方案。那么，本文将继续为您举例，机器学习给我们生活上带来哪些便捷。&lt;/p></description></item><item><title>让机器学习不再是过门不入，带您一起详解机器学习（机器学习 Machine Learning 研习之一）</title><link>https://qiucode.cn/article/178/</link><pubDate>Sat, 15 Jul 2023 10:18:38 +0800</pubDate><guid>https://qiucode.cn/article/178/</guid><description>&lt;p>让机器学习不再是过门不入，跟着【秋码】一起研习机器学习（&amp;ldquo;Machine Learning&amp;rdquo;），探究什么是机器学习？以及为何我们要去使用机器学习呢？毕竟未来是属于人工智能（Ai）的，引领潮流的往往是新事物，这一次，您可不要再错过了！抓住它，就等于握住了穿梭未来的时光机。&lt;/p></description></item></channel></rss>

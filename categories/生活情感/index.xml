@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>生活情感 on 秋码分享</title>
-    <link>https://qiucode.cn/categories/%E7%94%9F%E6%B4%BB%E6%83%85%E6%84%9F/</link>
-    <description>Recent content in 生活情感 on 秋码分享</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 30 Dec 2023 11:47:17 +0800</lastBuildDate><atom:link href="https://qiucode.cn/categories/%E7%94%9F%E6%B4%BB%E6%83%85%E6%84%9F/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>回望这风雨飘摇的一年过后，我们终将要整束行囊继续前行</title>
-      <link>https://qiucode.cn/article/184/</link>
-      <pubDate>Sat, 30 Dec 2023 11:47:17 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/184/</guid>
-      <description>2023 这一年 时间倏忽而过，纵有再多的不甘，2023 这一年的日历终要翻过去了。这一年，或许还对很多事保持着一种执念，然而，随着 2023 年如东逝水一去不复返，也该放下那份执着，让我们挥手告别那处于风雨飘摇的 2023 年，毕竟，未来还很长，我们还得背上行囊踏上那远方的路，否则，赶不上停靠在路边的二路汽车了都！
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>生活情感 on 秋码分享</title><link>https://qiucode.cn/categories/%E7%94%9F%E6%B4%BB%E6%83%85%E6%84%9F/</link><description>Recent content in 生活情感 on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 30 Dec 2023 11:47:17 +0800</lastBuildDate><atom:link href="https://qiucode.cn/categories/%E7%94%9F%E6%B4%BB%E6%83%85%E6%84%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>回望这风雨飘摇的一年过后，我们终将要整束行囊继续前行</title><link>https://qiucode.cn/article/184/</link><pubDate>Sat, 30 Dec 2023 11:47:17 +0800</pubDate><guid>https://qiucode.cn/article/184/</guid><description>2023 这一年 时间倏忽而过，纵有再多的不甘，2023 这一年的日历终要翻过去了。这一年，或许还对很多事保持着一种执念，然而，随着 2023 年如东逝水一去不复返，也该放下那份执着，让我们挥手告别那处于风雨飘摇的 2023 年，毕竟，未来还很长，我们还得背上行囊踏上那远方的路，否则，赶不上停靠在路边的二路汽车了都！
 2023 年年初为这一年预先设定的规划，实现了吗？然而，回答我们自己，是那无声的摇头。年初预定的规划，大抵也只有到了年末，我们对这一年复盘时，方觉得年初列出的计划清单，还是有那么多没有完成，更有甚者，清单上一项都没能实现，或许，此刻，我们会对自己发出一声苦笑，长吁责问自己，“一年的时间，竟然空不出一点时间来完成那年初既定的规划！”
 无论是长吁短叹，还是责怪自己，我们总得为未来、新的一年起一份未来规划列表，顺带 2023 年还未完成的计划。
 风雨过后，总能遇见太阳，只是自然界的现象，当然，也有例外，太阳有时让那厚实的云朵遮蔽了，日光便无法照耀大地，那阴郁之气却布满了上空，使这座城市处于压抑的一天，但我们相信，云朵总是会散开的，迟来的阳光，也会照射这片土地，用那光芒的温度去蒸发昨日的阴郁之气。
@@ -25,8 +11,4 @@
 编写一套具有 秋码记录 风格的 Wordpress主题 编写一套具有 秋码记录 风格的Typecho主题 更新基于Vue.js 2.X的开源 UI组件库 qiucode-ui 组件库 编写一套基于 React的开源UI组件库 让 秋码记录 全站使用自己开源的UI组件库 然而，到了 2023 年年末，回望计划清单时，发觉虽但没能全部完成，却在意料之外增添一项计划，实属难料的惊喜：
 开源了一套由 Hugo驱动的 hugo-theme-kiwi主题 一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦 实践多个Web3项目 研习人工智能领域 2023 年所欠下的计划，我们也只能将它们寄托于新的一年，希冀未来能够逐一地实现它们，以不负昨日之约。
 我们将 2023 年所搁浅的计划，整理好，装进背囊，踏上远方之路，让未来之光吹散因在 2023 年所沾满了满身泄气、不甘、愤懑地压抑之气。
-展望未来 昨日之事，已成定局，断然不可挽回，该是放下那份执念，去迎接明日的阳光。</description>
-    </item>
-    
-  </channel>
-</rss>
+展望未来 昨日之事，已成定局，断然不可挽回，该是放下那份执念，去迎接明日的阳光。</description></item></channel></rss>

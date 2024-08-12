@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Hugo on 秋码分享</title>
-    <link>https://qiucode.cn/tags/hugo/</link>
-    <description>Recent content in Hugo on 秋码分享</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 11 Aug 2024 16:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦</title>
-      <link>https://qiucode.cn/article/185/</link>
-      <pubDate>Sun, 24 Dec 2023 23:27:17 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/185/</guid>
-      <description>自 秋码记录 没再为云服务器续费那会儿起，便选用了由Hugo驱动的博客主题，来迁移秋码记录 上的所有文章，然而，在众多Hugo博客主题之列，竟找不出一套属于自己想要的风格的主题，故而，也只能暂且套用了一个还算可以的博客主题。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on 秋码分享</title><link>https://qiucode.cn/tags/hugo/</link><description>Recent content in Hugo on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 11 Aug 2024 16:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>一套由 Hugo 驱动的博客主题 hugo-theme-kiwi 开源啦</title><link>https://qiucode.cn/article/185/</link><pubDate>Sun, 24 Dec 2023 23:27:17 +0800</pubDate><guid>https://qiucode.cn/article/185/</guid><description>自 秋码记录 没再为云服务器续费那会儿起，便选用了由Hugo驱动的博客主题，来迁移秋码记录 上的所有文章，然而，在众多Hugo博客主题之列，竟找不出一套属于自己想要的风格的主题，故而，也只能暂且套用了一个还算可以的博客主题。
 那套没有秋码记录 博客风格的主题，终究是会被替换的，一切都只是时间问题。可没想到的是，暂时选用那套博客主题，竟然暂时了这么久，这一搁就是好几个月了。还记得，秋码记录 云服务器到期是在 6 月 20 日，那是一个盛夏的季节，可如今呢，却是一个寒冬腊月、冷风凌冽、大雪纷飞的残冬时节，我不禁感叹，时间真的过的好快啊！快的让人喘不过气来。
 其实，一套拥有 秋码记录 风格的主题，早已在云服务器到期之际，便应运而生了，可为什么一直拖到现如今呢？想必这也是您想问的吧！拖本不是我的本意，奈何有其他事傍身，无暇他顾，故而一拖再拖，拖到这寒冬腊月，窝在室内，身披被子，势必也要写出它来。
 hugo-theme-kiwi 名字的缘故 说出来不怕您笑话，我很喜欢吃猕猴桃（也可以叫奇异果），而kiwi便是奇异果的英文，所以就将这套具有 秋码记录 博客风格的主题称为 hugo-theme-kiwi了。
@@ -28,16 +14,7 @@ hugo-theme-kiwi V0.01已实现如下功能：
 5、友情链接，用于添加拥有个人博客网站链接，虽然你我身处天南地北，但能在此处以博客会友建立了（可以称为博友）“友情”。
 6、右侧侧边栏，分类和标签各自跳转到各自的页面
 还未实现的功能：
-1、首页文章搜索 2、时间轴 3、右侧侧边栏，分类与标签跳转页面优化 …… 今夜是平安页，您吃了苹果了吗？我衷心的祝愿您和您家人一生平安，同时，我也祈愿我和我的家人以及我身边的人一生平安！</description>
-    </item>
-    
-    <item>
-      <title>不要你掏腰包，就能搭建个人网站之 gitlab.com Pages 托管服务</title>
-      <link>https://qiucode.cn/article/207/</link>
-      <pubDate>Sun, 11 Aug 2024 16:46:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/207/</guid>
-      <description>当你看到文章标题时，不会还以为我实在忽悠人吧！也难怪，这是我们身处的环境所造就的，这一点我倒是可以理解，毕竟，我们身边总是充斥着以免费、不要你一分钱……为噱头的各种声音，贪小便宜是人的天性，殊不知，他们因贪这小小地便宜，反倒是损失了更多。
+1、首页文章搜索 2、时间轴 3、右侧侧边栏，分类与标签跳转页面优化 …… 今夜是平安页，您吃了苹果了吗？我衷心的祝愿您和您家人一生平安，同时，我也祈愿我和我的家人以及我身边的人一生平安！</description></item><item><title>不要你掏腰包，就能搭建个人网站之 gitlab.com Pages 托管服务</title><link>https://qiucode.cn/article/207/</link><pubDate>Sun, 11 Aug 2024 16:46:43 +0800</pubDate><guid>https://qiucode.cn/article/207/</guid><description>当你看到文章标题时，不会还以为我实在忽悠人吧！也难怪，这是我们身处的环境所造就的，这一点我倒是可以理解，毕竟，我们身边总是充斥着以免费、不要你一分钱……为噱头的各种声音，贪小便宜是人的天性，殊不知，他们因贪这小小地便宜，反倒是损失了更多。
 人们在上当受骗了首次，也就对身边的“免费”东西不再感冒了。只有那么少部分人知晓这世上是不会有免费的午餐、天上也不会无缘无故的掉馅饼，倘若真掉馅饼了，并且还砸中了你，那是行骗之人瞄准了你的口袋而不去理会这些所谓的“免费”。
 要是在互联网早期，你说，“不用你掏腰包，就可以搭建一个专属的个人网站。”那么，在别人眼中，此时的你就是个骗子。
 而到了云计算兴起后，你再说同样的话，这时便有少部分人相信了。
@@ -59,16 +36,7 @@ gittlab.com 创建 Repository（仓库） 在创建Repository之前，你得为�
 假设project name为blog，那么你的project URL为：https://gitlab.com/username/blog/ 。一旦这个project启用了GitLab pages，并构建了站点，站点访问url为：https://uesrname.gitlab.io/blog/ 。如果你要创建一个user page，假设此时project name为qiucode.gitlab.io(qiucode为你的Gitlab username)，则你的project URL为：https://gitlab.com/qiucode/qiucode.gitlab.io 。一旦这个project启用了GitLab pages，并构建了站点，站点访问url为：https://qiucode.gitlab.io。
 本文章著作权归作者所有，任何形式的转载都请注明出处。
 使用以下命令将创建好的project克隆到本地。
-git clone git@gitlab.</description>
-    </item>
-    
-    <item>
-      <title> 国内 gitee.com Pages 下线了，致使众多站长纷纷改用其他托管平台</title>
-      <link>https://qiucode.cn/article/206/</link>
-      <pubDate>Sat, 10 Aug 2024 18:46:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/206/</guid>
-      <description>作为一位IT或coder（码农、程序员），在日常工作中，多多少少都会有技术知识的积累（生产环境中所遇到的问题【亦可称为是坑】）。俗话说得好，好记性抵不过烂笔头。不管是前沿技术的研习后的心得，还是工作中所遇到的问题，亟需将这些笔记留存下来，为的是以备后续查看（未来有可能遇到类似的坑，也好该如何下手，以不至于手忙脚乱的），当然咯，在方便自己的同时，也分享给他人。
+git clone git@gitlab.</description></item><item><title> 国内 gitee.com Pages 下线了，致使众多站长纷纷改用其他托管平台</title><link>https://qiucode.cn/article/206/</link><pubDate>Sat, 10 Aug 2024 18:46:43 +0800</pubDate><guid>https://qiucode.cn/article/206/</guid><description>作为一位IT或coder（码农、程序员），在日常工作中，多多少少都会有技术知识的积累（生产环境中所遇到的问题【亦可称为是坑】）。俗话说得好，好记性抵不过烂笔头。不管是前沿技术的研习后的心得，还是工作中所遇到的问题，亟需将这些笔记留存下来，为的是以备后续查看（未来有可能遇到类似的坑，也好该如何下手，以不至于手忙脚乱的），当然咯，在方便自己的同时，也分享给他人。
 那既然只是为了留存笔记而已，又何必去搭建一个个人博客网站呢？国内在线攥写博客的平台多如牛毛，既“省时”又“省力”，又何必非要去为难自己来搭建一个专属于自己的个人博客网站呢？诸如CSDN、知乎、博客园、掘金、简书……，攥写文章都是免费的（如果这都不免费，那恐怕这些平台都要下线了），又何必花钱购买云服务器/VPS、域名，网站你可以自己编写（省去了这部分成本），或是可以使用github pages、gitee.com pages来免费托管静态网站，但至少比在大平台攥写文章时，多了一步，那是将写好的文章push（推送）到你的远程仓库，那不成大平台免费的，它不香么？
 回答上述“三个何必” 既然只是工作中的知识笔记，或是前沿技术的研习心得，国内有大把的博客、社区以供攥写，而缘何非得去搭建一个个人博客呢？的确，第三方平台有诸多的优点，但它的弊端也是显而易见的，就拿我2022-12-08在CSDN攥写的一篇关于如何注册 ChatGPT的文章，过了几个月后，居然被CSDN批注为未通过审核。
 当我看到CSDN发来的站内通知，顿时懵圈了，不禁发问，“这是怎么回事？CSDN居然还有这波操作，着实令人费解啊！”
@@ -90,17 +58,4 @@ gitlab.com pages托管站点 不同于github pages，gitlab pages是通过CI/CD�
 ssh-keygen -t rsa -f ~/.ssh/gitlab.com/id_rsa -c &amp;#34;邮箱地址&amp;#34; # -f SSH私钥文件地址 随后，我们将生成好的公钥复制到gitlab.com上，可以使用以下命令。
 cat 以 .pub 后缀的文件 当你git clone时，却出错了。
 然而，你以为这样就好了嘛，可gitlab却还不行，还需再生成SSH 公私钥的文件位置下，编辑config文件，加入以下内容。
-# GitLab.com Host gitlab.</description>
-    </item>
-    
-    <item>
-      <title>把握住golang中的template，方能驾驭得了Hugo主题的template</title>
-      <link>https://qiucode.cn/article/177/</link>
-      <pubDate>Sat, 08 Jul 2023 15:18:38 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/177/</guid>
-      <description>&lt;p&gt;不置可否，&lt;code&gt;Hugo&lt;/code&gt;的&lt;code&gt;template&lt;/code&gt;同样是使用&lt;code&gt;golang&lt;/code&gt;的标准库&lt;code&gt;html/template&lt;/code&gt;。为了能实现一个属于自己独特的&lt;code&gt;Hugo theme&lt;/code&gt;，或是修改他人的主题，都得对其&lt;code&gt;模板语法&lt;/code&gt;有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的&lt;code&gt;Hugo theme&lt;/code&gt;。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+# GitLab.com Host gitlab.</description></item><item><title>把握住golang中的template，方能驾驭得了Hugo主题的template</title><link>https://qiucode.cn/article/177/</link><pubDate>Sat, 08 Jul 2023 15:18:38 +0800</pubDate><guid>https://qiucode.cn/article/177/</guid><description>&lt;p>不置可否，&lt;code>Hugo&lt;/code>的&lt;code>template&lt;/code>同样是使用&lt;code>golang&lt;/code>的标准库&lt;code>html/template&lt;/code>。为了能实现一个属于自己独特的&lt;code>Hugo theme&lt;/code>，或是修改他人的主题，都得对其&lt;code>模板语法&lt;/code>有所知晓，方能改的称心如意，亦或是制作出一套即简约，又不失典雅的&lt;code>Hugo theme&lt;/code>。&lt;/p></description></item></channel></rss>

@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Transformers on 秋码分享</title>
-    <link>https://qiucode.cn/tags/transformers/</link>
-    <description>Recent content in Transformers on 秋码分享</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 18 Nov 2023 20:53:29 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/transformers/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）</title>
-      <link>https://qiucode.cn/article/187/</link>
-      <pubDate>Sat, 18 Nov 2023 20:53:29 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/187/</guid>
-      <description>特征缩放和转换 您需要应用于数据的最重要的转换之一是功能扩展。除了少数例外，机器学习算法在输入数值属性具有非常不同的尺度时表现不佳。住房数据就是这种情况:房间总数约为6至39320间，而收入中位数仅为0至15间。如果没有任何缩放，大多数模型将倾向于忽略收入中位数，而更多地关注房间数。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Transformers on 秋码分享</title><link>https://qiucode.cn/tags/transformers/</link><description>Recent content in Transformers on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 18 Nov 2023 20:53:29 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/transformers/index.xml" rel="self" type="application/rss+xml"/><item><title>特征缩放和转换以及自定义Transformers（Machine Learning 研习之九）</title><link>https://qiucode.cn/article/187/</link><pubDate>Sat, 18 Nov 2023 20:53:29 +0800</pubDate><guid>https://qiucode.cn/article/187/</guid><description>特征缩放和转换 您需要应用于数据的最重要的转换之一是功能扩展。除了少数例外，机器学习算法在输入数值属性具有非常不同的尺度时表现不佳。住房数据就是这种情况:房间总数约为6至39320间，而收入中位数仅为0至15间。如果没有任何缩放，大多数模型将倾向于忽略收入中位数，而更多地关注房间数。
 有两种常见的方法使所有属性具有相同的尺度:最小-最大尺度和标准化。
 与所有估计器一样，重要的是仅将标量拟合到训练数据:永远不要对训练集以外的任何对象使用fit()或fit_transform()。一旦你有了一个训练好的定标器，你就可以用它来变换()任何其他的集合，包括验证集、测试集和新的数据。请注意，虽然培训集值将始终缩放到指定的范围，但如果新的数据包含异常值，则这些值最终可能会缩放到该范围之外。如果要避免这种情况，只需将剪辑超参数设置为True即可。
 最小-最大缩放(许多人称之为标准化)是最简单的:对于每个属性，值被移位和重新缩放，以便它们最终的范围从0到1。这是通过减去最小值并除以最小值和最大值之间的差来实现的。Scikit-Learn为此提供了一个名为MinMaxScaler的转换器。它有一个feature_range超参数，如果出于某种原因，不希望0-1(例如，神经网络在零均值输入下工作得最好，所以最好在-1到1的范围内工作)。是相当好用的:
@@ -25,8 +11,4 @@ from sklearn.preprocessing import StandardScaler std_scaler = StandardScaler() h
 from sklearn.metrics.pairwise import rbf_kernel age_simil_35 = rbf_kernel(housing[[&amp;#34;housing_median_age&amp;#34;]], [[35]], gamma=0.1) 下图显示了这一新特征作为住房中位数年龄的函数(实线)。它还显示了如果使用较小的gamma值，该功能将是什么样子。如图所示，新的年龄相似性特征在35岁时达到峰值，正好在住房中位年龄分布的峰值附近:如果这个特定的年龄组与较低的价格有很好的相关性，那么这个新特征将有很好的机会发挥作用。
 到目前为止，我们只看了输入特性，但是目标值可能也需要转换。例如，若目标分布具有较重的尾部，您可以选择将目标替换为其对数。但是，如果你这样做，回归模型现在将预测的房屋价值中位数的对数，而不是房屋价值中位数本身。如果您想要预测的房屋中值，则需要计算模型预测的指数值。
 幸运的是，大多数Scikit-Learn的转换器都有一个inverse_transform()方法，这使得计算转换的逆运算变得很容易。例如，下面的代码示例显示了如何使用StandardScaler缩放标签(就像我们对输入所做的那样)，然后在缩放后的标签上训练一个简单的线性回归模型，并使用它对一些新数据进行预测，然后使用经过训练的缩放器的inverse_transform()方法将这些数据转换回原始尺度。请注意，我们将标签从Pandas Series转换为DataFrame，因为标准Scaler期望2D输入。此外，为了简单起见，在本示例中，我们仅使用单个原始输入特征(中值收入)对模型进行训练:
-from sklearn.linear_model import LinearRegression target_scaler = StandardScaler() scaled_labels = target_scaler.</description>
-    </item>
-    
-  </channel>
-</rss>
+from sklearn.linear_model import LinearRegression target_scaler = StandardScaler() scaled_labels = target_scaler.</description></item></channel></rss>

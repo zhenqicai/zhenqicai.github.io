@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>静态资源 on 秋码分享</title>
-    <link>https://qiucode.cn/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/</link>
-    <description>Recent content in 静态资源 on 秋码分享</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 19 Jul 2024 19:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>腾讯云COS托管静态网站，以及如何解决访问出现了下载网页的情况</title>
-      <link>https://qiucode.cn/article/203/</link>
-      <pubDate>Fri, 19 Jul 2024 19:46:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/203/</guid>
-      <description>腾讯云对象存储（Cloud Object Storage，简称COS），与其他云厂商所提供的云对象存储都是面向非结构化数据，只是每个云厂商的叫法有别于他家，或许是更能彰显厂商的品牌吧！
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>静态资源 on 秋码分享</title><link>https://qiucode.cn/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/</link><description>Recent content in 静态资源 on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 19 Jul 2024 19:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/index.xml" rel="self" type="application/rss+xml"/><item><title>腾讯云COS托管静态网站，以及如何解决访问出现了下载网页的情况</title><link>https://qiucode.cn/article/203/</link><pubDate>Fri, 19 Jul 2024 19:46:43 +0800</pubDate><guid>https://qiucode.cn/article/203/</guid><description>腾讯云对象存储（Cloud Object Storage，简称COS），与其他云厂商所提供的云对象存储都是面向非结构化数据，只是每个云厂商的叫法有别于他家，或许是更能彰显厂商的品牌吧！
 但不管云厂商怎么给云对象存储起名，最终客户关心的还是性价比。
 使用云对象存储，无非是存放些静态资源（javascript 第三方库、项目中内部的javascript文件、样式文件css、字体文件、小图标等），以此来减轻服务器所承载的压力，从而使得整个站点让用户体验效果显著提升了。
 然而，本文要讲的是，怎么样在云对象存储中托管静态网站（这虽然听起来有点可笑，这年头，谁还玩静态网站啊。你也别笑，秋码记录 就是一个很好的静态网站的例子，它也的确是静态网站，可它却具有了与用户交流的文章评论`功能！）
@@ -35,8 +21,4 @@
 在参数选择下拉框中选中Content-Disposition,值是手动输入inline.
 现在，你再次打开浏览器进行访问，这回，展现在你眼前的，便是你所期望的页面展示了。
 可当你回过头，再去查看index.html头部信息时，却发现它自动的加上初始的那个Header信息，这时，你不禁啐了一口，“腾讯云，真TMD恶心，哦！不，国内的这些云厂商都TMD超恶心”。
-当然咯，不管是腾讯云COS，还是其他国内云厂商，想要使用云对象存储来托管静态网站还是比较，怎么说呢！用来开发、测试勉强还凑合吧！</description>
-    </item>
-    
-  </channel>
-</rss>
+当然咯，不管是腾讯云COS，还是其他国内云厂商，想要使用云对象存储来托管静态网站还是比较，怎么说呢！用来开发、测试勉强还凑合吧！</description></item></channel></rss>

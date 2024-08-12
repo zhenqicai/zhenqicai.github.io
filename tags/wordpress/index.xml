@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>wordpress on 秋码分享</title>
-    <link>https://qiucode.cn/tags/wordpress/</link>
-    <description>Recent content in wordpress on 秋码分享</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 26 Jul 2024 12:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>其实，低成本甚至免费的，也是可以搭建个人网站的哦！</title>
-      <link>https://qiucode.cn/article/204/</link>
-      <pubDate>Fri, 26 Jul 2024 12:46:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/204/</guid>
-      <description>在日新月异的互联网浪潮下，想要搭建一个网站，已不再需要花费高昂的IDC 服务器费用以及人员维护等其他费用（相对于公有云来讲）。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>wordpress on 秋码分享</title><link>https://qiucode.cn/tags/wordpress/</link><description>Recent content in wordpress on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 26 Jul 2024 12:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/wordpress/index.xml" rel="self" type="application/rss+xml"/><item><title>其实，低成本甚至免费的，也是可以搭建个人网站的哦！</title><link>https://qiucode.cn/article/204/</link><pubDate>Fri, 26 Jul 2024 12:46:43 +0800</pubDate><guid>https://qiucode.cn/article/204/</guid><description>在日新月异的互联网浪潮下，想要搭建一个网站，已不再需要花费高昂的IDC 服务器费用以及人员维护等其他费用（相对于公有云来讲）。
 身为一名IT、Coder（码农或程序员），对于搭建一个网站的过程，是在清楚不过的了。那就是搭建网站所需的三要素（三兄弟）——服务器、一套程序、域名。
 云计算的崛起，致使越来越多的人上云体验了一把，与此同时，个人网站如雨后春笋般拔地而起，网站类型可谓是五花八门。（当然咯，云计算没出现之前，也是有人搭建个人网站，只是那高昂的IDC服务器，并不是每个人都愿意花那高昂的IDC服务器费）。
 虽然云计算的云服务器对IDC服务器造成了巨大冲击，但摆在你我眼前的云服务器费用，着实不低啊！（国内各大云厂商为了抢占用户，不惜打起了价格仗，你我索性从中薅起了羊毛，虽然你我深知这羊毛终究是出自羊身上的）。
@@ -44,8 +30,4 @@ serverless相对于服务器而言，它便是无需服务器。i
 综上所诉，想要搭建一个网站，低成本甚至免费的方案都有的。
 低成本方案一：虚主机（VPS) + 开源程序 + 免费的二级域名，费用用在了租用虚拟主机（VPS)上。
 低成本方案二：虚拟主机（VPS）+ 开源程序 + 顶级域名，费用花在了虚拟主机（VPS）和购买域名上。
-低成本方案三： serverless + 开源程序 + 顶级域名，费用花在了购买顶级域名上（秋码记录 就是选用这个方案）。</description>
-    </item>
-    
-  </channel>
-</rss>
+低成本方案三： serverless + 开源程序 + 顶级域名，费用花在了购买顶级域名上（秋码记录 就是选用这个方案）。</description></item></channel></rss>

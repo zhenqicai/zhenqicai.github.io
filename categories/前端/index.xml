@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>前端 on 秋码分享</title>
-    <link>https://qiucode.cn/categories/%E5%89%8D%E7%AB%AF/</link>
-    <description>Recent content in 前端 on 秋码分享</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 03 Aug 2024 15:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>canvas绘制文本时，该如何处理首行缩进、自动换行、多内容以省略号结束、竖排的呢？</title>
-      <link>https://qiucode.cn/article/205/</link>
-      <pubDate>Sat, 03 Aug 2024 15:46:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/205/</guid>
-      <description>实现如标题所示的这些文本效果，在css看来，不就是一两行css属性。然而，对于canvas来讲，要想呈现这样的文字样式，就没css那么轻松简便了。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>前端 on 秋码分享</title><link>https://qiucode.cn/categories/%E5%89%8D%E7%AB%AF/</link><description>Recent content in 前端 on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 03 Aug 2024 15:46:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>canvas绘制文本时，该如何处理首行缩进、自动换行、多内容以省略号结束、竖排的呢？</title><link>https://qiucode.cn/article/205/</link><pubDate>Sat, 03 Aug 2024 15:46:43 +0800</pubDate><guid>https://qiucode.cn/article/205/</guid><description>实现如标题所示的这些文本效果，在css看来，不就是一两行css属性。然而，对于canvas来讲，要想呈现这样的文字样式，就没css那么轻松简便了。
 既然如此，那为何还要使用对文本支持度不友好的canvas来绘制文字呢？而不是采用对文本天然支持的css呢？
 canvas 绘制文本的场景 在给为何弃对文本天然支持的 css而不用，拣起了文本支持度不友好的canvas的答复之时。不妨先来看看，究竟是在什么样的场景下，需要用到canvas去绘制文本呢？
 常逛商场的，总会不时地看到一些商家为了吸引客流而制作出的一张精美海报；再看艺术展前，也总能在大门看到本次参展的“艺术家”们最为得意的艺术及简介，所绘制的一张海报；去电影院观看的，大都是被该片前期在各大商场及公共场合宣传的那张海报而吸引来的。……
@@ -38,16 +24,8 @@ CanvasRenderingContext2D.fillText(text, x, y [, maxWidth]); text ： text是需�
 还是拿我们在纸张上写字或在电子设备上敲击文本时，我们知道换行（那是由于在纸张写的字大小差不多，一行只能容纳这么多文字）或电子设备设定好了字体大小，以此来推算出你写到哪个文字时，让你另起一行。
 那么，canvas实现自动换行可以通过计算文字字体大小`及纵向（Y）偏移量的。
 canvas提供了CanvasRenderingContext2D.measureText(text)这个API，它可以用来计算字符的宽度。
-canvas 是以左上角为原点，也就是说，X轴 水平向右是`正数`，反之亦然；Y 轴纵向则是以向下为`正数`，反向则负。要让canvas知道该在哪个位置自动换行，只需将文本的每个字符宽度进行累加，判断总字符宽度是否达到了canvas所设定的画布宽度，若是，则另起一行继续绘制剩余的文本字符，当然咯，在另起一行时，纵向 Y偏移量是要往下移动。</description>
-    </item>
-    
-    <item>
-      <title>使用CSS计数器，在目录名称前加上了序号，让目录看起来更加井然有序</title>
-      <link>https://qiucode.cn/article/202/</link>
-      <pubDate>Mon, 01 Apr 2024 15:46:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/202/</guid>
-      <description>目录（Text of Contents缩写为TOC），其实就是一篇文章的概要或简述。这好比，去书店买书，先是被这本书的标题所吸引，而后我们才会，翻开这本书目录，看看这本书主要是在讲些什么？我们在看目录的同时，脑中也在不停的思衬，”这本书到底值不值得买呢？但是没有什么实战内容耶！“
+canvas 是以左上角为原点，也就是说，X轴 水平向右是`正数`，反之亦然；Y 轴纵向则是以向下为`正数`，反向则负。
+要让canvas知道该在哪个位置自动换行，只需将文本的每个字符宽度进行累加，判断总字符宽度是否达到了canvas所设定的画布宽度，若是，则另起一行继续绘制剩余的文本字符，当然咯，在另起一行时，纵向 Y偏移量是要往下移动。</description></item><item><title>使用CSS计数器，在目录名称前加上了序号，让目录看起来更加井然有序</title><link>https://qiucode.cn/article/202/</link><pubDate>Mon, 01 Apr 2024 15:46:43 +0800</pubDate><guid>https://qiucode.cn/article/202/</guid><description>目录（Text of Contents缩写为TOC），其实就是一篇文章的概要或简述。这好比，去书店买书，先是被这本书的标题所吸引，而后我们才会，翻开这本书目录，看看这本书主要是在讲些什么？我们在看目录的同时，脑中也在不停的思衬，”这本书到底值不值得买呢？但是没有什么实战内容耶！“
 文章目录 其实，一篇文章也不非要目录的，只要段落分的好，就算是长篇大论也是无关紧要的！
 只是文章有了目录，让人一眼就能瞧出这篇文章到底讲了什么？虽然标题上有说，但还是得为哪几个段落起个副标题。
 再说了，文章目录可以让用户在页面上，点击到达指定目录名称下进行浏览。虽然这在很大层度上是可以通过鼠标滑动，滚动到想要浏览的位置。
@@ -64,16 +42,7 @@ css计数器 或许也只有在使用了CSS 计数器后，你就会摒弃代码
 第一个参数是你要访问的计数器的名称，在你的例子中，该名称就是 item。 第二个参数是字符串，用来分隔计数器的各个级别。在你的例子中，这个分隔符是英文的句点 . .toc-content ol li a:first-of-type::before{ counter-increment: item; content: counters(item,&amp;#34;.&amp;#34;)&amp;#34;、&amp;#34;; font-weight: 700; margin-right: 1px; } 比如在多级嵌套的列表中，如果在第一级的第二个项中的第三个小项，那么 counters() 的值就会是 2.3、。
 字符串、 紧接着 counters(item, &amp;quot;.&amp;quot;) 的作用是将结果后面添加一个顿号，使其格式化输出更美观。
 所以 counters(item, &amp;quot;.&amp;quot;) &amp;quot;. &amp;quot; 的作用就是生成并显示一个根据当前嵌套列表项的层级和序号构成的数字序列，每一级数字之间用句点分隔，并在最后跟着一个顿号。例如输出1、，2.1、，2.2、，等等。
-最终效果可查看秋码记录文章详情页，右侧侧边栏目录。</description>
-    </item>
-    
-    <item>
-      <title>网站引入 Prism，使得代码高亮显示，并一键复制代码块</title>
-      <link>https://qiucode.cn/article/200/</link>
-      <pubDate>Sat, 23 Mar 2024 15:06:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/200/</guid>
-      <description>曾几何时，苦恼如何将本地写好的博文，更好的展示读者屏幕前？若只是简简单单的文章，其实还是很好的解决它的！可是，像我们这样写技术文章（有点牵强）的，在文章内容嵌入部分代码是在所难免的。
+最终效果可查看秋码记录文章详情页，右侧侧边栏目录。</description></item><item><title>网站引入 Prism，使得代码高亮显示，并一键复制代码块</title><link>https://qiucode.cn/article/200/</link><pubDate>Sat, 23 Mar 2024 15:06:43 +0800</pubDate><guid>https://qiucode.cn/article/200/</guid><description>曾几何时，苦恼如何将本地写好的博文，更好的展示读者屏幕前？若只是简简单单的文章，其实还是很好的解决它的！可是，像我们这样写技术文章（有点牵强）的，在文章内容嵌入部分代码是在所难免的。
 然而，由于没能将代码与文本区分开来，致使两者混在一起，分不出彼此。由此给读者带来了视觉上得不适，它并没有很好的像代码编辑器那样高亮。
 下载 Prism 虽然市面上能让代码块高亮显示，远不止Prism这一款，而我又为什么选择这一款呢？这的确是个好问题，然而我只能回答您的是，它功能比较强大吧！（或许您还不能信服），这就好比是情人眼里出西施，您的老婆/老公或女朋友/男朋友长得不是那么美/那么帅（或许您在某一瞬间也是这么觉得），但是，您不还是选择了她/他吗？即便是，您和伴侣在逛街时，迎面走来一位身材高挑的美女/帅哥，想必您的伴侣是在您不经意间，偷瞄了一眼。
 进入prism官网下载：
@@ -89,80 +58,4 @@ https://prismjs.com/download.html#themes=prism&amp;amp;languages=markup+css+clik
 在项目中引入：
 &amp;lt;script src=&amp;#34;plugins/clipboard.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; Hugo-theme-kiwi 中引入 Prism 首先，我们在Hugo-theme-kiwi主题的head.html文件引入blackmac.css样式文件。
 &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;{{ .Site.BaseURL }}css/blackmac.css&amp;#34;&amp;gt; blackmac.css文件内容如下：
-code[class*=&amp;#34;language-&amp;#34;],pre[class*=&amp;#34;language-&amp;#34;]{color:#f8f8f2;background:#313238;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,&amp;#39;Andale Mono&amp;#39;,&amp;#39;Ubuntu Mono&amp;#39;,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:2;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;}pre[class*=&amp;#34;language-&amp;#34;]{padding:.5em;margin:.5em 0;overflow:auto;}:not(pre)&amp;gt;code[class*=&amp;#34;language-&amp;#34;],pre[class*=&amp;#34;language-&amp;#34;]{background:#21252a}:not(pre)&amp;gt;code[class*=&amp;#34;language-&amp;#34;]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.block-comment,.token.prolog,.token.doctype,.token.cdata{color:#999;}.token.punctuation{color:#ccc;}.token.tag,.token.attr-name,.token.namespace,.token.deleted{color:#e2777a;}.token.function-name{color:#6196cc;}.token.boolean,.token.number,.token.function{color:#f08d49;}.token.property,.token.class-name,.token.constant,.token.symbol{color:#f8c555;}.token.selector,.token.important,.token.atrule,.token.keyword,.token.builtin{color:#cc99cd;}.token.string,.token.char,.token.attr-value,.token.regex,.token.variable{color:#7ec699;}.token.operator,.token.entity,.token.url{color:#67cdcc;}.token.important,.token.bold{font-weight:bold;}.token.italic{font-style:italic;}.token.entity{cursor:help;}.token.inserted{color:green;}pre.line-numbers{padding-bottom:.8em;padding-left:3.3em;counter-reset:linenumber}pre.line-numbers&amp;gt;code{white-space:inherit font-size:15px}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:3em;font-size:100%;left:-0.1em;width:3em;letter-spacing:-1px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows&amp;gt;span{pointer-events:none;display:block;counter-increment:linenumber}.line-numbers-rows&amp;gt;span:before{content:counter(linenumber);color:#999;display:block;padding-right:.9em;text-align:right;background:#272c33}div.code-toolbar{font-size:100%;border-radius:4px;position:relative;box-shadow:0 0 20px 5px rgba(0,0,0,.4);padding-top:30px;background-color:#161616;margin:20px 0 20px 0}.code-toolbar:before{content:&amp;#34; &amp;#34;;position:absolute;-webkit-border-radius:50%;border-radius:50%;background:#fc625d;width:11px;height:11px;left:10px;top:10px;-webkit-box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;z-index:2}div.</description>
-    </item>
-    
-    <item>
-      <title>ag-grid 右键单元格动态改变单元格样式</title>
-      <link>https://qiucode.cn/article/120/</link>
-      <pubDate>Tue, 14 Jun 2022 11:57:17 +0000</pubDate>
-      
-      <guid>https://qiucode.cn/article/120/</guid>
-      <description>&lt;p&gt;在window下安装最新Go语言开发包自定义单元格单击或右键时，给单元格添加不一样的样式而苦苦搜寻，可找了好久却好像都没有呢？巧了，笔者已经实现了这一看似很简单地功能！&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>自定义vxe-table表头标题文字过多，显示两行多余省略号并给出tooltip</title>
-      <link>https://qiucode.cn/article/119/</link>
-      <pubDate>Sat, 11 Jun 2022 02:57:48 +0000</pubDate>
-      
-      <guid>https://qiucode.cn/article/119/</guid>
-      <description>&lt;p&gt;自定义vxe-table表头标题文字过多，显示两行多余省略号并给出tooltip&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Chrome扩展程序开发入门（基于 V3）</title>
-      <link>https://qiucode.cn/article/113/</link>
-      <pubDate>Tue, 08 Mar 2022 06:05:48 +0000</pubDate>
-      
-      <guid>https://qiucode.cn/article/113/</guid>
-      <description>&lt;p&gt;Chrome扩展指的是通过调用 Chrome 提供的 Chrome API 来扩展浏览器功能的一种组件，工作在浏览器层面，使用 HTML + Javascript 语言开发[*]。比如著名的 Adblock plus。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>BootstrapTable 动态显示/隐藏某一行</title>
-      <link>https://qiucode.cn/article/103/</link>
-      <pubDate>Sun, 23 May 2021 03:05:04 +0000</pubDate>
-      
-      <guid>https://qiucode.cn/article/103/</guid>
-      <description>&lt;p&gt;手写实现自动隐藏/显示BootstrapTable表格行&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>xhr模拟表单下载文件</title>
-      <link>https://qiucode.cn/article/97/</link>
-      <pubDate>Sun, 25 Apr 2021 03:56:09 +0000</pubDate>
-      
-      <guid>https://qiucode.cn/article/97/</guid>
-      <description>&lt;p&gt;使用javascript原生XHR下载流文件，可进行计时下载，当然也是可以通过from表单进行下载文件的，但页面可能会有跨域问题，索性就在PHP做个桥接处理了。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title> Extjs 3.3 tree以下的版本在IE10无法点击的解决办法</title>
-      <link>https://qiucode.cn/article/114/</link>
-      <pubDate>Wed, 24 Apr 2019 21:06:11 +0000</pubDate>
-      
-      <guid>https://qiucode.cn/article/114/</guid>
-      <description>&lt;p&gt;距上篇文章已过去好几天了，说好的一周发表1到3篇文章，难道都让狗吃了吗？现在才发布一篇而且还是转载的文章。好了，闲话少叙，切入正题，Extjs前端框架是比较早的前端mvc框架了，可能很多人都没接触过，而且现在也很少有项目用Extjs框架搭建了，原因是什么？那就不得而知了，有人说是Extjs比较重……&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>在npm上发布基于Vue2.x开发的UI组件库（记录篇）</title>
-      <link>https://qiucode.cn/article/104/</link>
-      <pubDate>Mon, 25 Feb 2019 01:24:32 +0000</pubDate>
-      
-      <guid>https://qiucode.cn/article/104/</guid>
-      <description>&lt;p&gt;解决Navicat12连接Oracle报oracle library is not loaded的提示问题基于Vue开发的UI组件库肯定是要公用的，虽然可以在每创建一个Vue项目时可以复制这些组件，如果组件比较大的情况下呢？是不是很不方便呢？&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>开发一套基于Vue2.x的UI组件库（环境搭建篇《一》）</title>
-      <link>https://qiucode.cn/article/83/</link>
-      <pubDate>Sat, 16 Feb 2019 23:37:45 +0000</pubDate>
-      
-      <guid>https://qiucode.cn/article/83/</guid>
-      <description>&lt;p&gt;基于Vue2.x开发的UI 组件库有很多，诸如 iView UI组件库、Element UI组件库 等等，既然有这么优秀的UI组件，我们干嘛非要自己开发一套组件呢？&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+code[class*=&amp;#34;language-&amp;#34;],pre[class*=&amp;#34;language-&amp;#34;]{color:#f8f8f2;background:#313238;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,&amp;#39;Andale Mono&amp;#39;,&amp;#39;Ubuntu Mono&amp;#39;,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:2;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;}pre[class*=&amp;#34;language-&amp;#34;]{padding:.5em;margin:.5em 0;overflow:auto;}:not(pre)&amp;gt;code[class*=&amp;#34;language-&amp;#34;],pre[class*=&amp;#34;language-&amp;#34;]{background:#21252a}:not(pre)&amp;gt;code[class*=&amp;#34;language-&amp;#34;]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.block-comment,.token.prolog,.token.doctype,.token.cdata{color:#999;}.token.punctuation{color:#ccc;}.token.tag,.token.attr-name,.token.namespace,.token.deleted{color:#e2777a;}.token.function-name{color:#6196cc;}.token.boolean,.token.number,.token.function{color:#f08d49;}.token.property,.token.class-name,.token.constant,.token.symbol{color:#f8c555;}.token.selector,.token.important,.token.atrule,.token.keyword,.token.builtin{color:#cc99cd;}.token.string,.token.char,.token.attr-value,.token.regex,.token.variable{color:#7ec699;}.token.operator,.token.entity,.token.url{color:#67cdcc;}.token.important,.token.bold{font-weight:bold;}.token.italic{font-style:italic;}.token.entity{cursor:help;}.token.inserted{color:green;}pre.line-numbers{padding-bottom:.8em;padding-left:3.3em;counter-reset:linenumber}pre.line-numbers&amp;gt;code{white-space:inherit font-size:15px}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:3em;font-size:100%;left:-0.1em;width:3em;letter-spacing:-1px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows&amp;gt;span{pointer-events:none;display:block;counter-increment:linenumber}.line-numbers-rows&amp;gt;span:before{content:counter(linenumber);color:#999;display:block;padding-right:.9em;text-align:right;background:#272c33}div.code-toolbar{font-size:100%;border-radius:4px;position:relative;box-shadow:0 0 20px 5px rgba(0,0,0,.4);padding-top:30px;background-color:#161616;margin:20px 0 20px 0}.code-toolbar:before{content:&amp;#34; &amp;#34;;position:absolute;-webkit-border-radius:50%;border-radius:50%;background:#fc625d;width:11px;height:11px;left:10px;top:10px;-webkit-box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;z-index:2}div.</description></item><item><title>ag-grid 右键单元格动态改变单元格样式</title><link>https://qiucode.cn/article/120/</link><pubDate>Tue, 14 Jun 2022 11:57:17 +0000</pubDate><guid>https://qiucode.cn/article/120/</guid><description>&lt;p>在window下安装最新Go语言开发包自定义单元格单击或右键时，给单元格添加不一样的样式而苦苦搜寻，可找了好久却好像都没有呢？巧了，笔者已经实现了这一看似很简单地功能！&lt;/p></description></item><item><title>自定义vxe-table表头标题文字过多，显示两行多余省略号并给出tooltip</title><link>https://qiucode.cn/article/119/</link><pubDate>Sat, 11 Jun 2022 02:57:48 +0000</pubDate><guid>https://qiucode.cn/article/119/</guid><description>&lt;p>自定义vxe-table表头标题文字过多，显示两行多余省略号并给出tooltip&lt;/p></description></item><item><title>Chrome扩展程序开发入门（基于 V3）</title><link>https://qiucode.cn/article/113/</link><pubDate>Tue, 08 Mar 2022 06:05:48 +0000</pubDate><guid>https://qiucode.cn/article/113/</guid><description>&lt;p>Chrome扩展指的是通过调用 Chrome 提供的 Chrome API 来扩展浏览器功能的一种组件，工作在浏览器层面，使用 HTML + Javascript 语言开发[*]。比如著名的 Adblock plus。&lt;/p></description></item><item><title>BootstrapTable 动态显示/隐藏某一行</title><link>https://qiucode.cn/article/103/</link><pubDate>Sun, 23 May 2021 03:05:04 +0000</pubDate><guid>https://qiucode.cn/article/103/</guid><description>&lt;p>手写实现自动隐藏/显示BootstrapTable表格行&lt;/p></description></item><item><title>xhr模拟表单下载文件</title><link>https://qiucode.cn/article/97/</link><pubDate>Sun, 25 Apr 2021 03:56:09 +0000</pubDate><guid>https://qiucode.cn/article/97/</guid><description>&lt;p>使用javascript原生XHR下载流文件，可进行计时下载，当然也是可以通过from表单进行下载文件的，但页面可能会有跨域问题，索性就在PHP做个桥接处理了。&lt;/p></description></item><item><title> Extjs 3.3 tree以下的版本在IE10无法点击的解决办法</title><link>https://qiucode.cn/article/114/</link><pubDate>Wed, 24 Apr 2019 21:06:11 +0000</pubDate><guid>https://qiucode.cn/article/114/</guid><description>&lt;p>距上篇文章已过去好几天了，说好的一周发表1到3篇文章，难道都让狗吃了吗？现在才发布一篇而且还是转载的文章。好了，闲话少叙，切入正题，Extjs前端框架是比较早的前端mvc框架了，可能很多人都没接触过，而且现在也很少有项目用Extjs框架搭建了，原因是什么？那就不得而知了，有人说是Extjs比较重……&lt;/p></description></item><item><title>在npm上发布基于Vue2.x开发的UI组件库（记录篇）</title><link>https://qiucode.cn/article/104/</link><pubDate>Mon, 25 Feb 2019 01:24:32 +0000</pubDate><guid>https://qiucode.cn/article/104/</guid><description>&lt;p>解决Navicat12连接Oracle报oracle library is not loaded的提示问题基于Vue开发的UI组件库肯定是要公用的，虽然可以在每创建一个Vue项目时可以复制这些组件，如果组件比较大的情况下呢？是不是很不方便呢？&lt;/p></description></item><item><title>开发一套基于Vue2.x的UI组件库（环境搭建篇《一》）</title><link>https://qiucode.cn/article/83/</link><pubDate>Sat, 16 Feb 2019 23:37:45 +0000</pubDate><guid>https://qiucode.cn/article/83/</guid><description>&lt;p>基于Vue2.x开发的UI 组件库有很多，诸如 iView UI组件库、Element UI组件库 等等，既然有这么优秀的UI组件，我们干嘛非要自己开发一套组件呢？&lt;/p></description></item></channel></rss>

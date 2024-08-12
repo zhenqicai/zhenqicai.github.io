@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>超时 on 秋码分享</title>
-    <link>https://qiucode.cn/tags/%E8%B6%85%E6%97%B6/</link>
-    <description>Recent content in 超时 on 秋码分享</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 27 Jan 2024 19:39:19 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E8%B6%85%E6%97%B6/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>解决 github.com port 443: Timed out 的问题</title>
-      <link>https://qiucode.cn/article/191/</link>
-      <pubDate>Sat, 27 Jan 2024 19:39:19 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/191/</guid>
-      <description>国内访问github.com总是那么不竟如人意，时而无法加载网页，时而等我们抽完了一根烟后，它还处于转圈的状态。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>超时 on 秋码分享</title><link>https://qiucode.cn/tags/%E8%B6%85%E6%97%B6/</link><description>Recent content in 超时 on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 27 Jan 2024 19:39:19 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E8%B6%85%E6%97%B6/index.xml" rel="self" type="application/rss+xml"/><item><title>解决 github.com port 443: Timed out 的问题</title><link>https://qiucode.cn/article/191/</link><pubDate>Sat, 27 Jan 2024 19:39:19 +0800</pubDate><guid>https://qiucode.cn/article/191/</guid><description>国内访问github.com总是那么不竟如人意，时而无法加载网页，时而等我们抽完了一根烟后，它还处于转圈的状态。
 虽然国内有gitee.com等诸多的代码托管平台，但却鲜有国人愿意去呢？其中的缘由，想必也不用我多说，大伙也都心知肚明了吧！
 即便github.com在国内访问慢，或是加载不出来，我们也宁愿等它慢慢地加载出来，却不愿将代码托管于境内的平台。
 github.com 托管了 qiucode.cn 站点 由于将 秋码记录 托管于 github.com上后，写些文章就得push上去，然而当我push上去时，却十有八九都会出现 github.com port 443: Timed out的错误，代码显然是无法push上去的了！
@@ -31,8 +17,6 @@ ssh -T -p 443 git@ssh.github.com 可以看出，端口 443 请求是没问题，
 我们大致从上面的ssh测试报错便可以得出结论了，那便是ssh连接超时了。
 而要想解决ssh请求超时的问题，那就要从配置着手了，还是一样的在terminal输入以下命令。
 vim ~/.ssh/config 而后在进入编辑状态，填写以下内容
-# Add section below to itHost github.comHostname ssh.</description>
-    </item>
-    
-  </channel>
-</rss>
+# Add section below to it
+Host github.com
+Hostname ssh.</description></item></channel></rss>

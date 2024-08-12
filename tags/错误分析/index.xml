@@ -1,24 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>错误分析 on 秋码分享</title>
-    <link>https://qiucode.cn/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/</link>
-    <description>Recent content in 错误分析 on 秋码分享</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 10 Apr 2024 11:12:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>错误分析 （Machine Learning 研习十九）</title>
-      <link>https://qiucode.cn/article/199/</link>
-      <pubDate>Wed, 10 Apr 2024 11:12:43 +0800</pubDate>
-      
-      <guid>https://qiucode.cn/article/199/</guid>
-      <description>错误分析 您将探索数据准备选项，尝试多个模型，筛选出最佳模型，使用 Grid SearchCV微调其超参数，并尽可能实现自动化。在此，我们假设您已经找到了一个有前途的模型，并希望找到改进它的方法。其中一种方法就是分析它所犯的错误类型。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>错误分析 on 秋码分享</title><link>https://qiucode.cn/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/</link><description>Recent content in 错误分析 on 秋码分享</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 10 Apr 2024 11:12:43 +0800</lastBuildDate><atom:link href="https://qiucode.cn/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml"/><item><title>错误分析 （Machine Learning 研习十九）</title><link>https://qiucode.cn/article/199/</link><pubDate>Wed, 10 Apr 2024 11:12:43 +0800</pubDate><guid>https://qiucode.cn/article/199/</guid><description>错误分析 您将探索数据准备选项，尝试多个模型，筛选出最佳模型，使用 Grid SearchCV微调其超参数，并尽可能实现自动化。在此，我们假设您已经找到了一个有前途的模型，并希望找到改进它的方法。其中一种方法就是分析它所犯的错误类型。
 首先，查看混淆矩阵。为此，首先需要使用 cross_val_predict() 函数进行预测；然后可以像之前一样，将标签和预测值传递给 confusion_matrix()函数。不过，由于现在有 10 个类别而不是 2 个，混淆矩阵将包含大量数字，可能难以读取。
 混淆矩阵的彩色图更容易分析。要绘制这样的图表，请使用ConfusionMatrixDisplay.from_predictions() 函数，如下所示：
-from sklearn.metrics import ConfusionMatrixDisplayy_train_pred = cross_val_predict(sgd_clf, X_train_scaled, y_train, cv=3) ConfusionMatrixDisplay.from_predictions(y_train, y_train_pred) plt.show() 这就产生了 图1 中的左图。这个混淆矩阵看起来相当不错：大多数图像都在主对角线上，这意味着它们被正确分类了。请注意，对角线上第 5 行第 5 列的单元格看起来比其他数字略暗。这可能是因为模型对 5 的错误较多，也可能是因为数据集中 5 的数量比其他数字少。这就是为什么要对混淆矩阵进行归一化处理，将每个值除以相应（真实）类别中的图像总数（即除以行的总和）。只需设置 normalize=&amp;quot;true &amp;quot;即可。我们还可以指定 val ues_format=&amp;quot;.0%&amp;quot;参数来显示不带小数点的百分比。下面的代码将生成 图1 右侧的图表：
+from sklearn.metrics import ConfusionMatrixDisplay
+y_train_pred = cross_val_predict(sgd_clf, X_train_scaled, y_train, cv=3) ConfusionMatrixDisplay.from_predictions(y_train, y_train_pred) plt.show() 这就产生了 图1 中的左图。这个混淆矩阵看起来相当不错：大多数图像都在主对角线上，这意味着它们被正确分类了。请注意，对角线上第 5 行第 5 列的单元格看起来比其他数字略暗。这可能是因为模型对 5 的错误较多，也可能是因为数据集中 5 的数量比其他数字少。这就是为什么要对混淆矩阵进行归一化处理，将每个值除以相应（真实）类别中的图像总数（即除以行的总和）。只需设置 normalize=&amp;quot;true &amp;quot;即可。我们还可以指定 val ues_format=&amp;quot;.0%&amp;quot;参数来显示不带小数点的百分比。下面的代码将生成 图1 右侧的图表：
 ConfusionMatrixDisplay.from_predictions(y_train, y_train_pred, normalize=&amp;#34;true&amp;#34;, values_format=&amp;#34;.0%&amp;#34;) plt.show() 现在我们不难发现，只有 82% 的 5 图像被正确分类。模型在处理 5 的图像时最常见的错误是将其误判为 8：在所有 5 的图像中，有 10%的图像被误判为 8。但只有 2% 的 8 被误判为 5；混淆矩阵通常不是对称的！如果你仔细观察，就会发现很多数字都被错误地分类为 8，但从这张图上并不能一眼看出。如果想让错误更明显，可以尝试将正确预测的权重设为零。下面的代码就是这样做的，并生成了图2 左侧的图表：
-sample_weight = (y_train_pred !</description>
-    </item>
-    
-  </channel>
-</rss>
+sample_weight = (y_train_pred !</description></item></channel></rss>
